@@ -30,12 +30,13 @@ import merge_hris_client.model.RemoteData;
 import merge_hris_client.model.RequestTypeEnum;
 import merge_hris_client.model.TimeOffStatusEnum;
 import merge_hris_client.model.UnitsEnum;
+import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  */
 @ApiModel(description = "# The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-01T21:16:36.893509-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
 public class TimeOff {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,6 +73,14 @@ public class TimeOff {
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "request_type";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
   private RequestTypeEnum requestType;
+
+  public static final String SERIALIZED_NAME_START_TIME = "start_time";
+  @SerializedName(SERIALIZED_NAME_START_TIME)
+  private OffsetDateTime startTime;
+
+  public static final String SERIALIZED_NAME_END_TIME = "end_time";
+  @SerializedName(SERIALIZED_NAME_END_TIME)
+  private OffsetDateTime endTime;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -276,6 +285,52 @@ public class TimeOff {
   }
 
 
+  public TimeOff startTime(OffsetDateTime startTime) {
+    
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * The day and time of the start of the time requested off.
+   * @return startTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The day and time of the start of the time requested off.")
+
+  public OffsetDateTime getStartTime() {
+    return startTime;
+  }
+
+
+  public void setStartTime(OffsetDateTime startTime) {
+    this.startTime = startTime;
+  }
+
+
+  public TimeOff endTime(OffsetDateTime endTime) {
+    
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * The day and time of the end of the time requested off.
+   * @return endTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The day and time of the end of the time requested off.")
+
+  public OffsetDateTime getEndTime() {
+    return endTime;
+  }
+
+
+  public void setEndTime(OffsetDateTime endTime) {
+    this.endTime = endTime;
+  }
+
+
    /**
    * Get remoteData
    * @return remoteData
@@ -308,12 +363,14 @@ public class TimeOff {
         Objects.equals(this.units, timeOff.units) &&
         Objects.equals(this.amount, timeOff.amount) &&
         Objects.equals(this.requestType, timeOff.requestType) &&
+        Objects.equals(this.startTime, timeOff.startTime) &&
+        Objects.equals(this.endTime, timeOff.endTime) &&
         Objects.equals(this.remoteData, timeOff.remoteData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, approver, status, employeeNote, units, amount, requestType, remoteData);
+    return Objects.hash(id, remoteId, employee, approver, status, employeeNote, units, amount, requestType, startTime, endTime, remoteData);
   }
 
   @Override
@@ -329,6 +386,8 @@ public class TimeOff {
     sb.append("    units: ").append(toIndentedString(units)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
     sb.append("}");
     return sb.toString();

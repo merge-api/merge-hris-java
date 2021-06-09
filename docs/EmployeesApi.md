@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="employeesList"></a>
 # **employeesList**
-> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId)
+> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId)
 
 
 
@@ -118,6 +118,7 @@ public class Example {
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
     String managerId = "managerId_example"; // String | If provided, will only return employees for this manager.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -126,7 +127,7 @@ public class Example {
     String teamId = "teamId_example"; // String | If provided, will only return employees for this team.
     String workLocationId = "workLocationId_example"; // String | If provided, will only return employees for this location.
     try {
-      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesList");
@@ -149,6 +150,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
  **managerId** | **String**| If provided, will only return employees for this manager. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -177,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="employeesRetrieve"></a>
 # **employeesRetrieve**
-> Employee employeesRetrieve(xAccountToken, id, includeRemoteData)
+> Employee employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields)
 
 
 
@@ -208,8 +210,9 @@ public class Example {
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     UUID id = new UUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
+    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
     try {
-      Employee result = apiInstance.employeesRetrieve(xAccountToken, id, includeRemoteData);
+      Employee result = apiInstance.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesRetrieve");
@@ -229,6 +232,7 @@ Name | Type | Description  | Notes
  **xAccountToken** | **String**| Token identifying the end user. |
  **id** | [**UUID**](.md)|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
 
 ### Return type
 

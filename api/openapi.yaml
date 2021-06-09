@@ -579,6 +579,15 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Whether to include sensetive fields (such as social security
+          numbers) in the response.
+        explode: true
+        in: query
+        name: include_sensitive_fields
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: If provided, will only return employees for this manager.
         examples:
           ManagerId:
@@ -728,6 +737,15 @@ paths:
         explode: true
         in: query
         name: include_remote_data
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Whether to include sensetive fields (such as social security
+          numbers) in the response.
+        explode: true
+        in: query
+        name: include_sensitive_fields
         required: false
         schema:
           type: boolean
@@ -1341,7 +1359,7 @@ paths:
   /sync-status:
     get:
       description: Get syncing status.
-      operationId: sync_status_retrieve
+      operationId: sync_status_list
       parameters:
       - description: Token identifying the end user.
         explode: false
@@ -1351,12 +1369,28 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The pagination cursor value.
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyncStatus'
+                $ref: '#/components/schemas/PaginatedSyncStatusList'
       security:
       - tokenAuth: []
       tags:
@@ -1647,6 +1681,157 @@ paths:
       tags:
       - time-off
       x-accepts: application/json
+  /time-off-balance:
+    get:
+      description: Returns a list of `TimeOffBalance` objects.
+      operationId: time_off_balance_list
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: If provided, will only return objects created after this datetime.
+        explode: true
+        in: query
+        name: created_after
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: If provided, will only return objects created before this datetime.
+        explode: true
+        in: query
+        name: created_before
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: The pagination cursor value.
+        examples:
+          CursorExample:
+            summary: Cursor Example
+            value: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: If provided, will only return time off balances for this employee.
+        examples:
+          EmployeeId:
+            summary: employee_id
+        explode: true
+        in: query
+        name: employee_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Whether to include the original data Merge fetched from the third-party
+          to produce these models.
+        explode: true
+        in: query
+        name: include_remote_data
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: If provided, will only return objects modified after this datetime.
+        explode: true
+        in: query
+        name: modified_after
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: If provided, will only return objects modified before this datetime.
+        explode: true
+        in: query
+        name: modified_before
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The API provider's ID for the given object.
+        explode: true
+        in: query
+        name: remote_id
+        required: false
+        schema:
+          description: The third-party API ID of the matching object.
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTimeOffBalanceList'
+      security:
+      - tokenAuth: []
+      tags:
+      - time-off-balance
+      x-accepts: application/json
+  /time-off-balance/{id}:
+    get:
+      description: Returns an `TimeOffBalance` object with the given `id`.
+      operationId: time_off_balance_retrieve
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Whether to include the original data Merge fetched from the third-party
+          to produce these models.
+        explode: true
+        in: query
+        name: include_remote_data
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeOffBalance'
+      security:
+      - tokenAuth: []
+      tags:
+      - time-off-balance
+      x-accepts: application/json
   /time-off/{id}:
     get:
       description: Returns an `TimeOff` object with the given `id`.
@@ -1775,6 +1960,13 @@ components:
           available_operations:
           - FETCH
           - CREATE
+          required_post_parameters:
+          - remote_user_id
+          supported_fields:
+          - first_name
+          - last_name
+          - company
+          - title
         integration:
           image: https://openapi-generator.tech
           color: color
@@ -1797,6 +1989,13 @@ components:
             available_operations:
             - FETCH
             - CREATE
+            required_post_parameters:
+            - remote_user_id
+            supported_fields:
+            - first_name
+            - last_name
+            - company
+            - title
           items:
             $ref: '#/components/schemas/ModelOperation'
           type: array
@@ -2541,7 +2740,7 @@ components:
           description: The URL of the employee's avatar image.
           example: http://alturl.com/h2h8m
           format: uri
-          maxLength: 700
+          maxLength: 2000
           nullable: true
           type: string
         remote_data:
@@ -2846,7 +3045,7 @@ components:
           description: The URL of the employee's avatar image.
           example: http://alturl.com/h2h8m
           format: uri
-          maxLength: 700
+          maxLength: 2000
           nullable: true
           type: string
       type: object
@@ -3047,13 +3246,13 @@ components:
             enum:
             - hris
             - ats
+            - accounting
             type: string
           type: array
         integration:
           nullable: true
           type: string
       required:
-      - categories
       - end_user_email_address
       - end_user_organization_name
       - end_user_origin_id
@@ -3120,7 +3319,7 @@ components:
       description: |-
         # The Location Object
         ### Description
-        The `Location` object is used to represent a Location for a company. This is shared across many models and is referenced whenever a location is stored.
+        The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.
 
         ### Usage Example
         Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.
@@ -3627,6 +3826,35 @@ components:
             $ref: '#/components/schemas/PayrollRun'
           type: array
       type: object
+    PaginatedSyncStatusList:
+      example:
+        next: next
+        previous: previous
+        results:
+        - next_sync_start: 2021-03-30T20:44:18.662942Z
+          model_name: Candidate
+          model_id: ats.Candidate
+          last_sync_start: 2021-03-30T19:44:18.695973Z
+          is_initial_sync: true
+          status: SYNCING
+        - next_sync_start: 2021-03-30T20:44:18.662942Z
+          model_name: Candidate
+          model_id: ats.Candidate
+          last_sync_start: 2021-03-30T19:44:18.695973Z
+          is_initial_sync: true
+          status: SYNCING
+      properties:
+        next:
+          nullable: true
+          type: string
+        previous:
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/SyncStatus'
+          type: array
+      type: object
     PaginatedTeamList:
       example:
         next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -3660,16 +3888,55 @@ components:
             $ref: '#/components/schemas/Team'
           type: array
       type: object
+    PaginatedTimeOffBalanceList:
+      example:
+        next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+        previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
+        results:
+        - balance: 60.0
+          remote_id: "19202938"
+          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          used: 45.0
+          employee: d2f972d0-2526-434b-9409-4c3b468e08f0
+          remote_data:
+          - path: /leave
+            data:
+            - Varies by platform
+        - balance: 60.0
+          remote_id: "19202938"
+          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          used: 45.0
+          employee: d2f972d0-2526-434b-9409-4c3b468e08f0
+          remote_data:
+          - path: /leave
+            data:
+            - Varies by platform
+      properties:
+        next:
+          example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+          nullable: true
+          type: string
+        previous:
+          example: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/TimeOffBalance'
+          type: array
+      type: object
     PaginatedTimeOffList:
       example:
         next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
         previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
         results:
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
+          start_time: 2000-01-23T04:56:07.000+00:00
           amount: 13
           request_type: VACATION
           employee_note: Trip to Iowa. Miss those cornfields!
           remote_id: "19202938"
+          end_time: 2000-01-23T04:56:07.000+00:00
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           units: DAYS
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
@@ -3679,10 +3946,12 @@ components:
             data:
             - Varies by platform
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
+          start_time: 2000-01-23T04:56:07.000+00:00
           amount: 13
           request_type: VACATION
           employee_note: Trip to Iowa. Miss those cornfields!
           remote_id: "19202938"
+          end_time: 2000-01-23T04:56:07.000+00:00
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           units: DAYS
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
@@ -4281,8 +4550,9 @@ components:
           format: date-time
           type: string
         status:
+          allOf:
+          - $ref: '#/components/schemas/SyncStatusStatusEnum'
           example: SYNCING
-          type: string
         is_initial_sync:
           example: true
           type: boolean
@@ -4294,6 +4564,11 @@ components:
       - next_sync_start
       - status
       type: object
+    SyncStatusStatusEnum:
+      enum:
+      - SYNCING
+      - DONE
+      type: string
     Tax:
       description: |-
         # The Tax Object
@@ -4396,10 +4671,12 @@ components:
         Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.
       example:
         approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
+        start_time: 2000-01-23T04:56:07.000+00:00
         amount: 13
         request_type: VACATION
         employee_note: Trip to Iowa. Miss those cornfields!
         remote_id: "19202938"
+        end_time: 2000-01-23T04:56:07.000+00:00
         id: 91b2b905-e866-40c8-8be2-efe53827a0aa
         units: DAYS
         employee: d2f972d0-2526-434b-9409-4c3b468e08f0
@@ -4460,6 +4737,74 @@ components:
           description: The type of time off request.
           example: VACATION
           nullable: true
+        start_time:
+          description: The day and time of the start of the time requested off.
+          format: date-time
+          nullable: true
+          type: string
+        end_time:
+          description: The day and time of the end of the time requested off.
+          format: date-time
+          nullable: true
+          type: string
+        remote_data:
+          example:
+          - path: /leave
+            data:
+            - Varies by platform
+          items:
+            $ref: '#/components/schemas/RemoteData'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    TimeOffBalance:
+      description: |-
+        # The TimeOffBalance Object
+        ### Description
+        The `TimeOffBalance` object is used to represent a Time Off Balance for an employee.
+
+        ### Usage Example
+        Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.
+      example:
+        balance: 60.0
+        remote_id: "19202938"
+        id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+        used: 45.0
+        employee: d2f972d0-2526-434b-9409-4c3b468e08f0
+        remote_data:
+        - path: /leave
+          data:
+          - Varies by platform
+      properties:
+        id:
+          example: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          format: uuid
+          readOnly: true
+          type: string
+        remote_id:
+          description: The third-party API ID of the matching object.
+          example: "19202938"
+          nullable: true
+          type: string
+        employee:
+          description: The employee the balance belongs to.
+          example: d2f972d0-2526-434b-9409-4c3b468e08f0
+          format: uuid
+          nullable: true
+          type: string
+        balance:
+          description: The current PTO balance.
+          example: 60.0
+          format: float
+          nullable: true
+          type: number
+        used:
+          description: The amount of PTO used.
+          example: 45.0
+          format: float
+          nullable: true
+          type: number
         remote_data:
           example:
           - path: /leave
