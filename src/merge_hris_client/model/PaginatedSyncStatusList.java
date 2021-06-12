@@ -25,13 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import merge_hris_client.model.Team;
+import merge_hris_client.model.SyncStatus;
 
 /**
- * PaginatedTeamList
+ * PaginatedSyncStatusList
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
-public class PaginatedTeamList {
+public class PaginatedSyncStatusList {
   public static final String SERIALIZED_NAME_NEXT = "next";
   @SerializedName(SERIALIZED_NAME_NEXT)
   private String next;
@@ -42,10 +42,10 @@ public class PaginatedTeamList {
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  private List<Team> results = null;
+  private List<SyncStatus> results = null;
 
 
-  public PaginatedTeamList next(String next) {
+  public PaginatedSyncStatusList next(String next) {
     
     this.next = next;
     return this;
@@ -56,7 +56,7 @@ public class PaginatedTeamList {
    * @return next
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw", value = "")
+  @ApiModelProperty(value = "")
 
   public String getNext() {
     return next;
@@ -68,7 +68,7 @@ public class PaginatedTeamList {
   }
 
 
-  public PaginatedTeamList previous(String previous) {
+  public PaginatedSyncStatusList previous(String previous) {
     
     this.previous = previous;
     return this;
@@ -79,7 +79,7 @@ public class PaginatedTeamList {
    * @return previous
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ", value = "")
+  @ApiModelProperty(value = "")
 
   public String getPrevious() {
     return previous;
@@ -91,15 +91,15 @@ public class PaginatedTeamList {
   }
 
 
-  public PaginatedTeamList results(List<Team> results) {
+  public PaginatedSyncStatusList results(List<SyncStatus> results) {
     
     this.results = results;
     return this;
   }
 
-  public PaginatedTeamList addResultsItem(Team resultsItem) {
+  public PaginatedSyncStatusList addResultsItem(SyncStatus resultsItem) {
     if (this.results == null) {
-      this.results = new ArrayList<Team>();
+      this.results = new ArrayList<SyncStatus>();
     }
     this.results.add(resultsItem);
     return this;
@@ -112,12 +112,12 @@ public class PaginatedTeamList {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Team> getResults() {
+  public List<SyncStatus> getResults() {
     return results;
   }
 
 
-  public void setResults(List<Team> results) {
+  public void setResults(List<SyncStatus> results) {
     this.results = results;
   }
 
@@ -130,10 +130,10 @@ public class PaginatedTeamList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaginatedTeamList paginatedTeamList = (PaginatedTeamList) o;
-    return Objects.equals(this.next, paginatedTeamList.next) &&
-        Objects.equals(this.previous, paginatedTeamList.previous) &&
-        Objects.equals(this.results, paginatedTeamList.results);
+    PaginatedSyncStatusList paginatedSyncStatusList = (PaginatedSyncStatusList) o;
+    return Objects.equals(this.next, paginatedSyncStatusList.next) &&
+        Objects.equals(this.previous, paginatedSyncStatusList.previous) &&
+        Objects.equals(this.results, paginatedSyncStatusList.results);
   }
 
   @Override
@@ -144,7 +144,7 @@ public class PaginatedTeamList {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaginatedTeamList {\n");
+    sb.append("class PaginatedSyncStatusList {\n");
     sb.append("    next: ").append(toIndentedString(next)).append("\n");
     sb.append("    previous: ").append(toIndentedString(previous)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");

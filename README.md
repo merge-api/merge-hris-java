@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2021-06-01T21:16:36.893509-04:00[America/New_York]
+  - Build date: 2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -137,12 +137,14 @@ Class | Method | HTTP request | Description
 *PayrollRunsApi* | [**payrollRunsList**](docs/PayrollRunsApi.md#payrollRunsList) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payrollRunsRetrieve**](docs/PayrollRunsApi.md#payrollRunsRetrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/RegenerateKeyApi.md#regenerateKeyCreate) | **POST** /regenerate-key | 
+*SyncStatusApi* | [**syncStatusList**](docs/SyncStatusApi.md#syncStatusList) | **GET** /sync-status | 
 *SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
-*SyncStatusApi* | [**syncStatusRetrieve**](docs/SyncStatusApi.md#syncStatusRetrieve) | **GET** /sync-status | 
 *TeamsApi* | [**teamsList**](docs/TeamsApi.md#teamsList) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**timeOffList**](docs/TimeOffApi.md#timeOffList) | **GET** /time-off | 
 *TimeOffApi* | [**timeOffRetrieve**](docs/TimeOffApi.md#timeOffRetrieve) | **GET** /time-off/{id} | 
+*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/TimeOffBalanceApi.md#timeOffBalanceList) | **GET** /time-off-balance | 
+*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/TimeOffBalanceApi.md#timeOffBalanceRetrieve) | **GET** /time-off-balance/{id} | 
 
 
 ## Documentation for Models
@@ -181,7 +183,9 @@ Class | Method | HTTP request | Description
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
+ - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
+ - [PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md)
  - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [PayCurrencyEnum](docs/PayCurrencyEnum.md)
  - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
@@ -196,9 +200,11 @@ Class | Method | HTTP request | Description
  - [RunStateEnum](docs/RunStateEnum.md)
  - [RunTypeEnum](docs/RunTypeEnum.md)
  - [SyncStatus](docs/SyncStatus.md)
+ - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
  - [TimeOff](docs/TimeOff.md)
+ - [TimeOffBalance](docs/TimeOffBalance.md)
  - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
  - [TypeEnum](docs/TypeEnum.md)
  - [UnitsEnum](docs/UnitsEnum.md)

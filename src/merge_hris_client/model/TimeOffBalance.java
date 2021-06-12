@@ -29,11 +29,11 @@ import java.util.UUID;
 import merge_hris_client.model.RemoteData;
 
 /**
- * # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
+ * # The TimeOffBalance Object ### Description The &#x60;TimeOffBalance&#x60; object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffBalances&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off balances.
  */
-@ApiModel(description = "# The Company Object ### Description The `Company` object is used to represent a Company.  ### Usage Example Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.")
+@ApiModel(description = "# The TimeOffBalance Object ### Description The `TimeOffBalance` object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
-public class Company {
+public class TimeOffBalance {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -42,17 +42,17 @@ public class Company {
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
   private String remoteId;
 
-  public static final String SERIALIZED_NAME_LEGAL_NAME = "legal_name";
-  @SerializedName(SERIALIZED_NAME_LEGAL_NAME)
-  private String legalName;
+  public static final String SERIALIZED_NAME_EMPLOYEE = "employee";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE)
+  private UUID employee;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  private String displayName;
+  public static final String SERIALIZED_NAME_BALANCE = "balance";
+  @SerializedName(SERIALIZED_NAME_BALANCE)
+  private Float balance;
 
-  public static final String SERIALIZED_NAME_EINS = "eins";
-  @SerializedName(SERIALIZED_NAME_EINS)
-  private List<String> eins = null;
+  public static final String SERIALIZED_NAME_USED = "used";
+  @SerializedName(SERIALIZED_NAME_USED)
+  private Float used;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -64,7 +64,7 @@ public class Company {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1b998423-db0a-4037-a4cf-f79c60cb67b3", value = "")
+  @ApiModelProperty(example = "91b2b905-e866-40c8-8be2-efe53827a0aa", value = "")
 
   public UUID getId() {
     return id;
@@ -73,7 +73,7 @@ public class Company {
 
 
 
-  public Company remoteId(String remoteId) {
+  public TimeOffBalance remoteId(String remoteId) {
     
     this.remoteId = remoteId;
     return this;
@@ -96,80 +96,72 @@ public class Company {
   }
 
 
-  public Company legalName(String legalName) {
+  public TimeOffBalance employee(UUID employee) {
     
-    this.legalName = legalName;
+    this.employee = employee;
     return this;
   }
 
    /**
-   * The company&#39;s legal name.
-   * @return legalName
+   * The employee the balance belongs to.
+   * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "We Love Integrations Inc.", value = "The company's legal name.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee the balance belongs to.")
 
-  public String getLegalName() {
-    return legalName;
+  public UUID getEmployee() {
+    return employee;
   }
 
 
-  public void setLegalName(String legalName) {
-    this.legalName = legalName;
+  public void setEmployee(UUID employee) {
+    this.employee = employee;
   }
 
 
-  public Company displayName(String displayName) {
+  public TimeOffBalance balance(Float balance) {
     
-    this.displayName = displayName;
+    this.balance = balance;
     return this;
   }
 
    /**
-   * The company&#39;s display name.
-   * @return displayName
+   * The current PTO balance.
+   * @return balance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "We Love Integrations", value = "The company's display name.")
+  @ApiModelProperty(example = "60.0", value = "The current PTO balance.")
 
-  public String getDisplayName() {
-    return displayName;
+  public Float getBalance() {
+    return balance;
   }
 
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setBalance(Float balance) {
+    this.balance = balance;
   }
 
 
-  public Company eins(List<String> eins) {
+  public TimeOffBalance used(Float used) {
     
-    this.eins = eins;
-    return this;
-  }
-
-  public Company addEinsItem(String einsItem) {
-    if (this.eins == null) {
-      this.eins = new ArrayList<String>();
-    }
-    this.eins.add(einsItem);
+    this.used = used;
     return this;
   }
 
    /**
-   * The company&#39;s Employer Identification Numbers.
-   * @return eins
+   * The amount of PTO used.
+   * @return used
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"12-3456789\",\"12-3451111\",\"11-0011000\"]", value = "The company's Employer Identification Numbers.")
+  @ApiModelProperty(example = "45.0", value = "The amount of PTO used.")
 
-  public List<String> getEins() {
-    return eins;
+  public Float getUsed() {
+    return used;
   }
 
 
-  public void setEins(List<String> eins) {
-    this.eins = eins;
+  public void setUsed(Float used) {
+    this.used = used;
   }
 
 
@@ -178,7 +170,7 @@ public class Company {
    * @return remoteData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[{\"path\":\"/companies\",\"data\":[\"Varies by platform\"]}]", value = "")
+  @ApiModelProperty(example = "[{\"path\":\"/leave\",\"data\":[\"Varies by platform\"]}]", value = "")
 
   public List<RemoteData> getRemoteData() {
     return remoteData;
@@ -195,29 +187,29 @@ public class Company {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Company company = (Company) o;
-    return Objects.equals(this.id, company.id) &&
-        Objects.equals(this.remoteId, company.remoteId) &&
-        Objects.equals(this.legalName, company.legalName) &&
-        Objects.equals(this.displayName, company.displayName) &&
-        Objects.equals(this.eins, company.eins) &&
-        Objects.equals(this.remoteData, company.remoteData);
+    TimeOffBalance timeOffBalance = (TimeOffBalance) o;
+    return Objects.equals(this.id, timeOffBalance.id) &&
+        Objects.equals(this.remoteId, timeOffBalance.remoteId) &&
+        Objects.equals(this.employee, timeOffBalance.employee) &&
+        Objects.equals(this.balance, timeOffBalance.balance) &&
+        Objects.equals(this.used, timeOffBalance.used) &&
+        Objects.equals(this.remoteData, timeOffBalance.remoteData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, legalName, displayName, eins, remoteData);
+    return Objects.hash(id, remoteId, employee, balance, used, remoteData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Company {\n");
+    sb.append("class TimeOffBalance {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
-    sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    eins: ").append(toIndentedString(eins)).append("\n");
+    sb.append("    employee: ").append(toIndentedString(employee)).append("\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    used: ").append(toIndentedString(used)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
     sb.append("}");
     return sb.toString();

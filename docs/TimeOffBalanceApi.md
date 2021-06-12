@@ -1,21 +1,20 @@
-# EmployeesApi
+# TimeOffBalanceApi
 
 All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**employeesCreate**](EmployeesApi.md#employeesCreate) | **POST** /employees | 
-[**employeesList**](EmployeesApi.md#employeesList) | **GET** /employees | 
-[**employeesRetrieve**](EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
+[**timeOffBalanceList**](TimeOffBalanceApi.md#timeOffBalanceList) | **GET** /time-off-balance | 
+[**timeOffBalanceRetrieve**](TimeOffBalanceApi.md#timeOffBalanceRetrieve) | **GET** /time-off-balance/{id} | 
 
 
-<a name="employeesCreate"></a>
-# **employeesCreate**
-> Employee employeesCreate(xAccountToken, runAsync, employeeRequest)
+<a name="timeOffBalanceList"></a>
+# **timeOffBalanceList**
+> PaginatedTimeOffBalanceList timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId)
 
 
 
-Creates an &#x60;Employee&#x60; object with the given values.
+Returns a list of &#x60;TimeOffBalance&#x60; objects.
 
 ### Example
 ```java
@@ -25,7 +24,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
+import merge_hris_client.api.TimeOffBalanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -38,99 +37,22 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //tokenAuth.setApiKeyPrefix("Token");
 
-    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    TimeOffBalanceApi apiInstance = new TimeOffBalanceApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
-    EmployeeRequest employeeRequest = new EmployeeRequest(); // EmployeeRequest | 
-    try {
-      Employee result = apiInstance.employeesCreate(xAccountToken, runAsync, employeeRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EmployeesApi#employeesCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. |
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
- **employeeRequest** | [**EmployeeRequest**](EmployeeRequest.md)|  | [optional]
-
-### Return type
-
-[**Employee**](Employee.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-<a name="employeesList"></a>
-# **employeesList**
-> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId)
-
-
-
-Returns a list of &#x60;Employee&#x60; objects.
-
-### Example
-```java
-// Import classes:
-import merge_hris_client.ApiClient;
-import merge_hris_client.ApiException;
-import merge_hris_client.Configuration;
-import merge_hris_client.auth.*;
-import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
-    
-    // Configure API key authorization: tokenAuth
-    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
-    tokenAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //tokenAuth.setApiKeyPrefix("Token");
-
-    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
-    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    String companyId = "companyId_example"; // String | If provided, will only return employees for this company.
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
+    String employeeId = "employeeId_example"; // String | If provided, will only return time off balances for this employee.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
-    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
-    String managerId = "managerId_example"; // String | If provided, will only return employees for this manager.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     Integer pageSize = 56; // Integer | Number of results to return per page.
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
-    String teamId = "teamId_example"; // String | If provided, will only return employees for this team.
-    String workLocationId = "workLocationId_example"; // String | If provided, will only return employees for this location.
     try {
-      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+      PaginatedTimeOffBalanceList result = apiInstance.timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmployeesApi#employeesList");
+      System.err.println("Exception when calling TimeOffBalanceApi#timeOffBalanceList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -145,23 +67,19 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **companyId** | **String**| If provided, will only return employees for this company. | [optional]
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
+ **employeeId** | **String**| If provided, will only return time off balances for this employee. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
- **managerId** | **String**| If provided, will only return employees for this manager. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
- **teamId** | **String**| If provided, will only return employees for this team. | [optional]
- **workLocationId** | **String**| If provided, will only return employees for this location. | [optional]
 
 ### Return type
 
-[**PaginatedEmployeeList**](PaginatedEmployeeList.md)
+[**PaginatedTimeOffBalanceList**](PaginatedTimeOffBalanceList.md)
 
 ### Authorization
 
@@ -177,13 +95,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** |  |  -  |
 
-<a name="employeesRetrieve"></a>
-# **employeesRetrieve**
-> Employee employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields)
+<a name="timeOffBalanceRetrieve"></a>
+# **timeOffBalanceRetrieve**
+> TimeOffBalance timeOffBalanceRetrieve(xAccountToken, id, includeRemoteData)
 
 
 
-Returns an &#x60;Employee&#x60; object with the given &#x60;id&#x60;.
+Returns an &#x60;TimeOffBalance&#x60; object with the given &#x60;id&#x60;.
 
 ### Example
 ```java
@@ -193,7 +111,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
+import merge_hris_client.api.TimeOffBalanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -206,16 +124,15 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //tokenAuth.setApiKeyPrefix("Token");
 
-    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    TimeOffBalanceApi apiInstance = new TimeOffBalanceApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     UUID id = new UUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
-    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
     try {
-      Employee result = apiInstance.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
+      TimeOffBalance result = apiInstance.timeOffBalanceRetrieve(xAccountToken, id, includeRemoteData);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling EmployeesApi#employeesRetrieve");
+      System.err.println("Exception when calling TimeOffBalanceApi#timeOffBalanceRetrieve");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -232,11 +149,10 @@ Name | Type | Description  | Notes
  **xAccountToken** | **String**| Token identifying the end user. |
  **id** | [**UUID**](.md)|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
 
 ### Return type
 
-[**Employee**](Employee.md)
+[**TimeOffBalance**](TimeOffBalance.md)
 
 ### Authorization
 
