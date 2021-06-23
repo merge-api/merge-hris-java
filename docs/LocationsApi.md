@@ -23,8 +23,9 @@ import merge_hris_client.ApiClient;
 import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
-import merge_hris_client.models.*;
+import merge_hris_client.model.*;
 import merge_hris_client.api.LocationsApi;
+import org.threeten.bp.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
