@@ -48,20 +48,4 @@ public class SyncStatusApiTest {
         // TODO: test validations
     }
     
-    /**
-     * 
-     *
-     * Get syncing status.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void syncStatusRetrieveTest() throws ApiException {
-        String xAccountToken = null;
-        SyncStatus response = api.syncStatusRetrieve(xAccountToken);
-
-        // TODO: test validations
-    }
-    
 }

@@ -50,13 +50,12 @@ public class TimeOffBalanceApiTest {
         OffsetDateTime createdBefore = null;
         String cursor = null;
         String employeeId = null;
-        String expand = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        PaginatedTimeOffBalanceList response = api.timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedTimeOffBalanceList response = api.timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
 
         // TODO: test validations
     }
@@ -73,9 +72,8 @@ public class TimeOffBalanceApiTest {
     public void timeOffBalanceRetrieveTest() throws ApiException {
         String xAccountToken = null;
         UUID id = null;
-        String expand = null;
         Boolean includeRemoteData = null;
-        TimeOffBalance response = api.timeOffBalanceRetrieve(xAccountToken, id, expand, includeRemoteData);
+        TimeOffBalance response = api.timeOffBalanceRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }
