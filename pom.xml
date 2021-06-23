@@ -136,6 +136,7 @@
                             <head>Http Response Details:</head>
                         </tag>
                     </tags>
+                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
                 </configuration>
             </plugin>
             <plugin>
