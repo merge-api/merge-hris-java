@@ -46,14 +46,6 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
-### Gradle users
-
-Add this dependency to your project's build file:
-
-```groovy
-compile "merge:merge-hris-client:1.0.0"
-```
-
 ### Others
 
 At first generate the JAR by executing:
