@@ -13,7 +13,7 @@
 
 package merge_hris_client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-02T18:54:53.778559-07:00[America/Los_Angeles]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

@@ -32,13 +32,14 @@ import merge_hris_client.model.PayCurrencyEnum;
 import merge_hris_client.model.PayFrequencyEnum;
 import merge_hris_client.model.PayPeriodEnum;
 import merge_hris_client.model.RemoteData;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-02T18:54:53.778559-07:00[America/Los_Angeles]")
 public class Employment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -271,7 +272,7 @@ public class Employment {
    * @return effectiveDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The position's effective date.")
+  @ApiModelProperty(example = "2020-10-06T18:42:34Z", value = "The position's effective date.")
 
   public OffsetDateTime getEffectiveDate() {
     return effectiveDate;
@@ -342,9 +343,20 @@ public class Employment {
         Objects.equals(this.remoteData, employment.remoteData);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, jobTitle, payRate, payPeriod, payFrequency, payCurrency, flsaStatus, effectiveDate, employmentType, remoteData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

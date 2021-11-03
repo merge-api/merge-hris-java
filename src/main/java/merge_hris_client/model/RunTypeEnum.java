@@ -29,8 +29,6 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(RunTypeEnum.Adapter.class)
 public enum RunTypeEnum {
   
-  INIT("INIT"),
-  
   REGULAR("REGULAR"),
   
   OFF_CYCLE("OFF_CYCLE"),
@@ -39,25 +37,7 @@ public enum RunTypeEnum {
   
   TERMINATION("TERMINATION"),
   
-  RECONCILIATION("RECONCILIATION"),
-  
-  NEW_HIRE("NEW_HIRE"),
-  
-  POP("POP"),
-  
-  TRANSITION("TRANSITION"),
-  
-  CORRECTION_DISPLAY("CORRECTION_DISPLAY"),
-  
-  EXCESS_HOURS("EXCESS_HOURS"),
-  
-  SIGN_ON_BONUS("SIGN_ON_BONUS"),
-  
-  S_CORP("S_CORP"),
-  
-  FRINGE_BENEFITS("FRINGE_BENEFITS"),
-  
-  CONTRACTOR_LATE_PAYMENTS("CONTRACTOR_LATE_PAYMENTS");
+  SIGN_ON_BONUS("SIGN_ON_BONUS");
 
   private String value;
 

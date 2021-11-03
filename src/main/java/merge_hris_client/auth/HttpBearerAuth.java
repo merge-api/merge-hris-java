@@ -18,7 +18,7 @@ import merge_hris_client.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-02T18:54:53.778559-07:00[America/Los_Angeles]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;

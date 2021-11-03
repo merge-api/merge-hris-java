@@ -24,18 +24,22 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import merge_hris_client.model.EmploymentStatusEnum;
 import merge_hris_client.model.EthnicityEnum;
 import merge_hris_client.model.GenderEnum;
 import merge_hris_client.model.MaritalStatusEnum;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-02T18:54:53.778559-07:00[America/Los_Angeles]")
 public class EmployeeRequest {
   public static final String SERIALIZED_NAME_REMOTE_ID = "remote_id";
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
@@ -113,6 +117,10 @@ public class EmployeeRequest {
   @SerializedName(SERIALIZED_NAME_HIRE_DATE)
   private OffsetDateTime hireDate;
 
+  public static final String SERIALIZED_NAME_START_DATE = "start_date";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private OffsetDateTime startDate;
+
   public static final String SERIALIZED_NAME_EMPLOYMENT_STATUS = "employment_status";
   @SerializedName(SERIALIZED_NAME_EMPLOYMENT_STATUS)
   private EmploymentStatusEnum employmentStatus;
@@ -124,6 +132,10 @@ public class EmployeeRequest {
   public static final String SERIALIZED_NAME_AVATAR = "avatar";
   @SerializedName(SERIALIZED_NAME_AVATAR)
   private URI avatar;
+
+  public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom_fields";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
+  private Map<String, Object> customFields = null;
 
 
   public EmployeeRequest remoteId(String remoteId) {
@@ -528,7 +540,7 @@ public class EmployeeRequest {
    * @return dateOfBirth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The employee's date of birth.")
+  @ApiModelProperty(example = "1990-11-10T00:00Z", value = "The employee's date of birth.")
 
   public OffsetDateTime getDateOfBirth() {
     return dateOfBirth;
@@ -547,11 +559,11 @@ public class EmployeeRequest {
   }
 
    /**
-   * The employee&#39;s hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.
+   * The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field.
    * @return hireDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The employee's hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date.")
+  @ApiModelProperty(example = "2020-10-10T00:00Z", value = "The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you're looking for the employee's start date, refer to the start_date field.")
 
   public OffsetDateTime getHireDate() {
     return hireDate;
@@ -560,6 +572,29 @@ public class EmployeeRequest {
 
   public void setHireDate(OffsetDateTime hireDate) {
     this.hireDate = hireDate;
+  }
+
+
+  public EmployeeRequest startDate(OffsetDateTime startDate) {
+    
+    this.startDate = startDate;
+    return this;
+  }
+
+   /**
+   * The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "2020-10-11T00:00Z", value = "The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date.")
+
+  public OffsetDateTime getStartDate() {
+    return startDate;
+  }
+
+
+  public void setStartDate(OffsetDateTime startDate) {
+    this.startDate = startDate;
   }
 
 
@@ -574,7 +609,7 @@ public class EmployeeRequest {
    * @return employmentStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACTIVE", value = "The employment status of the employee.")
+  @ApiModelProperty(example = "INACTIVE", value = "The employment status of the employee.")
 
   public EmploymentStatusEnum getEmploymentStatus() {
     return employmentStatus;
@@ -597,7 +632,7 @@ public class EmployeeRequest {
    * @return terminationDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The employee's termination date.")
+  @ApiModelProperty(example = "2021-10-12T00:00Z", value = "The employee's termination date.")
 
   public OffsetDateTime getTerminationDate() {
     return terminationDate;
@@ -632,6 +667,37 @@ public class EmployeeRequest {
   }
 
 
+  public EmployeeRequest customFields(Map<String, Object> customFields) {
+    
+    this.customFields = customFields;
+    return this;
+  }
+
+  public EmployeeRequest putCustomFieldsItem(String key, Object customFieldsItem) {
+    if (this.customFields == null) {
+      this.customFields = new HashMap<String, Object>();
+    }
+    this.customFields.put(key, customFieldsItem);
+    return this;
+  }
+
+   /**
+   * Custom fields configured for a given model.
+   * @return customFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom fields configured for a given model.")
+
+  public Map<String, Object> getCustomFields() {
+    return customFields;
+  }
+
+
+  public void setCustomFields(Map<String, Object> customFields) {
+    this.customFields = customFields;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -660,14 +726,27 @@ public class EmployeeRequest {
         Objects.equals(this.maritalStatus, employeeRequest.maritalStatus) &&
         Objects.equals(this.dateOfBirth, employeeRequest.dateOfBirth) &&
         Objects.equals(this.hireDate, employeeRequest.hireDate) &&
+        Objects.equals(this.startDate, employeeRequest.startDate) &&
         Objects.equals(this.employmentStatus, employeeRequest.employmentStatus) &&
         Objects.equals(this.terminationDate, employeeRequest.terminationDate) &&
-        Objects.equals(this.avatar, employeeRequest.avatar);
+        Objects.equals(this.avatar, employeeRequest.avatar) &&
+        Objects.equals(this.customFields, employeeRequest.customFields);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, homeLocation, workLocation, manager, team, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, employmentStatus, terminationDate, avatar);
+    return Objects.hash(remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, homeLocation, workLocation, manager, team, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, customFields);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -693,9 +772,11 @@ public class EmployeeRequest {
     sb.append("    maritalStatus: ").append(toIndentedString(maritalStatus)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    hireDate: ").append(toIndentedString(hireDate)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    employmentStatus: ").append(toIndentedString(employmentStatus)).append("\n");
     sb.append("    terminationDate: ").append(toIndentedString(terminationDate)).append("\n");
     sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
+    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("}");
     return sb.toString();
   }

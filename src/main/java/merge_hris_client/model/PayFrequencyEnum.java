@@ -43,9 +43,7 @@ public enum PayFrequencyEnum {
   
   THIRTEEN_MONTHLY("THIRTEEN-MONTHLY"),
   
-  PRO_RATA("PRO_RATA"),
-  
-  NULL("NULL");
+  PRO_RATA("PRO_RATA");
 
   private String value;
 
