@@ -46,10 +46,6 @@ public class EmploymentsApiTest {
      */
     @Test
     public void employmentsCreateTest() throws ApiException {
-        String xAccountToken = null;
-        Boolean runAsync = null;
-        EmploymentRequest employmentRequest = null;
-        Employment response = api.employmentsCreate(xAccountToken, runAsync, employmentRequest);
 
         // TODO: test validations
     }

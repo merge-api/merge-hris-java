@@ -56,7 +56,7 @@ public class EmployeePayrollRunsApiTest {
         Integer pageSize = null;
         String payrollRunId = null;
         String remoteId = null;
-        PaginatedEmployeePayrollRunList response = api.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId);
+        // PaginatedEmployeePayrollRunList response = api.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId);
 
         // TODO: test validations
     }
@@ -74,7 +74,7 @@ public class EmployeePayrollRunsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        EmployeePayrollRun response = api.employeePayrollRunsRetrieve(xAccountToken, id, includeRemoteData);
+        // EmployeePayrollRun response = api.employeePayrollRunsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

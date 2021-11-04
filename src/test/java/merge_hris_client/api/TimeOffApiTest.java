@@ -56,7 +56,7 @@ public class TimeOffApiTest {
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        // PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
 
         // TODO: test validations
     }
@@ -74,7 +74,7 @@ public class TimeOffApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        TimeOff response = api.timeOffRetrieve(xAccountToken, id, includeRemoteData);
+        // TimeOff response = api.timeOffRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

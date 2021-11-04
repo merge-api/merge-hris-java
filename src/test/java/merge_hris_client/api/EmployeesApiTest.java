@@ -78,7 +78,7 @@ public class EmployeesApiTest {
         String remoteId = null;
         String teamId = null;
         String workLocationId = null;
-        PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+        // PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
 
         // TODO: test validations
     }
@@ -97,7 +97,7 @@ public class EmployeesApiTest {
         UUID id = null;
         Boolean includeRemoteData = null;
         Boolean includeSensitiveFields = null;
-        Employee response = api.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
+        // Employee response = api.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
 
         // TODO: test validations
     }
