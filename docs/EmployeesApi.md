@@ -25,7 +25,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
+import java.merge_hris_client.api.EmployeesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="employeesList"></a>
 # **employeesList**
-> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId)
+> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId)
 
 
 
@@ -98,7 +98,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
+import java.merge_hris_client.api.EmployeesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -123,11 +123,13 @@ public class Example {
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     Integer pageSize = 56; // Integer | Number of results to return per page.
+    String personalEmail = "personalEmail_example"; // String | If provided, will only return Employees with this personal email
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     String teamId = "teamId_example"; // String | If provided, will only return employees for this team.
+    String workEmail = "workEmail_example"; // String | If provided, will only return Employees with this work email
     String workLocationId = "workLocationId_example"; // String | If provided, will only return employees for this location.
     try {
-      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesList");
@@ -155,8 +157,10 @@ Name | Type | Description  | Notes
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **personalEmail** | **String**| If provided, will only return Employees with this personal email | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
  **teamId** | **String**| If provided, will only return employees for this team. | [optional]
+ **workEmail** | **String**| If provided, will only return Employees with this work email | [optional]
  **workLocationId** | **String**| If provided, will only return employees for this location. | [optional]
 
 ### Return type
@@ -193,7 +197,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmployeesApi;
+import java.merge_hris_client.api.EmployeesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -208,7 +212,7 @@ public class Example {
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
     try {
@@ -230,7 +234,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
 

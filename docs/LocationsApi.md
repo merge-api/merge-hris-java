@@ -23,9 +23,8 @@ import merge_hris_client.ApiClient;
 import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
-import merge_hris_client.model.*;
-import merge_hris_client.api.LocationsApi;
-import org.threeten.bp.OffsetDateTime;
+import merge_hris_client.models.*;
+import java.merge_hris_client.api.LocationsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -110,7 +109,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.LocationsApi;
+import java.merge_hris_client.api.LocationsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -125,7 +124,7 @@ public class Example {
 
     LocationsApi apiInstance = new LocationsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Location result = apiInstance.locationsRetrieve(xAccountToken, id, includeRemoteData);
@@ -146,7 +145,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

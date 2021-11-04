@@ -24,7 +24,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.SyncStatusApi;
+import java.merge_hris_client.api.SyncStatusApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 
 
-Force resync of all models.
+Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
 
 ### Example
 ```java
@@ -97,7 +97,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.SyncStatusApi;
+import java.merge_hris_client.api.SyncStatusApi;
 
 public class Example {
   public static void main(String[] args) {

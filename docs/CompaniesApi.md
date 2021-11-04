@@ -24,7 +24,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.CompaniesApi;
+import java.merge_hris_client.api.CompaniesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -109,7 +109,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.CompaniesApi;
+import java.merge_hris_client.api.CompaniesApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -124,7 +124,7 @@ public class Example {
 
     CompaniesApi apiInstance = new CompaniesApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Company result = apiInstance.companiesRetrieve(xAccountToken, id, includeRemoteData);
@@ -145,7 +145,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

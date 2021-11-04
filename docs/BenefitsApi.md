@@ -4,9 +4,83 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**benefitsCreate**](BenefitsApi.md#benefitsCreate) | **POST** /benefits | 
 [**benefitsList**](BenefitsApi.md#benefitsList) | **GET** /benefits | 
 [**benefitsRetrieve**](BenefitsApi.md#benefitsRetrieve) | **GET** /benefits/{id} | 
 
+
+<a name="benefitsCreate"></a>
+# **benefitsCreate**
+> Benefit benefitsCreate(xAccountToken, runAsync, benefitRequest)
+
+
+
+Creates a &#x60;Benefit&#x60; object with the given values.
+
+### Example
+```java
+// Import classes:
+import merge_hris_client.ApiClient;
+import merge_hris_client.ApiException;
+import merge_hris_client.Configuration;
+import merge_hris_client.auth.*;
+import merge_hris_client.models.*;
+import java.merge_hris_client.api.BenefitsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
+    
+    // Configure API key authorization: tokenAuth
+    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+    tokenAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //tokenAuth.setApiKeyPrefix("Token");
+
+    BenefitsApi apiInstance = new BenefitsApi(defaultClient);
+    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
+    Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
+    BenefitRequest benefitRequest = new BenefitRequest(); // BenefitRequest | 
+    try {
+      Benefit result = apiInstance.benefitsCreate(xAccountToken, runAsync, benefitRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BenefitsApi#benefitsCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xAccountToken** | **String**| Token identifying the end user. |
+ **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
+ **benefitRequest** | [**BenefitRequest**](BenefitRequest.md)|  | [optional]
+
+### Return type
+
+[**Benefit**](Benefit.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
 
 <a name="benefitsList"></a>
 # **benefitsList**
@@ -24,7 +98,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.BenefitsApi;
+import java.merge_hris_client.api.BenefitsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -111,7 +185,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.BenefitsApi;
+import java.merge_hris_client.api.BenefitsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -126,7 +200,7 @@ public class Example {
 
     BenefitsApi apiInstance = new BenefitsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Benefit result = apiInstance.benefitsRetrieve(xAccountToken, id, includeRemoteData);
@@ -147,7 +221,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

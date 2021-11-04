@@ -23,7 +23,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.RegenerateKeyApi;
+import java.merge_hris_client.api.RegenerateKeyApi;
 
 public class Example {
   public static void main(String[] args) {

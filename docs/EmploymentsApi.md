@@ -4,83 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**employmentsCreate**](EmploymentsApi.md#employmentsCreate) | **POST** /employments | 
 [**employmentsList**](EmploymentsApi.md#employmentsList) | **GET** /employments | 
 [**employmentsRetrieve**](EmploymentsApi.md#employmentsRetrieve) | **GET** /employments/{id} | 
 
-
-<a name="employmentsCreate"></a>
-# **employmentsCreate**
-> Employment employmentsCreate(xAccountToken, runAsync, employmentRequest)
-
-
-
-Creates an &#x60;Employment&#x60; object with the given values.
-
-### Example
-```java
-// Import classes:
-import merge_hris_client.ApiClient;
-import merge_hris_client.ApiException;
-import merge_hris_client.Configuration;
-import merge_hris_client.auth.*;
-import merge_hris_client.models.*;
-import merge_hris_client.api.EmploymentsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
-    
-    // Configure API key authorization: tokenAuth
-    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
-    tokenAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //tokenAuth.setApiKeyPrefix("Token");
-
-    EmploymentsApi apiInstance = new EmploymentsApi(defaultClient);
-    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
-    EmploymentRequest employmentRequest = new EmploymentRequest(); // EmploymentRequest | 
-    try {
-      Employment result = apiInstance.employmentsCreate(xAccountToken, runAsync, employmentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EmploymentsApi#employmentsCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. |
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
- **employmentRequest** | [**EmploymentRequest**](EmploymentRequest.md)|  | [optional]
-
-### Return type
-
-[**Employment**](Employment.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
 
 <a name="employmentsList"></a>
 # **employmentsList**
@@ -98,7 +24,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmploymentsApi;
+import java.merge_hris_client.api.EmploymentsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -185,7 +111,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.EmploymentsApi;
+import java.merge_hris_client.api.EmploymentsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -200,7 +126,7 @@ public class Example {
 
     EmploymentsApi apiInstance = new EmploymentsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Employment result = apiInstance.employmentsRetrieve(xAccountToken, id, includeRemoteData);
@@ -221,7 +147,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

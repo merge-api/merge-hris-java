@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]
+  - Build date: 2021-11-04T09:48:16.195775-07:00[America/Los_Angeles]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -39,11 +39,19 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>merge</groupId>
+  <groupId>dev.merge</groupId>
   <artifactId>merge-hris-client</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
+```
+
+### Gradle users
+
+Add this dependency to your project's build file:
+
+```groovy
+compile "dev.merge:merge-hris-client:1.0.0"
 ```
 
 ### Others
@@ -71,7 +79,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.AccountTokenApi;
+import java.merge_hris_client.api.AccountDetailsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -84,13 +92,12 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //tokenAuth.setApiKeyPrefix("Token");
 
-    AccountTokenApi apiInstance = new AccountTokenApi(defaultClient);
-    String publicToken = "publicToken_example"; // String | 
+    AccountDetailsApi apiInstance = new AccountDetailsApi(defaultClient);
     try {
-      AccountToken result = apiInstance.accountTokenRetrieve(publicToken);
+      AccountDetails result = apiInstance.accountDetailsRetrieve();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AccountTokenApi#accountTokenRetrieve");
+      System.err.println("Exception when calling AccountDetailsApi#accountDetailsRetrieve");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -107,99 +114,91 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountDetailsApi* | [**accountDetailsRetrieve**](docs/AccountDetailsApi.md#accountDetailsRetrieve) | **GET** /account-details | 
 *AccountTokenApi* | [**accountTokenRetrieve**](docs/AccountTokenApi.md#accountTokenRetrieve) | **GET** /account-token/{public_token} | 
 *AvailableActionsApi* | [**availableActionsRetrieve**](docs/AvailableActionsApi.md#availableActionsRetrieve) | **GET** /available-actions | 
+*BenefitsApi* | [**benefitsCreate**](docs/BenefitsApi.md#benefitsCreate) | **POST** /benefits | 
 *BenefitsApi* | [**benefitsList**](docs/BenefitsApi.md#benefitsList) | **GET** /benefits | 
 *BenefitsApi* | [**benefitsRetrieve**](docs/BenefitsApi.md#benefitsRetrieve) | **GET** /benefits/{id} | 
 *CompaniesApi* | [**companiesList**](docs/CompaniesApi.md#companiesList) | **GET** /companies | 
 *CompaniesApi* | [**companiesRetrieve**](docs/CompaniesApi.md#companiesRetrieve) | **GET** /companies/{id} | 
+*DeductionsApi* | [**deductionsCreate**](docs/DeductionsApi.md#deductionsCreate) | **POST** /deductions | 
+*DeductionsApi* | [**deductionsList**](docs/DeductionsApi.md#deductionsList) | **GET** /deductions | 
+*DeductionsApi* | [**deductionsRetrieve**](docs/DeductionsApi.md#deductionsRetrieve) | **GET** /deductions/{id} | 
+*DeleteAccountApi* | [**deleteAccountCreate**](docs/DeleteAccountApi.md#deleteAccountCreate) | **POST** /delete-account | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsList**](docs/EmployeePayrollRunsApi.md#employeePayrollRunsList) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsRetrieve**](docs/EmployeePayrollRunsApi.md#employeePayrollRunsRetrieve) | **GET** /employee-payroll-runs/{id} | 
 *EmployeesApi* | [**employeesCreate**](docs/EmployeesApi.md#employeesCreate) | **POST** /employees | 
 *EmployeesApi* | [**employeesList**](docs/EmployeesApi.md#employeesList) | **GET** /employees | 
 *EmployeesApi* | [**employeesRetrieve**](docs/EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
-*EmploymentsApi* | [**employmentsCreate**](docs/EmploymentsApi.md#employmentsCreate) | **POST** /employments | 
 *EmploymentsApi* | [**employmentsList**](docs/EmploymentsApi.md#employmentsList) | **GET** /employments | 
 *EmploymentsApi* | [**employmentsRetrieve**](docs/EmploymentsApi.md#employmentsRetrieve) | **GET** /employments/{id} | 
 *GenerateKeyApi* | [**generateKeyCreate**](docs/GenerateKeyApi.md#generateKeyCreate) | **POST** /generate-key | 
+*IssuesApi* | [**issuesList**](docs/IssuesApi.md#issuesList) | **GET** /issues | 
+*IssuesApi* | [**issuesRetrieve**](docs/IssuesApi.md#issuesRetrieve) | **GET** /issues/{id} | 
 *LinkTokenApi* | [**linkTokenCreate**](docs/LinkTokenApi.md#linkTokenCreate) | **POST** /link-token | 
+*LinkedAccountsApi* | [**linkedAccountsList**](docs/LinkedAccountsApi.md#linkedAccountsList) | **GET** /linked-accounts | 
 *LocationsApi* | [**locationsList**](docs/LocationsApi.md#locationsList) | **GET** /locations | 
 *LocationsApi* | [**locationsRetrieve**](docs/LocationsApi.md#locationsRetrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthroughCreate**](docs/PassthroughApi.md#passthroughCreate) | **POST** /passthrough | 
-*PayrollRunsApi* | [**payrollRunsList**](docs/PayrollRunsApi.md#payrollRunsList) | **GET** /payroll-runs | 
-*PayrollRunsApi* | [**payrollRunsRetrieve**](docs/PayrollRunsApi.md#payrollRunsRetrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/RegenerateKeyApi.md#regenerateKeyCreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/SyncStatusApi.md#syncStatusList) | **GET** /sync-status | 
 *SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
 *TeamsApi* | [**teamsList**](docs/TeamsApi.md#teamsList) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve) | **GET** /teams/{id} | 
-*TimeOffApi* | [**timeOffList**](docs/TimeOffApi.md#timeOffList) | **GET** /time-off | 
-*TimeOffApi* | [**timeOffRetrieve**](docs/TimeOffApi.md#timeOffRetrieve) | **GET** /time-off/{id} | 
-*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/TimeOffBalanceApi.md#timeOffBalanceList) | **GET** /time-off-balance | 
-*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/TimeOffBalanceApi.md#timeOffBalanceRetrieve) | **GET** /time-off-balance/{id} | 
 
 
 ## Documentation for Models
 
+ - [AccountDetails](docs/AccountDetails.md)
+ - [AccountDetailsAndActions](docs/AccountDetailsAndActions.md)
+ - [AccountDetailsAndActionsIntegration](docs/AccountDetailsAndActionsIntegration.md)
+ - [AccountDetailsAndActionsStatusEnum](docs/AccountDetailsAndActionsStatusEnum.md)
  - [AccountIntegration](docs/AccountIntegration.md)
  - [AccountToken](docs/AccountToken.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [Benefit](docs/Benefit.md)
- - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
+ - [BenefitRequest](docs/BenefitRequest.md)
+ - [CategoriesEnum](docs/CategoriesEnum.md)
+ - [CategoryEnum](docs/CategoryEnum.md)
  - [Company](docs/Company.md)
  - [CountryEnum](docs/CountryEnum.md)
  - [DataPassthroughRequest](docs/DataPassthroughRequest.md)
  - [Deduction](docs/Deduction.md)
+ - [DeductionRequest](docs/DeductionRequest.md)
  - [Earning](docs/Earning.md)
  - [Employee](docs/Employee.md)
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
  - [EmployeeRequest](docs/EmployeeRequest.md)
  - [Employment](docs/Employment.md)
- - [EmploymentRequest](docs/EmploymentRequest.md)
- - [EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
- - [EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
- - [EthnicityEnum](docs/EthnicityEnum.md)
- - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
- - [GenderEnum](docs/GenderEnum.md)
  - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [Issue](docs/Issue.md)
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
- - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
  - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
+ - [PaginatedAccountDetailsAndActionsList](docs/PaginatedAccountDetailsAndActionsList.md)
  - [PaginatedBenefitList](docs/PaginatedBenefitList.md)
  - [PaginatedCompanyList](docs/PaginatedCompanyList.md)
+ - [PaginatedDeductionList](docs/PaginatedDeductionList.md)
  - [PaginatedEmployeeList](docs/PaginatedEmployeeList.md)
  - [PaginatedEmployeePayrollRunList](docs/PaginatedEmployeePayrollRunList.md)
  - [PaginatedEmploymentList](docs/PaginatedEmploymentList.md)
+ - [PaginatedIssueList](docs/PaginatedIssueList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
- - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
- - [PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md)
- - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
- - [PayCurrencyEnum](docs/PayCurrencyEnum.md)
- - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
- - [PayPeriodEnum](docs/PayPeriodEnum.md)
- - [PayrollRun](docs/PayrollRun.md)
  - [RemoteData](docs/RemoteData.md)
  - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
- - [RequestTypeEnum](docs/RequestTypeEnum.md)
- - [RunStateEnum](docs/RunStateEnum.md)
- - [RunTypeEnum](docs/RunTypeEnum.md)
+ - [RequestFormatEnum](docs/RequestFormatEnum.md)
  - [SyncStatus](docs/SyncStatus.md)
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
- - [TimeOff](docs/TimeOff.md)
- - [TimeOffBalance](docs/TimeOffBalance.md)
- - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
- - [TypeEnum](docs/TypeEnum.md)
- - [UnitsEnum](docs/UnitsEnum.md)
 
 
 ## Documentation for Authorization

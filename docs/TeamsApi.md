@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="teamsList"></a>
 # **teamsList**
-> PaginatedTeamList teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId)
+> PaginatedTeamList teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId)
 
 
 
@@ -24,7 +24,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.TeamsApi;
+import java.merge_hris_client.api.TeamsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -46,9 +46,10 @@ public class Example {
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     Integer pageSize = 56; // Integer | Number of results to return per page.
+    UUID parentTeamId = UUID.randomUUID(); // UUID | If provided, will only return teams with this parent team.
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
-      PaginatedTeamList result = apiInstance.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+      PaginatedTeamList result = apiInstance.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#teamsList");
@@ -73,6 +74,7 @@ Name | Type | Description  | Notes
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **parentTeamId** | **UUID**| If provided, will only return teams with this parent team. | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
@@ -109,7 +111,7 @@ import merge_hris_client.ApiException;
 import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.models.*;
-import merge_hris_client.api.TeamsApi;
+import java.merge_hris_client.api.TeamsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -124,7 +126,7 @@ public class Example {
 
     TeamsApi apiInstance = new TeamsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = new UUID(); // UUID | 
+    UUID id = UUID.randomUUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Team result = apiInstance.teamsRetrieve(xAccountToken, id, includeRemoteData);
@@ -145,7 +147,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | [**UUID**](.md)|  |
+ **id** | **UUID**|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type
