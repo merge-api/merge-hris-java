@@ -30,7 +30,7 @@ import java.util.List;
  * # The ModelOperation Object ### Description The &#x60;ModelOperation&#x60; object is used to represent the operations that are currently supported for a given model.  ### Usage Example View what operations are supported for the &#x60;Candidate&#x60; endpoint.
  */
 @ApiModel(description = "# The ModelOperation Object ### Description The `ModelOperation` object is used to represent the operations that are currently supported for a given model.  ### Usage Example View what operations are supported for the `Candidate` endpoint.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
 public class ModelOperation {
   public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
   @SerializedName(SERIALIZED_NAME_MODEL_NAME)
@@ -59,6 +59,7 @@ public class ModelOperation {
    * Get modelName
    * @return modelName
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Candidate", required = true, value = "")
 
   public String getModelName() {
@@ -86,6 +87,7 @@ public class ModelOperation {
    * Get availableOperations
    * @return availableOperations
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[\"FETCH\",\"CREATE\"]", required = true, value = "")
 
   public List<String> getAvailableOperations() {
@@ -113,6 +115,7 @@ public class ModelOperation {
    * Get requiredPostParameters
    * @return requiredPostParameters
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[\"remote_user_id\"]", required = true, value = "")
 
   public List<String> getRequiredPostParameters() {
@@ -140,6 +143,7 @@ public class ModelOperation {
    * Get supportedFields
    * @return supportedFields
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "[\"first_name\",\"last_name\",\"company\",\"title\"]", required = true, value = "")
 
   public List<String> getSupportedFields() {

@@ -5,7 +5,7 @@
     <artifactId>merge-hris-client</artifactId>
     <packaging>jar</packaging>
     <name>merge-hris-client</name>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <distributionManagement>
         <snapshotRepository>
@@ -199,6 +199,11 @@
             <version>${swagger-core-version}</version>
         </dependency>
         <!-- @Nullable annotation -->
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.1</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>

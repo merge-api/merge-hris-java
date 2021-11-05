@@ -248,7 +248,7 @@ public class SyncStatusApi {
 
     /**
      * 
-     * Force resync of all models.
+     * Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
      * @param xAccountToken Token identifying the end user. (required)
      * @return SyncStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -265,7 +265,7 @@ public class SyncStatusApi {
 
     /**
      * 
-     * Force resync of all models.
+     * Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
      * @param xAccountToken Token identifying the end user. (required)
      * @return ApiResponse&lt;SyncStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -283,7 +283,7 @@ public class SyncStatusApi {
 
     /**
      *  (asynchronously)
-     * Force resync of all models.
+     * Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
      * @param xAccountToken Token identifying the end user. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

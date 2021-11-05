@@ -27,12 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a Team within a company. &#x60;Employee&#x60; objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with &#x60;Teams&#x60;, rather than &#x60;Teams&#x60; and &#x60;Departments&#x60;.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
  */
 @ApiModel(description = "# The Team Object ### Description The `Team` object is used to represent a Team within a company. `Employee` objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with `Teams`, rather than `Teams` and `Departments`.  ### Usage Example If you're building a way to filter by `Team`, you'd hit the `GET Teams` endpoint to fetch the `Teams`, and then use the `ID` of the team your user selects to filter the `GET Employees` endpoint.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
 public class Team {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -45,6 +46,10 @@ public class Team {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PARENT_TEAM = "parent_team";
+  @SerializedName(SERIALIZED_NAME_PARENT_TEAM)
+  private UUID parentTeam;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -111,6 +116,29 @@ public class Team {
   }
 
 
+  public Team parentTeam(UUID parentTeam) {
+    
+    this.parentTeam = parentTeam;
+    return this;
+  }
+
+   /**
+   * The team&#39;s parent team.
+   * @return parentTeam
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1b998423-db0a-4037-a4cf-f79c60cb67b3", value = "The team's parent team.")
+
+  public UUID getParentTeam() {
+    return parentTeam;
+  }
+
+
+  public void setParentTeam(UUID parentTeam) {
+    this.parentTeam = parentTeam;
+  }
+
+
    /**
    * Get remoteData
    * @return remoteData
@@ -137,12 +165,24 @@ public class Team {
     return Objects.equals(this.id, team.id) &&
         Objects.equals(this.remoteId, team.remoteId) &&
         Objects.equals(this.name, team.name) &&
+        Objects.equals(this.parentTeam, team.parentTeam) &&
         Objects.equals(this.remoteData, team.remoteData);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, name, remoteData);
+    return Objects.hash(id, remoteId, name, parentTeam, remoteData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -152,6 +192,7 @@ public class Team {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parentTeam: ").append(toIndentedString(parentTeam)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
     sb.append("}");
     return sb.toString();

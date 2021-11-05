@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import merge_hris_client.model.Benefit;
+import merge_hris_client.model.BenefitRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedBenefitList;
 import java.util.UUID;
@@ -57,6 +58,133 @@ public class BenefitsApi {
         this.localVarApiClient = apiClient;
     }
 
+    /**
+     * Build call for benefitsCreate
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param benefitRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call benefitsCreateCall(String xAccountToken, Boolean runAsync, BenefitRequest benefitRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = benefitRequest;
+
+        // create path and map variables
+        String localVarPath = "/benefits";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (runAsync != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("run_async", runAsync));
+        }
+
+        if (xAccountToken != null) {
+            localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/x-www-form-urlencoded", "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "tokenAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call benefitsCreateValidateBeforeCall(String xAccountToken, Boolean runAsync, BenefitRequest benefitRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'xAccountToken' is set
+        if (xAccountToken == null) {
+            throw new ApiException("Missing the required parameter 'xAccountToken' when calling benefitsCreate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = benefitsCreateCall(xAccountToken, runAsync, benefitRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * Creates a &#x60;Benefit&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param benefitRequest  (optional)
+     * @return Benefit
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public Benefit benefitsCreate(String xAccountToken, Boolean runAsync, BenefitRequest benefitRequest) throws ApiException {
+        ApiResponse<Benefit> localVarResp = benefitsCreateWithHttpInfo(xAccountToken, runAsync, benefitRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates a &#x60;Benefit&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param benefitRequest  (optional)
+     * @return ApiResponse&lt;Benefit&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Benefit> benefitsCreateWithHttpInfo(String xAccountToken, Boolean runAsync, BenefitRequest benefitRequest) throws ApiException {
+        okhttp3.Call localVarCall = benefitsCreateValidateBeforeCall(xAccountToken, runAsync, benefitRequest, null);
+        Type localVarReturnType = new TypeToken<Benefit>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a &#x60;Benefit&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param benefitRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call benefitsCreateAsync(String xAccountToken, Boolean runAsync, BenefitRequest benefitRequest, final ApiCallback<Benefit> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = benefitsCreateValidateBeforeCall(xAccountToken, runAsync, benefitRequest, _callback);
+        Type localVarReturnType = new TypeToken<Benefit>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for benefitsList
      * @param xAccountToken Token identifying the end user. (required)

@@ -22,14 +22,12 @@ Name | Type | Description | Notes
 **manager** | **UUID** | The employee ID of the employee&#39;s manager. |  [optional]
 **team** | **UUID** | The employee&#39;s team. |  [optional]
 **ssn** | **String** | The employee&#39;s social security number. |  [optional]
-**gender** | [**GenderEnum**](GenderEnum.md) | The employee&#39;s gender. |  [optional]
-**ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) | The employee&#39;s ethnicity. |  [optional]
-**maritalStatus** | [**MaritalStatusEnum**](MaritalStatusEnum.md) | The employee&#39;s marital status. |  [optional]
 **dateOfBirth** | **OffsetDateTime** | The employee&#39;s date of birth. |  [optional]
-**hireDate** | **OffsetDateTime** | The employee&#39;s hire date. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. |  [optional]
-**employmentStatus** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) | The employment status of the employee. |  [optional]
+**hireDate** | **OffsetDateTime** | The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field. |  [optional]
+**startDate** | **OffsetDateTime** | The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date. |  [optional]
 **terminationDate** | **OffsetDateTime** | The employee&#39;s termination date. |  [optional]
 **avatar** | **URI** | The URL of the employee&#39;s avatar image. |  [optional]
+**customFields** | **Map&lt;String, Object&gt;** | Custom fields configured for a given model. |  [optional]
 
 
 
