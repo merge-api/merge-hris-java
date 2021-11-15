@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class AccountIntegration {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  private String name;∑
 
   /**
    * Gets or Sets categories
