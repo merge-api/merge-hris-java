@@ -28,7 +28,7 @@ import merge_hris_client.model.AccountIntegration;
 /**
  * AccountToken
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
 public class AccountToken {
   public static final String SERIALIZED_NAME_ACCOUNT_TOKEN = "account_token";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TOKEN)
@@ -49,6 +49,7 @@ public class AccountToken {
    * Get accountToken
    * @return accountToken
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "T9klMDQrcHdm9jrtHuOS2Nf06BIHwMNjpPXPMB", required = true, value = "")
 
   public String getAccountToken() {
@@ -71,6 +72,7 @@ public class AccountToken {
    * Get integration
    * @return integration
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public AccountIntegration getIntegration() {

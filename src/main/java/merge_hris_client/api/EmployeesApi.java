@@ -69,7 +69,7 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call employeesCreateCall(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest, final ApiCallback _callback) throws ApiException {
@@ -135,7 +135,7 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
     public Employee employeesCreate(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest) throws ApiException {
@@ -154,7 +154,7 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Employee> employeesCreateWithHttpInfo(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest) throws ApiException {
@@ -175,7 +175,7 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call employeesCreateAsync(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest, final ApiCallback<Employee> _callback) throws ApiException {
@@ -193,13 +193,15 @@ public class EmployeesApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param managerId If provided, will only return employees for this manager. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
+     * @param workEmail If provided, will only return Employees with this work email (optional)
      * @param workLocationId If provided, will only return employees for this location. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -210,7 +212,7 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employeesListCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String teamId, String workLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call employeesListCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -262,12 +264,20 @@ public class EmployeesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
         }
 
+        if (personalEmail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("personal_email", personalEmail));
+        }
+
         if (remoteId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("remote_id", remoteId));
         }
 
         if (teamId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("team_id", teamId));
+        }
+
+        if (workEmail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("work_email", workEmail));
         }
 
         if (workLocationId != null) {
@@ -297,7 +307,7 @@ public class EmployeesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call employeesListValidateBeforeCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String teamId, String workLocationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call employeesListValidateBeforeCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -305,7 +315,7 @@ public class EmployeesApi {
         }
         
 
-        okhttp3.Call localVarCall = employeesListCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId, _callback);
+        okhttp3.Call localVarCall = employeesListCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
         return localVarCall;
 
     }
@@ -319,13 +329,15 @@ public class EmployeesApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param managerId If provided, will only return employees for this manager. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
+     * @param workEmail If provided, will only return Employees with this work email (optional)
      * @param workLocationId If provided, will only return employees for this location. (optional)
      * @return PaginatedEmployeeList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -335,8 +347,8 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedEmployeeList employeesList(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String teamId, String workLocationId) throws ApiException {
-        ApiResponse<PaginatedEmployeeList> localVarResp = employeesListWithHttpInfo(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+    public PaginatedEmployeeList employeesList(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
+        ApiResponse<PaginatedEmployeeList> localVarResp = employeesListWithHttpInfo(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId);
         return localVarResp.getData();
     }
 
@@ -349,13 +361,15 @@ public class EmployeesApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param managerId If provided, will only return employees for this manager. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
+     * @param workEmail If provided, will only return Employees with this work email (optional)
      * @param workLocationId If provided, will only return employees for this location. (optional)
      * @return ApiResponse&lt;PaginatedEmployeeList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -365,8 +379,8 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedEmployeeList> employeesListWithHttpInfo(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String teamId, String workLocationId) throws ApiException {
-        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId, null);
+    public ApiResponse<PaginatedEmployeeList> employeesListWithHttpInfo(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
+        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, null);
         Type localVarReturnType = new TypeToken<PaginatedEmployeeList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -380,13 +394,15 @@ public class EmployeesApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param managerId If provided, will only return employees for this manager. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
+     * @param workEmail If provided, will only return Employees with this work email (optional)
      * @param workLocationId If provided, will only return employees for this location. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -397,9 +413,9 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employeesListAsync(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String teamId, String workLocationId, final ApiCallback<PaginatedEmployeeList> _callback) throws ApiException {
+    public okhttp3.Call employeesListAsync(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback<PaginatedEmployeeList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId, _callback);
+        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
         Type localVarReturnType = new TypeToken<PaginatedEmployeeList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -409,7 +425,7 @@ public class EmployeesApi {
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -487,7 +503,7 @@ public class EmployeesApi {
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @return Employee
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -507,7 +523,7 @@ public class EmployeesApi {
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @return ApiResponse&lt;Employee&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -528,7 +544,7 @@ public class EmployeesApi {
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
-     * @param includeSensitiveFields Whether to include sensetive fields (such as social security numbers) in the response. (optional)
+     * @param includeSensitiveFields Whether to include sensitive fields (such as social security numbers) in the response. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

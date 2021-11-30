@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import merge_hris_client.model.Employment;
-import merge_hris_client.model.EmploymentRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmploymentList;
 import java.util.UUID;
@@ -59,133 +58,6 @@ public class EmploymentsApi {
     }
 
     /**
-     * Build call for employmentsCreate
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employmentRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call employmentsCreateCall(String xAccountToken, Boolean runAsync, EmploymentRequest employmentRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = employmentRequest;
-
-        // create path and map variables
-        String localVarPath = "/employments";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (runAsync != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("run_async", runAsync));
-        }
-
-        if (xAccountToken != null) {
-            localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json", "application/x-www-form-urlencoded", "multipart/form-data"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "tokenAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call employmentsCreateValidateBeforeCall(String xAccountToken, Boolean runAsync, EmploymentRequest employmentRequest, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'xAccountToken' is set
-        if (xAccountToken == null) {
-            throw new ApiException("Missing the required parameter 'xAccountToken' when calling employmentsCreate(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = employmentsCreateCall(xAccountToken, runAsync, employmentRequest, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * Creates an &#x60;Employment&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employmentRequest  (optional)
-     * @return Employment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public Employment employmentsCreate(String xAccountToken, Boolean runAsync, EmploymentRequest employmentRequest) throws ApiException {
-        ApiResponse<Employment> localVarResp = employmentsCreateWithHttpInfo(xAccountToken, runAsync, employmentRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Creates an &#x60;Employment&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employmentRequest  (optional)
-     * @return ApiResponse&lt;Employment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Employment> employmentsCreateWithHttpInfo(String xAccountToken, Boolean runAsync, EmploymentRequest employmentRequest) throws ApiException {
-        okhttp3.Call localVarCall = employmentsCreateValidateBeforeCall(xAccountToken, runAsync, employmentRequest, null);
-        Type localVarReturnType = new TypeToken<Employment>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Creates an &#x60;Employment&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employmentRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call employmentsCreateAsync(String xAccountToken, Boolean runAsync, EmploymentRequest employmentRequest, final ApiCallback<Employment> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = employmentsCreateValidateBeforeCall(xAccountToken, runAsync, employmentRequest, _callback);
-        Type localVarReturnType = new TypeToken<Employment>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for employmentsList
      * @param xAccountToken Token identifying the end user. (required)
      * @param createdAfter If provided, will only return objects created after this datetime. (optional)
@@ -195,6 +67,7 @@ public class EmploymentsApi {
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
+     * @param orderBy Overrides the default ordering for this endpoint. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param _callback Callback for upload/download progress
@@ -206,7 +79,7 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employmentsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call employmentsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -246,6 +119,10 @@ public class EmploymentsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("modified_before", modifiedBefore));
         }
 
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
+        }
+
         if (pageSize != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
         }
@@ -277,7 +154,7 @@ public class EmploymentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call employmentsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call employmentsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -285,7 +162,7 @@ public class EmploymentsApi {
         }
         
 
-        okhttp3.Call localVarCall = employmentsListCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = employmentsListCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
         return localVarCall;
 
     }
@@ -301,6 +178,7 @@ public class EmploymentsApi {
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
+     * @param orderBy Overrides the default ordering for this endpoint. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @return PaginatedEmploymentList
@@ -311,8 +189,8 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedEmploymentList employmentsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId) throws ApiException {
-        ApiResponse<PaginatedEmploymentList> localVarResp = employmentsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+    public PaginatedEmploymentList employmentsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
+        ApiResponse<PaginatedEmploymentList> localVarResp = employmentsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
         return localVarResp.getData();
     }
 
@@ -327,6 +205,7 @@ public class EmploymentsApi {
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
+     * @param orderBy Overrides the default ordering for this endpoint. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @return ApiResponse&lt;PaginatedEmploymentList&gt;
@@ -337,8 +216,8 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedEmploymentList> employmentsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId) throws ApiException {
-        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, null);
+    public ApiResponse<PaginatedEmploymentList> employmentsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
+        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, null);
         Type localVarReturnType = new TypeToken<PaginatedEmploymentList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -354,6 +233,7 @@ public class EmploymentsApi {
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
+     * @param orderBy Overrides the default ordering for this endpoint. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -365,9 +245,9 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employmentsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback<PaginatedEmploymentList> _callback) throws ApiException {
+    public okhttp3.Call employmentsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback<PaginatedEmploymentList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
         Type localVarReturnType = new TypeToken<PaginatedEmploymentList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

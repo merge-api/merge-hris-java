@@ -24,44 +24,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets RunTypeEnum
+ * Gets or Sets AccountDetailsAndActionsStatusEnum
  */
-@JsonAdapter(RunTypeEnum.Adapter.class)
-public enum RunTypeEnum {
+@JsonAdapter(AccountDetailsAndActionsStatusEnum.Adapter.class)
+public enum AccountDetailsAndActionsStatusEnum {
   
-  INIT("INIT"),
+  COMPLETE("COMPLETE"),
   
-  REGULAR("REGULAR"),
+  INCOMPLETE("INCOMPLETE"),
   
-  OFF_CYCLE("OFF_CYCLE"),
-  
-  CORRECTION("CORRECTION"),
-  
-  TERMINATION("TERMINATION"),
-  
-  RECONCILIATION("RECONCILIATION"),
-  
-  NEW_HIRE("NEW_HIRE"),
-  
-  POP("POP"),
-  
-  TRANSITION("TRANSITION"),
-  
-  CORRECTION_DISPLAY("CORRECTION_DISPLAY"),
-  
-  EXCESS_HOURS("EXCESS_HOURS"),
-  
-  SIGN_ON_BONUS("SIGN_ON_BONUS"),
-  
-  S_CORP("S_CORP"),
-  
-  FRINGE_BENEFITS("FRINGE_BENEFITS"),
-  
-  CONTRACTOR_LATE_PAYMENTS("CONTRACTOR_LATE_PAYMENTS");
+  RELINK_NEEDED("RELINK_NEEDED");
 
   private String value;
 
-  RunTypeEnum(String value) {
+  AccountDetailsAndActionsStatusEnum(String value) {
     this.value = value;
   }
 
@@ -74,8 +50,8 @@ public enum RunTypeEnum {
     return String.valueOf(value);
   }
 
-  public static RunTypeEnum fromValue(String value) {
-    for (RunTypeEnum b : RunTypeEnum.values()) {
+  public static AccountDetailsAndActionsStatusEnum fromValue(String value) {
+    for (AccountDetailsAndActionsStatusEnum b : AccountDetailsAndActionsStatusEnum.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -83,16 +59,16 @@ public enum RunTypeEnum {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<RunTypeEnum> {
+  public static class Adapter extends TypeAdapter<AccountDetailsAndActionsStatusEnum> {
     @Override
-    public void write(final JsonWriter jsonWriter, final RunTypeEnum enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final AccountDetailsAndActionsStatusEnum enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public RunTypeEnum read(final JsonReader jsonReader) throws IOException {
+    public AccountDetailsAndActionsStatusEnum read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return RunTypeEnum.fromValue(value);
+      return AccountDetailsAndActionsStatusEnum.fromValue(value);
     }
   }
 }

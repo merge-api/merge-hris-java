@@ -27,15 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import merge_hris_client.model.RunStateEnum;
-import merge_hris_client.model.RunTypeEnum;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The PayrollRun Object ### Description The &#x60;PayrollRun&#x60; object is used to represent a payroll run.  ### Usage Example Fetch from the &#x60;LIST PayrollRuns&#x60; endpoint and filter by &#x60;ID&#x60; to show all payroll runs.
  */
 @ApiModel(description = "# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:21:03.902816-05:00[America/New_York]")
 public class PayrollRun {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -47,11 +46,11 @@ public class PayrollRun {
 
   public static final String SERIALIZED_NAME_RUN_STATE = "run_state";
   @SerializedName(SERIALIZED_NAME_RUN_STATE)
-  private RunStateEnum runState;
+  private String runState;
 
   public static final String SERIALIZED_NAME_RUN_TYPE = "run_type";
   @SerializedName(SERIALIZED_NAME_RUN_TYPE)
-  private RunTypeEnum runType;
+  private String runType;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -107,50 +106,32 @@ public class PayrollRun {
   }
 
 
-  public PayrollRun runState(RunStateEnum runState) {
-    
-    this.runState = runState;
-    return this;
-  }
-
    /**
-   * The state of the payroll run
+   * Get runState
    * @return runState
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "PAID", value = "The state of the payroll run")
+  @ApiModelProperty(example = "PAID", value = "")
 
-  public RunStateEnum getRunState() {
+  public String getRunState() {
     return runState;
   }
 
 
-  public void setRunState(RunStateEnum runState) {
-    this.runState = runState;
-  }
 
-
-  public PayrollRun runType(RunTypeEnum runType) {
-    
-    this.runType = runType;
-    return this;
-  }
 
    /**
-   * The type of the payroll run
+   * Get runType
    * @return runType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "REGULAR", value = "The type of the payroll run")
+  @ApiModelProperty(example = "REGULAR", value = "")
 
-  public RunTypeEnum getRunType() {
+  public String getRunType() {
     return runType;
   }
 
 
-  public void setRunType(RunTypeEnum runType) {
-    this.runType = runType;
-  }
 
 
   public PayrollRun startDate(OffsetDateTime startDate) {
@@ -164,7 +145,7 @@ public class PayrollRun {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run started.")
+  @ApiModelProperty(example = "2020-11-08T00:00Z", value = "The day and time the payroll run started.")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -187,7 +168,7 @@ public class PayrollRun {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run ended.")
+  @ApiModelProperty(example = "2020-11-15T00:00Z", value = "The day and time the payroll run ended.")
 
   public OffsetDateTime getEndDate() {
     return endDate;
@@ -210,7 +191,7 @@ public class PayrollRun {
    * @return checkDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run was checked.")
+  @ApiModelProperty(example = "2020-11-15T00:00Z", value = "The day and time the payroll run was checked.")
 
   public OffsetDateTime getCheckDate() {
     return checkDate;
@@ -255,9 +236,20 @@ public class PayrollRun {
         Objects.equals(this.remoteData, payrollRun.remoteData);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, runState, runType, startDate, endDate, checkDate, remoteData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

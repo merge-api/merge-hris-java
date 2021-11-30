@@ -24,30 +24,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets EthnicityEnum
+ * Gets or Sets CategoriesEnum
  */
-@JsonAdapter(EthnicityEnum.Adapter.class)
-public enum EthnicityEnum {
+@JsonAdapter(CategoriesEnum.Adapter.class)
+public enum CategoriesEnum {
   
-  AMERICAN_INDIAN_OR_ALASKA_NATIVE("AMERICAN_INDIAN_OR_ALASKA_NATIVE"),
+  HRIS("hris"),
   
-  ASIAN_OR_INDIAN_SUBCONTINENT("ASIAN_OR_INDIAN_SUBCONTINENT"),
+  ATS("ats"),
   
-  BLACK_OR_AFRICAN_AMERICAN("BLACK_OR_AFRICAN_AMERICAN"),
-  
-  HISPANIC_OR_LATINO("HISPANIC_OR_LATINO"),
-  
-  NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER("NATIVE_HAWAIIAN_OR_OTHER_PACIFIC_ISLANDER"),
-  
-  TWO_OR_MORE_RACES("TWO_OR_MORE_RACES"),
-  
-  WHITE("WHITE"),
-  
-  PREFER_NOT_TO_DISCLOSE("PREFER_NOT_TO_DISCLOSE");
+  ACCOUNTING("accounting");
 
   private String value;
 
-  EthnicityEnum(String value) {
+  CategoriesEnum(String value) {
     this.value = value;
   }
 
@@ -60,8 +50,8 @@ public enum EthnicityEnum {
     return String.valueOf(value);
   }
 
-  public static EthnicityEnum fromValue(String value) {
-    for (EthnicityEnum b : EthnicityEnum.values()) {
+  public static CategoriesEnum fromValue(String value) {
+    for (CategoriesEnum b : CategoriesEnum.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -69,16 +59,16 @@ public enum EthnicityEnum {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<EthnicityEnum> {
+  public static class Adapter extends TypeAdapter<CategoriesEnum> {
     @Override
-    public void write(final JsonWriter jsonWriter, final EthnicityEnum enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final CategoriesEnum enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public EthnicityEnum read(final JsonReader jsonReader) throws IOException {
+    public CategoriesEnum read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return EthnicityEnum.fromValue(value);
+      return CategoriesEnum.fromValue(value);
     }
   }
 }

@@ -5,7 +5,6 @@ import merge_hris_client.Configuration;
 import merge_hris_client.auth.*;
 import merge_hris_client.model.PaginatedTimeOffList;
 import merge_hris_client.api.TimeOffApi;
-import merge_hris_client.model.RequestTypeEnum;
 import merge_hris_client.model.TimeOff;
 
 

@@ -28,12 +28,13 @@ import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.CountryEnum;
 import merge_hris_client.model.RemoteData;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
  */
 @ApiModel(description = "# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
 public class Location {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -42,6 +43,10 @@ public class Location {
   public static final String SERIALIZED_NAME_REMOTE_ID = "remote_id";
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
   private String remoteId;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
@@ -110,6 +115,29 @@ public class Location {
 
   public void setRemoteId(String remoteId) {
     this.remoteId = remoteId;
+  }
+
+
+  public Location name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The location&#39;s name.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "NYC Office", value = "The location's name.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -299,6 +327,7 @@ public class Location {
     Location location = (Location) o;
     return Objects.equals(this.id, location.id) &&
         Objects.equals(this.remoteId, location.remoteId) &&
+        Objects.equals(this.name, location.name) &&
         Objects.equals(this.phoneNumber, location.phoneNumber) &&
         Objects.equals(this.street1, location.street1) &&
         Objects.equals(this.street2, location.street2) &&
@@ -309,9 +338,20 @@ public class Location {
         Objects.equals(this.remoteData, location.remoteData);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, phoneNumber, street1, street2, city, state, zipCode, country, remoteData);
+    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, remoteData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -320,6 +360,7 @@ public class Location {
     sb.append("class Location {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    street1: ").append(toIndentedString(street1)).append("\n");
     sb.append("    street2: ").append(toIndentedString(street2)).append("\n");

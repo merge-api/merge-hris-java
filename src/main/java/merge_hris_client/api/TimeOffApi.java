@@ -30,6 +30,7 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedTimeOffList;
 import merge_hris_client.model.TimeOff;
+import merge_hris_client.model.TimeOffRequest;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -58,6 +59,133 @@ public class TimeOffApi {
     }
 
     /**
+     * Build call for timeOffCreate
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param timeOffRequest  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call timeOffCreateCall(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = timeOffRequest;
+
+        // create path and map variables
+        String localVarPath = "/time-off";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (runAsync != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("run_async", runAsync));
+        }
+
+        if (xAccountToken != null) {
+            localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/x-www-form-urlencoded", "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "tokenAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call timeOffCreateValidateBeforeCall(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'xAccountToken' is set
+        if (xAccountToken == null) {
+            throw new ApiException("Missing the required parameter 'xAccountToken' when calling timeOffCreate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = timeOffCreateCall(xAccountToken, runAsync, timeOffRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * Creates a &#x60;TimeOff&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param timeOffRequest  (optional)
+     * @return TimeOff
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public TimeOff timeOffCreate(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest) throws ApiException {
+        ApiResponse<TimeOff> localVarResp = timeOffCreateWithHttpInfo(xAccountToken, runAsync, timeOffRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates a &#x60;TimeOff&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param timeOffRequest  (optional)
+     * @return ApiResponse&lt;TimeOff&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TimeOff> timeOffCreateWithHttpInfo(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest) throws ApiException {
+        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, runAsync, timeOffRequest, null);
+        Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates a &#x60;TimeOff&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param timeOffRequest  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call timeOffCreateAsync(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback<TimeOff> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, runAsync, timeOffRequest, _callback);
+        Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for timeOffList
      * @param xAccountToken Token identifying the end user. (required)
      * @param approverId If provided, will only return time off for this approver. (optional)
@@ -70,6 +198,8 @@ public class TimeOffApi {
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
+     * @param requestType If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
+     * @param status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -79,7 +209,7 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -131,6 +261,14 @@ public class TimeOffApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("remote_id", remoteId));
         }
 
+        if (requestType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("request_type", requestType));
+        }
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
         if (xAccountToken != null) {
             localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
         }
@@ -154,7 +292,7 @@ public class TimeOffApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -162,7 +300,7 @@ public class TimeOffApi {
         }
         
 
-        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         return localVarCall;
 
     }
@@ -181,6 +319,8 @@ public class TimeOffApi {
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
+     * @param requestType If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
+     * @param status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      * @return PaginatedTimeOffList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -189,8 +329,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId) throws ApiException {
-        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
         return localVarResp.getData();
     }
 
@@ -208,6 +348,8 @@ public class TimeOffApi {
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
+     * @param requestType If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
+     * @param status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      * @return ApiResponse&lt;PaginatedTimeOffList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -216,8 +358,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId) throws ApiException {
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, null);
+    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, null);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -236,6 +378,8 @@ public class TimeOffApi {
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
+     * @param requestType If provided, will only return TimeOff with this request type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) (optional)
+     * @param status If provided, will only return TimeOff with this status. Options: (&#39;REQUESTED&#39;, &#39;APPROVED&#39;, &#39;DECLINED&#39;, &#39;CANCELLED&#39;, &#39;DELETED&#39;) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -245,9 +389,9 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
+    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -326,7 +470,7 @@ public class TimeOffApi {
 
     /**
      * 
-     * Returns an &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
+     * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
@@ -345,7 +489,7 @@ public class TimeOffApi {
 
     /**
      * 
-     * Returns an &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
+     * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
@@ -365,7 +509,7 @@ public class TimeOffApi {
 
     /**
      *  (asynchronously)
-     * Returns an &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
+     * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)

@@ -30,13 +30,14 @@ import merge_hris_client.model.Deduction;
 import merge_hris_client.model.Earning;
 import merge_hris_client.model.RemoteData;
 import merge_hris_client.model.Tax;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
  */
 @ApiModel(description = "# The EmployeePayrollRun Object ### Description The `EmployeePayrollRun` object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the `LIST EmployeePayrollRun` endpoint and filter by `ID` to show all employee payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-06-09T12:47:41.903246-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
 public class EmployeePayrollRun {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -231,7 +232,7 @@ public class EmployeePayrollRun {
    * @return startDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run started.")
+  @ApiModelProperty(example = "2020-11-08T00:00Z", value = "The day and time the payroll run started.")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -254,7 +255,7 @@ public class EmployeePayrollRun {
    * @return endDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run ended.")
+  @ApiModelProperty(example = "2020-11-09T00:00Z", value = "The day and time the payroll run ended.")
 
   public OffsetDateTime getEndDate() {
     return endDate;
@@ -277,7 +278,7 @@ public class EmployeePayrollRun {
    * @return checkDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The day and time the payroll run was checked.")
+  @ApiModelProperty(example = "2020-11-10T00:00Z", value = "The day and time the payroll run was checked.")
 
   public OffsetDateTime getCheckDate() {
     return checkDate;
@@ -369,9 +370,20 @@ public class EmployeePayrollRun {
         Objects.equals(this.remoteData, employeePayrollRun.remoteData);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, employee, payrollRun, grossPay, netPay, startDate, endDate, checkDate, earnings, deductions, taxes, remoteData);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

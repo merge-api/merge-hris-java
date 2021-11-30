@@ -24,32 +24,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets PayFrequencyEnum
+ * Gets or Sets RequestFormatEnum
  */
-@JsonAdapter(PayFrequencyEnum.Adapter.class)
-public enum PayFrequencyEnum {
+@JsonAdapter(RequestFormatEnum.Adapter.class)
+public enum RequestFormatEnum {
   
-  WEEKLY("WEEKLY"),
+  JSON("JSON"),
   
-  BIWEEKLY("BIWEEKLY"),
-  
-  MONTHLY("MONTHLY"),
-  
-  QUARTERLY("QUARTERLY"),
-  
-  SEMIANNUALLY("SEMIANNUALLY"),
-  
-  ANNUALLY("ANNUALLY"),
-  
-  THIRTEEN_MONTHLY("THIRTEEN-MONTHLY"),
-  
-  PRO_RATA("PRO_RATA"),
-  
-  NULL("NULL");
+  XML("XML");
 
   private String value;
 
-  PayFrequencyEnum(String value) {
+  RequestFormatEnum(String value) {
     this.value = value;
   }
 
@@ -62,8 +48,8 @@ public enum PayFrequencyEnum {
     return String.valueOf(value);
   }
 
-  public static PayFrequencyEnum fromValue(String value) {
-    for (PayFrequencyEnum b : PayFrequencyEnum.values()) {
+  public static RequestFormatEnum fromValue(String value) {
+    for (RequestFormatEnum b : RequestFormatEnum.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -71,16 +57,16 @@ public enum PayFrequencyEnum {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<PayFrequencyEnum> {
+  public static class Adapter extends TypeAdapter<RequestFormatEnum> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PayFrequencyEnum enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final RequestFormatEnum enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PayFrequencyEnum read(final JsonReader jsonReader) throws IOException {
+    public RequestFormatEnum read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PayFrequencyEnum.fromValue(value);
+      return RequestFormatEnum.fromValue(value);
     }
   }
 }

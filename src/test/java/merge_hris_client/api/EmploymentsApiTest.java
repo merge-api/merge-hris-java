@@ -49,7 +49,7 @@ public class EmploymentsApiTest {
         String xAccountToken = null;
         Boolean runAsync = null;
         EmploymentRequest employmentRequest = null;
-        Employment response = api.employmentsCreate(xAccountToken, runAsync, employmentRequest);
+        // Employment response = api.employmentsCreate(xAccountToken, runAsync, employmentRequest);
 
         // TODO: test validations
     }
@@ -74,7 +74,7 @@ public class EmploymentsApiTest {
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        // PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
 
         // TODO: test validations
     }
@@ -92,7 +92,7 @@ public class EmploymentsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        Employment response = api.employmentsRetrieve(xAccountToken, id, includeRemoteData);
+        // Employment response = api.employmentsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

@@ -13,5 +13,9 @@
 
 * `JURY_DUTY` (value: `"JURY_DUTY"`)
 
+* `VOLUNTEER` (value: `"VOLUNTEER"`)
+
+* `BEREAVEMENT` (value: `"BEREAVEMENT"`)
+
 
 
