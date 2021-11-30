@@ -23,11 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import merge_hris_client.model.EmploymentTypeEnum;
-import merge_hris_client.model.FlsaStatusEnum;
-import merge_hris_client.model.PayCurrencyEnum;
-import merge_hris_client.model.PayFrequencyEnum;
-import merge_hris_client.model.PayPeriodEnum;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -50,19 +45,19 @@ public class EmploymentRequest {
 
   public static final String SERIALIZED_NAME_PAY_PERIOD = "pay_period";
   @SerializedName(SERIALIZED_NAME_PAY_PERIOD)
-  private PayPeriodEnum payPeriod;
+  private String payPeriod;
 
   public static final String SERIALIZED_NAME_PAY_FREQUENCY = "pay_frequency";
   @SerializedName(SERIALIZED_NAME_PAY_FREQUENCY)
-  private PayFrequencyEnum payFrequency;
+  private String payFrequency;
 
   public static final String SERIALIZED_NAME_PAY_CURRENCY = "pay_currency";
   @SerializedName(SERIALIZED_NAME_PAY_CURRENCY)
-  private PayCurrencyEnum payCurrency;
+  private String payCurrency;
 
   public static final String SERIALIZED_NAME_FLSA_STATUS = "flsa_status";
   @SerializedName(SERIALIZED_NAME_FLSA_STATUS)
-  private FlsaStatusEnum flsaStatus;
+  private String flsaStatus;
 
   public static final String SERIALIZED_NAME_EFFECTIVE_DATE = "effective_date";
   @SerializedName(SERIALIZED_NAME_EFFECTIVE_DATE)
@@ -70,7 +65,7 @@ public class EmploymentRequest {
 
   public static final String SERIALIZED_NAME_EMPLOYMENT_TYPE = "employment_type";
   @SerializedName(SERIALIZED_NAME_EMPLOYMENT_TYPE)
-  private EmploymentTypeEnum employmentType;
+  private String employmentType;
 
 
   public EmploymentRequest remoteId(String remoteId) {
@@ -142,7 +137,7 @@ public class EmploymentRequest {
   }
 
 
-  public EmploymentRequest payPeriod(PayPeriodEnum payPeriod) {
+  public EmploymentRequest payPeriod(String payPeriod) {
     
     this.payPeriod = payPeriod;
     return this;
@@ -155,17 +150,17 @@ public class EmploymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "YEAR", value = "The time period this pay rate encompasses.")
 
-  public PayPeriodEnum getPayPeriod() {
+  public String getPayPeriod() {
     return payPeriod;
   }
 
 
-  public void setPayPeriod(PayPeriodEnum payPeriod) {
+  public void setPayPeriod(String payPeriod) {
     this.payPeriod = payPeriod;
   }
 
 
-  public EmploymentRequest payFrequency(PayFrequencyEnum payFrequency) {
+  public EmploymentRequest payFrequency(String payFrequency) {
     
     this.payFrequency = payFrequency;
     return this;
@@ -178,17 +173,17 @@ public class EmploymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BIWEEKLY", value = "The position's pay frequency.")
 
-  public PayFrequencyEnum getPayFrequency() {
+  public String getPayFrequency() {
     return payFrequency;
   }
 
 
-  public void setPayFrequency(PayFrequencyEnum payFrequency) {
+  public void setPayFrequency(String payFrequency) {
     this.payFrequency = payFrequency;
   }
 
 
-  public EmploymentRequest payCurrency(PayCurrencyEnum payCurrency) {
+  public EmploymentRequest payCurrency(String payCurrency) {
     
     this.payCurrency = payCurrency;
     return this;
@@ -201,17 +196,17 @@ public class EmploymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "The position's currency code.")
 
-  public PayCurrencyEnum getPayCurrency() {
+  public String getPayCurrency() {
     return payCurrency;
   }
 
 
-  public void setPayCurrency(PayCurrencyEnum payCurrency) {
+  public void setPayCurrency(String payCurrency) {
     this.payCurrency = payCurrency;
   }
 
 
-  public EmploymentRequest flsaStatus(FlsaStatusEnum flsaStatus) {
+  public EmploymentRequest flsaStatus(String flsaStatus) {
     
     this.flsaStatus = flsaStatus;
     return this;
@@ -224,12 +219,12 @@ public class EmploymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "EXEMPT", value = "The position's FLSA status.")
 
-  public FlsaStatusEnum getFlsaStatus() {
+  public String getFlsaStatus() {
     return flsaStatus;
   }
 
 
-  public void setFlsaStatus(FlsaStatusEnum flsaStatus) {
+  public void setFlsaStatus(String flsaStatus) {
     this.flsaStatus = flsaStatus;
   }
 
@@ -257,7 +252,7 @@ public class EmploymentRequest {
   }
 
 
-  public EmploymentRequest employmentType(EmploymentTypeEnum employmentType) {
+  public EmploymentRequest employmentType(String employmentType) {
     
     this.employmentType = employmentType;
     return this;
@@ -270,12 +265,12 @@ public class EmploymentRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FULL TIME", value = "The position's type of employment.")
 
-  public EmploymentTypeEnum getEmploymentType() {
+  public String getEmploymentType() {
     return employmentType;
   }
 
 
-  public void setEmploymentType(EmploymentTypeEnum employmentType) {
+  public void setEmploymentType(String employmentType) {
     this.employmentType = employmentType;
   }
 

@@ -193,7 +193,6 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -210,7 +209,7 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, String expand, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -240,10 +239,6 @@ public class TimeOffApi {
 
         if (employeeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("employee_id", employeeId));
-        }
-
-        if (expand != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand", expand));
         }
 
         if (includeRemoteData != null) {
@@ -297,7 +292,7 @@ public class TimeOffApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, String expand, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -305,7 +300,7 @@ public class TimeOffApi {
         }
         
 
-        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
+        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         return localVarCall;
 
     }
@@ -319,7 +314,6 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -335,8 +329,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, String expand, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
-        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
+    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
         return localVarResp.getData();
     }
 
@@ -349,7 +343,6 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -365,8 +358,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, String expand, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, null);
+    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, null);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -380,7 +373,6 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -397,9 +389,9 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, String expand, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
+    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -408,7 +400,6 @@ public class TimeOffApi {
      * Build call for timeOffRetrieve
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -419,7 +410,7 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffRetrieveCall(String xAccountToken, UUID id, String expand, Boolean includeRemoteData, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call timeOffRetrieveCall(String xAccountToken, UUID id, Boolean includeRemoteData, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -431,10 +422,6 @@ public class TimeOffApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (expand != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("expand", expand));
-        }
 
         if (includeRemoteData != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_remote_data", includeRemoteData));
@@ -463,7 +450,7 @@ public class TimeOffApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call timeOffRetrieveValidateBeforeCall(String xAccountToken, UUID id, String expand, Boolean includeRemoteData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call timeOffRetrieveValidateBeforeCall(String xAccountToken, UUID id, Boolean includeRemoteData, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -476,7 +463,7 @@ public class TimeOffApi {
         }
         
 
-        okhttp3.Call localVarCall = timeOffRetrieveCall(xAccountToken, id, expand, includeRemoteData, _callback);
+        okhttp3.Call localVarCall = timeOffRetrieveCall(xAccountToken, id, includeRemoteData, _callback);
         return localVarCall;
 
     }
@@ -486,7 +473,6 @@ public class TimeOffApi {
      * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @return TimeOff
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -496,8 +482,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public TimeOff timeOffRetrieve(String xAccountToken, UUID id, String expand, Boolean includeRemoteData) throws ApiException {
-        ApiResponse<TimeOff> localVarResp = timeOffRetrieveWithHttpInfo(xAccountToken, id, expand, includeRemoteData);
+    public TimeOff timeOffRetrieve(String xAccountToken, UUID id, Boolean includeRemoteData) throws ApiException {
+        ApiResponse<TimeOff> localVarResp = timeOffRetrieveWithHttpInfo(xAccountToken, id, includeRemoteData);
         return localVarResp.getData();
     }
 
@@ -506,7 +492,6 @@ public class TimeOffApi {
      * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @return ApiResponse&lt;TimeOff&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -516,8 +501,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TimeOff> timeOffRetrieveWithHttpInfo(String xAccountToken, UUID id, String expand, Boolean includeRemoteData) throws ApiException {
-        okhttp3.Call localVarCall = timeOffRetrieveValidateBeforeCall(xAccountToken, id, expand, includeRemoteData, null);
+    public ApiResponse<TimeOff> timeOffRetrieveWithHttpInfo(String xAccountToken, UUID id, Boolean includeRemoteData) throws ApiException {
+        okhttp3.Call localVarCall = timeOffRetrieveValidateBeforeCall(xAccountToken, id, includeRemoteData, null);
         Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -527,7 +512,6 @@ public class TimeOffApi {
      * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      * @param xAccountToken Token identifying the end user. (required)
      * @param id  (required)
-     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -538,9 +522,9 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffRetrieveAsync(String xAccountToken, UUID id, String expand, Boolean includeRemoteData, final ApiCallback<TimeOff> _callback) throws ApiException {
+    public okhttp3.Call timeOffRetrieveAsync(String xAccountToken, UUID id, Boolean includeRemoteData, final ApiCallback<TimeOff> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = timeOffRetrieveValidateBeforeCall(xAccountToken, id, expand, includeRemoteData, _callback);
+        okhttp3.Call localVarCall = timeOffRetrieveValidateBeforeCall(xAccountToken, id, includeRemoteData, _callback);
         Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import merge_hris_client.model.RequestTypeEnum;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
@@ -71,7 +70,7 @@ public class TimeOff {
 
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "request_type";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  private RequestTypeEnum requestType;
+  private String requestType;
 
   public static final String SERIALIZED_NAME_START_TIME = "start_time";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -243,7 +242,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff requestType(RequestTypeEnum requestType) {
+  public TimeOff requestType(String requestType) {
     
     this.requestType = requestType;
     return this;
@@ -256,12 +255,12 @@ public class TimeOff {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "VACATION", value = "The type of time off request.")
 
-  public RequestTypeEnum getRequestType() {
+  public String getRequestType() {
     return requestType;
   }
 
 
-  public void setRequestType(RequestTypeEnum requestType) {
+  public void setRequestType(String requestType) {
     this.requestType = requestType;
   }
 
