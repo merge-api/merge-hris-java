@@ -187,6 +187,10 @@ Class | Method | HTTP request | Description
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
+ - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
+ - [PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md) 
+ - [PayrollRun](docs/PayrollRun.md)
+ - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [RemoteData](docs/RemoteData.md)
  - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
@@ -197,6 +201,9 @@ Class | Method | HTTP request | Description
  - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
+ - [TimeOff](docs/TimeOff.md)
+ - [TimeOffBalance](docs/TimeOffBalance.md)
+ - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
 
 
 ## Documentation for Authorization
