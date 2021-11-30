@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="teamsList"></a>
 # **teamsList**
-> PaginatedTeamList teamsList(xAccountToken, createdAfter, createdBefore, cursor, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId)
+> PaginatedTeamList teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId)
 
 
 
@@ -42,7 +42,6 @@ public class Example {
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
-    String expand = "parent_team"; // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -50,7 +49,7 @@ public class Example {
     String parentTeamId = "parentTeamId_example"; // String | If provided, will only return teams with this parent team.
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
-      PaginatedTeamList result = apiInstance.teamsList(xAccountToken, createdAfter, createdBefore, cursor, expand, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
+      PaginatedTeamList result = apiInstance.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#teamsList");
@@ -71,7 +70,6 @@ Name | Type | Description  | Notes
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
- **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] [enum: parent_team]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -99,7 +97,7 @@ Name | Type | Description  | Notes
 
 <a name="teamsRetrieve"></a>
 # **teamsRetrieve**
-> Team teamsRetrieve(xAccountToken, id, expand, includeRemoteData)
+> Team teamsRetrieve(xAccountToken, id, includeRemoteData)
 
 
 
@@ -129,10 +127,9 @@ public class Example {
     TeamsApi apiInstance = new TeamsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     UUID id = UUID.randomUUID(); // UUID | 
-    String expand = "parent_team"; // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
-      Team result = apiInstance.teamsRetrieve(xAccountToken, id, expand, includeRemoteData);
+      Team result = apiInstance.teamsRetrieve(xAccountToken, id, includeRemoteData);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TeamsApi#teamsRetrieve");
@@ -151,7 +148,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
  **id** | **UUID**|  |
- **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] [enum: parent_team]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

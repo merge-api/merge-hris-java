@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2021-11-29T20:32:28.722726-05:00[America/New_York]
+  - Build date: 2021-11-29T21:03:29.505759-05:00[America/New_York]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>dev.merge</groupId>
+  <groupId>dev.merge.hris</groupId>
   <artifactId>merge-hris-client</artifactId>
   <version>1.1.0</version>
   <scope>compile</scope>
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "dev.merge:merge-hris-client:1.1.0"
+compile "dev.merge.hris:merge-hris-client:1.1.0"
 ```
 
 ### Others

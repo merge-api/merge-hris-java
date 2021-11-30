@@ -131,21 +131,6 @@ paths:
         schema:
           type: string
         style: form
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee:
-            summary: Expand Employee
-            value: employee
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          type: string
-        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -214,21 +199,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee:
-            summary: Expand Employee
-            value: employee
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          type: string
-        style: form
       - explode: false
         in: path
         name: id
@@ -688,23 +658,6 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee,PayrollRun:
-            summary: Expand Employee, Payroll_run
-            value: employee,payroll_run
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          - employee,payroll_run
-          - payroll_run
-          type: string
-        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -807,23 +760,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee,PayrollRun:
-            summary: Expand Employee, Payroll_run
-            value: employee,payroll_run
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          - employee,payroll_run
-          - payroll_run
-          type: string
-        style: form
       - explode: false
         in: path
         name: id
@@ -904,84 +840,6 @@ paths:
         name: cursor
         required: false
         schema:
-          type: string
-        style: form
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployments,HomeLocation,WorkLocation,Manager,Team,Company:
-            summary: Expand Employments, Home_location, Work_location, Manager, Team,
-              Company
-            value: employments,home_location,work_location,manager,team,company
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - company
-          - employments
-          - employments,company
-          - employments,home_location
-          - employments,home_location,company
-          - employments,home_location,manager
-          - employments,home_location,manager,company
-          - employments,home_location,manager,team
-          - employments,home_location,manager,team,company
-          - employments,home_location,team
-          - employments,home_location,team,company
-          - employments,home_location,work_location
-          - employments,home_location,work_location,company
-          - employments,home_location,work_location,manager
-          - employments,home_location,work_location,manager,company
-          - employments,home_location,work_location,manager,team
-          - employments,home_location,work_location,manager,team,company
-          - employments,home_location,work_location,team
-          - employments,home_location,work_location,team,company
-          - employments,manager
-          - employments,manager,company
-          - employments,manager,team
-          - employments,manager,team,company
-          - employments,team
-          - employments,team,company
-          - employments,work_location
-          - employments,work_location,company
-          - employments,work_location,manager
-          - employments,work_location,manager,company
-          - employments,work_location,manager,team
-          - employments,work_location,manager,team,company
-          - employments,work_location,team
-          - employments,work_location,team,company
-          - home_location
-          - home_location,company
-          - home_location,manager
-          - home_location,manager,company
-          - home_location,manager,team
-          - home_location,manager,team,company
-          - home_location,team
-          - home_location,team,company
-          - home_location,work_location
-          - home_location,work_location,company
-          - home_location,work_location,manager
-          - home_location,work_location,manager,company
-          - home_location,work_location,manager,team
-          - home_location,work_location,manager,team,company
-          - home_location,work_location,team
-          - home_location,work_location,team,company
-          - manager
-          - manager,company
-          - manager,team
-          - manager,team,company
-          - team
-          - team,company
-          - work_location
-          - work_location,company
-          - work_location,manager
-          - work_location,manager,company
-          - work_location,manager,team
-          - work_location,manager,team,company
-          - work_location,team
-          - work_location,team,company
           type: string
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
@@ -1157,84 +1015,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployments,HomeLocation,WorkLocation,Manager,Team,Company:
-            summary: Expand Employments, Home_location, Work_location, Manager, Team,
-              Company
-            value: employments,home_location,work_location,manager,team,company
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - company
-          - employments
-          - employments,company
-          - employments,home_location
-          - employments,home_location,company
-          - employments,home_location,manager
-          - employments,home_location,manager,company
-          - employments,home_location,manager,team
-          - employments,home_location,manager,team,company
-          - employments,home_location,team
-          - employments,home_location,team,company
-          - employments,home_location,work_location
-          - employments,home_location,work_location,company
-          - employments,home_location,work_location,manager
-          - employments,home_location,work_location,manager,company
-          - employments,home_location,work_location,manager,team
-          - employments,home_location,work_location,manager,team,company
-          - employments,home_location,work_location,team
-          - employments,home_location,work_location,team,company
-          - employments,manager
-          - employments,manager,company
-          - employments,manager,team
-          - employments,manager,team,company
-          - employments,team
-          - employments,team,company
-          - employments,work_location
-          - employments,work_location,company
-          - employments,work_location,manager
-          - employments,work_location,manager,company
-          - employments,work_location,manager,team
-          - employments,work_location,manager,team,company
-          - employments,work_location,team
-          - employments,work_location,team,company
-          - home_location
-          - home_location,company
-          - home_location,manager
-          - home_location,manager,company
-          - home_location,manager,team
-          - home_location,manager,team,company
-          - home_location,team
-          - home_location,team,company
-          - home_location,work_location
-          - home_location,work_location,company
-          - home_location,work_location,manager
-          - home_location,work_location,manager,company
-          - home_location,work_location,manager,team
-          - home_location,work_location,manager,team,company
-          - home_location,work_location,team
-          - home_location,work_location,team,company
-          - manager
-          - manager,company
-          - manager,team
-          - manager,team,company
-          - team
-          - team,company
-          - work_location
-          - work_location,company
-          - work_location,manager
-          - work_location,manager,company
-          - work_location,manager,team
-          - work_location,manager,team,company
-          - work_location,team
-          - work_location,team,company
-          type: string
-        style: form
       - explode: false
         in: path
         name: id
@@ -1326,21 +1106,6 @@ paths:
         schema:
           type: string
         style: form
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee:
-            summary: Expand Employee
-            value: employee
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          type: string
-        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -1420,21 +1185,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandEmployee:
-            summary: Expand Employee
-            value: employee
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - employee
-          type: string
-        style: form
       - explode: false
         in: path
         name: id
@@ -2071,21 +1821,6 @@ paths:
         schema:
           type: string
         style: form
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandParentTeam:
-            summary: Expand Parent_team
-            value: parent_team
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - parent_team
-          type: string
-        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -2165,21 +1900,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Which relations should be returned in expanded form. Multiple
-          relation names should be comma separated without spaces.
-        examples:
-          ExpandParentTeam:
-            summary: Expand Parent_team
-            value: parent_team
-        explode: true
-        in: query
-        name: expand
-        required: false
-        schema:
-          enum:
-          - parent_team
-          type: string
-        style: form
       - explode: false
         in: path
         name: id
