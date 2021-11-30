@@ -23,10 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-import merge_hris_client.model.RemoteData;
 import merge_hris_client.model.RequestTypeEnum;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
@@ -36,11 +33,7 @@ import org.threeten.bp.OffsetDateTime;
  */
 @ApiModel(description = "# The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:21:54.141722-05:00[America/New_York]")
-public class TimeOff {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private UUID id;
-
+public class TimeOffRequest {
   public static final String SERIALIZED_NAME_REMOTE_ID = "remote_id";
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
   private String remoteId;
@@ -53,17 +46,9 @@ public class TimeOff {
   @SerializedName(SERIALIZED_NAME_APPROVER)
   private UUID approver;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
-
   public static final String SERIALIZED_NAME_EMPLOYEE_NOTE = "employee_note";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_NOTE)
   private String employeeNote;
-
-  public static final String SERIALIZED_NAME_UNITS = "units";
-  @SerializedName(SERIALIZED_NAME_UNITS)
-  private String units;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -81,26 +66,8 @@ public class TimeOff {
   @SerializedName(SERIALIZED_NAME_END_TIME)
   private OffsetDateTime endTime;
 
-  public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
-  @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
-  private List<RemoteData> remoteData = null;
 
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "91b2b905-e866-40c8-8be2-efe53827a0aa", value = "")
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
-
-  public TimeOff remoteId(String remoteId) {
+  public TimeOffRequest remoteId(String remoteId) {
     
     this.remoteId = remoteId;
     return this;
@@ -123,7 +90,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff employee(UUID employee) {
+  public TimeOffRequest employee(UUID employee) {
     
     this.employee = employee;
     return this;
@@ -146,7 +113,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff approver(UUID approver) {
+  public TimeOffRequest approver(UUID approver) {
     
     this.approver = approver;
     return this;
@@ -169,21 +136,7 @@ public class TimeOff {
   }
 
 
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "APPROVED", value = "")
-
-  public String getStatus() {
-    return status;
-  }
-
-
-
-
-  public TimeOff employeeNote(String employeeNote) {
+  public TimeOffRequest employeeNote(String employeeNote) {
     
     this.employeeNote = employeeNote;
     return this;
@@ -206,21 +159,7 @@ public class TimeOff {
   }
 
 
-   /**
-   * Get units
-   * @return units
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "DAYS", value = "")
-
-  public String getUnits() {
-    return units;
-  }
-
-
-
-
-  public TimeOff amount(Float amount) {
+  public TimeOffRequest amount(Float amount) {
     
     this.amount = amount;
     return this;
@@ -243,7 +182,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff requestType(RequestTypeEnum requestType) {
+  public TimeOffRequest requestType(RequestTypeEnum requestType) {
     
     this.requestType = requestType;
     return this;
@@ -266,7 +205,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff startTime(OffsetDateTime startTime) {
+  public TimeOffRequest startTime(OffsetDateTime startTime) {
     
     this.startTime = startTime;
     return this;
@@ -289,7 +228,7 @@ public class TimeOff {
   }
 
 
-  public TimeOff endTime(OffsetDateTime endTime) {
+  public TimeOffRequest endTime(OffsetDateTime endTime) {
     
     this.endTime = endTime;
     return this;
@@ -312,20 +251,6 @@ public class TimeOff {
   }
 
 
-   /**
-   * Get remoteData
-   * @return remoteData
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "[{\"path\":\"/leave\",\"data\":[\"Varies by platform\"]}]", value = "")
-
-  public List<RemoteData> getRemoteData() {
-    return remoteData;
-  }
-
-
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -334,19 +259,15 @@ public class TimeOff {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TimeOff timeOff = (TimeOff) o;
-    return Objects.equals(this.id, timeOff.id) &&
-        Objects.equals(this.remoteId, timeOff.remoteId) &&
-        Objects.equals(this.employee, timeOff.employee) &&
-        Objects.equals(this.approver, timeOff.approver) &&
-        Objects.equals(this.status, timeOff.status) &&
-        Objects.equals(this.employeeNote, timeOff.employeeNote) &&
-        Objects.equals(this.units, timeOff.units) &&
-        Objects.equals(this.amount, timeOff.amount) &&
-        Objects.equals(this.requestType, timeOff.requestType) &&
-        Objects.equals(this.startTime, timeOff.startTime) &&
-        Objects.equals(this.endTime, timeOff.endTime) &&
-        Objects.equals(this.remoteData, timeOff.remoteData);
+    TimeOffRequest timeOffRequest = (TimeOffRequest) o;
+    return Objects.equals(this.remoteId, timeOffRequest.remoteId) &&
+        Objects.equals(this.employee, timeOffRequest.employee) &&
+        Objects.equals(this.approver, timeOffRequest.approver) &&
+        Objects.equals(this.employeeNote, timeOffRequest.employeeNote) &&
+        Objects.equals(this.amount, timeOffRequest.amount) &&
+        Objects.equals(this.requestType, timeOffRequest.requestType) &&
+        Objects.equals(this.startTime, timeOffRequest.startTime) &&
+        Objects.equals(this.endTime, timeOffRequest.endTime);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -355,7 +276,7 @@ public class TimeOff {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, approver, status, employeeNote, units, amount, requestType, startTime, endTime, remoteData);
+    return Objects.hash(remoteId, employee, approver, employeeNote, amount, requestType, startTime, endTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -368,19 +289,15 @@ public class TimeOff {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TimeOff {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class TimeOffRequest {\n");
     sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
     sb.append("    employee: ").append(toIndentedString(employee)).append("\n");
     sb.append("    approver: ").append(toIndentedString(approver)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    employeeNote: ").append(toIndentedString(employeeNote)).append("\n");
-    sb.append("    units: ").append(toIndentedString(units)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
-    sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

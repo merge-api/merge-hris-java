@@ -37,15 +37,15 @@ public class Example {
     //tokenAuth.setApiKeyPrefix("Token");
 
     LinkedAccountsApi apiInstance = new LinkedAccountsApi(defaultClient);
-    String category = "accounting"; // String | category
-    Integer cursor = 56; // Integer | The pagination cursor value.
-    String endUserEmailAddress = "endUserEmailAddress_example"; // String | end_user_email_address
-    String endUserOrganizationName = "endUserOrganizationName_example"; // String | end_user_organization_name
-    String endUserOriginId = "endUserOriginId_example"; // String | end_user_origin_id
+    String category = "accounting"; // String | 
+    String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
+    String endUserEmailAddress = "endUserEmailAddress_example"; // String | 
+    String endUserOrganizationName = "endUserOrganizationName_example"; // String | 
+    String endUserOriginId = "endUserOriginId_example"; // String | 
     String endUserOriginIds = "endUserOriginIds_example"; // String | Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once
-    UUID id = UUID.randomUUID(); // UUID | id
+    UUID id = UUID.randomUUID(); // UUID | 
     String ids = "ids_example"; // String | Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once
-    String integrationName = "integrationName_example"; // String | integration_name
+    String integrationName = "integrationName_example"; // String | 
     String isTestAccount = "isTestAccount_example"; // String | If included, will only include test linked accounts. If not included, will only include non-test linked accounts
     Integer pageSize = 56; // Integer | Number of results to return per page.
     String status = "status_example"; // String | Filter by status. Options: `COMPLETE`, `INCOMPLETE`, `RELINK_NEEDED`
@@ -67,15 +67,15 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **String**| category | [optional] [enum: accounting, ats, hris]
- **cursor** | **Integer**| The pagination cursor value. | [optional]
- **endUserEmailAddress** | **String**| end_user_email_address | [optional]
- **endUserOrganizationName** | **String**| end_user_organization_name | [optional]
- **endUserOriginId** | **String**| end_user_origin_id | [optional]
+ **category** | **String**|  | [optional] [enum: accounting, ats, hris]
+ **cursor** | **String**| The pagination cursor value. | [optional]
+ **endUserEmailAddress** | **String**|  | [optional]
+ **endUserOrganizationName** | **String**|  | [optional]
+ **endUserOriginId** | **String**|  | [optional]
  **endUserOriginIds** | **String**| Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once | [optional]
- **id** | **UUID**| id | [optional]
+ **id** | **UUID**|  | [optional]
  **ids** | **String**| Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once | [optional]
- **integrationName** | **String**| integration_name | [optional]
+ **integrationName** | **String**|  | [optional]
  **isTestAccount** | **String**| If included, will only include test linked accounts. If not included, will only include non-test linked accounts | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
  **status** | **String**| Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; | [optional]

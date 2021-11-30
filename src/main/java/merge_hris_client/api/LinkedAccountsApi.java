@@ -57,15 +57,15 @@ public class LinkedAccountsApi {
 
     /**
      * Build call for linkedAccountsList
-     * @param category category (optional)
+     * @param category  (optional)
      * @param cursor The pagination cursor value. (optional)
-     * @param endUserEmailAddress end_user_email_address (optional)
-     * @param endUserOrganizationName end_user_organization_name (optional)
-     * @param endUserOriginId end_user_origin_id (optional)
+     * @param endUserEmailAddress  (optional)
+     * @param endUserOrganizationName  (optional)
+     * @param endUserOriginId  (optional)
      * @param endUserOriginIds Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
-     * @param id id (optional)
+     * @param id  (optional)
      * @param ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param integrationName integration_name (optional)
+     * @param integrationName  (optional)
      * @param isTestAccount If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
@@ -78,7 +78,7 @@ public class LinkedAccountsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkedAccountsListCall(String category, Integer cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call linkedAccountsListCall(String category, String cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -157,7 +157,7 @@ public class LinkedAccountsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call linkedAccountsListValidateBeforeCall(String category, Integer cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call linkedAccountsListValidateBeforeCall(String category, String cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback _callback) throws ApiException {
         
 
         okhttp3.Call localVarCall = linkedAccountsListCall(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status, _callback);
@@ -168,15 +168,15 @@ public class LinkedAccountsApi {
     /**
      * 
      * List linked accounts for your organization.
-     * @param category category (optional)
+     * @param category  (optional)
      * @param cursor The pagination cursor value. (optional)
-     * @param endUserEmailAddress end_user_email_address (optional)
-     * @param endUserOrganizationName end_user_organization_name (optional)
-     * @param endUserOriginId end_user_origin_id (optional)
+     * @param endUserEmailAddress  (optional)
+     * @param endUserOrganizationName  (optional)
+     * @param endUserOriginId  (optional)
      * @param endUserOriginIds Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
-     * @param id id (optional)
+     * @param id  (optional)
      * @param ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param integrationName integration_name (optional)
+     * @param integrationName  (optional)
      * @param isTestAccount If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
@@ -188,7 +188,7 @@ public class LinkedAccountsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedAccountDetailsAndActionsList linkedAccountsList(String category, Integer cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status) throws ApiException {
+    public PaginatedAccountDetailsAndActionsList linkedAccountsList(String category, String cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status) throws ApiException {
         ApiResponse<PaginatedAccountDetailsAndActionsList> localVarResp = linkedAccountsListWithHttpInfo(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status);
         return localVarResp.getData();
     }
@@ -196,15 +196,15 @@ public class LinkedAccountsApi {
     /**
      * 
      * List linked accounts for your organization.
-     * @param category category (optional)
+     * @param category  (optional)
      * @param cursor The pagination cursor value. (optional)
-     * @param endUserEmailAddress end_user_email_address (optional)
-     * @param endUserOrganizationName end_user_organization_name (optional)
-     * @param endUserOriginId end_user_origin_id (optional)
+     * @param endUserEmailAddress  (optional)
+     * @param endUserOrganizationName  (optional)
+     * @param endUserOriginId  (optional)
      * @param endUserOriginIds Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
-     * @param id id (optional)
+     * @param id  (optional)
      * @param ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param integrationName integration_name (optional)
+     * @param integrationName  (optional)
      * @param isTestAccount If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
@@ -216,7 +216,7 @@ public class LinkedAccountsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedAccountDetailsAndActionsList> linkedAccountsListWithHttpInfo(String category, Integer cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status) throws ApiException {
+    public ApiResponse<PaginatedAccountDetailsAndActionsList> linkedAccountsListWithHttpInfo(String category, String cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status) throws ApiException {
         okhttp3.Call localVarCall = linkedAccountsListValidateBeforeCall(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status, null);
         Type localVarReturnType = new TypeToken<PaginatedAccountDetailsAndActionsList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -225,15 +225,15 @@ public class LinkedAccountsApi {
     /**
      *  (asynchronously)
      * List linked accounts for your organization.
-     * @param category category (optional)
+     * @param category  (optional)
      * @param cursor The pagination cursor value. (optional)
-     * @param endUserEmailAddress end_user_email_address (optional)
-     * @param endUserOrganizationName end_user_organization_name (optional)
-     * @param endUserOriginId end_user_origin_id (optional)
+     * @param endUserEmailAddress  (optional)
+     * @param endUserOrganizationName  (optional)
+     * @param endUserOriginId  (optional)
      * @param endUserOriginIds Comma-separated list of EndUser origin IDs, making it possible to specify multiple EndUsers at once (optional)
-     * @param id id (optional)
+     * @param id  (optional)
      * @param ids Comma-separated list of LinkedAccount IDs, making it possible to specify multiple LinkedAccounts at once (optional)
-     * @param integrationName integration_name (optional)
+     * @param integrationName  (optional)
      * @param isTestAccount If included, will only include test linked accounts. If not included, will only include non-test linked accounts (optional)
      * @param pageSize Number of results to return per page. (optional)
      * @param status Filter by status. Options: &#x60;COMPLETE&#x60;, &#x60;INCOMPLETE&#x60;, &#x60;RELINK_NEEDED&#x60; (optional)
@@ -246,7 +246,7 @@ public class LinkedAccountsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call linkedAccountsListAsync(String category, Integer cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback<PaginatedAccountDetailsAndActionsList> _callback) throws ApiException {
+    public okhttp3.Call linkedAccountsListAsync(String category, String cursor, String endUserEmailAddress, String endUserOrganizationName, String endUserOriginId, String endUserOriginIds, UUID id, String ids, String integrationName, String isTestAccount, Integer pageSize, String status, final ApiCallback<PaginatedAccountDetailsAndActionsList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = linkedAccountsListValidateBeforeCall(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status, _callback);
         Type localVarReturnType = new TypeToken<PaginatedAccountDetailsAndActionsList>(){}.getType();

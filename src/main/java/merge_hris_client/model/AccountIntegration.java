@@ -26,65 +26,17 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import merge_hris_client.model.CategoriesEnum;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * AccountIntegration
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:32:28.722726-05:00[America/New_York]")
 public class AccountIntegration {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;∑
-
-  /**
-   * Gets or Sets categories
-   */
-  @JsonAdapter(CategoriesEnum.Adapter.class)
-  public enum CategoriesEnum {
-    HRIS("hris"),
-    
-    ATS("ats"),
-    
-    ACCOUNTING("accounting");
-
-    private String value;
-
-    CategoriesEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static CategoriesEnum fromValue(String value) {
-      for (CategoriesEnum b : CategoriesEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<CategoriesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CategoriesEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public CategoriesEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return CategoriesEnum.fromValue(value);
-      }
-    }
-  }
+  private String name;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)

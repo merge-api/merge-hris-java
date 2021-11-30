@@ -31,7 +31,7 @@ import merge_hris_client.model.ModelOperation;
 /**
  * AccountDetailsAndActionsIntegration
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:32:28.722726-05:00[America/New_York]")
 public class AccountDetailsAndActionsIntegration {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -39,7 +39,7 @@ public class AccountDetailsAndActionsIntegration {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private CategoriesEnum categories;
+  private List<CategoriesEnum> categories = new ArrayList<CategoriesEnum>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -89,9 +89,14 @@ public class AccountDetailsAndActionsIntegration {
   }
 
 
-  public AccountDetailsAndActionsIntegration categories(CategoriesEnum categories) {
+  public AccountDetailsAndActionsIntegration categories(List<CategoriesEnum> categories) {
     
     this.categories = categories;
+    return this;
+  }
+
+  public AccountDetailsAndActionsIntegration addCategoriesItem(CategoriesEnum categoriesItem) {
+    this.categories.add(categoriesItem);
     return this;
   }
 
@@ -102,12 +107,12 @@ public class AccountDetailsAndActionsIntegration {
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public CategoriesEnum getCategories() {
+  public List<CategoriesEnum> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(CategoriesEnum categories) {
+  public void setCategories(List<CategoriesEnum> categories) {
     this.categories = categories;
   }
 

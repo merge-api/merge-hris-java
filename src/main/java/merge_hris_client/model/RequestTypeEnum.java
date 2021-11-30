@@ -35,7 +35,11 @@ public enum RequestTypeEnum {
   
   PERSONAL("PERSONAL"),
   
-  JURY_DUTY("JURY_DUTY");
+  JURY_DUTY("JURY_DUTY"),
+  
+  VOLUNTEER("VOLUNTEER"),
+  
+  BEREAVEMENT("BEREAVEMENT");
 
   private String value;
 

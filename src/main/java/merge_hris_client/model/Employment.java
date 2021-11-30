@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:32:28.722726-05:00[America/New_York]")
 public class Employment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -43,6 +43,10 @@ public class Employment {
   public static final String SERIALIZED_NAME_REMOTE_ID = "remote_id";
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
   private String remoteId;
+
+  public static final String SERIALIZED_NAME_EMPLOYEE = "employee";
+  @SerializedName(SERIALIZED_NAME_EMPLOYEE)
+  private UUID employee;
 
   public static final String SERIALIZED_NAME_JOB_TITLE = "job_title";
   @SerializedName(SERIALIZED_NAME_JOB_TITLE)
@@ -115,6 +119,29 @@ public class Employment {
 
   public void setRemoteId(String remoteId) {
     this.remoteId = remoteId;
+  }
+
+
+  public Employment employee(UUID employee) {
+    
+    this.employee = employee;
+    return this;
+  }
+
+   /**
+   * The employee holding this position.
+   * @return employee
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "0958cbc6-6040-430a-848e-aafacbadf4ae", value = "The employee holding this position.")
+
+  public UUID getEmployee() {
+    return employee;
+  }
+
+
+  public void setEmployee(UUID employee) {
+    this.employee = employee;
   }
 
 
@@ -282,6 +309,7 @@ public class Employment {
     Employment employment = (Employment) o;
     return Objects.equals(this.id, employment.id) &&
         Objects.equals(this.remoteId, employment.remoteId) &&
+        Objects.equals(this.employee, employment.employee) &&
         Objects.equals(this.jobTitle, employment.jobTitle) &&
         Objects.equals(this.payRate, employment.payRate) &&
         Objects.equals(this.payPeriod, employment.payPeriod) &&
@@ -299,7 +327,7 @@ public class Employment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, jobTitle, payRate, payPeriod, payFrequency, payCurrency, flsaStatus, effectiveDate, employmentType, remoteData);
+    return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, flsaStatus, effectiveDate, employmentType, remoteData);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -315,6 +343,7 @@ public class Employment {
     sb.append("class Employment {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    remoteId: ").append(toIndentedString(remoteId)).append("\n");
+    sb.append("    employee: ").append(toIndentedString(employee)).append("\n");
     sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
     sb.append("    payRate: ").append(toIndentedString(payRate)).append("\n");
     sb.append("    payPeriod: ").append(toIndentedString(payPeriod)).append("\n");

@@ -131,6 +131,21 @@ paths:
         schema:
           type: string
         style: form
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee:
+            summary: Expand Employee
+            value: employee
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          type: string
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -172,7 +187,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -187,49 +201,6 @@ paths:
       tags:
       - benefits
       x-accepts: application/json
-    post:
-      description: Creates a `Benefit` object with the given values.
-      operationId: benefits_create
-      parameters:
-      - description: Token identifying the end user.
-        explode: false
-        in: header
-        name: X-Account-Token
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Whether or not third-party updates should be run asynchronously.
-        explode: true
-        in: query
-        name: run_async
-        required: false
-        schema:
-          type: boolean
-        style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BenefitRequest'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/BenefitRequest'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/BenefitRequest'
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Benefit'
-      security:
-      - tokenAuth: []
-      tags:
-      - benefits
-      x-contentType: application/json
-      x-accepts: application/json
   /benefits/{id}:
     get:
       description: Returns a `Benefit` object with the given `id`.
@@ -243,6 +214,21 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee:
+            summary: Expand Employee
+            value: employee
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          type: string
+        style: form
       - explode: false
         in: path
         name: id
@@ -355,7 +341,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -507,7 +492,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -689,7 +673,6 @@ paths:
         name: ended_after
         required: false
         schema:
-          description: The day and time the payroll run ended.
           format: date-time
           nullable: true
           type: string
@@ -701,9 +684,25 @@ paths:
         name: ended_before
         required: false
         schema:
-          description: The day and time the payroll run ended.
           format: date-time
           nullable: true
+          type: string
+        style: form
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee,PayrollRun:
+            summary: Expand Employee, Payroll_run
+            value: employee,payroll_run
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          - employee,payroll_run
+          - payroll_run
           type: string
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
@@ -759,7 +758,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -770,7 +768,6 @@ paths:
         name: started_after
         required: false
         schema:
-          description: The day and time the payroll run started.
           format: date-time
           nullable: true
           type: string
@@ -782,7 +779,6 @@ paths:
         name: started_before
         required: false
         schema:
-          description: The day and time the payroll run started.
           format: date-time
           nullable: true
           type: string
@@ -811,6 +807,23 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee,PayrollRun:
+            summary: Expand Employee, Payroll_run
+            value: employee,payroll_run
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          - employee,payroll_run
+          - payroll_run
+          type: string
+        style: form
       - explode: false
         in: path
         name: id
@@ -893,6 +906,84 @@ paths:
         schema:
           type: string
         style: form
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployments,HomeLocation,WorkLocation,Manager,Team,Company:
+            summary: Expand Employments, Home_location, Work_location, Manager, Team,
+              Company
+            value: employments,home_location,work_location,manager,team,company
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - company
+          - employments
+          - employments,company
+          - employments,home_location
+          - employments,home_location,company
+          - employments,home_location,manager
+          - employments,home_location,manager,company
+          - employments,home_location,manager,team
+          - employments,home_location,manager,team,company
+          - employments,home_location,team
+          - employments,home_location,team,company
+          - employments,home_location,work_location
+          - employments,home_location,work_location,company
+          - employments,home_location,work_location,manager
+          - employments,home_location,work_location,manager,company
+          - employments,home_location,work_location,manager,team
+          - employments,home_location,work_location,manager,team,company
+          - employments,home_location,work_location,team
+          - employments,home_location,work_location,team,company
+          - employments,manager
+          - employments,manager,company
+          - employments,manager,team
+          - employments,manager,team,company
+          - employments,team
+          - employments,team,company
+          - employments,work_location
+          - employments,work_location,company
+          - employments,work_location,manager
+          - employments,work_location,manager,company
+          - employments,work_location,manager,team
+          - employments,work_location,manager,team,company
+          - employments,work_location,team
+          - employments,work_location,team,company
+          - home_location
+          - home_location,company
+          - home_location,manager
+          - home_location,manager,company
+          - home_location,manager,team
+          - home_location,manager,team,company
+          - home_location,team
+          - home_location,team,company
+          - home_location,work_location
+          - home_location,work_location,company
+          - home_location,work_location,manager
+          - home_location,work_location,manager,company
+          - home_location,work_location,manager,team
+          - home_location,work_location,manager,team,company
+          - home_location,work_location,team
+          - home_location,work_location,team,company
+          - manager
+          - manager,company
+          - manager,team
+          - manager,team,company
+          - team
+          - team,company
+          - work_location
+          - work_location,company
+          - work_location,manager
+          - work_location,manager,company
+          - work_location,manager,team
+          - work_location,manager,team,company
+          - work_location,team
+          - work_location,team,company
+          type: string
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -902,7 +993,7 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Whether to include sensetive fields (such as social security
+      - description: Whether to include sensitive fields (such as social security
           numbers) in the response.
         explode: true
         in: query
@@ -954,7 +1045,6 @@ paths:
         name: personal_email
         required: false
         schema:
-          description: The employee's personal email.
           format: email
           nullable: true
           type: string
@@ -965,7 +1055,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -986,7 +1075,6 @@ paths:
         name: work_email
         required: false
         schema:
-          description: The employee's work email.
           format: email
           nullable: true
           type: string
@@ -1045,7 +1133,7 @@ paths:
             schema:
               $ref: '#/components/schemas/EmployeeRequest'
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
@@ -1069,6 +1157,84 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployments,HomeLocation,WorkLocation,Manager,Team,Company:
+            summary: Expand Employments, Home_location, Work_location, Manager, Team,
+              Company
+            value: employments,home_location,work_location,manager,team,company
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - company
+          - employments
+          - employments,company
+          - employments,home_location
+          - employments,home_location,company
+          - employments,home_location,manager
+          - employments,home_location,manager,company
+          - employments,home_location,manager,team
+          - employments,home_location,manager,team,company
+          - employments,home_location,team
+          - employments,home_location,team,company
+          - employments,home_location,work_location
+          - employments,home_location,work_location,company
+          - employments,home_location,work_location,manager
+          - employments,home_location,work_location,manager,company
+          - employments,home_location,work_location,manager,team
+          - employments,home_location,work_location,manager,team,company
+          - employments,home_location,work_location,team
+          - employments,home_location,work_location,team,company
+          - employments,manager
+          - employments,manager,company
+          - employments,manager,team
+          - employments,manager,team,company
+          - employments,team
+          - employments,team,company
+          - employments,work_location
+          - employments,work_location,company
+          - employments,work_location,manager
+          - employments,work_location,manager,company
+          - employments,work_location,manager,team
+          - employments,work_location,manager,team,company
+          - employments,work_location,team
+          - employments,work_location,team,company
+          - home_location
+          - home_location,company
+          - home_location,manager
+          - home_location,manager,company
+          - home_location,manager,team
+          - home_location,manager,team,company
+          - home_location,team
+          - home_location,team,company
+          - home_location,work_location
+          - home_location,work_location,company
+          - home_location,work_location,manager
+          - home_location,work_location,manager,company
+          - home_location,work_location,manager,team
+          - home_location,work_location,manager,team,company
+          - home_location,work_location,team
+          - home_location,work_location,team,company
+          - manager
+          - manager,company
+          - manager,team
+          - manager,team,company
+          - team
+          - team,company
+          - work_location
+          - work_location,company
+          - work_location,manager
+          - work_location,manager,company
+          - work_location,manager,team
+          - work_location,manager,team,company
+          - work_location,team
+          - work_location,team,company
+          type: string
+        style: form
       - explode: false
         in: path
         name: id
@@ -1086,7 +1252,7 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: Whether to include sensetive fields (such as social security
+      - description: Whether to include sensitive fields (such as social security
           numbers) in the response.
         explode: true
         in: query
@@ -1160,6 +1326,21 @@ paths:
         schema:
           type: string
         style: form
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee:
+            summary: Expand Employee
+            value: employee
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          type: string
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -1187,6 +1368,17 @@ paths:
           format: date-time
           type: string
         style: form
+      - description: Overrides the default ordering for this endpoint.
+        explode: true
+        in: query
+        name: order_by
+        required: false
+        schema:
+          enum:
+          - -effective_date
+          - effective_date
+          type: string
+        style: form
       - description: Number of results to return per page.
         explode: true
         in: query
@@ -1201,7 +1393,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -1229,6 +1420,21 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandEmployee:
+            summary: Expand Employee
+            value: employee
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - employee
+          type: string
+        style: form
       - explode: false
         in: path
         name: id
@@ -1290,22 +1496,24 @@ paths:
       description: Gets issues.
       operationId: issues_list
       parameters:
-      - description: account_token
-        explode: true
+      - explode: true
         in: query
         name: account_token
         required: false
         schema:
-          description: This is used by the Organization to act on their behalf.
           type: string
         style: form
       - description: The pagination cursor value.
+        examples:
+          CursorExample:
+            summary: Cursor Example
+            value: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
         explode: true
         in: query
         name: cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: If included, will only include issues whose most recent action
           occurred before this time
@@ -1316,13 +1524,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: end_user_organization_name
-        explode: true
+      - explode: true
         in: query
         name: end_user_organization_name
         required: false
         schema:
-          description: The end-user's company's name.
           type: string
         style: form
       - description: If True, will include muted issues
@@ -1333,13 +1539,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: integration_name
-        explode: true
+      - explode: true
         in: query
         name: integration_name
         required: false
         schema:
-          description: Company name.
           type: string
         style: form
       - description: Number of results to return per page.
@@ -1359,8 +1563,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: status
-        explode: true
+      - explode: true
         in: query
         name: status
         required: false
@@ -1438,8 +1641,7 @@ paths:
       description: List linked accounts for your organization.
       operationId: linked_accounts_list
       parameters:
-      - description: category
-        explode: true
+      - explode: true
         in: query
         name: category
         required: false
@@ -1452,37 +1654,36 @@ paths:
           type: string
         style: form
       - description: The pagination cursor value.
+        examples:
+          CursorExample:
+            summary: Cursor Example
+            value: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
         explode: true
         in: query
         name: cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
-      - description: end_user_email_address
-        explode: true
+      - explode: true
         in: query
         name: end_user_email_address
         required: false
         schema:
           type: string
         style: form
-      - description: end_user_organization_name
-        explode: true
+      - explode: true
         in: query
         name: end_user_organization_name
         required: false
         schema:
-          description: The end-user's company's name.
           type: string
         style: form
-      - description: end_user_origin_id
-        explode: true
+      - explode: true
         in: query
         name: end_user_origin_id
         required: false
         schema:
-          nullable: true
           type: string
         style: form
       - description: Comma-separated list of EndUser origin IDs, making it possible
@@ -1494,8 +1695,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: id
-        explode: true
+      - explode: true
         in: query
         name: id
         required: false
@@ -1512,13 +1712,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: integration_name
-        explode: true
+      - explode: true
         in: query
         name: integration_name
         required: false
         schema:
-          description: Company name.
           type: string
         style: form
       - description: If included, will only include test linked accounts. If not included,
@@ -1641,7 +1839,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -1776,12 +1973,16 @@ paths:
           type: string
         style: simple
       - description: The pagination cursor value.
+        examples:
+          CursorExample:
+            summary: Cursor Example
+            value: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
         explode: true
         in: query
         name: cursor
         required: false
         schema:
-          type: integer
+          type: string
         style: form
       - description: Number of results to return per page.
         explode: true
@@ -1870,6 +2071,21 @@ paths:
         schema:
           type: string
         style: form
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandParentTeam:
+            summary: Expand Parent_team
+            value: parent_team
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - parent_team
+          type: string
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -1906,14 +2122,14 @@ paths:
           type: integer
         style: form
       - description: If provided, will only return teams with this parent team.
+        examples:
+          ParentTeamId:
+            summary: parent_team_id
         explode: true
         in: query
         name: parent_team_id
         required: false
         schema:
-          description: The team's parent team.
-          format: uuid
-          nullable: true
           type: string
         style: form
       - description: The API provider's ID for the given object.
@@ -1922,7 +2138,6 @@ paths:
         name: remote_id
         required: false
         schema:
-          description: The third-party API ID of the matching object.
           nullable: true
           type: string
         style: form
@@ -1950,6 +2165,21 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Which relations should be returned in expanded form. Multiple
+          relation names should be comma separated without spaces.
+        examples:
+          ExpandParentTeam:
+            summary: Expand Parent_team
+            value: parent_team
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          enum:
+          - parent_team
+          type: string
+        style: form
       - explode: false
         in: path
         name: id
@@ -2052,6 +2282,9 @@ components:
           color: color
           name: name
           square_image: square_image
+          categories:
+          - null
+          - null
           slug: slug
           passthrough_available: true
         end_user_email_address: hradmin@foobar.dev
@@ -2059,6 +2292,7 @@ components:
         category: hris
         end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
         status: COMPLETE
+        status_detail: status_detail
       properties:
         id:
           example: e59b1821-f85c-4e28-a6b3-1804156f3563
@@ -2071,6 +2305,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/AccountDetailsAndActionsStatusEnum'
           example: COMPLETE
+        status_detail:
+          type: string
         end_user_origin_id:
           example: 3ac95cde-6c7f-4eef-afec-be710b42308d
           type: string
@@ -2117,13 +2353,18 @@ components:
         color: color
         name: name
         square_image: square_image
+        categories:
+        - null
+        - null
         slug: slug
         passthrough_available: true
       properties:
         name:
           type: string
         categories:
-          $ref: '#/components/schemas/CategoriesEnum'
+          items:
+            $ref: '#/components/schemas/CategoriesEnum'
+          type: array
         image:
           type: string
         square_image:
@@ -2158,8 +2399,8 @@ components:
         name: name
         square_image: https://openapi-generator.tech
         categories:
-        - hris
-        - hris
+        - null
+        - null
         slug: slug
       properties:
         name:
@@ -2170,11 +2411,7 @@ components:
             categories should be comma separated.<br/><br>Example: For [ats, hris],
             enter <i>ats,hris</i>'
           items:
-            enum:
-            - hris
-            - ats
-            - accounting
-            type: string
+            $ref: '#/components/schemas/CategoriesEnum'
           type: array
         image:
           description: Company logo in rectangular shape. <b>Upload an image with
@@ -2209,8 +2446,8 @@ components:
           name: name
           square_image: https://openapi-generator.tech
           categories:
-          - hris
-          - hris
+          - null
+          - null
           slug: slug
       properties:
         account_token:
@@ -2249,8 +2486,8 @@ components:
           name: name
           square_image: https://openapi-generator.tech
           categories:
-          - hris
-          - hris
+          - null
+          - null
           slug: slug
         passthrough_available: true
       properties:
@@ -2347,50 +2584,6 @@ components:
           nullable: true
           readOnly: true
           type: array
-      type: object
-    BenefitRequest:
-      description: |-
-        # The Benefit Object
-        ### Description
-        The `Benefit` object is used to represent a Benefit for an employee.
-
-        ### Usage Example
-        Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.
-      example:
-        employee_contribution: 23.65
-        remote_id: "19202938"
-        company_contribution: 150.0
-        employee: d2f972d0-2526-434b-9409-4c3b468e08f0
-        provider_name: Blue Shield of California
-      properties:
-        remote_id:
-          description: The third-party API ID of the matching object.
-          example: "19202938"
-          nullable: true
-          type: string
-        employee:
-          description: The employee on the plan.
-          example: d2f972d0-2526-434b-9409-4c3b468e08f0
-          format: uuid
-          nullable: true
-          type: string
-        provider_name:
-          description: The name of the benefit provider.
-          example: Blue Shield of California
-          nullable: true
-          type: string
-        employee_contribution:
-          description: The employee's contribution.
-          example: 23.65
-          format: float
-          nullable: true
-          type: number
-        company_contribution:
-          description: The company's contribution.
-          example: 150.0
-          format: float
-          nullable: true
-          type: number
       type: object
     CategoriesEnum:
       enum:
@@ -2743,12 +2936,15 @@ components:
           example: POST
         path:
           example: /scooters
+          minLength: 1
           type: string
         base_url_override:
+          minLength: 1
           nullable: true
           type: string
         data:
           example: '{"company": "Lime", "model": "Gen 2.5"}'
+          minLength: 1
           nullable: true
           type: string
         headers:
@@ -3437,6 +3633,7 @@ components:
         pay_period: YEAR
         pay_frequency: BIWEEKLY
         id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+        employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
         job_title: Software Engineer
         pay_rate: 80000.00
         pay_currency: USD
@@ -3453,6 +3650,12 @@ components:
         remote_id:
           description: The third-party API ID of the matching object.
           example: "19202938"
+          nullable: true
+          type: string
+        employee:
+          description: The employee holding this position.
+          example: 0958cbc6-6040-430a-848e-aafacbadf4ae
+          format: uuid
           nullable: true
           type: string
         job_title:
@@ -3509,25 +3712,25 @@ components:
         integration: integration
         end_user_email_address: end_user_email_address
         categories:
-        - hris
-        - hris
+        - null
+        - null
         end_user_origin_id: end_user_origin_id
       properties:
         end_user_email_address:
+          minLength: 1
           type: string
         end_user_organization_name:
+          minLength: 1
           type: string
         end_user_origin_id:
+          minLength: 1
           type: string
         categories:
           items:
-            enum:
-            - hris
-            - ats
-            - accounting
-            type: string
+            $ref: '#/components/schemas/CategoriesEnum'
           type: array
         integration:
+          minLength: 1
           nullable: true
           type: string
       required:
@@ -3548,6 +3751,7 @@ components:
       properties:
         name:
           example: Remote Deployment Key 1
+          minLength: 1
           type: string
       required:
       - name
@@ -3787,6 +3991,9 @@ components:
             color: color
             name: name
             square_image: square_image
+            categories:
+            - null
+            - null
             slug: slug
             passthrough_available: true
           end_user_email_address: hradmin@foobar.dev
@@ -3794,6 +4001,7 @@ components:
           category: hris
           end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
           status: COMPLETE
+          status_detail: status_detail
         - end_user_organization_name: Foo Bar, LLC
           integration:
             image: image
@@ -3823,6 +4031,9 @@ components:
             color: color
             name: name
             square_image: square_image
+            categories:
+            - null
+            - null
             slug: slug
             passthrough_available: true
           end_user_email_address: hradmin@foobar.dev
@@ -3830,6 +4041,7 @@ components:
           category: hris
           end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
           status: COMPLETE
+          status_detail: status_detail
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -4139,6 +4351,7 @@ components:
           pay_period: YEAR
           pay_frequency: BIWEEKLY
           id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
           job_title: Software Engineer
           pay_rate: 80000.00
           pay_currency: USD
@@ -4153,6 +4366,7 @@ components:
           pay_period: YEAR
           pay_frequency: BIWEEKLY
           id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
           job_title: Software Engineer
           pay_rate: 80000.00
           pay_currency: USD
@@ -4335,6 +4549,7 @@ components:
     RemoteDataRequest:
       properties:
         path:
+          minLength: 1
           type: string
         data:
           additionalProperties: {}
@@ -4377,6 +4592,7 @@ components:
       properties:
         name:
           example: Remote Deployment Key 1
+          minLength: 1
           type: string
       required:
       - name

@@ -32,7 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * # The LinkedAccount Object ### Description The &#x60;LinkedAccount&#x60; object is used to represent an end user&#39;s link with a specific integration.  ### Usage Example View a list of your organization&#39;s &#x60;LinkedAccount&#x60; objects.
  */
 @ApiModel(description = "# The LinkedAccount Object ### Description The `LinkedAccount` object is used to represent an end user's link with a specific integration.  ### Usage Example View a list of your organization's `LinkedAccount` objects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-04T16:55:30.126663-07:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:32:28.722726-05:00[America/New_York]")
 public class AccountDetailsAndActions {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -45,6 +45,10 @@ public class AccountDetailsAndActions {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private AccountDetailsAndActionsStatusEnum status;
+
+  public static final String SERIALIZED_NAME_STATUS_DETAIL = "status_detail";
+  @SerializedName(SERIALIZED_NAME_STATUS_DETAIL)
+  private String statusDetail;
 
   public static final String SERIALIZED_NAME_END_USER_ORIGIN_ID = "end_user_origin_id";
   @SerializedName(SERIALIZED_NAME_END_USER_ORIGIN_ID)
@@ -129,6 +133,29 @@ public class AccountDetailsAndActions {
 
   public void setStatus(AccountDetailsAndActionsStatusEnum status) {
     this.status = status;
+  }
+
+
+  public AccountDetailsAndActions statusDetail(String statusDetail) {
+    
+    this.statusDetail = statusDetail;
+    return this;
+  }
+
+   /**
+   * Get statusDetail
+   * @return statusDetail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStatusDetail() {
+    return statusDetail;
+  }
+
+
+  public void setStatusDetail(String statusDetail) {
+    this.statusDetail = statusDetail;
   }
 
 
@@ -236,6 +263,7 @@ public class AccountDetailsAndActions {
     return Objects.equals(this.id, accountDetailsAndActions.id) &&
         Objects.equals(this.category, accountDetailsAndActions.category) &&
         Objects.equals(this.status, accountDetailsAndActions.status) &&
+        Objects.equals(this.statusDetail, accountDetailsAndActions.statusDetail) &&
         Objects.equals(this.endUserOriginId, accountDetailsAndActions.endUserOriginId) &&
         Objects.equals(this.endUserOrganizationName, accountDetailsAndActions.endUserOrganizationName) &&
         Objects.equals(this.endUserEmailAddress, accountDetailsAndActions.endUserEmailAddress) &&
@@ -248,7 +276,7 @@ public class AccountDetailsAndActions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, category, status, endUserOriginId, endUserOrganizationName, endUserEmailAddress, integration);
+    return Objects.hash(id, category, status, statusDetail, endUserOriginId, endUserOrganizationName, endUserEmailAddress, integration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -265,6 +293,7 @@ public class AccountDetailsAndActions {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusDetail: ").append(toIndentedString(statusDetail)).append("\n");
     sb.append("    endUserOriginId: ").append(toIndentedString(endUserOriginId)).append("\n");
     sb.append("    endUserOrganizationName: ").append(toIndentedString(endUserOrganizationName)).append("\n");
     sb.append("    endUserEmailAddress: ").append(toIndentedString(endUserEmailAddress)).append("\n");

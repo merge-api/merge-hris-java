@@ -80,11 +80,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**201** |  |  -  |
 
 <a name="employeesList"></a>
 # **employeesList**
-> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId)
+> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, expand, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId)
 
 
 
@@ -117,8 +117,9 @@ public class Example {
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
+    String expand = "company"; // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
-    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
+    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
     String managerId = "managerId_example"; // String | If provided, will only return employees for this manager.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -129,7 +130,7 @@ public class Example {
     String workEmail = "workEmail_example"; // String | If provided, will only return Employees with this work email
     String workLocationId = "workLocationId_example"; // String | If provided, will only return employees for this location.
     try {
-      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId);
+      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, expand, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesList");
@@ -151,8 +152,9 @@ Name | Type | Description  | Notes
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] [enum: company, employments, employments,company, employments,home_location, employments,home_location,company, employments,home_location,manager, employments,home_location,manager,company, employments,home_location,manager,team, employments,home_location,manager,team,company, employments,home_location,team, employments,home_location,team,company, employments,home_location,work_location, employments,home_location,work_location,company, employments,home_location,work_location,manager, employments,home_location,work_location,manager,company, employments,home_location,work_location,manager,team, employments,home_location,work_location,manager,team,company, employments,home_location,work_location,team, employments,home_location,work_location,team,company, employments,manager, employments,manager,company, employments,manager,team, employments,manager,team,company, employments,team, employments,team,company, employments,work_location, employments,work_location,company, employments,work_location,manager, employments,work_location,manager,company, employments,work_location,manager,team, employments,work_location,manager,team,company, employments,work_location,team, employments,work_location,team,company, home_location, home_location,company, home_location,manager, home_location,manager,company, home_location,manager,team, home_location,manager,team,company, home_location,team, home_location,team,company, home_location,work_location, home_location,work_location,company, home_location,work_location,manager, home_location,work_location,manager,company, home_location,work_location,manager,team, home_location,work_location,manager,team,company, home_location,work_location,team, home_location,work_location,team,company, manager, manager,company, manager,team, manager,team,company, team, team,company, work_location, work_location,company, work_location,manager, work_location,manager,company, work_location,manager,team, work_location,manager,team,company, work_location,team, work_location,team,company]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
+ **includeSensitiveFields** | **Boolean**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
  **managerId** | **String**| If provided, will only return employees for this manager. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -183,7 +185,7 @@ Name | Type | Description  | Notes
 
 <a name="employeesRetrieve"></a>
 # **employeesRetrieve**
-> Employee employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields)
+> Employee employeesRetrieve(xAccountToken, id, expand, includeRemoteData, includeSensitiveFields)
 
 
 
@@ -213,10 +215,11 @@ public class Example {
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     UUID id = UUID.randomUUID(); // UUID | 
+    String expand = "company"; // String | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
-    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensetive fields (such as social security numbers) in the response.
+    Boolean includeSensitiveFields = true; // Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
     try {
-      Employee result = apiInstance.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
+      Employee result = apiInstance.employeesRetrieve(xAccountToken, id, expand, includeRemoteData, includeSensitiveFields);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesRetrieve");
@@ -235,8 +238,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
  **id** | **UUID**|  |
+ **expand** | **String**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional] [enum: company, employments, employments,company, employments,home_location, employments,home_location,company, employments,home_location,manager, employments,home_location,manager,company, employments,home_location,manager,team, employments,home_location,manager,team,company, employments,home_location,team, employments,home_location,team,company, employments,home_location,work_location, employments,home_location,work_location,company, employments,home_location,work_location,manager, employments,home_location,work_location,manager,company, employments,home_location,work_location,manager,team, employments,home_location,work_location,manager,team,company, employments,home_location,work_location,team, employments,home_location,work_location,team,company, employments,manager, employments,manager,company, employments,manager,team, employments,manager,team,company, employments,team, employments,team,company, employments,work_location, employments,work_location,company, employments,work_location,manager, employments,work_location,manager,company, employments,work_location,manager,team, employments,work_location,manager,team,company, employments,work_location,team, employments,work_location,team,company, home_location, home_location,company, home_location,manager, home_location,manager,company, home_location,manager,team, home_location,manager,team,company, home_location,team, home_location,team,company, home_location,work_location, home_location,work_location,company, home_location,work_location,manager, home_location,work_location,manager,company, home_location,work_location,manager,team, home_location,work_location,manager,team,company, home_location,work_location,team, home_location,work_location,team,company, manager, manager,company, manager,team, manager,team,company, team, team,company, work_location, work_location,company, work_location,manager, work_location,manager,company, work_location,manager,team, work_location,manager,team,company, work_location,team, work_location,team,company]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
- **includeSensitiveFields** | **Boolean**| Whether to include sensetive fields (such as social security numbers) in the response. | [optional]
+ **includeSensitiveFields** | **Boolean**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
 
 ### Return type
 
