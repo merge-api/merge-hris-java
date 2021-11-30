@@ -53,7 +53,7 @@ public class IssuesApiTest {
         Integer pageSize = null;
         String startDate = null;
         String status = null;
-                PaginatedIssueList response = api.issuesList(accountToken, cursor, endDate, endUserOrganizationName, includeMuted, integrationName, pageSize, startDate, status);
+        // PaginatedIssueList response = api.issuesList(accountToken, cursor, endDate, endUserOrganizationName, includeMuted, integrationName, pageSize, startDate, status);
         // TODO: test validations
     }
     

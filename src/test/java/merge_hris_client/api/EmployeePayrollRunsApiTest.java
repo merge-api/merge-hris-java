@@ -74,7 +74,7 @@ public class EmployeePayrollRunsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        EmployeePayrollRun response = api.employeePayrollRunsRetrieve(xAccountToken, id, includeRemoteData);
+        // EmployeePayrollRun response = api.employeePayrollRunsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

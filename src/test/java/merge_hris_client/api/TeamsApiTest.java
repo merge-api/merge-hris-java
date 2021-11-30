@@ -72,7 +72,7 @@ public class TeamsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        Team response = api.teamsRetrieve(xAccountToken, id, includeRemoteData);
+        // Team response = api.teamsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }
