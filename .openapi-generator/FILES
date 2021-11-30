@@ -71,7 +71,6 @@ docs/Team.md
 docs/TeamsApi.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
-gradlew.bat
 pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
