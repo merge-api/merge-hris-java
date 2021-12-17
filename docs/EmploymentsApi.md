@@ -46,7 +46,7 @@ public class Example {
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
-    String orderBy = "-effective_date"; // String | Overrides the default ordering for this endpoint.
+    String orderBy = "orderBy_example"; // String | Overrides the default ordering for this endpoint.
     Integer pageSize = 56; // Integer | Number of results to return per page.
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
@@ -128,7 +128,7 @@ public class Example {
 
     EmploymentsApi apiInstance = new EmploymentsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = UUID.randomUUID(); // UUID | 
+    UUID id = new UUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Employment result = apiInstance.employmentsRetrieve(xAccountToken, id, includeRemoteData);
@@ -149,7 +149,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | **UUID**|  |
+ **id** | [**UUID**](.md)|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

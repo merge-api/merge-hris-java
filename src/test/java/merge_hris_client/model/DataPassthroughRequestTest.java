@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import merge_hris_client.model.MethodEnum;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -82,6 +81,14 @@ public class DataPassthroughRequestTest {
     @Test
     public void headersTest() {
         // TODO: test headers
+    }
+
+    /**
+     * Test the property 'requestFormat'
+     */
+    @Test
+    public void requestFormatTest() {
+        // TODO: test requestFormat
     }
 
 }

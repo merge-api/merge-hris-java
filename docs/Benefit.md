@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **remoteId** | **String** | The third-party API ID of the matching object. |  [optional]
 **employee** | **UUID** | The employee on the plan. |  [optional]
 **providerName** | **String** | The name of the benefit provider. |  [optional]
-**benefitPlanType** | **String** |  |  [optional] [readonly]
+**benefitPlanType** | **String** |  | 
 **employeeContribution** | **Float** | The employee&#39;s contribution. |  [optional]
 **companyContribution** | **Float** | The company&#39;s contribution. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]

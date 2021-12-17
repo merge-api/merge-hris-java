@@ -14,6 +14,7 @@
 package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
+import merge_hris_client.model.PaginatedSyncStatusList;
 import merge_hris_client.model.SyncStatus;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -35,7 +36,25 @@ public class SyncStatusApiTest {
     /**
      * 
      *
-     * Force resync of all models.
+     * Get syncing status.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void syncStatusListTest() throws ApiException {
+        String xAccountToken = null;
+        String cursor = null;
+        Integer pageSize = null;
+        PaginatedSyncStatusList response = api.syncStatusList(xAccountToken, cursor, pageSize);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Force re-sync of all models. This is only available for organizations on Merge&#39;s Grow and Expand plans.
      *
      * @throws ApiException
      *          if the Api call fails

@@ -44,7 +44,7 @@ public class LinkedAccountsApiTest {
     @Test
     public void linkedAccountsListTest() throws ApiException {
         String category = null;
-        Integer cursor = null;
+        String cursor = null;
         String endUserEmailAddress = null;
         String endUserOrganizationName = null;
         String endUserOriginId = null;
@@ -55,7 +55,8 @@ public class LinkedAccountsApiTest {
         String isTestAccount = null;
         Integer pageSize = null;
         String status = null;
-        // PaginatedAccountDetailsAndActionsList response = api.linkedAccountsList(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status);
+        PaginatedAccountDetailsAndActionsList response = api.linkedAccountsList(category, cursor, endUserEmailAddress, endUserOrganizationName, endUserOriginId, endUserOriginIds, id, ids, integrationName, isTestAccount, pageSize, status);
+
         // TODO: test validations
     }
     

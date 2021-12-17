@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import merge_hris_client.model.Employee;
-import merge_hris_client.model.EmployeeRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmployeeList;
 import java.util.UUID;
@@ -59,133 +58,6 @@ public class EmployeesApi {
     }
 
     /**
-     * Build call for employeesCreate
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employeeRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call employeesCreateCall(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = employeeRequest;
-
-        // create path and map variables
-        String localVarPath = "/employees";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (runAsync != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("run_async", runAsync));
-        }
-
-        if (xAccountToken != null) {
-            localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json", "application/x-www-form-urlencoded", "multipart/form-data"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] { "tokenAuth" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call employeesCreateValidateBeforeCall(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'xAccountToken' is set
-        if (xAccountToken == null) {
-            throw new ApiException("Missing the required parameter 'xAccountToken' when calling employeesCreate(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = employeesCreateCall(xAccountToken, runAsync, employeeRequest, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * Creates an &#x60;Employee&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employeeRequest  (optional)
-     * @return Employee
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public Employee employeesCreate(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest) throws ApiException {
-        ApiResponse<Employee> localVarResp = employeesCreateWithHttpInfo(xAccountToken, runAsync, employeeRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Creates an &#x60;Employee&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employeeRequest  (optional)
-     * @return ApiResponse&lt;Employee&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Employee> employeesCreateWithHttpInfo(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest) throws ApiException {
-        okhttp3.Call localVarCall = employeesCreateValidateBeforeCall(xAccountToken, runAsync, employeeRequest, null);
-        Type localVarReturnType = new TypeToken<Employee>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Creates an &#x60;Employee&#x60; object with the given values.
-     * @param xAccountToken Token identifying the end user. (required)
-     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param employeeRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call employeesCreateAsync(String xAccountToken, Boolean runAsync, EmployeeRequest employeeRequest, final ApiCallback<Employee> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = employeesCreateValidateBeforeCall(xAccountToken, runAsync, employeeRequest, _callback);
-        Type localVarReturnType = new TypeToken<Employee>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for employeesList
      * @param xAccountToken Token identifying the end user. (required)
      * @param companyId If provided, will only return employees for this company. (optional)
@@ -198,6 +70,7 @@ public class EmployeesApi {
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param payGroupId If provided, will only return employees for this pay group (optional)
      * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
@@ -212,7 +85,7 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employeesListCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call employeesListCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String payGroupId, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -264,6 +137,10 @@ public class EmployeesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
         }
 
+        if (payGroupId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pay_group_id", payGroupId));
+        }
+
         if (personalEmail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("personal_email", personalEmail));
         }
@@ -307,7 +184,7 @@ public class EmployeesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call employeesListValidateBeforeCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call employeesListValidateBeforeCall(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String payGroupId, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -315,7 +192,7 @@ public class EmployeesApi {
         }
         
 
-        okhttp3.Call localVarCall = employeesListCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
+        okhttp3.Call localVarCall = employeesListCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
         return localVarCall;
 
     }
@@ -334,6 +211,7 @@ public class EmployeesApi {
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param payGroupId If provided, will only return employees for this pay group (optional)
      * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
@@ -347,8 +225,8 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedEmployeeList employeesList(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
-        ApiResponse<PaginatedEmployeeList> localVarResp = employeesListWithHttpInfo(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId);
+    public PaginatedEmployeeList employeesList(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String payGroupId, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
+        ApiResponse<PaginatedEmployeeList> localVarResp = employeesListWithHttpInfo(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
         return localVarResp.getData();
     }
 
@@ -366,6 +244,7 @@ public class EmployeesApi {
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param payGroupId If provided, will only return employees for this pay group (optional)
      * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
@@ -379,8 +258,8 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedEmployeeList> employeesListWithHttpInfo(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
-        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, null);
+    public ApiResponse<PaginatedEmployeeList> employeesListWithHttpInfo(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String payGroupId, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId) throws ApiException {
+        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId, null);
         Type localVarReturnType = new TypeToken<PaginatedEmployeeList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -399,6 +278,7 @@ public class EmployeesApi {
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
      * @param pageSize Number of results to return per page. (optional)
+     * @param payGroupId If provided, will only return employees for this pay group (optional)
      * @param personalEmail If provided, will only return Employees with this personal email (optional)
      * @param remoteId The API provider&#39;s ID for the given object. (optional)
      * @param teamId If provided, will only return employees for this team. (optional)
@@ -413,9 +293,9 @@ public class EmployeesApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employeesListAsync(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback<PaginatedEmployeeList> _callback) throws ApiException {
+    public okhttp3.Call employeesListAsync(String xAccountToken, String companyId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, Boolean includeRemoteData, Boolean includeSensitiveFields, String managerId, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String payGroupId, String personalEmail, String remoteId, String teamId, String workEmail, String workLocationId, final ApiCallback<PaginatedEmployeeList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
+        okhttp3.Call localVarCall = employeesListValidateBeforeCall(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId, _callback);
         Type localVarReturnType = new TypeToken<PaginatedEmployeeList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

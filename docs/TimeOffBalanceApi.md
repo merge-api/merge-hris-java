@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="timeOffBalanceList"></a>
 # **timeOffBalanceList**
-> PaginatedTimeOffBalanceList timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId)
+> PaginatedTimeOffBalanceList timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, policyType, remoteId)
 
 
 
@@ -47,9 +47,10 @@ public class Example {
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     Integer pageSize = 56; // Integer | Number of results to return per page.
+    String policyType = "policyType_example"; // String | If provided, will only return TimeOffBalance with this policy type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT')
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
-      PaginatedTimeOffBalanceList result = apiInstance.timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+      PaginatedTimeOffBalanceList result = apiInstance.timeOffBalanceList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, policyType, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeOffBalanceApi#timeOffBalanceList");
@@ -75,6 +76,7 @@ Name | Type | Description  | Notes
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
+ **policyType** | **String**| If provided, will only return TimeOffBalance with this policy type. Options: (&#39;VACATION&#39;, &#39;SICK&#39;, &#39;PERSONAL&#39;, &#39;JURY_DUTY&#39;, &#39;VOLUNTEER&#39;, &#39;BEREAVEMENT&#39;) | [optional] [enum: BEREAVEMENT, JURY_DUTY, PERSONAL, SICK, VACATION, VOLUNTEER]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 
 
-Returns an &#x60;TimeOffBalance&#x60; object with the given &#x60;id&#x60;.
+Returns a &#x60;TimeOffBalance&#x60; object with the given &#x60;id&#x60;.
 
 ### Example
 ```java

@@ -53,8 +53,9 @@ public class TeamsApiTest {
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
+        String parentTeamId = null;
         String remoteId = null;
-        // PaginatedTeamList response = api.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedTeamList response = api.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
 
         // TODO: test validations
     }
@@ -72,7 +73,7 @@ public class TeamsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        // Team response = api.teamsRetrieve(xAccountToken, id, includeRemoteData);
+        Team response = api.teamsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

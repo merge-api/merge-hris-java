@@ -15,7 +15,6 @@ package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
 import merge_hris_client.model.Employee;
-import merge_hris_client.model.EmployeeRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmployeeList;
 import java.util.UUID;
@@ -39,24 +38,6 @@ public class EmployeesApiTest {
     /**
      * 
      *
-     * Creates an &#x60;Employee&#x60; object with the given values.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void employeesCreateTest() throws ApiException {
-        String xAccountToken = null;
-        Boolean runAsync = null;
-        EmployeeRequest employeeRequest = null;
-        Employee response = api.employeesCreate(xAccountToken, runAsync, employeeRequest);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
      * Returns a list of &#x60;Employee&#x60; objects.
      *
      * @throws ApiException
@@ -75,10 +56,13 @@ public class EmployeesApiTest {
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
+        String payGroupId = null;
+        String personalEmail = null;
         String remoteId = null;
         String teamId = null;
+        String workEmail = null;
         String workLocationId = null;
-        // PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, remoteId, teamId, workLocationId);
+        PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
 
         // TODO: test validations
     }
@@ -97,7 +81,7 @@ public class EmployeesApiTest {
         UUID id = null;
         Boolean includeRemoteData = null;
         Boolean includeSensitiveFields = null;
-        // Employee response = api.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
+        Employee response = api.employeesRetrieve(xAccountToken, id, includeRemoteData, includeSensitiveFields);
 
         // TODO: test validations
     }

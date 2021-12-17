@@ -1,8 +1,8 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "merge",
+    organization := "dev.merge.hris",
     name := "merge-hris-client",
-    version := "1.0.0",
+    version := "1.2.1",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

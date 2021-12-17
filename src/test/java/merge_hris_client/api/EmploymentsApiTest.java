@@ -15,7 +15,6 @@ package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
 import merge_hris_client.model.Employment;
-import merge_hris_client.model.EmploymentRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmploymentList;
 import java.util.UUID;
@@ -39,24 +38,6 @@ public class EmploymentsApiTest {
     /**
      * 
      *
-     * Creates an &#x60;Employment&#x60; object with the given values.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void employmentsCreateTest() throws ApiException {
-        String xAccountToken = null;
-        Boolean runAsync = null;
-        EmploymentRequest employmentRequest = null;
-        // Employment response = api.employmentsCreate(xAccountToken, runAsync, employmentRequest);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
      * Returns a list of &#x60;Employment&#x60; objects.
      *
      * @throws ApiException
@@ -72,9 +53,10 @@ public class EmploymentsApiTest {
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
+        String orderBy = null;
         Integer pageSize = null;
         String remoteId = null;
-        // PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
 
         // TODO: test validations
     }
@@ -92,7 +74,7 @@ public class EmploymentsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        // Employment response = api.employmentsRetrieve(xAccountToken, id, includeRemoteData);
+        Employment response = api.employmentsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

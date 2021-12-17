@@ -24,15 +24,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import merge_hris_client.model.AccountDetailsAndActionsIntegration;
-import merge_hris_client.model.AccountDetailsAndActionsStatusEnum;
-import merge_hris_client.model.CategoryEnum;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * # The LinkedAccount Object ### Description The &#x60;LinkedAccount&#x60; object is used to represent an end user&#39;s link with a specific integration.  ### Usage Example View a list of your organization&#39;s &#x60;LinkedAccount&#x60; objects.
  */
 @ApiModel(description = "# The LinkedAccount Object ### Description The `LinkedAccount` object is used to represent an end user's link with a specific integration.  ### Usage Example View a list of your organization's `LinkedAccount` objects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T20:24:25.647062Z[Etc/UTC]")
 public class AccountDetailsAndActions {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -40,11 +37,11 @@ public class AccountDetailsAndActions {
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
-  private CategoryEnum category;
+  private String category;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private AccountDetailsAndActionsStatusEnum status;
+  private String status;
 
   public static final String SERIALIZED_NAME_STATUS_DETAIL = "status_detail";
   @SerializedName(SERIALIZED_NAME_STATUS_DETAIL)
@@ -77,7 +74,6 @@ public class AccountDetailsAndActions {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(example = "e59b1821-f85c-4e28-a6b3-1804156f3563", required = true, value = "")
 
   public String getId() {
@@ -90,7 +86,7 @@ public class AccountDetailsAndActions {
   }
 
 
-  public AccountDetailsAndActions category(CategoryEnum category) {
+  public AccountDetailsAndActions category(String category) {
     
     this.category = category;
     return this;
@@ -103,17 +99,17 @@ public class AccountDetailsAndActions {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "hris", value = "")
 
-  public CategoryEnum getCategory() {
+  public String getCategory() {
     return category;
   }
 
 
-  public void setCategory(CategoryEnum category) {
+  public void setCategory(String category) {
     this.category = category;
   }
 
 
-  public AccountDetailsAndActions status(AccountDetailsAndActionsStatusEnum status) {
+  public AccountDetailsAndActions status(String status) {
     
     this.status = status;
     return this;
@@ -123,15 +119,14 @@ public class AccountDetailsAndActions {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
   @ApiModelProperty(example = "COMPLETE", required = true, value = "")
 
-  public AccountDetailsAndActionsStatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
 
-  public void setStatus(AccountDetailsAndActionsStatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
@@ -192,7 +187,6 @@ public class AccountDetailsAndActions {
    * Get endUserOrganizationName
    * @return endUserOrganizationName
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(example = "Foo Bar, LLC", required = true, value = "")
 
   public String getEndUserOrganizationName() {
@@ -215,7 +209,6 @@ public class AccountDetailsAndActions {
    * Get endUserEmailAddress
    * @return endUserEmailAddress
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(example = "hradmin@foobar.dev", required = true, value = "")
 
   public String getEndUserEmailAddress() {
@@ -270,20 +263,9 @@ public class AccountDetailsAndActions {
         Objects.equals(this.integration, accountDetailsAndActions.integration);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, category, status, statusDetail, endUserOriginId, endUserOrganizationName, endUserEmailAddress, integration);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

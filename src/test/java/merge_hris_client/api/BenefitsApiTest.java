@@ -55,7 +55,7 @@ public class BenefitsApiTest {
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        // PaginatedBenefitList response = api.benefitsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedBenefitList response = api.benefitsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
 
         // TODO: test validations
     }
@@ -73,7 +73,7 @@ public class BenefitsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        // Benefit response = api.benefitsRetrieve(xAccountToken, id, includeRemoteData);
+        Benefit response = api.benefitsRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

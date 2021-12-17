@@ -45,7 +45,7 @@ public class IssuesApiTest {
     @Test
     public void issuesListTest() throws ApiException {
         String accountToken = null;
-        Integer cursor = null;
+        String cursor = null;
         String endDate = null;
         String endUserOrganizationName = null;
         String includeMuted = null;
@@ -53,7 +53,8 @@ public class IssuesApiTest {
         Integer pageSize = null;
         String startDate = null;
         String status = null;
-        // PaginatedIssueList response = api.issuesList(accountToken, cursor, endDate, endUserOrganizationName, includeMuted, integrationName, pageSize, startDate, status);
+        PaginatedIssueList response = api.issuesList(accountToken, cursor, endDate, endUserOrganizationName, includeMuted, integrationName, pageSize, startDate, status);
+
         // TODO: test validations
     }
     
@@ -68,7 +69,8 @@ public class IssuesApiTest {
     @Test
     public void issuesRetrieveTest() throws ApiException {
         UUID id = null;
-                Issue response = api.issuesRetrieve(id);
+        Issue response = api.issuesRetrieve(id);
+
         // TODO: test validations
     }
     

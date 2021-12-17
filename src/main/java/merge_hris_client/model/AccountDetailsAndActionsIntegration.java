@@ -25,13 +25,12 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import merge_hris_client.model.CategoriesEnum;
 import merge_hris_client.model.ModelOperation;
 
 /**
  * AccountDetailsAndActionsIntegration
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T20:24:25.647062Z[Etc/UTC]")
 public class AccountDetailsAndActionsIntegration {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -39,7 +38,7 @@ public class AccountDetailsAndActionsIntegration {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<CategoriesEnum> categories = new ArrayList<CategoriesEnum>();
+  private List<String> categories = new ArrayList<String>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -76,7 +75,6 @@ public class AccountDetailsAndActionsIntegration {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getName() {
@@ -89,13 +87,13 @@ public class AccountDetailsAndActionsIntegration {
   }
 
 
-  public AccountDetailsAndActionsIntegration categories(List<CategoriesEnum> categories) {
+  public AccountDetailsAndActionsIntegration categories(List<String> categories) {
     
     this.categories = categories;
     return this;
   }
 
-  public AccountDetailsAndActionsIntegration addCategoriesItem(CategoriesEnum categoriesItem) {
+  public AccountDetailsAndActionsIntegration addCategoriesItem(String categoriesItem) {
     this.categories.add(categoriesItem);
     return this;
   }
@@ -104,15 +102,14 @@ public class AccountDetailsAndActionsIntegration {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public List<CategoriesEnum> getCategories() {
+  public List<String> getCategories() {
     return categories;
   }
 
 
-  public void setCategories(List<CategoriesEnum> categories) {
+  public void setCategories(List<String> categories) {
     this.categories = categories;
   }
 
@@ -173,7 +170,6 @@ public class AccountDetailsAndActionsIntegration {
    * Get color
    * @return color
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getColor() {
@@ -196,7 +192,6 @@ public class AccountDetailsAndActionsIntegration {
    * Get slug
    * @return slug
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public String getSlug() {
@@ -219,7 +214,6 @@ public class AccountDetailsAndActionsIntegration {
    * Get passthroughAvailable
    * @return passthroughAvailable
   **/
-  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
   public Boolean getPassthroughAvailable() {

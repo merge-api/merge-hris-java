@@ -4,83 +4,9 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deductionsCreate**](DeductionsApi.md#deductionsCreate) | **POST** /deductions | 
 [**deductionsList**](DeductionsApi.md#deductionsList) | **GET** /deductions | 
 [**deductionsRetrieve**](DeductionsApi.md#deductionsRetrieve) | **GET** /deductions/{id} | 
 
-
-<a name="deductionsCreate"></a>
-# **deductionsCreate**
-> Deduction deductionsCreate(xAccountToken, runAsync, deductionRequest)
-
-
-
-Creates a &#x60;Deduction&#x60; object with the given values.
-
-### Example
-```java
-// Import classes:
-import merge_hris_client.ApiClient;
-import merge_hris_client.ApiException;
-import merge_hris_client.Configuration;
-import merge_hris_client.auth.*;
-import merge_hris_client.models.*;
-import merge_hris_client.api.DeductionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
-    
-    // Configure API key authorization: tokenAuth
-    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
-    tokenAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //tokenAuth.setApiKeyPrefix("Token");
-
-    DeductionsApi apiInstance = new DeductionsApi(defaultClient);
-    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
-    DeductionRequest deductionRequest = new DeductionRequest(); // DeductionRequest | 
-    try {
-      Deduction result = apiInstance.deductionsCreate(xAccountToken, runAsync, deductionRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DeductionsApi#deductionsCreate");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xAccountToken** | **String**| Token identifying the end user. |
- **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
- **deductionRequest** | [**DeductionRequest**](DeductionRequest.md)|  | [optional]
-
-### Return type
-
-[**Deduction**](Deduction.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
 
 <a name="deductionsList"></a>
 # **deductionsList**
@@ -200,7 +126,7 @@ public class Example {
 
     DeductionsApi apiInstance = new DeductionsApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    UUID id = UUID.randomUUID(); // UUID | 
+    UUID id = new UUID(); // UUID | 
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     try {
       Deduction result = apiInstance.deductionsRetrieve(xAccountToken, id, includeRemoteData);
@@ -221,7 +147,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **id** | **UUID**|  |
+ **id** | [**UUID**](.md)|  |
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

@@ -27,13 +27,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
  */
 @ApiModel(description = "# The Earning Object ### Description The `Earning` object is used to represent an earning for a given employee's payroll run. One run could include several earnings.  ### Usage Example Fetch from the `LIST Earnings` endpoint and filter by `ID` to show all earnings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T20:24:25.647062Z[Etc/UTC]")
 public class Earning {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -116,18 +115,26 @@ public class Earning {
   }
 
 
+  public Earning type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
    /**
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "SALARY", value = "")
+  @ApiModelProperty(example = "SALARY", required = true, value = "")
 
   public String getType() {
     return type;
   }
 
 
+  public void setType(String type) {
+    this.type = type;
+  }
 
 
   public Earning remoteData(List<Map<String, Object>> remoteData) {
@@ -177,20 +184,9 @@ public class Earning {
         Objects.equals(this.remoteData, earning.remoteData);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, employeePayrollRun, amount, type, remoteData);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

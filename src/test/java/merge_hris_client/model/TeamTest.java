@@ -69,6 +69,14 @@ public class TeamTest {
     }
 
     /**
+     * Test the property 'parentTeam'
+     */
+    @Test
+    public void parentTeamTest() {
+        // TODO: test parentTeam
+    }
+
+    /**
      * Test the property 'remoteData'
      */
     @Test
