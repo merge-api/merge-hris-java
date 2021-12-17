@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="payrollRunsList"></a>
 # **payrollRunsList**
-> PaginatedPayrollRunList payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId)
+> PaginatedPayrollRunList payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore)
 
 
 
@@ -42,13 +42,18 @@ public class Example {
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
+    OffsetDateTime endedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs ended after this datetime.
+    OffsetDateTime endedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs ended before this datetime.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     Integer pageSize = 56; // Integer | Number of results to return per page.
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
+    String runType = "runType_example"; // String | If provided, will only return PayrollRun's with this status. Options: ('REGULAR', 'OFF_CYCLE', 'CORRECTION', 'TERMINATION', 'SIGN_ON_BONUS')
+    OffsetDateTime startedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs started after this datetime.
+    OffsetDateTime startedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs started before this datetime.
     try {
-      PaginatedPayrollRunList result = apiInstance.payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+      PaginatedPayrollRunList result = apiInstance.payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PayrollRunsApi#payrollRunsList");
@@ -69,11 +74,16 @@ Name | Type | Description  | Notes
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
+ **endedAfter** | **OffsetDateTime**| If provided, will only return payroll runs ended after this datetime. | [optional]
+ **endedBefore** | **OffsetDateTime**| If provided, will only return payroll runs ended before this datetime. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
+ **runType** | **String**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional]
+ **startedAfter** | **OffsetDateTime**| If provided, will only return payroll runs started after this datetime. | [optional]
+ **startedBefore** | **OffsetDateTime**| If provided, will only return payroll runs started before this datetime. | [optional]
 
 ### Return type
 

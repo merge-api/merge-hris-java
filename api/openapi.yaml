@@ -1938,6 +1938,197 @@ paths:
       tags:
       - pay-group
       x-accepts: application/json
+  /payroll-runs:
+    get:
+      description: Returns a list of `PayrollRun` objects.
+      operationId: payroll_runs_list
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: If provided, will only return objects created after this datetime.
+        explode: true
+        in: query
+        name: created_after
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: If provided, will only return objects created before this datetime.
+        explode: true
+        in: query
+        name: created_before
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: The pagination cursor value.
+        examples:
+          CursorExample:
+            summary: Cursor Example
+            value: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: If provided, will only return payroll runs ended after this datetime.
+        explode: true
+        in: query
+        name: ended_after
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: If provided, will only return payroll runs ended before this
+          datetime.
+        explode: true
+        in: query
+        name: ended_before
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: Whether to include the original data Merge fetched from the third-party
+          to produce these models.
+        explode: true
+        in: query
+        name: include_remote_data
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: If provided, will only return objects modified after this datetime.
+        explode: true
+        in: query
+        name: modified_after
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: If provided, will only return objects modified before this datetime.
+        explode: true
+        in: query
+        name: modified_before
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - description: Number of results to return per page.
+        explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The API provider's ID for the given object.
+        explode: true
+        in: query
+        name: remote_id
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: 'If provided, will only return PayrollRun''s with this status.
+          Options: (''REGULAR'', ''OFF_CYCLE'', ''CORRECTION'', ''TERMINATION'', ''SIGN_ON_BONUS'')'
+        explode: true
+        in: query
+        name: run_type
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: If provided, will only return payroll runs started after this
+          datetime.
+        explode: true
+        in: query
+        name: started_after
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: If provided, will only return payroll runs started before this
+          datetime.
+        explode: true
+        in: query
+        name: started_before
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPayrollRunList'
+      security:
+      - tokenAuth: []
+      tags:
+      - payroll-runs
+      x-accepts: application/json
+  /payroll-runs/{id}:
+    get:
+      description: Returns a `PayrollRun` object with the given `id`.
+      operationId: payroll_runs_retrieve
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: Whether to include the original data Merge fetched from the third-party
+          to produce these models.
+        explode: true
+        in: query
+        name: include_remote_data
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollRun'
+      security:
+      - tokenAuth: []
+      tags:
+      - payroll-runs
+      x-accepts: application/json
   /regenerate-key:
     post:
       description: Exchange remote keys.
@@ -4802,6 +4993,47 @@ components:
             $ref: '#/components/schemas/PayGroup'
           type: array
       type: object
+    PaginatedPayrollRunList:
+      example:
+        next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+        previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
+        results:
+        - end_date: 2020-11-15T00:00:00Z
+          check_date: 2020-11-15T00:00:00Z
+          remote_id: "19202938"
+          run_state: PAID
+          id: 37336947-b3d4-4a4c-a310-ab6ab510e079
+          run_type: REGULAR
+          start_date: 2020-11-08T00:00:00Z
+          remote_data:
+          - path: /payroll
+            data:
+            - Varies by platform
+        - end_date: 2020-11-15T00:00:00Z
+          check_date: 2020-11-15T00:00:00Z
+          remote_id: "19202938"
+          run_state: PAID
+          id: 37336947-b3d4-4a4c-a310-ab6ab510e079
+          run_type: REGULAR
+          start_date: 2020-11-08T00:00:00Z
+          remote_data:
+          - path: /payroll
+            data:
+            - Varies by platform
+      properties:
+        next:
+          example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
+          nullable: true
+          type: string
+        previous:
+          example: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/PayrollRun'
+          type: array
+      type: object
     PaginatedSyncStatusList:
       example:
         next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -4998,6 +5230,75 @@ components:
           nullable: true
           readOnly: true
           type: array
+      type: object
+    PayrollRun:
+      description: |-
+        # The PayrollRun Object
+        ### Description
+        The `PayrollRun` object is used to represent a payroll run.
+
+        ### Usage Example
+        Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
+      example:
+        end_date: 2020-11-15T00:00:00Z
+        check_date: 2020-11-15T00:00:00Z
+        remote_id: "19202938"
+        run_state: PAID
+        id: 37336947-b3d4-4a4c-a310-ab6ab510e079
+        run_type: REGULAR
+        start_date: 2020-11-08T00:00:00Z
+        remote_data:
+        - path: /payroll
+          data:
+          - Varies by platform
+      properties:
+        id:
+          example: 37336947-b3d4-4a4c-a310-ab6ab510e079
+          format: uuid
+          readOnly: true
+          type: string
+        remote_id:
+          description: The third-party API ID of the matching object.
+          example: "19202938"
+          nullable: true
+          type: string
+        run_state:
+          example: PAID
+          type: string
+        run_type:
+          example: REGULAR
+          type: string
+        start_date:
+          description: The day and time the payroll run started.
+          example: 2020-11-08T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        end_date:
+          description: The day and time the payroll run ended.
+          example: 2020-11-15T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        check_date:
+          description: The day and time the payroll run was checked.
+          example: 2020-11-15T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        remote_data:
+          example:
+          - path: /payroll
+            data:
+            - Varies by platform
+          items:
+            $ref: '#/components/schemas/RemoteData'
+          nullable: true
+          readOnly: true
+          type: array
+      required:
+      - run_state
+      - run_type
       type: object
     RemoteData:
       properties:

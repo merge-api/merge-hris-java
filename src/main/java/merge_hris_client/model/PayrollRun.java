@@ -27,14 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The PayrollRun Object ### Description The &#x60;PayrollRun&#x60; object is used to represent a payroll run.  ### Usage Example Fetch from the &#x60;LIST PayrollRuns&#x60; endpoint and filter by &#x60;ID&#x60; to show all payroll runs.
  */
 @ApiModel(description = "# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:21:03.902816-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
 public class PayrollRun {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -106,32 +105,48 @@ public class PayrollRun {
   }
 
 
+  public PayrollRun runState(String runState) {
+    
+    this.runState = runState;
+    return this;
+  }
+
    /**
    * Get runState
    * @return runState
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "PAID", value = "")
+  @ApiModelProperty(example = "PAID", required = true, value = "")
 
   public String getRunState() {
     return runState;
   }
 
 
+  public void setRunState(String runState) {
+    this.runState = runState;
+  }
 
+
+  public PayrollRun runType(String runType) {
+    
+    this.runType = runType;
+    return this;
+  }
 
    /**
    * Get runType
    * @return runType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "REGULAR", value = "")
+  @ApiModelProperty(example = "REGULAR", required = true, value = "")
 
   public String getRunType() {
     return runType;
   }
 
 
+  public void setRunType(String runType) {
+    this.runType = runType;
+  }
 
 
   public PayrollRun startDate(OffsetDateTime startDate) {
@@ -236,20 +251,9 @@ public class PayrollRun {
         Objects.equals(this.remoteData, payrollRun.remoteData);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, runState, runType, startDate, endDate, checkDate, remoteData);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

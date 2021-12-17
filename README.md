@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2021-12-17T21:09:15.514338Z[Etc/UTC]
+  - Build date: 2021-12-17T23:12:03.251026Z[Etc/UTC]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -142,6 +142,8 @@ Class | Method | HTTP request | Description
 *PassthroughApi* | [**passthroughCreate**](docs/PassthroughApi.md#passthroughCreate) | **POST** /passthrough | 
 *PayGroupApi* | [**payGroupList**](docs/PayGroupApi.md#payGroupList) | **GET** /pay-group | 
 *PayGroupApi* | [**payGroupRetrieve**](docs/PayGroupApi.md#payGroupRetrieve) | **GET** /pay-group/{id} | 
+*PayrollRunsApi* | [**payrollRunsList**](docs/PayrollRunsApi.md#payrollRunsList) | **GET** /payroll-runs | 
+*PayrollRunsApi* | [**payrollRunsRetrieve**](docs/PayrollRunsApi.md#payrollRunsRetrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/RegenerateKeyApi.md#regenerateKeyCreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/SyncStatusApi.md#syncStatusList) | **GET** /sync-status | 
 *SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
@@ -191,11 +193,13 @@ Class | Method | HTTP request | Description
  - [PaginatedIssueList](docs/PaginatedIssueList.md)
  - [PaginatedLocationList](docs/PaginatedLocationList.md)
  - [PaginatedPayGroupList](docs/PaginatedPayGroupList.md)
+ - [PaginatedPayrollRunList](docs/PaginatedPayrollRunList.md)
  - [PaginatedSyncStatusList](docs/PaginatedSyncStatusList.md)
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
  - [PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md)
  - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
  - [PayGroup](docs/PayGroup.md)
+ - [PayrollRun](docs/PayrollRun.md)
  - [RemoteData](docs/RemoteData.md)
  - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
