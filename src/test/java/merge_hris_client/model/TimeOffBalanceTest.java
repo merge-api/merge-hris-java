@@ -85,6 +85,14 @@ public class TimeOffBalanceTest {
     }
 
     /**
+     * Test the property 'policyType'
+     */
+    @Test
+    public void policyTypeTest() {
+        // TODO: test policyType
+    }
+
+    /**
      * Test the property 'remoteData'
      */
     @Test

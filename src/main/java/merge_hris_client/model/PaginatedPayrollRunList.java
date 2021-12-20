@@ -26,12 +26,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import merge_hris_client.model.PayrollRun;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * PaginatedPayrollRunList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T20:21:03.902816-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
 public class PaginatedPayrollRunList {
   public static final String SERIALIZED_NAME_NEXT = "next";
   @SerializedName(SERIALIZED_NAME_NEXT)
@@ -137,20 +136,9 @@ public class PaginatedPayrollRunList {
         Objects.equals(this.results, paginatedPayrollRunList.results);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(next, previous, results);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

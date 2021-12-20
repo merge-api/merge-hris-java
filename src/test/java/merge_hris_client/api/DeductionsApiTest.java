@@ -15,7 +15,6 @@ package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
 import merge_hris_client.model.Deduction;
-import merge_hris_client.model.DeductionRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedDeductionList;
 import java.util.UUID;
@@ -39,23 +38,6 @@ public class DeductionsApiTest {
     /**
      * 
      *
-     * Creates a &#x60;Deduction&#x60; object with the given values.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deductionsCreateTest() throws ApiException {
-        String xAccountToken = null;
-        Boolean runAsync = null;
-        DeductionRequest deductionRequest = null;
-                Deduction response = api.deductionsCreate(xAccountToken, runAsync, deductionRequest);
-        // TODO: test validations
-    }
-    
-    /**
-     * 
-     *
      * Returns a list of &#x60;Deduction&#x60; objects.
      *
      * @throws ApiException
@@ -73,7 +55,8 @@ public class DeductionsApiTest {
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-                PaginatedDeductionList response = api.deductionsList(xAccountToken, createdAfter, createdBefore, cursor, employeePayrollRunId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedDeductionList response = api.deductionsList(xAccountToken, createdAfter, createdBefore, cursor, employeePayrollRunId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+
         // TODO: test validations
     }
     
@@ -90,7 +73,8 @@ public class DeductionsApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-                Deduction response = api.deductionsRetrieve(xAccountToken, id, includeRemoteData);
+        Deduction response = api.deductionsRetrieve(xAccountToken, id, includeRemoteData);
+
         // TODO: test validations
     }
     

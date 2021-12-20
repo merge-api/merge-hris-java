@@ -17,6 +17,8 @@ import merge_hris_client.ApiException;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedTimeOffList;
 import merge_hris_client.model.TimeOff;
+import merge_hris_client.model.TimeOffEndpointRequest;
+import merge_hris_client.model.TimeOffResponse;
 import java.util.UUID;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -34,6 +36,24 @@ public class TimeOffApiTest {
 
     private final TimeOffApi api = new TimeOffApi();
 
+    
+    /**
+     * 
+     *
+     * Creates a &#x60;TimeOff&#x60; object with the given values.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void timeOffCreateTest() throws ApiException {
+        String xAccountToken = null;
+        TimeOffEndpointRequest timeOffEndpointRequest = null;
+        Boolean runAsync = null;
+        TimeOffResponse response = api.timeOffCreate(xAccountToken, timeOffEndpointRequest, runAsync);
+
+        // TODO: test validations
+    }
     
     /**
      * 
@@ -56,7 +76,9 @@ public class TimeOffApiTest {
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        // PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        String requestType = null;
+        String status = null;
+        PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
 
         // TODO: test validations
     }
@@ -64,7 +86,7 @@ public class TimeOffApiTest {
     /**
      * 
      *
-     * Returns an &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
+     * Returns a &#x60;TimeOff&#x60; object with the given &#x60;id&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -74,7 +96,7 @@ public class TimeOffApiTest {
         String xAccountToken = null;
         UUID id = null;
         Boolean includeRemoteData = null;
-        // TimeOff response = api.timeOffRetrieve(xAccountToken, id, includeRemoteData);
+        TimeOff response = api.timeOffRetrieve(xAccountToken, id, includeRemoteData);
 
         // TODO: test validations
     }

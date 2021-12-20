@@ -27,14 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
 public class Employment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -191,60 +190,92 @@ public class Employment {
   }
 
 
+  public Employment payPeriod(String payPeriod) {
+    
+    this.payPeriod = payPeriod;
+    return this;
+  }
+
    /**
    * Get payPeriod
    * @return payPeriod
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "YEAR", value = "")
+  @ApiModelProperty(example = "YEAR", required = true, value = "")
 
   public String getPayPeriod() {
     return payPeriod;
   }
 
 
+  public void setPayPeriod(String payPeriod) {
+    this.payPeriod = payPeriod;
+  }
 
+
+  public Employment payFrequency(String payFrequency) {
+    
+    this.payFrequency = payFrequency;
+    return this;
+  }
 
    /**
    * Get payFrequency
    * @return payFrequency
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "BIWEEKLY", value = "")
+  @ApiModelProperty(example = "BIWEEKLY", required = true, value = "")
 
   public String getPayFrequency() {
     return payFrequency;
   }
 
 
+  public void setPayFrequency(String payFrequency) {
+    this.payFrequency = payFrequency;
+  }
 
+
+  public Employment payCurrency(String payCurrency) {
+    
+    this.payCurrency = payCurrency;
+    return this;
+  }
 
    /**
    * Get payCurrency
    * @return payCurrency
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
+  @ApiModelProperty(example = "USD", required = true, value = "")
 
   public String getPayCurrency() {
     return payCurrency;
   }
 
 
+  public void setPayCurrency(String payCurrency) {
+    this.payCurrency = payCurrency;
+  }
 
+
+  public Employment flsaStatus(String flsaStatus) {
+    
+    this.flsaStatus = flsaStatus;
+    return this;
+  }
 
    /**
    * Get flsaStatus
    * @return flsaStatus
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "EXEMPT", value = "")
+  @ApiModelProperty(example = "EXEMPT", required = true, value = "")
 
   public String getFlsaStatus() {
     return flsaStatus;
   }
 
 
+  public void setFlsaStatus(String flsaStatus) {
+    this.flsaStatus = flsaStatus;
+  }
 
 
   public Employment effectiveDate(OffsetDateTime effectiveDate) {
@@ -270,18 +301,26 @@ public class Employment {
   }
 
 
+  public Employment employmentType(String employmentType) {
+    
+    this.employmentType = employmentType;
+    return this;
+  }
+
    /**
    * Get employmentType
    * @return employmentType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "FULL TIME", value = "")
+  @ApiModelProperty(example = "FULL TIME", required = true, value = "")
 
   public String getEmploymentType() {
     return employmentType;
   }
 
 
+  public void setEmploymentType(String employmentType) {
+    this.employmentType = employmentType;
+  }
 
 
    /**
@@ -321,20 +360,9 @@ public class Employment {
         Objects.equals(this.remoteData, employment.remoteData);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, flsaStatus, effectiveDate, employmentType, remoteData);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

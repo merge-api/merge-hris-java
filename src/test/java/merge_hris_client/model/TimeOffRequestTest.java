@@ -13,6 +13,18 @@
 
 package merge_hris_client.model;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.UUID;
+import org.threeten.bp.OffsetDateTime;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -55,11 +67,27 @@ public class TimeOffRequestTest {
     }
 
     /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
      * Test the property 'employeeNote'
      */
     @Test
     public void employeeNoteTest() {
         // TODO: test employeeNote
+    }
+
+    /**
+     * Test the property 'units'
+     */
+    @Test
+    public void unitsTest() {
+        // TODO: test units
     }
 
     /**

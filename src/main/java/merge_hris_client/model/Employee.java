@@ -30,14 +30,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
 public class Employee {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -98,6 +97,10 @@ public class Employee {
   public static final String SERIALIZED_NAME_TEAM = "team";
   @SerializedName(SERIALIZED_NAME_TEAM)
   private UUID team;
+
+  public static final String SERIALIZED_NAME_PAY_GROUP = "pay_group";
+  @SerializedName(SERIALIZED_NAME_PAY_GROUP)
+  private UUID payGroup;
 
   public static final String SERIALIZED_NAME_SSN = "ssn";
   @SerializedName(SERIALIZED_NAME_SSN)
@@ -475,6 +478,29 @@ public class Employee {
   }
 
 
+  public Employee payGroup(UUID payGroup) {
+    
+    this.payGroup = payGroup;
+    return this;
+  }
+
+   /**
+   * The employee&#39;s pay group
+   * @return payGroup
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "ad1264e2-39be-4787-b749-f1aade9e3405", value = "The employee's pay group")
+
+  public UUID getPayGroup() {
+    return payGroup;
+  }
+
+
+  public void setPayGroup(UUID payGroup) {
+    this.payGroup = payGroup;
+  }
+
+
   public Employee ssn(String ssn) {
     
     this.ssn = ssn;
@@ -498,46 +524,70 @@ public class Employee {
   }
 
 
+  public Employee gender(String gender) {
+    
+    this.gender = gender;
+    return this;
+  }
+
    /**
    * Get gender
    * @return gender
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "FEMALE", value = "")
+  @ApiModelProperty(example = "FEMALE", required = true, value = "")
 
   public String getGender() {
     return gender;
   }
 
 
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
+
+  public Employee ethnicity(String ethnicity) {
+    
+    this.ethnicity = ethnicity;
+    return this;
+  }
 
    /**
    * Get ethnicity
    * @return ethnicity
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", value = "")
+  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", required = true, value = "")
 
   public String getEthnicity() {
     return ethnicity;
   }
 
 
+  public void setEthnicity(String ethnicity) {
+    this.ethnicity = ethnicity;
+  }
 
+
+  public Employee maritalStatus(String maritalStatus) {
+    
+    this.maritalStatus = maritalStatus;
+    return this;
+  }
 
    /**
    * Get maritalStatus
    * @return maritalStatus
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "SINGLE", value = "")
+  @ApiModelProperty(example = "SINGLE", required = true, value = "")
 
   public String getMaritalStatus() {
     return maritalStatus;
   }
 
 
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
 
 
   public Employee dateOfBirth(OffsetDateTime dateOfBirth) {
@@ -609,18 +659,26 @@ public class Employee {
   }
 
 
+  public Employee employmentStatus(String employmentStatus) {
+    
+    this.employmentStatus = employmentStatus;
+    return this;
+  }
+
    /**
    * Get employmentStatus
    * @return employmentStatus
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "INACTIVE", value = "")
+  @ApiModelProperty(example = "INACTIVE", required = true, value = "")
 
   public String getEmploymentStatus() {
     return employmentStatus;
   }
 
 
+  public void setEmploymentStatus(String employmentStatus) {
+    this.employmentStatus = employmentStatus;
+  }
 
 
   public Employee terminationDate(OffsetDateTime terminationDate) {
@@ -738,6 +796,7 @@ public class Employee {
         Objects.equals(this.workLocation, employee.workLocation) &&
         Objects.equals(this.manager, employee.manager) &&
         Objects.equals(this.team, employee.team) &&
+        Objects.equals(this.payGroup, employee.payGroup) &&
         Objects.equals(this.ssn, employee.ssn) &&
         Objects.equals(this.gender, employee.gender) &&
         Objects.equals(this.ethnicity, employee.ethnicity) &&
@@ -752,20 +811,9 @@ public class Employee {
         Objects.equals(this.customFields, employee.customFields);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
   }
 
   @Override
@@ -787,6 +835,7 @@ public class Employee {
     sb.append("    workLocation: ").append(toIndentedString(workLocation)).append("\n");
     sb.append("    manager: ").append(toIndentedString(manager)).append("\n");
     sb.append("    team: ").append(toIndentedString(team)).append("\n");
+    sb.append("    payGroup: ").append(toIndentedString(payGroup)).append("\n");
     sb.append("    ssn: ").append(toIndentedString(ssn)).append("\n");
     sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
     sb.append("    ethnicity: ").append(toIndentedString(ethnicity)).append("\n");

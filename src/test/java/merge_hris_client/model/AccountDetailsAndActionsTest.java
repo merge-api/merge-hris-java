@@ -22,9 +22,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import merge_hris_client.model.AccountDetailsAndActionsIntegration;
-import merge_hris_client.model.AccountDetailsAndActionsStatusEnum;
-import merge_hris_client.model.CategoryEnum;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -66,6 +63,14 @@ public class AccountDetailsAndActionsTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'statusDetail'
+     */
+    @Test
+    public void statusDetailTest() {
+        // TODO: test statusDetail
     }
 
     /**

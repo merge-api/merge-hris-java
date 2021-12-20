@@ -30,7 +30,8 @@ import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedTimeOffList;
 import merge_hris_client.model.TimeOff;
-import merge_hris_client.model.TimeOffRequest;
+import merge_hris_client.model.TimeOffEndpointRequest;
+import merge_hris_client.model.TimeOffResponse;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -61,8 +62,8 @@ public class TimeOffApi {
     /**
      * Build call for timeOffCreate
      * @param xAccountToken Token identifying the end user. (required)
+     * @param timeOffEndpointRequest  (required)
      * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param timeOffRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -72,8 +73,8 @@ public class TimeOffApi {
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffCreateCall(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = timeOffRequest;
+    public okhttp3.Call timeOffCreateCall(String xAccountToken, TimeOffEndpointRequest timeOffEndpointRequest, Boolean runAsync, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = timeOffEndpointRequest;
 
         // create path and map variables
         String localVarPath = "/time-off";
@@ -111,15 +112,20 @@ public class TimeOffApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call timeOffCreateValidateBeforeCall(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call timeOffCreateValidateBeforeCall(String xAccountToken, TimeOffEndpointRequest timeOffEndpointRequest, Boolean runAsync, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
             throw new ApiException("Missing the required parameter 'xAccountToken' when calling timeOffCreate(Async)");
         }
         
+        // verify the required parameter 'timeOffEndpointRequest' is set
+        if (timeOffEndpointRequest == null) {
+            throw new ApiException("Missing the required parameter 'timeOffEndpointRequest' when calling timeOffCreate(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = timeOffCreateCall(xAccountToken, runAsync, timeOffRequest, _callback);
+        okhttp3.Call localVarCall = timeOffCreateCall(xAccountToken, timeOffEndpointRequest, runAsync, _callback);
         return localVarCall;
 
     }
@@ -128,9 +134,9 @@ public class TimeOffApi {
      * 
      * Creates a &#x60;TimeOff&#x60; object with the given values.
      * @param xAccountToken Token identifying the end user. (required)
+     * @param timeOffEndpointRequest  (required)
      * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param timeOffRequest  (optional)
-     * @return TimeOff
+     * @return TimeOffResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -138,8 +144,8 @@ public class TimeOffApi {
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public TimeOff timeOffCreate(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest) throws ApiException {
-        ApiResponse<TimeOff> localVarResp = timeOffCreateWithHttpInfo(xAccountToken, runAsync, timeOffRequest);
+    public TimeOffResponse timeOffCreate(String xAccountToken, TimeOffEndpointRequest timeOffEndpointRequest, Boolean runAsync) throws ApiException {
+        ApiResponse<TimeOffResponse> localVarResp = timeOffCreateWithHttpInfo(xAccountToken, timeOffEndpointRequest, runAsync);
         return localVarResp.getData();
     }
 
@@ -147,9 +153,9 @@ public class TimeOffApi {
      * 
      * Creates a &#x60;TimeOff&#x60; object with the given values.
      * @param xAccountToken Token identifying the end user. (required)
+     * @param timeOffEndpointRequest  (required)
      * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param timeOffRequest  (optional)
-     * @return ApiResponse&lt;TimeOff&gt;
+     * @return ApiResponse&lt;TimeOffResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -157,9 +163,9 @@ public class TimeOffApi {
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TimeOff> timeOffCreateWithHttpInfo(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest) throws ApiException {
-        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, runAsync, timeOffRequest, null);
-        Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
+    public ApiResponse<TimeOffResponse> timeOffCreateWithHttpInfo(String xAccountToken, TimeOffEndpointRequest timeOffEndpointRequest, Boolean runAsync) throws ApiException {
+        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, timeOffEndpointRequest, runAsync, null);
+        Type localVarReturnType = new TypeToken<TimeOffResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -167,8 +173,8 @@ public class TimeOffApi {
      *  (asynchronously)
      * Creates a &#x60;TimeOff&#x60; object with the given values.
      * @param xAccountToken Token identifying the end user. (required)
+     * @param timeOffEndpointRequest  (required)
      * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
-     * @param timeOffRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -178,10 +184,10 @@ public class TimeOffApi {
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffCreateAsync(String xAccountToken, Boolean runAsync, TimeOffRequest timeOffRequest, final ApiCallback<TimeOff> _callback) throws ApiException {
+    public okhttp3.Call timeOffCreateAsync(String xAccountToken, TimeOffEndpointRequest timeOffEndpointRequest, Boolean runAsync, final ApiCallback<TimeOffResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, runAsync, timeOffRequest, _callback);
-        Type localVarReturnType = new TypeToken<TimeOff>(){}.getType();
+        okhttp3.Call localVarCall = timeOffCreateValidateBeforeCall(xAccountToken, timeOffEndpointRequest, runAsync, _callback);
+        Type localVarReturnType = new TypeToken<TimeOffResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

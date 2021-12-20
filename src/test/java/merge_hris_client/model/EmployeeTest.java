@@ -13,6 +13,24 @@
 
 package merge_hris_client.model;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import merge_hris_client.model.RemoteData;
+import org.threeten.bp.OffsetDateTime;
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -151,6 +169,14 @@ public class EmployeeTest {
     }
 
     /**
+     * Test the property 'payGroup'
+     */
+    @Test
+    public void payGroupTest() {
+        // TODO: test payGroup
+    }
+
+    /**
      * Test the property 'ssn'
      */
     @Test
@@ -199,6 +225,14 @@ public class EmployeeTest {
     }
 
     /**
+     * Test the property 'startDate'
+     */
+    @Test
+    public void startDateTest() {
+        // TODO: test startDate
+    }
+
+    /**
      * Test the property 'employmentStatus'
      */
     @Test
@@ -228,6 +262,14 @@ public class EmployeeTest {
     @Test
     public void remoteDataTest() {
         // TODO: test remoteData
+    }
+
+    /**
+     * Test the property 'customFields'
+     */
+    @Test
+    public void customFieldsTest() {
+        // TODO: test customFields
     }
 
 }

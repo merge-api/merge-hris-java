@@ -27,13 +27,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-11-29T21:03:29.505759-05:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
 public class Benefit {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -151,18 +150,26 @@ public class Benefit {
   }
 
 
+  public Benefit benefitPlanType(String benefitPlanType) {
+    
+    this.benefitPlanType = benefitPlanType;
+    return this;
+  }
+
    /**
    * Get benefitPlanType
    * @return benefitPlanType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "MEDICAL", value = "")
+  @ApiModelProperty(example = "MEDICAL", required = true, value = "")
 
   public String getBenefitPlanType() {
     return benefitPlanType;
   }
 
 
+  public void setBenefitPlanType(String benefitPlanType) {
+    this.benefitPlanType = benefitPlanType;
+  }
 
 
   public Benefit employeeContribution(Float employeeContribution) {
@@ -244,20 +251,9 @@ public class Benefit {
         Objects.equals(this.remoteData, benefit.remoteData);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(id, remoteId, employee, providerName, benefitPlanType, employeeContribution, companyContribution, remoteData);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

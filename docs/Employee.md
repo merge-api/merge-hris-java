@@ -23,14 +23,15 @@ Name | Type | Description | Notes
 **workLocation** | **UUID** | The employee&#39;s work address. |  [optional]
 **manager** | **UUID** | The employee ID of the employee&#39;s manager. |  [optional]
 **team** | **UUID** | The employee&#39;s team. |  [optional]
+**payGroup** | **UUID** | The employee&#39;s pay group |  [optional]
 **ssn** | **String** | The employee&#39;s social security number. |  [optional]
-**gender** | **String** |  |  [optional] [readonly]
-**ethnicity** | **String** |  |  [optional] [readonly]
-**maritalStatus** | **String** |  |  [optional] [readonly]
+**gender** | **String** |  | 
+**ethnicity** | **String** |  | 
+**maritalStatus** | **String** |  | 
 **dateOfBirth** | **OffsetDateTime** | The employee&#39;s date of birth. |  [optional]
 **hireDate** | **OffsetDateTime** | The date that the employee was hired, usually the day that an offer letter is signed. If an employee has multiple hire dates from previous employments, this represents the most recent hire date. Note: If you&#39;re looking for the employee&#39;s start date, refer to the start_date field. |  [optional]
 **startDate** | **OffsetDateTime** | The date that the employee started working. If an employee has multiple start dates from previous employments, this represents the most recent start date. |  [optional]
-**employmentStatus** | **String** |  |  [optional] [readonly]
+**employmentStatus** | **String** |  | 
 **terminationDate** | **OffsetDateTime** | The employee&#39;s termination date. |  [optional]
 **avatar** | **URI** | The URL of the employee&#39;s avatar image. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]

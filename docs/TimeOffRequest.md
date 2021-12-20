@@ -11,9 +11,11 @@ Name | Type | Description | Notes
 **remoteId** | **String** | The third-party API ID of the matching object. |  [optional]
 **employee** | **UUID** | The employee requesting time off. |  [optional]
 **approver** | **UUID** | The employee approving the time off request. |  [optional]
+**status** | **String** |  | 
 **employeeNote** | **String** | The employee note for this time off request. |  [optional]
+**units** | **String** |  | 
 **amount** | **Float** | The number of time off units requested. |  [optional]
-**requestType** | [**RequestTypeEnum**](RequestTypeEnum.md) | The type of time off request. |  [optional]
+**requestType** | **String** |  | 
 **startTime** | **OffsetDateTime** | The day and time of the start of the time requested off. |  [optional]
 **endTime** | **OffsetDateTime** | The day and time of the end of the time requested off. |  [optional]
 

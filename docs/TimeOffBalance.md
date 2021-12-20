@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **employee** | **UUID** | The employee the balance belongs to. |  [optional]
 **balance** | **Float** | The current PTO balance in terms of hours. |  [optional]
 **used** | **Float** | The amount of PTO used in terms of hours. |  [optional]
-**policyType** | **String** |  |  [optional] [readonly]
+**policyType** | **String** |  | 
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
 
 

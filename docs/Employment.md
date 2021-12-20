@@ -13,12 +13,12 @@ Name | Type | Description | Notes
 **employee** | **UUID** | The employee holding this position. |  [optional]
 **jobTitle** | **String** | The position&#39;s title. |  [optional]
 **payRate** | **Float** | The position&#39;s pay rate in dollars. |  [optional]
-**payPeriod** | **String** |  |  [optional] [readonly]
-**payFrequency** | **String** |  |  [optional] [readonly]
-**payCurrency** | **String** |  |  [optional] [readonly]
-**flsaStatus** | **String** |  |  [optional] [readonly]
+**payPeriod** | **String** |  | 
+**payFrequency** | **String** |  | 
+**payCurrency** | **String** |  | 
+**flsaStatus** | **String** |  | 
 **effectiveDate** | **OffsetDateTime** | The position&#39;s effective date. |  [optional]
-**employmentType** | **String** |  |  [optional] [readonly]
+**employmentType** | **String** |  | 
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
 
 
