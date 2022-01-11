@@ -65,6 +65,7 @@ public class PayrollRunsApi {
      * @param cursor The pagination cursor value. (optional)
      * @param endedAfter If provided, will only return payroll runs ended after this datetime. (optional)
      * @param endedBefore If provided, will only return payroll runs ended before this datetime. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -82,7 +83,7 @@ public class PayrollRunsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call payrollRunsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call payrollRunsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -112,6 +113,10 @@ public class PayrollRunsApi {
 
         if (endedBefore != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("ended_before", endedBefore));
+        }
+
+        if (includeDeletedData != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted_data", includeDeletedData));
         }
 
         if (includeRemoteData != null) {
@@ -169,7 +174,7 @@ public class PayrollRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call payrollRunsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call payrollRunsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -177,7 +182,7 @@ public class PayrollRunsApi {
         }
         
 
-        okhttp3.Call localVarCall = payrollRunsListCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, _callback);
+        okhttp3.Call localVarCall = payrollRunsListCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, _callback);
         return localVarCall;
 
     }
@@ -191,6 +196,7 @@ public class PayrollRunsApi {
      * @param cursor The pagination cursor value. (optional)
      * @param endedAfter If provided, will only return payroll runs ended after this datetime. (optional)
      * @param endedBefore If provided, will only return payroll runs ended before this datetime. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -207,8 +213,8 @@ public class PayrollRunsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedPayrollRunList payrollRunsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore) throws ApiException {
-        ApiResponse<PaginatedPayrollRunList> localVarResp = payrollRunsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore);
+    public PaginatedPayrollRunList payrollRunsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore) throws ApiException {
+        ApiResponse<PaginatedPayrollRunList> localVarResp = payrollRunsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore);
         return localVarResp.getData();
     }
 
@@ -221,6 +227,7 @@ public class PayrollRunsApi {
      * @param cursor The pagination cursor value. (optional)
      * @param endedAfter If provided, will only return payroll runs ended after this datetime. (optional)
      * @param endedBefore If provided, will only return payroll runs ended before this datetime. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -237,8 +244,8 @@ public class PayrollRunsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedPayrollRunList> payrollRunsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore) throws ApiException {
-        okhttp3.Call localVarCall = payrollRunsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, null);
+    public ApiResponse<PaginatedPayrollRunList> payrollRunsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore) throws ApiException {
+        okhttp3.Call localVarCall = payrollRunsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, null);
         Type localVarReturnType = new TypeToken<PaginatedPayrollRunList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -252,6 +259,7 @@ public class PayrollRunsApi {
      * @param cursor The pagination cursor value. (optional)
      * @param endedAfter If provided, will only return payroll runs ended after this datetime. (optional)
      * @param endedBefore If provided, will only return payroll runs ended before this datetime. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -269,9 +277,9 @@ public class PayrollRunsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call payrollRunsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback<PaginatedPayrollRunList> _callback) throws ApiException {
+    public okhttp3.Call payrollRunsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, OffsetDateTime endedAfter, OffsetDateTime endedBefore, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String runType, OffsetDateTime startedAfter, OffsetDateTime startedBefore, final ApiCallback<PaginatedPayrollRunList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = payrollRunsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, _callback);
+        okhttp3.Call localVarCall = payrollRunsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore, _callback);
         Type localVarReturnType = new TypeToken<PaginatedPayrollRunList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

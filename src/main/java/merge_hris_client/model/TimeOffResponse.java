@@ -25,79 +25,26 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import merge_hris_client.model.ErrorValidationProblem;
 import merge_hris_client.model.TimeOff;
-import merge_hris_client.model.ValidationProblem;
+import merge_hris_client.model.WarningValidationProblem;
 
 /**
  * TimeOffResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
 public class TimeOffResponse {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<ValidationProblem> errors = new ArrayList<ValidationProblem>();
-
-  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
-  @SerializedName(SERIALIZED_NAME_WARNINGS)
-  private List<ValidationProblem> warnings = new ArrayList<ValidationProblem>();
-
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
   private TimeOff model;
 
+  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+  @SerializedName(SERIALIZED_NAME_WARNINGS)
+  private List<WarningValidationProblem> warnings = new ArrayList<WarningValidationProblem>();
 
-  public TimeOffResponse errors(List<ValidationProblem> errors) {
-    
-    this.errors = errors;
-    return this;
-  }
-
-  public TimeOffResponse addErrorsItem(ValidationProblem errorsItem) {
-    this.errors.add(errorsItem);
-    return this;
-  }
-
-   /**
-   * Get errors
-   * @return errors
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public List<ValidationProblem> getErrors() {
-    return errors;
-  }
-
-
-  public void setErrors(List<ValidationProblem> errors) {
-    this.errors = errors;
-  }
-
-
-  public TimeOffResponse warnings(List<ValidationProblem> warnings) {
-    
-    this.warnings = warnings;
-    return this;
-  }
-
-  public TimeOffResponse addWarningsItem(ValidationProblem warningsItem) {
-    this.warnings.add(warningsItem);
-    return this;
-  }
-
-   /**
-   * Get warnings
-   * @return warnings
-  **/
-  @ApiModelProperty(required = true, value = "")
-
-  public List<ValidationProblem> getWarnings() {
-    return warnings;
-  }
-
-
-  public void setWarnings(List<ValidationProblem> warnings) {
-    this.warnings = warnings;
-  }
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<ErrorValidationProblem> errors = new ArrayList<ErrorValidationProblem>();
 
 
   public TimeOffResponse model(TimeOff model) {
@@ -122,6 +69,60 @@ public class TimeOffResponse {
   }
 
 
+  public TimeOffResponse warnings(List<WarningValidationProblem> warnings) {
+    
+    this.warnings = warnings;
+    return this;
+  }
+
+  public TimeOffResponse addWarningsItem(WarningValidationProblem warningsItem) {
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+   /**
+   * Get warnings
+   * @return warnings
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public List<WarningValidationProblem> getWarnings() {
+    return warnings;
+  }
+
+
+  public void setWarnings(List<WarningValidationProblem> warnings) {
+    this.warnings = warnings;
+  }
+
+
+  public TimeOffResponse errors(List<ErrorValidationProblem> errors) {
+    
+    this.errors = errors;
+    return this;
+  }
+
+  public TimeOffResponse addErrorsItem(ErrorValidationProblem errorsItem) {
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public List<ErrorValidationProblem> getErrors() {
+    return errors;
+  }
+
+
+  public void setErrors(List<ErrorValidationProblem> errors) {
+    this.errors = errors;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,23 +132,23 @@ public class TimeOffResponse {
       return false;
     }
     TimeOffResponse timeOffResponse = (TimeOffResponse) o;
-    return Objects.equals(this.errors, timeOffResponse.errors) &&
+    return Objects.equals(this.model, timeOffResponse.model) &&
         Objects.equals(this.warnings, timeOffResponse.warnings) &&
-        Objects.equals(this.model, timeOffResponse.model);
+        Objects.equals(this.errors, timeOffResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, warnings, model);
+    return Objects.hash(model, warnings, errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeOffResponse {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

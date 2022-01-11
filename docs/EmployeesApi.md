@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="employeesList"></a>
 # **employeesList**
-> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId)
+> PaginatedEmployeeList employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId)
 
 
 
@@ -43,6 +43,7 @@ public class Example {
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
+    Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     Boolean includeSensitiveFields = true; // Boolean | Whether to include sensitive fields (such as social security numbers) in the response.
     String managerId = "managerId_example"; // String | If provided, will only return employees for this manager.
@@ -56,7 +57,7 @@ public class Example {
     String workEmail = "workEmail_example"; // String | If provided, will only return Employees with this work email
     String workLocationId = "workLocationId_example"; // String | If provided, will only return employees for this location.
     try {
-      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
+      PaginatedEmployeeList result = apiInstance.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesList");
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
+ **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **includeSensitiveFields** | **Boolean**| Whether to include sensitive fields (such as social security numbers) in the response. | [optional]
  **managerId** | **String**| If provided, will only return employees for this manager. | [optional]

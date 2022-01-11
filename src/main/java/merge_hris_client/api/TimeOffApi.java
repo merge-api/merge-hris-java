@@ -199,6 +199,7 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -215,7 +216,7 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call timeOffListCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -245,6 +246,10 @@ public class TimeOffApi {
 
         if (employeeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("employee_id", employeeId));
+        }
+
+        if (includeDeletedData != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted_data", includeDeletedData));
         }
 
         if (includeRemoteData != null) {
@@ -298,7 +303,7 @@ public class TimeOffApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call timeOffListValidateBeforeCall(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -306,7 +311,7 @@ public class TimeOffApi {
         }
         
 
-        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
+        okhttp3.Call localVarCall = timeOffListCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         return localVarCall;
 
     }
@@ -320,6 +325,7 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -335,8 +341,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
-        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
+    public PaginatedTimeOffList timeOffList(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        ApiResponse<PaginatedTimeOffList> localVarResp = timeOffListWithHttpInfo(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
         return localVarResp.getData();
     }
 
@@ -349,6 +355,7 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -364,8 +371,8 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, null);
+    public ApiResponse<PaginatedTimeOffList> timeOffListWithHttpInfo(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status) throws ApiException {
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, null);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -379,6 +386,7 @@ public class TimeOffApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return time off for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -395,9 +403,9 @@ public class TimeOffApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
+    public okhttp3.Call timeOffListAsync(String xAccountToken, String approverId, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, Integer pageSize, String remoteId, String requestType, String status, final ApiCallback<PaginatedTimeOffList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
+        okhttp3.Call localVarCall = timeOffListValidateBeforeCall(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status, _callback);
         Type localVarReturnType = new TypeToken<PaginatedTimeOffList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

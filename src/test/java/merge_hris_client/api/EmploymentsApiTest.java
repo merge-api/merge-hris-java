@@ -50,13 +50,14 @@ public class EmploymentsApiTest {
         OffsetDateTime createdBefore = null;
         String cursor = null;
         String employeeId = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         String orderBy = null;
         Integer pageSize = null;
         String remoteId = null;
-        PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
+        PaginatedEmploymentList response = api.employmentsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
 
         // TODO: test validations
     }

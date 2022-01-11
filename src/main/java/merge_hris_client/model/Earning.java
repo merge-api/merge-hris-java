@@ -32,7 +32,7 @@ import java.util.UUID;
  * # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
  */
 @ApiModel(description = "# The Earning Object ### Description The `Earning` object is used to represent an earning for a given employee's payroll run. One run could include several earnings.  ### Usage Example Fetch from the `LIST Earnings` endpoint and filter by `ID` to show all earnings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
 public class Earning {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

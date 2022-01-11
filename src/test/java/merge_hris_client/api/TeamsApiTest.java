@@ -49,13 +49,14 @@ public class TeamsApiTest {
         OffsetDateTime createdAfter = null;
         OffsetDateTime createdBefore = null;
         String cursor = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String parentTeamId = null;
         String remoteId = null;
-        PaginatedTeamList response = api.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
+        PaginatedTeamList response = api.teamsList(xAccountToken, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, parentTeamId, remoteId);
 
         // TODO: test validations
     }

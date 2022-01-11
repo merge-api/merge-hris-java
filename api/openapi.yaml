@@ -155,6 +155,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -324,6 +332,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -462,6 +478,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -613,6 +637,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -808,6 +840,14 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -991,6 +1031,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -1223,6 +1271,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -1666,6 +1722,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -1799,10 +1863,10 @@ paths:
       - passthrough
       x-contentType: application/json
       x-accepts: application/json
-  /pay-group:
+  /pay-groups:
     get:
       description: Returns a list of `PayGroup` objects.
-      operationId: pay_group_list
+      operationId: pay_groups_list
       parameters:
       - description: Token identifying the end user.
         explode: false
@@ -1841,6 +1905,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -1895,12 +1967,12 @@ paths:
       security:
       - tokenAuth: []
       tags:
-      - pay-group
+      - pay-groups
       x-accepts: application/json
-  /pay-group/{id}:
+  /pay-groups/{id}:
     get:
       description: Returns a `PayGroup` object with the given `id`.
-      operationId: pay_group_retrieve
+      operationId: pay_groups_retrieve
       parameters:
       - description: Token identifying the end user.
         explode: false
@@ -1936,7 +2008,7 @@ paths:
       security:
       - tokenAuth: []
       tags:
-      - pay-group
+      - pay-groups
       x-accepts: application/json
   /payroll-runs:
     get:
@@ -2001,6 +2073,14 @@ paths:
           format: date-time
           nullable: true
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -2159,7 +2239,8 @@ paths:
       x-accepts: application/json
   /sync-status:
     get:
-      description: Get syncing status.
+      description: 'Get syncing status. Possible values: `DISABLED`, `DONE`, `FAILED`,
+        `SYNCING`'
       operationId: sync_status_list
       parameters:
       - description: Token identifying the end user.
@@ -2224,7 +2305,7 @@ paths:
       security:
       - tokenAuth: []
       tags:
-      - sync-status
+      - force-resync
       x-accepts: application/json
   /teams:
     get:
@@ -2268,6 +2349,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -2441,6 +2530,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
         explode: true
@@ -2574,10 +2671,10 @@ paths:
       - time-off
       x-contentType: application/json
       x-accepts: application/json
-  /time-off-balance:
+  /time-off-balances:
     get:
       description: Returns a list of `TimeOffBalance` objects.
-      operationId: time_off_balance_list
+      operationId: time_off_balances_list
       parameters:
       - description: Token identifying the end user.
         explode: false
@@ -2627,6 +2724,14 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Whether to include data that was deleted in the third-party service.
+        explode: true
+        in: query
+        name: include_deleted_data
+        required: false
+        schema:
+          type: boolean
         style: form
       - description: Whether to include the original data Merge fetched from the third-party
           to produce these models.
@@ -2699,12 +2804,12 @@ paths:
       security:
       - tokenAuth: []
       tags:
-      - time-off-balance
+      - time-off-balances
       x-accepts: application/json
-  /time-off-balance/{id}:
+  /time-off-balances/{id}:
     get:
       description: Returns a `TimeOffBalance` object with the given `id`.
-      operationId: time_off_balance_retrieve
+      operationId: time_off_balances_retrieve
       parameters:
       - description: Token identifying the end user.
         explode: false
@@ -2740,7 +2845,7 @@ paths:
       security:
       - tokenAuth: []
       tags:
-      - time-off-balance
+      - time-off-balances
       x-accepts: application/json
   /time-off/{id}:
     get:
@@ -3797,7 +3902,9 @@ components:
           nullable: true
           type: string
         display_full_name:
-          description: The employee's full name, to use for display purposes.
+          description: The employee's full name, to use for display purposes. If a
+            preferred first name is available, the full name will include the preferred
+            first name.
           example: Jane Doe
           nullable: true
           type: string
@@ -4192,6 +4299,30 @@ components:
       - end_user_email_address
       - end_user_organization_name
       - end_user_origin_id
+      type: object
+    ErrorValidationProblem:
+      example:
+        problem_type: MISSING_REQUIRED_FIELD
+        source:
+          pointer: pointer
+        detail: custom_fields is a required field on model.
+        title: Missing Required Field
+      properties:
+        source:
+          $ref: '#/components/schemas/ValidationProblemSource'
+        title:
+          example: Missing Required Field
+          type: string
+        detail:
+          example: custom_fields is a required field on model.
+          type: string
+        problem_type:
+          example: MISSING_REQUIRED_FIELD
+          type: string
+      required:
+      - detail
+      - problem_type
+      - title
       type: object
     GenerateRemoteKeyRequest:
       description: |-
@@ -5816,14 +5947,16 @@ components:
     TimeOffResponse:
       example:
         warnings:
-        - problem_type: problem_type
-          source: source
-          detail: detail
-          title: title
-        - problem_type: problem_type
-          source: source
-          detail: detail
-          title: title
+        - problem_type: UNRECOGNIZED_FIELD
+          source:
+            pointer: pointer
+          detail: An unrecognized field, age, was passed in with request data.
+          title: Unrecognized Field
+        - problem_type: UNRECOGNIZED_FIELD
+          source:
+            pointer: pointer
+          detail: An unrecognized field, age, was passed in with request data.
+          title: Unrecognized Field
         model:
           approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           start_time: 2020-11-10T00:00:00Z
@@ -5841,45 +5974,59 @@ components:
             data:
             - Varies by platform
         errors:
-        - problem_type: problem_type
-          source: source
-          detail: detail
-          title: title
-        - problem_type: problem_type
-          source: source
-          detail: detail
-          title: title
+        - problem_type: MISSING_REQUIRED_FIELD
+          source:
+            pointer: pointer
+          detail: custom_fields is a required field on model.
+          title: Missing Required Field
+        - problem_type: MISSING_REQUIRED_FIELD
+          source:
+            pointer: pointer
+          detail: custom_fields is a required field on model.
+          title: Missing Required Field
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ValidationProblem'
-          type: array
-        warnings:
-          items:
-            $ref: '#/components/schemas/ValidationProblem'
-          type: array
         model:
           $ref: '#/components/schemas/TimeOff'
+        warnings:
+          items:
+            $ref: '#/components/schemas/WarningValidationProblem'
+          type: array
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorValidationProblem'
+          type: array
       required:
       - errors
       - model
       - warnings
       type: object
-    ValidationProblem:
+    ValidationProblemSource:
       example:
-        problem_type: problem_type
-        source: source
-        detail: detail
-        title: title
+        pointer: pointer
+      properties:
+        pointer:
+          type: string
+      required:
+      - pointer
+      type: object
+    WarningValidationProblem:
+      example:
+        problem_type: UNRECOGNIZED_FIELD
+        source:
+          pointer: pointer
+        detail: An unrecognized field, age, was passed in with request data.
+        title: Unrecognized Field
       properties:
         source:
-          readOnly: true
-          type: string
+          $ref: '#/components/schemas/ValidationProblemSource'
         title:
+          example: Unrecognized Field
           type: string
         detail:
+          example: An unrecognized field, age, was passed in with request data.
           type: string
         problem_type:
+          example: UNRECOGNIZED_FIELD
           type: string
       required:
       - detail

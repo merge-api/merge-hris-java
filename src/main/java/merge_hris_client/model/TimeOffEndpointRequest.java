@@ -15,6 +15,7 @@ package merge_hris_client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.JsonElement;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,23 +24,24 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import merge_hris_client.JSON;
 import merge_hris_client.model.TimeOffRequest;
 
 /**
  * TimeOffEndpointRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
 public class TimeOffEndpointRequest {
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
-  private TimeOffRequest model;
+  private JsonElement model;
 
 
-  public TimeOffEndpointRequest model(TimeOffRequest model) {
-    
-    this.model = model;
+  public TimeOffEndpointRequest model(TimeOffRequest model, JSON serializer) {
+    this.model = serializer.getGson().toJsonTree(model);
     return this;
-  }
+}
 
    /**
    * Get model
@@ -47,12 +49,12 @@ public class TimeOffEndpointRequest {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public TimeOffRequest getModel() {
+  public JsonElement getModel() {
     return model;
   }
 
 
-  public void setModel(TimeOffRequest model) {
+  public void setModel(JsonElement model) {
     this.model = model;
   }
 

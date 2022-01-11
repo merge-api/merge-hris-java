@@ -50,12 +50,13 @@ public class DeductionsApiTest {
         OffsetDateTime createdBefore = null;
         String cursor = null;
         String employeePayrollRunId = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
         Integer pageSize = null;
         String remoteId = null;
-        PaginatedDeductionList response = api.deductionsList(xAccountToken, createdAfter, createdBefore, cursor, employeePayrollRunId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
+        PaginatedDeductionList response = api.deductionsList(xAccountToken, createdAfter, createdBefore, cursor, employeePayrollRunId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId);
 
         // TODO: test validations
     }

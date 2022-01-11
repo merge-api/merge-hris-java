@@ -64,6 +64,7 @@ public class EmploymentsApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return employments for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -79,7 +80,7 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employmentsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call employmentsListCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -105,6 +106,10 @@ public class EmploymentsApi {
 
         if (employeeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("employee_id", employeeId));
+        }
+
+        if (includeDeletedData != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted_data", includeDeletedData));
         }
 
         if (includeRemoteData != null) {
@@ -154,7 +159,7 @@ public class EmploymentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call employmentsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call employmentsListValidateBeforeCall(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -162,7 +167,7 @@ public class EmploymentsApi {
         }
         
 
-        okhttp3.Call localVarCall = employmentsListCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = employmentsListCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
         return localVarCall;
 
     }
@@ -175,6 +180,7 @@ public class EmploymentsApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return employments for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -189,8 +195,8 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedEmploymentList employmentsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
-        ApiResponse<PaginatedEmploymentList> localVarResp = employmentsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
+    public PaginatedEmploymentList employmentsList(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
+        ApiResponse<PaginatedEmploymentList> localVarResp = employmentsListWithHttpInfo(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
         return localVarResp.getData();
     }
 
@@ -202,6 +208,7 @@ public class EmploymentsApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return employments for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -216,8 +223,8 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedEmploymentList> employmentsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
-        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, null);
+    public ApiResponse<PaginatedEmploymentList> employmentsListWithHttpInfo(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId) throws ApiException {
+        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, null);
         Type localVarReturnType = new TypeToken<PaginatedEmploymentList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -230,6 +237,7 @@ public class EmploymentsApi {
      * @param createdBefore If provided, will only return objects created before this datetime. (optional)
      * @param cursor The pagination cursor value. (optional)
      * @param employeeId If provided, will only return employments for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -245,9 +253,9 @@ public class EmploymentsApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employmentsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback<PaginatedEmploymentList> _callback) throws ApiException {
+    public okhttp3.Call employmentsListAsync(String xAccountToken, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, String remoteId, final ApiCallback<PaginatedEmploymentList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
+        okhttp3.Call localVarCall = employmentsListValidateBeforeCall(xAccountToken, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId, _callback);
         Type localVarReturnType = new TypeToken<PaginatedEmploymentList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

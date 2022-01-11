@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="payrollRunsList"></a>
 # **payrollRunsList**
-> PaginatedPayrollRunList payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore)
+> PaginatedPayrollRunList payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore)
 
 
 
@@ -44,6 +44,7 @@ public class Example {
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
     OffsetDateTime endedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs ended after this datetime.
     OffsetDateTime endedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs ended before this datetime.
+    Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -53,7 +54,7 @@ public class Example {
     OffsetDateTime startedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs started after this datetime.
     OffsetDateTime startedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return payroll runs started before this datetime.
     try {
-      PaginatedPayrollRunList result = apiInstance.payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore);
+      PaginatedPayrollRunList result = apiInstance.payrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, runType, startedAfter, startedBefore);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PayrollRunsApi#payrollRunsList");
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
  **cursor** | **String**| The pagination cursor value. | [optional]
  **endedAfter** | **OffsetDateTime**| If provided, will only return payroll runs ended after this datetime. | [optional]
  **endedBefore** | **OffsetDateTime**| If provided, will only return payroll runs ended before this datetime. | [optional]
+ **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]

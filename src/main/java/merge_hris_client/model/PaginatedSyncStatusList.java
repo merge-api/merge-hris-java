@@ -30,7 +30,7 @@ import merge_hris_client.model.SyncStatus;
 /**
  * PaginatedSyncStatusList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
 public class PaginatedSyncStatusList {
   public static final String SERIALIZED_NAME_NEXT = "next";
   @SerializedName(SERIALIZED_NAME_NEXT)

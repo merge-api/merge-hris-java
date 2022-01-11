@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="employeePayrollRunsList"></a>
 # **employeePayrollRunsList**
-> PaginatedEmployeePayrollRunList employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore)
+> PaginatedEmployeePayrollRunList employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore)
 
 
 
@@ -45,6 +45,7 @@ public class Example {
     String employeeId = "employeeId_example"; // String | If provided, will only return employee payroll runs for this employee.
     OffsetDateTime endedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return employee payroll runs ended after this datetime.
     OffsetDateTime endedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return employee payroll runs ended before this datetime.
+    Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -54,7 +55,7 @@ public class Example {
     OffsetDateTime startedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return employee payroll runs started after this datetime.
     OffsetDateTime startedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return employee payroll runs started before this datetime.
     try {
-      PaginatedEmployeePayrollRunList result = apiInstance.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore);
+      PaginatedEmployeePayrollRunList result = apiInstance.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeePayrollRunsApi#employeePayrollRunsList");
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
  **employeeId** | **String**| If provided, will only return employee payroll runs for this employee. | [optional]
  **endedAfter** | **OffsetDateTime**| If provided, will only return employee payroll runs ended after this datetime. | [optional]
  **endedBefore** | **OffsetDateTime**| If provided, will only return employee payroll runs ended before this datetime. | [optional]
+ **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
