@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 <a name="timeOffList"></a>
 # **timeOffList**
-> PaginatedTimeOffList timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status)
+> PaginatedTimeOffList timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status)
 
 
 
@@ -118,6 +118,7 @@ public class Example {
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
     String employeeId = "employeeId_example"; // String | If provided, will only return time off for this employee.
+    Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -126,7 +127,7 @@ public class Example {
     String requestType = "requestType_example"; // String | If provided, will only return TimeOff with this request type. Options: ('VACATION', 'SICK', 'PERSONAL', 'JURY_DUTY', 'VOLUNTEER', 'BEREAVEMENT')
     String status = "status_example"; // String | If provided, will only return TimeOff with this status. Options: ('REQUESTED', 'APPROVED', 'DECLINED', 'CANCELLED', 'DELETED')
     try {
-      PaginatedTimeOffList result = apiInstance.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
+      PaginatedTimeOffList result = apiInstance.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeOffApi#timeOffList");
@@ -149,6 +150,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
  **employeeId** | **String**| If provided, will only return time off for this employee. | [optional]
+ **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]

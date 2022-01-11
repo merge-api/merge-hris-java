@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import merge_hris_client.model.ErrorValidationProblem;
 import merge_hris_client.model.TimeOff;
-import merge_hris_client.model.ValidationProblem;
+import merge_hris_client.model.WarningValidationProblem;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -45,11 +46,11 @@ public class TimeOffResponseTest {
     }
 
     /**
-     * Test the property 'errors'
+     * Test the property 'model'
      */
     @Test
-    public void errorsTest() {
-        // TODO: test errors
+    public void modelTest() {
+        // TODO: test model
     }
 
     /**
@@ -61,11 +62,11 @@ public class TimeOffResponseTest {
     }
 
     /**
-     * Test the property 'model'
+     * Test the property 'errors'
      */
     @Test
-    public void modelTest() {
-        // TODO: test model
+    public void errorsTest() {
+        // TODO: test errors
     }
 
 }

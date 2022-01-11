@@ -50,6 +50,7 @@ public class EmployeesApiTest {
         OffsetDateTime createdAfter = null;
         OffsetDateTime createdBefore = null;
         String cursor = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         Boolean includeSensitiveFields = null;
         String managerId = null;
@@ -62,7 +63,7 @@ public class EmployeesApiTest {
         String teamId = null;
         String workEmail = null;
         String workLocationId = null;
-        PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
+        PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
 
         // TODO: test validations
     }

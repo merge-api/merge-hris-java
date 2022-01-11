@@ -71,6 +71,7 @@ public class TimeOffApiTest {
         OffsetDateTime createdBefore = null;
         String cursor = null;
         String employeeId = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
@@ -78,7 +79,7 @@ public class TimeOffApiTest {
         String remoteId = null;
         String requestType = null;
         String status = null;
-        PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
+        PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
 
         // TODO: test validations
     }

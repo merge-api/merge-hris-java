@@ -36,7 +36,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-12-17T23:12:03.251026Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
 public class Employee {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -287,11 +287,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s full name, to use for display purposes.
+   * The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.
    * @return displayFullName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Jane Doe", value = "The employee's full name, to use for display purposes.")
+  @ApiModelProperty(example = "Jane Doe", value = "The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.")
 
   public String getDisplayFullName() {
     return displayFullName;

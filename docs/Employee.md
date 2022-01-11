@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **company** | **UUID** | The ID of the employee&#39;s company. |  [optional]
 **firstName** | **String** | The employee&#39;s first name. |  [optional]
 **lastName** | **String** | The employee&#39;s last name. |  [optional]
-**displayFullName** | **String** | The employee&#39;s full name, to use for display purposes. |  [optional]
+**displayFullName** | **String** | The employee&#39;s full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name. |  [optional]
 **workEmail** | **String** | The employee&#39;s work email. |  [optional]
 **personalEmail** | **String** | The employee&#39;s personal email. |  [optional]
 **mobilePhoneNumber** | **String** | The employee&#39;s mobile phone number. |  [optional]

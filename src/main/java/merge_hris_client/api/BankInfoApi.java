@@ -67,6 +67,7 @@ public class BankInfoApi {
      * @param cursor The pagination cursor value. (optional)
      * @param employee If provided, will only return bank accounts for this employee. (optional)
      * @param employeeId If provided, will only return bank accounts for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -83,7 +84,7 @@ public class BankInfoApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bankInfoListCall(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call bankInfoListCall(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -121,6 +122,10 @@ public class BankInfoApi {
 
         if (employeeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("employee_id", employeeId));
+        }
+
+        if (includeDeletedData != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted_data", includeDeletedData));
         }
 
         if (includeRemoteData != null) {
@@ -174,7 +179,7 @@ public class BankInfoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call bankInfoListValidateBeforeCall(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bankInfoListValidateBeforeCall(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'xAccountToken' is set
         if (xAccountToken == null) {
@@ -182,7 +187,7 @@ public class BankInfoApi {
         }
         
 
-        okhttp3.Call localVarCall = bankInfoListCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, _callback);
+        okhttp3.Call localVarCall = bankInfoListCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, _callback);
         return localVarCall;
 
     }
@@ -198,6 +203,7 @@ public class BankInfoApi {
      * @param cursor The pagination cursor value. (optional)
      * @param employee If provided, will only return bank accounts for this employee. (optional)
      * @param employeeId If provided, will only return bank accounts for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -213,8 +219,8 @@ public class BankInfoApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public PaginatedBankInfoList bankInfoList(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId) throws ApiException {
-        ApiResponse<PaginatedBankInfoList> localVarResp = bankInfoListWithHttpInfo(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
+    public PaginatedBankInfoList bankInfoList(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId) throws ApiException {
+        ApiResponse<PaginatedBankInfoList> localVarResp = bankInfoListWithHttpInfo(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
         return localVarResp.getData();
     }
 
@@ -229,6 +235,7 @@ public class BankInfoApi {
      * @param cursor The pagination cursor value. (optional)
      * @param employee If provided, will only return bank accounts for this employee. (optional)
      * @param employeeId If provided, will only return bank accounts for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -244,8 +251,8 @@ public class BankInfoApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaginatedBankInfoList> bankInfoListWithHttpInfo(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId) throws ApiException {
-        okhttp3.Call localVarCall = bankInfoListValidateBeforeCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, null);
+    public ApiResponse<PaginatedBankInfoList> bankInfoListWithHttpInfo(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId) throws ApiException {
+        okhttp3.Call localVarCall = bankInfoListValidateBeforeCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, null);
         Type localVarReturnType = new TypeToken<PaginatedBankInfoList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -261,6 +268,7 @@ public class BankInfoApi {
      * @param cursor The pagination cursor value. (optional)
      * @param employee If provided, will only return bank accounts for this employee. (optional)
      * @param employeeId If provided, will only return bank accounts for this employee. (optional)
+     * @param includeDeletedData Whether to include data that was deleted in the third-party service. (optional)
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param modifiedAfter If provided, will only return objects modified after this datetime. (optional)
      * @param modifiedBefore If provided, will only return objects modified before this datetime. (optional)
@@ -277,9 +285,9 @@ public class BankInfoApi {
         <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bankInfoListAsync(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback<PaginatedBankInfoList> _callback) throws ApiException {
+    public okhttp3.Call bankInfoListAsync(String xAccountToken, String accountType, String bankName, OffsetDateTime createdAfter, OffsetDateTime createdBefore, String cursor, UUID employee, String employeeId, Boolean includeDeletedData, Boolean includeRemoteData, OffsetDateTime modifiedAfter, OffsetDateTime modifiedBefore, String orderBy, Integer pageSize, OffsetDateTime remoteCreatedAt, String remoteId, final ApiCallback<PaginatedBankInfoList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = bankInfoListValidateBeforeCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, _callback);
+        okhttp3.Call localVarCall = bankInfoListValidateBeforeCall(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId, _callback);
         Type localVarReturnType = new TypeToken<PaginatedBankInfoList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

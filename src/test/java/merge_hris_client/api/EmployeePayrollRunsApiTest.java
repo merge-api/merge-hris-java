@@ -52,6 +52,7 @@ public class EmployeePayrollRunsApiTest {
         String employeeId = null;
         OffsetDateTime endedAfter = null;
         OffsetDateTime endedBefore = null;
+        Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
         OffsetDateTime modifiedAfter = null;
         OffsetDateTime modifiedBefore = null;
@@ -60,7 +61,7 @@ public class EmployeePayrollRunsApiTest {
         String remoteId = null;
         OffsetDateTime startedAfter = null;
         OffsetDateTime startedBefore = null;
-        PaginatedEmployeePayrollRunList response = api.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore);
+        PaginatedEmployeePayrollRunList response = api.employeePayrollRunsList(xAccountToken, createdAfter, createdBefore, cursor, employeeId, endedAfter, endedBefore, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, payrollRunId, remoteId, startedAfter, startedBefore);
 
         // TODO: test validations
     }

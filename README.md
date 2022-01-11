@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2021-12-17T23:12:03.251026Z[Etc/UTC]
+  - Build date: 2022-01-11T18:45:23.445197Z[Etc/UTC]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>dev.merge.hris</groupId>
   <artifactId>merge-hris-client</artifactId>
-  <version>1.2.2</version>
+  <version>1.2.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "dev.merge.hris:merge-hris-client:1.2.2"
+compile "dev.merge.hris:merge-hris-client:1.2.4"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/merge-hris-client-1.2.2.jar`
+* `target/merge-hris-client-1.2.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**employeesRetrieve**](docs/EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 *EmploymentsApi* | [**employmentsList**](docs/EmploymentsApi.md#employmentsList) | **GET** /employments | 
 *EmploymentsApi* | [**employmentsRetrieve**](docs/EmploymentsApi.md#employmentsRetrieve) | **GET** /employments/{id} | 
+*ForceResyncApi* | [**syncStatusResyncCreate**](docs/ForceResyncApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
 *GenerateKeyApi* | [**generateKeyCreate**](docs/GenerateKeyApi.md#generateKeyCreate) | **POST** /generate-key | 
 *IssuesApi* | [**issuesList**](docs/IssuesApi.md#issuesList) | **GET** /issues | 
 *IssuesApi* | [**issuesRetrieve**](docs/IssuesApi.md#issuesRetrieve) | **GET** /issues/{id} | 
@@ -140,20 +141,19 @@ Class | Method | HTTP request | Description
 *LocationsApi* | [**locationsList**](docs/LocationsApi.md#locationsList) | **GET** /locations | 
 *LocationsApi* | [**locationsRetrieve**](docs/LocationsApi.md#locationsRetrieve) | **GET** /locations/{id} | 
 *PassthroughApi* | [**passthroughCreate**](docs/PassthroughApi.md#passthroughCreate) | **POST** /passthrough | 
-*PayGroupApi* | [**payGroupList**](docs/PayGroupApi.md#payGroupList) | **GET** /pay-group | 
-*PayGroupApi* | [**payGroupRetrieve**](docs/PayGroupApi.md#payGroupRetrieve) | **GET** /pay-group/{id} | 
+*PayGroupsApi* | [**payGroupsList**](docs/PayGroupsApi.md#payGroupsList) | **GET** /pay-groups | 
+*PayGroupsApi* | [**payGroupsRetrieve**](docs/PayGroupsApi.md#payGroupsRetrieve) | **GET** /pay-groups/{id} | 
 *PayrollRunsApi* | [**payrollRunsList**](docs/PayrollRunsApi.md#payrollRunsList) | **GET** /payroll-runs | 
 *PayrollRunsApi* | [**payrollRunsRetrieve**](docs/PayrollRunsApi.md#payrollRunsRetrieve) | **GET** /payroll-runs/{id} | 
 *RegenerateKeyApi* | [**regenerateKeyCreate**](docs/RegenerateKeyApi.md#regenerateKeyCreate) | **POST** /regenerate-key | 
 *SyncStatusApi* | [**syncStatusList**](docs/SyncStatusApi.md#syncStatusList) | **GET** /sync-status | 
-*SyncStatusApi* | [**syncStatusResyncCreate**](docs/SyncStatusApi.md#syncStatusResyncCreate) | **POST** /sync-status/resync | 
 *TeamsApi* | [**teamsList**](docs/TeamsApi.md#teamsList) | **GET** /teams | 
 *TeamsApi* | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**timeOffCreate**](docs/TimeOffApi.md#timeOffCreate) | **POST** /time-off | 
 *TimeOffApi* | [**timeOffList**](docs/TimeOffApi.md#timeOffList) | **GET** /time-off | 
 *TimeOffApi* | [**timeOffRetrieve**](docs/TimeOffApi.md#timeOffRetrieve) | **GET** /time-off/{id} | 
-*TimeOffBalanceApi* | [**timeOffBalanceList**](docs/TimeOffBalanceApi.md#timeOffBalanceList) | **GET** /time-off-balance | 
-*TimeOffBalanceApi* | [**timeOffBalanceRetrieve**](docs/TimeOffBalanceApi.md#timeOffBalanceRetrieve) | **GET** /time-off-balance/{id} | 
+*TimeOffBalancesApi* | [**timeOffBalancesList**](docs/TimeOffBalancesApi.md#timeOffBalancesList) | **GET** /time-off-balances | 
+*TimeOffBalancesApi* | [**timeOffBalancesRetrieve**](docs/TimeOffBalancesApi.md#timeOffBalancesRetrieve) | **GET** /time-off-balances/{id} | 
 
 
 ## Documentation for Models
@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
  - [Employment](docs/Employment.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
+ - [ErrorValidationProblem](docs/ErrorValidationProblem.md)
  - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
  - [Issue](docs/Issue.md)
  - [LinkToken](docs/LinkToken.md)
@@ -213,7 +214,8 @@ Class | Method | HTTP request | Description
  - [TimeOffEndpointRequest](docs/TimeOffEndpointRequest.md)
  - [TimeOffRequest](docs/TimeOffRequest.md)
  - [TimeOffResponse](docs/TimeOffResponse.md)
- - [ValidationProblem](docs/ValidationProblem.md)
+ - [ValidationProblemSource](docs/ValidationProblemSource.md)
+ - [WarningValidationProblem](docs/WarningValidationProblem.md)
 
 
 ## Documentation for Authorization

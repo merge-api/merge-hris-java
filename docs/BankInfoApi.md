@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="bankInfoList"></a>
 # **bankInfoList**
-> PaginatedBankInfoList bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId)
+> PaginatedBankInfoList bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId)
 
 
 
@@ -46,6 +46,7 @@ public class Example {
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
     UUID employee = new UUID(); // UUID | If provided, will only return bank accounts for this employee.
     String employeeId = "employeeId_example"; // String | If provided, will only return bank accounts for this employee.
+    Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
     OffsetDateTime modifiedAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified after this datetime.
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
@@ -54,7 +55,7 @@ public class Example {
     OffsetDateTime remoteCreatedAt = OffsetDateTime.now(); // OffsetDateTime | 
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
-      PaginatedBankInfoList result = apiInstance.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
+      PaginatedBankInfoList result = apiInstance.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankInfoApi#bankInfoList");
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  **cursor** | **String**| The pagination cursor value. | [optional]
  **employee** | [**UUID**](.md)| If provided, will only return bank accounts for this employee. | [optional]
  **employeeId** | **String**| If provided, will only return bank accounts for this employee. | [optional]
+ **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modifiedAfter** | **OffsetDateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
