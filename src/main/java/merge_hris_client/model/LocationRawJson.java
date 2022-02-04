@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
  */
 @ApiModel(description = "# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class LocationRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -76,6 +76,10 @@ public class LocationRawJson {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private JsonElement country;
+
+  public static final String SERIALIZED_NAME_LOCATION_TYPE = "location_type";
+  @SerializedName(SERIALIZED_NAME_LOCATION_TYPE)
+  private JsonElement locationType;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -270,6 +274,25 @@ public class LocationRawJson {
     this.country = country;
   }
 
+  public LocationRawJson locationType(LocationTypeEnum locationType) {
+    this.locationType = this.serializer.getGson().toJsonTree(locationType);
+    return this;
+  }
+
+   /**
+   * The location&#39;s type. Can be either WORK or HOME
+   * @return locationType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "WORK", value = "The location's type. Can be either WORK or HOME")
+
+  public JsonElement getLocationType() {
+    return locationType;
+  }
+  public void setLocationType(JsonElement locationType) {
+    this.locationType = locationType;
+  }
+
    /**
    * Get remoteData
    * @return remoteData
@@ -299,11 +322,12 @@ public class LocationRawJson {
         Objects.equals(this.state.getAsString(), location.state.getAsString()) &&
         Objects.equals(this.zipCode.getAsString(), location.zipCode.getAsString()) &&
         Objects.equals(this.country.getAsString(), location.country.getAsString()) &&
+        Objects.equals(this.locationType.getAsString(), location.locationType.getAsString()) &&
         Objects.equals(this.remoteData.getAsString(), location.remoteData.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, remoteData);
+    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, locationType, remoteData);
   }
   @Override
   public String toString() {
@@ -319,6 +343,7 @@ public class LocationRawJson {
     sb.append("    state: ").append(toIndentedString(state.getAsString())).append("\n");
     sb.append("    zipCode: ").append(toIndentedString(zipCode.getAsString())).append("\n");
     sb.append("    country: ").append(toIndentedString(country.getAsString())).append("\n");
+    sb.append("    locationType: ").append(toIndentedString(locationType.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();

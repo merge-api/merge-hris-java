@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import merge_hris_client.model.BenefitPlanTypeEnum;
 import merge_hris_client.model.RemoteData;
 import org.junit.Assert;
 import org.junit.Ignore;

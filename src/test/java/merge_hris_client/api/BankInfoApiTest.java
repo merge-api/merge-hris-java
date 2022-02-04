@@ -51,7 +51,6 @@ public class BankInfoApiTest {
         OffsetDateTime createdAfter = null;
         OffsetDateTime createdBefore = null;
         String cursor = null;
-        UUID employee = null;
         String employeeId = null;
         Boolean includeDeletedData = null;
         Boolean includeRemoteData = null;
@@ -59,9 +58,8 @@ public class BankInfoApiTest {
         OffsetDateTime modifiedBefore = null;
         String orderBy = null;
         Integer pageSize = null;
-        OffsetDateTime remoteCreatedAt = null;
         String remoteId = null;
-        PaginatedBankInfoList response = api.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
+        PaginatedBankInfoList response = api.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
 
         // TODO: test validations
     }

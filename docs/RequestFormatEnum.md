@@ -9,5 +9,7 @@
 
 * `XML` (value: `"XML"`)
 
+* `MULTIPART` (value: `"MULTIPART"`)
+
 
 

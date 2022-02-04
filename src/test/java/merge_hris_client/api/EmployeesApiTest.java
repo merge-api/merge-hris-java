@@ -15,6 +15,7 @@ package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
 import merge_hris_client.model.Employee;
+import merge_hris_client.model.IgnoreCommonModelRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmployeeList;
 import java.util.UUID;
@@ -34,6 +35,23 @@ public class EmployeesApiTest {
 
     private final EmployeesApi api = new EmployeesApi();
 
+    
+    /**
+     * 
+     *
+     * Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void employeesIgnoreCreateTest() throws ApiException {
+        UUID modelId = null;
+        IgnoreCommonModelRequest ignoreCommonModelRequest = null;
+        api.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+
+        // TODO: test validations
+    }
     
     /**
      * 

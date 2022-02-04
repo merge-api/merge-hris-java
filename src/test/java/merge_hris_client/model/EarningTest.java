@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import merge_hris_client.model.TypeEnum;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

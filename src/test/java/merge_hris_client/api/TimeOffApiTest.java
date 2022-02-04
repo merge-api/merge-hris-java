@@ -49,8 +49,9 @@ public class TimeOffApiTest {
     public void timeOffCreateTest() throws ApiException {
         String xAccountToken = null;
         TimeOffEndpointRequest timeOffEndpointRequest = null;
+        Boolean isDebugMode = null;
         Boolean runAsync = null;
-        TimeOffResponse response = api.timeOffCreate(xAccountToken, timeOffEndpointRequest, runAsync);
+        TimeOffResponse response = api.timeOffCreate(xAccountToken, timeOffEndpointRequest, isDebugMode, runAsync);
 
         // TODO: test validations
     }

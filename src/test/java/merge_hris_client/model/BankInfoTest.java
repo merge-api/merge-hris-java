@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import merge_hris_client.model.AccountTypeEnum;
 import merge_hris_client.model.RemoteData;
 import org.threeten.bp.OffsetDateTime;
 import org.junit.Assert;

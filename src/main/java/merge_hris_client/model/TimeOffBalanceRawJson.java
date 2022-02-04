@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The TimeOffBalance Object ### Description The &#x60;TimeOffBalance&#x60; object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffBalances&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off balances.
  */
 @ApiModel(description = "# The TimeOffBalance Object ### Description The `TimeOffBalance` object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class TimeOffBalanceRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -108,11 +108,11 @@ public class TimeOffBalanceRawJson {
   }
 
    /**
-   * The employee the balance belongs to.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee the balance belongs to.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -159,17 +159,17 @@ public class TimeOffBalanceRawJson {
     this.used = used;
   }
 
-  public TimeOffBalanceRawJson policyType(String policyType) {
+  public TimeOffBalanceRawJson policyType(PolicyTypeEnum policyType) {
     this.policyType = this.serializer.getGson().toJsonTree(policyType);
     return this;
   }
 
    /**
-   * Get policyType
+   * The policy type of this time off balance.
    * @return policyType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "VACATION", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VACATION", value = "The policy type of this time off balance.")
 
   public JsonElement getPolicyType() {
     return policyType;

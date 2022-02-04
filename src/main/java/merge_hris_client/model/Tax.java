@@ -32,7 +32,7 @@ import java.util.UUID;
  * # The Tax Object ### Description The &#x60;Tax&#x60; object is used to represent a tax for a given employee&#39;s payroll run. One run could include several taxes.  ### Usage Example Fetch from the &#x60;LIST Taxes&#x60; endpoint and filter by &#x60;ID&#x60; to show all taxes.
  */
 @ApiModel(description = "# The Tax Object ### Description The `Tax` object is used to represent a tax for a given employee's payroll run. One run could include several taxes.  ### Usage Example Fetch from the `LIST Taxes` endpoint and filter by `ID` to show all taxes.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class Tax {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -80,11 +80,11 @@ public class Tax {
   }
 
    /**
-   * The tax&#39;s employee payroll run.
+   * Get employeePayrollRun
    * @return employeePayrollRun
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "The tax's employee payroll run.")
+  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "")
 
   public UUID getEmployeePayrollRun() {
     return employeePayrollRun;

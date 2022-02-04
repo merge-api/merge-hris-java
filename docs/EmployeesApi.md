@@ -4,9 +4,80 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**employeesIgnoreCreate**](EmployeesApi.md#employeesIgnoreCreate) | **POST** /employees/ignore/{model_id} | 
 [**employeesList**](EmployeesApi.md#employeesList) | **GET** /employees | 
 [**employeesRetrieve**](EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 
+
+<a name="employeesIgnoreCreate"></a>
+# **employeesIgnoreCreate**
+> employeesIgnoreCreate(modelId, ignoreCommonModelRequest)
+
+
+
+Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
+
+### Example
+```java
+// Import classes:
+import merge_hris_client.ApiClient;
+import merge_hris_client.ApiException;
+import merge_hris_client.Configuration;
+import merge_hris_client.auth.*;
+import merge_hris_client.models.*;
+import merge_hris_client.api.EmployeesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
+    
+    // Configure API key authorization: tokenAuth
+    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+    tokenAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //tokenAuth.setApiKeyPrefix("Token");
+
+    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    UUID modelId = new UUID(); // UUID | 
+    IgnoreCommonModelRequest ignoreCommonModelRequest = new IgnoreCommonModelRequest(); // IgnoreCommonModelRequest | 
+    try {
+      apiInstance.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EmployeesApi#employeesIgnoreCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **modelId** | [**UUID**](.md)|  |
+ **ignoreCommonModelRequest** | [**IgnoreCommonModelRequest**](IgnoreCommonModelRequest.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | No response body |  -  |
 
 <a name="employeesList"></a>
 # **employeesList**

@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2022-01-11T18:45:23.445197Z[Etc/UTC]
+  - Build date: 2022-02-04T15:43:08.820708Z[Etc/UTC]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>dev.merge.hris</groupId>
   <artifactId>merge-hris-client</artifactId>
-  <version>1.2.4</version>
+  <version>1.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "dev.merge.hris:merge-hris-client:1.2.4"
+compile "dev.merge.hris:merge-hris-client:1.3.0"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/merge-hris-client-1.2.4.jar`
+* `target/merge-hris-client-1.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -128,6 +128,7 @@ Class | Method | HTTP request | Description
 *DeleteAccountApi* | [**deleteAccountCreate**](docs/DeleteAccountApi.md#deleteAccountCreate) | **POST** /delete-account | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsList**](docs/EmployeePayrollRunsApi.md#employeePayrollRunsList) | **GET** /employee-payroll-runs | 
 *EmployeePayrollRunsApi* | [**employeePayrollRunsRetrieve**](docs/EmployeePayrollRunsApi.md#employeePayrollRunsRetrieve) | **GET** /employee-payroll-runs/{id} | 
+*EmployeesApi* | [**employeesIgnoreCreate**](docs/EmployeesApi.md#employeesIgnoreCreate) | **POST** /employees/ignore/{model_id} | 
 *EmployeesApi* | [**employeesList**](docs/EmployeesApi.md#employeesList) | **GET** /employees | 
 *EmployeesApi* | [**employeesRetrieve**](docs/EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 *EmploymentsApi* | [**employmentsList**](docs/EmploymentsApi.md#employmentsList) | **GET** /employments | 
@@ -161,11 +162,14 @@ Class | Method | HTTP request | Description
  - [AccountDetails](docs/AccountDetails.md)
  - [AccountDetailsAndActions](docs/AccountDetailsAndActions.md)
  - [AccountDetailsAndActionsIntegration](docs/AccountDetailsAndActionsIntegration.md)
+ - [AccountDetailsAndActionsStatusEnum](docs/AccountDetailsAndActionsStatusEnum.md)
  - [AccountIntegration](docs/AccountIntegration.md)
  - [AccountToken](docs/AccountToken.md)
+ - [AccountTypeEnum](docs/AccountTypeEnum.md)
  - [AvailableActions](docs/AvailableActions.md)
  - [BankInfo](docs/BankInfo.md)
  - [Benefit](docs/Benefit.md)
+ - [BenefitPlanTypeEnum](docs/BenefitPlanTypeEnum.md)
  - [CategoriesEnum](docs/CategoriesEnum.md)
  - [CategoryEnum](docs/CategoryEnum.md)
  - [Company](docs/Company.md)
@@ -176,12 +180,22 @@ Class | Method | HTTP request | Description
  - [Employee](docs/Employee.md)
  - [EmployeePayrollRun](docs/EmployeePayrollRun.md)
  - [Employment](docs/Employment.md)
+ - [EmploymentStatusEnum](docs/EmploymentStatusEnum.md)
+ - [EmploymentTypeEnum](docs/EmploymentTypeEnum.md)
  - [EndUserDetailsRequest](docs/EndUserDetailsRequest.md)
  - [ErrorValidationProblem](docs/ErrorValidationProblem.md)
+ - [EthnicityEnum](docs/EthnicityEnum.md)
+ - [FlsaStatusEnum](docs/FlsaStatusEnum.md)
+ - [GenderEnum](docs/GenderEnum.md)
  - [GenerateRemoteKeyRequest](docs/GenerateRemoteKeyRequest.md)
+ - [IgnoreCommonModelRequest](docs/IgnoreCommonModelRequest.md)
  - [Issue](docs/Issue.md)
+ - [IssueStatusEnum](docs/IssueStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
  - [Location](docs/Location.md)
+ - [LocationTypeEnum](docs/LocationTypeEnum.md)
+ - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
  - [PaginatedAccountDetailsAndActionsList](docs/PaginatedAccountDetailsAndActionsList.md)
  - [PaginatedBankInfoList](docs/PaginatedBankInfoList.md)
@@ -199,14 +213,24 @@ Class | Method | HTTP request | Description
  - [PaginatedTeamList](docs/PaginatedTeamList.md)
  - [PaginatedTimeOffBalanceList](docs/PaginatedTimeOffBalanceList.md)
  - [PaginatedTimeOffList](docs/PaginatedTimeOffList.md)
+ - [PayCurrencyEnum](docs/PayCurrencyEnum.md)
+ - [PayFrequencyEnum](docs/PayFrequencyEnum.md)
  - [PayGroup](docs/PayGroup.md)
+ - [PayPeriodEnum](docs/PayPeriodEnum.md)
  - [PayrollRun](docs/PayrollRun.md)
+ - [PolicyTypeEnum](docs/PolicyTypeEnum.md)
+ - [ReasonEnum](docs/ReasonEnum.md)
  - [RemoteData](docs/RemoteData.md)
  - [RemoteDataRequest](docs/RemoteDataRequest.md)
  - [RemoteKey](docs/RemoteKey.md)
  - [RemoteKeyForRegenerationRequest](docs/RemoteKeyForRegenerationRequest.md)
  - [RemoteResponse](docs/RemoteResponse.md)
+ - [RequestFormatEnum](docs/RequestFormatEnum.md)
+ - [RequestTypeEnum](docs/RequestTypeEnum.md)
+ - [RunStateEnum](docs/RunStateEnum.md)
+ - [RunTypeEnum](docs/RunTypeEnum.md)
  - [SyncStatus](docs/SyncStatus.md)
+ - [SyncStatusStatusEnum](docs/SyncStatusStatusEnum.md)
  - [Tax](docs/Tax.md)
  - [Team](docs/Team.md)
  - [TimeOff](docs/TimeOff.md)
@@ -214,6 +238,9 @@ Class | Method | HTTP request | Description
  - [TimeOffEndpointRequest](docs/TimeOffEndpointRequest.md)
  - [TimeOffRequest](docs/TimeOffRequest.md)
  - [TimeOffResponse](docs/TimeOffResponse.md)
+ - [TimeOffStatusEnum](docs/TimeOffStatusEnum.md)
+ - [TypeEnum](docs/TypeEnum.md)
+ - [UnitsEnum](docs/UnitsEnum.md)
  - [ValidationProblemSource](docs/ValidationProblemSource.md)
  - [WarningValidationProblem](docs/WarningValidationProblem.md)
 

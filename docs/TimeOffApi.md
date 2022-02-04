@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="timeOffCreate"></a>
 # **timeOffCreate**
-> TimeOffResponse timeOffCreate(xAccountToken, timeOffEndpointRequest, runAsync)
+> TimeOffResponse timeOffCreate(xAccountToken, timeOffEndpointRequest, isDebugMode, runAsync)
 
 
 
@@ -41,9 +41,10 @@ public class Example {
     TimeOffApi apiInstance = new TimeOffApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     TimeOffEndpointRequest timeOffEndpointRequest = new TimeOffEndpointRequest(); // TimeOffEndpointRequest | 
+    Boolean isDebugMode = true; // Boolean | Whether to include debug fields (such as log file links) in the response.
     Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
     try {
-      TimeOffResponse result = apiInstance.timeOffCreate(xAccountToken, timeOffEndpointRequest, runAsync);
+      TimeOffResponse result = apiInstance.timeOffCreate(xAccountToken, timeOffEndpointRequest, isDebugMode, runAsync);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TimeOffApi#timeOffCreate");
@@ -62,6 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
  **timeOffEndpointRequest** | [**TimeOffEndpointRequest**](TimeOffEndpointRequest.md)|  |
+ **isDebugMode** | **Boolean**| Whether to include debug fields (such as log file links) in the response. | [optional]
  **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
 
 ### Return type

@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  */
 @ApiModel(description = "# The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class TimeOffRequestRawJson {
   public static final String SERIALIZED_NAME_REMOTE_ID = "remote_id";
   @SerializedName(SERIALIZED_NAME_REMOTE_ID)
@@ -109,11 +109,11 @@ public class TimeOffRequestRawJson {
   }
 
    /**
-   * The employee requesting time off.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee requesting time off.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -128,11 +128,11 @@ public class TimeOffRequestRawJson {
   }
 
    /**
-   * The employee approving the time off request.
+   * Get approver
    * @return approver
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "The employee approving the time off request.")
+  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "")
 
   public JsonElement getApprover() {
     return approver;
@@ -141,17 +141,17 @@ public class TimeOffRequestRawJson {
     this.approver = approver;
   }
 
-  public TimeOffRequestRawJson status(String status) {
+  public TimeOffRequestRawJson status(TimeOffStatusEnum status) {
     this.status = this.serializer.getGson().toJsonTree(status);
     return this;
   }
 
    /**
-   * Get status
+   * The status of this time off request.
    * @return status
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "APPROVED", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "APPROVED", value = "The status of this time off request.")
 
   public JsonElement getStatus() {
     return status;
@@ -179,17 +179,17 @@ public class TimeOffRequestRawJson {
     this.employeeNote = employeeNote;
   }
 
-  public TimeOffRequestRawJson units(String units) {
+  public TimeOffRequestRawJson units(UnitsEnum units) {
     this.units = this.serializer.getGson().toJsonTree(units);
     return this;
   }
 
    /**
-   * Get units
+   * The unit of time requested.
    * @return units
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "DAYS", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "DAYS", value = "The unit of time requested.")
 
   public JsonElement getUnits() {
     return units;
@@ -217,17 +217,17 @@ public class TimeOffRequestRawJson {
     this.amount = amount;
   }
 
-  public TimeOffRequestRawJson requestType(String requestType) {
+  public TimeOffRequestRawJson requestType(RequestTypeEnum requestType) {
     this.requestType = this.serializer.getGson().toJsonTree(requestType);
     return this;
   }
 
    /**
-   * Get requestType
+   * The type of time off request.
    * @return requestType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "VACATION", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VACATION", value = "The type of time off request.")
 
   public JsonElement getRequestType() {
     return requestType;

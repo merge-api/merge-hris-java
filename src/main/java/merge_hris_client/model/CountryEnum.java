@@ -28,6 +28,12 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(CountryEnum.Adapter.class)
 public enum CountryEnum {
+  /**
+  * Merge maps most values from all integrations to a single set of CommonModel enum options. However, in the event
+  * Merge encounters an unrecognized value, it will be returned as-is in the api response, and this SDK will interpret
+  * that as this default MERGE_NONSTANDARD_VALUE option.
+  */
+  MERGE_NONSTANDARD_VALUE("MERGE_NONSTANDARD_VALUE"),
   
   AF("AF"),
   
@@ -548,7 +554,7 @@ public enum CountryEnum {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return CountryEnum.MERGE_NONSTANDARD_VALUE;
   }
 
   public static class Adapter extends TypeAdapter<CountryEnum> {

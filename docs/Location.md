@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **state** | **String** | The location&#39;s state. Represents a region if outside of the US. |  [optional]
 **zipCode** | **String** | The location&#39;s zip code. |  [optional]
 **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. |  [optional]
+**locationType** | [**LocationTypeEnum**](LocationTypeEnum.md) | The location&#39;s type. Can be either WORK or HOME |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
 
 
