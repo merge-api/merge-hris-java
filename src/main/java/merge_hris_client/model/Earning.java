@@ -27,12 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import merge_hris_client.model.TypeEnum;
 
 /**
  * # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
  */
 @ApiModel(description = "# The Earning Object ### Description The `Earning` object is used to represent an earning for a given employee's payroll run. One run could include several earnings.  ### Usage Example Fetch from the `LIST Earnings` endpoint and filter by `ID` to show all earnings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class Earning {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -48,7 +49,7 @@ public class Earning {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -76,11 +77,11 @@ public class Earning {
   }
 
    /**
-   * The earning&#39;s employee payroll run.
+   * Get employeePayrollRun
    * @return employeePayrollRun
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "The earning's employee payroll run.")
+  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "")
 
   public UUID getEmployeePayrollRun() {
     return employeePayrollRun;
@@ -115,24 +116,25 @@ public class Earning {
   }
 
 
-  public Earning type(String type) {
+  public Earning type(TypeEnum type) {
     
     this.type = type;
     return this;
   }
 
    /**
-   * Get type
+   * The type of earning.
    * @return type
   **/
-  @ApiModelProperty(example = "SALARY", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "SALARY", value = "The type of earning.")
 
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

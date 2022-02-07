@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  |  [optional] [readonly]
 **remoteId** | **String** | The third-party API ID of the matching object. |  [optional]
-**employee** | **UUID** | The employee whose payroll is being run. |  [optional]
-**payrollRun** | **UUID** | The payroll being run. |  [optional]
+**employee** | **UUID** |  |  [optional]
+**payrollRun** | **UUID** |  |  [optional]
 **grossPay** | **Float** | The gross pay from the run. |  [optional]
 **netPay** | **Float** | The net pay from the run. |  [optional]
 **startDate** | **OffsetDateTime** | The day and time the payroll run started. |  [optional]

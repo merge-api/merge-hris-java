@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
- **runType** | **String**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional]
+ **runType** | **String**| If provided, will only return PayrollRun&#39;s with this status. Options: (&#39;REGULAR&#39;, &#39;OFF_CYCLE&#39;, &#39;CORRECTION&#39;, &#39;TERMINATION&#39;, &#39;SIGN_ON_BONUS&#39;) | [optional] [enum: CORRECTION, OFF_CYCLE, REGULAR, SIGN_ON_BONUS, TERMINATION]
  **startedAfter** | **OffsetDateTime**| If provided, will only return payroll runs started after this datetime. | [optional]
  **startedBefore** | **OffsetDateTime**| If provided, will only return payroll runs started before this datetime. | [optional]
 

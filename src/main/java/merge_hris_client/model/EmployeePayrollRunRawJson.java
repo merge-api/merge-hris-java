@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
  */
 @ApiModel(description = "# The EmployeePayrollRun Object ### Description The `EmployeePayrollRun` object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the `LIST EmployeePayrollRun` endpoint and filter by `ID` to show all employee payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class EmployeePayrollRunRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -132,11 +132,11 @@ public class EmployeePayrollRunRawJson {
   }
 
    /**
-   * The employee whose payroll is being run.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee whose payroll is being run.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -151,11 +151,11 @@ public class EmployeePayrollRunRawJson {
   }
 
    /**
-   * The payroll being run.
+   * Get payrollRun
    * @return payrollRun
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "The payroll being run.")
+  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "")
 
   public JsonElement getPayrollRun() {
     return payrollRun;

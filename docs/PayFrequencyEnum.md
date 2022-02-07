@@ -21,7 +21,5 @@
 
 * `PRO_RATA` (value: `"PRO_RATA"`)
 
-* `NULL` (value: `"NULL"`)
-
 
 

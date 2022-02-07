@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class EmployeeRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -211,11 +211,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The ID of the employee&#39;s company.
+   * Get company
    * @return company
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "8d9fd929-436c-4fd4-a48b-0c61f68d6178", value = "The ID of the employee's company.")
+  @ApiModelProperty(example = "8d9fd929-436c-4fd4-a48b-0c61f68d6178", value = "")
 
   public JsonElement getCompany() {
     return company;
@@ -338,6 +338,11 @@ public class EmployeeRawJson {
     this.mobilePhoneNumber = mobilePhoneNumber;
   }
 
+  public EmployeeRawJson employments(List<UUID> employments) {
+    this.employments = this.serializer.getGson().toJsonTree(employments);
+    return this;
+  }
+
    /**
    * Array of &#x60;Employment&#x60; IDs for this Employee.
    * @return employments
@@ -348,6 +353,9 @@ public class EmployeeRawJson {
   public JsonElement getEmployments() {
     return employments;
   }
+  public void setEmployments(JsonElement employments) {
+    this.employments = employments;
+  }
 
   public EmployeeRawJson homeLocation(UUID homeLocation) {
     this.homeLocation = this.serializer.getGson().toJsonTree(homeLocation);
@@ -355,11 +363,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The employee&#39;s home address.
+   * Get homeLocation
    * @return homeLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee's home address.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public JsonElement getHomeLocation() {
     return homeLocation;
@@ -374,11 +382,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The employee&#39;s work address.
+   * Get workLocation
    * @return workLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "The employee's work address.")
+  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "")
 
   public JsonElement getWorkLocation() {
     return workLocation;
@@ -393,11 +401,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The employee ID of the employee&#39;s manager.
+   * Get manager
    * @return manager
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0048ea5b-911e-4dff-9364-92070dea62ff", value = "The employee ID of the employee's manager.")
+  @ApiModelProperty(example = "0048ea5b-911e-4dff-9364-92070dea62ff", value = "")
 
   public JsonElement getManager() {
     return manager;
@@ -412,11 +420,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The employee&#39;s team.
+   * Get team
    * @return team
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "249c9faa-3045-4a31-953b-8f22d3613301", value = "The employee's team.")
+  @ApiModelProperty(example = "249c9faa-3045-4a31-953b-8f22d3613301", value = "")
 
   public JsonElement getTeam() {
     return team;
@@ -431,11 +439,11 @@ public class EmployeeRawJson {
   }
 
    /**
-   * The employee&#39;s pay group
+   * Get payGroup
    * @return payGroup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ad1264e2-39be-4787-b749-f1aade9e3405", value = "The employee's pay group")
+  @ApiModelProperty(example = "ad1264e2-39be-4787-b749-f1aade9e3405", value = "")
 
   public JsonElement getPayGroup() {
     return payGroup;
@@ -463,17 +471,17 @@ public class EmployeeRawJson {
     this.ssn = ssn;
   }
 
-  public EmployeeRawJson gender(String gender) {
+  public EmployeeRawJson gender(GenderEnum gender) {
     this.gender = this.serializer.getGson().toJsonTree(gender);
     return this;
   }
 
    /**
-   * Get gender
+   * The employee&#39;s gender.
    * @return gender
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FEMALE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FEMALE", value = "The employee's gender.")
 
   public JsonElement getGender() {
     return gender;
@@ -482,17 +490,17 @@ public class EmployeeRawJson {
     this.gender = gender;
   }
 
-  public EmployeeRawJson ethnicity(String ethnicity) {
+  public EmployeeRawJson ethnicity(EthnicityEnum ethnicity) {
     this.ethnicity = this.serializer.getGson().toJsonTree(ethnicity);
     return this;
   }
 
    /**
-   * Get ethnicity
+   * The employee&#39;s ethnicity.
    * @return ethnicity
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", value = "The employee's ethnicity.")
 
   public JsonElement getEthnicity() {
     return ethnicity;
@@ -501,17 +509,17 @@ public class EmployeeRawJson {
     this.ethnicity = ethnicity;
   }
 
-  public EmployeeRawJson maritalStatus(String maritalStatus) {
+  public EmployeeRawJson maritalStatus(MaritalStatusEnum maritalStatus) {
     this.maritalStatus = this.serializer.getGson().toJsonTree(maritalStatus);
     return this;
   }
 
    /**
-   * Get maritalStatus
+   * The employee&#39;s marital status.
    * @return maritalStatus
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "SINGLE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "SINGLE", value = "The employee's marital status.")
 
   public JsonElement getMaritalStatus() {
     return maritalStatus;
@@ -579,17 +587,17 @@ public class EmployeeRawJson {
     this.startDate = startDate;
   }
 
-  public EmployeeRawJson employmentStatus(String employmentStatus) {
+  public EmployeeRawJson employmentStatus(EmploymentStatusEnum employmentStatus) {
     this.employmentStatus = this.serializer.getGson().toJsonTree(employmentStatus);
     return this;
   }
 
    /**
-   * Get employmentStatus
+   * The employment status of the employee.
    * @return employmentStatus
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "INACTIVE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "INACTIVE", value = "The employment status of the employee.")
 
   public JsonElement getEmploymentStatus() {
     return employmentStatus;

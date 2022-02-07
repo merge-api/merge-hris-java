@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import merge_hris_client.model.AccountTypeEnum;
 import merge_hris_client.model.RemoteData;
 import org.threeten.bp.OffsetDateTime;
 
@@ -33,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
  */
 @ApiModel(description = "# The BankInfo Object ### Description The `BankInfo` object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST BankInfo` endpoint and filter by `ID` to show all bank information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class BankInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,7 +62,7 @@ public class BankInfo {
 
   public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
-  private String accountType;
+  private AccountTypeEnum accountType;
 
   public static final String SERIALIZED_NAME_REMOTE_CREATED_AT = "remote_created_at";
   @SerializedName(SERIALIZED_NAME_REMOTE_CREATED_AT)
@@ -116,11 +117,11 @@ public class BankInfo {
   }
 
    /**
-   * The employee with this bank account.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "a3617eb4-dfe3-426f-921e-a65fc1661e10", value = "The employee with this bank account.")
+  @ApiModelProperty(example = "a3617eb4-dfe3-426f-921e-a65fc1661e10", value = "")
 
   public UUID getEmployee() {
     return employee;
@@ -201,24 +202,25 @@ public class BankInfo {
   }
 
 
-  public BankInfo accountType(String accountType) {
+  public BankInfo accountType(AccountTypeEnum accountType) {
     
     this.accountType = accountType;
     return this;
   }
 
    /**
-   * Get accountType
+   * The bank account type
    * @return accountType
   **/
-  @ApiModelProperty(example = "CHECKING", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "CHECKING", value = "The bank account type")
 
-  public String getAccountType() {
+  public AccountTypeEnum getAccountType() {
     return accountType;
   }
 
 
-  public void setAccountType(String accountType) {
+  public void setAccountType(AccountTypeEnum accountType) {
     this.accountType = accountType;
   }
 

@@ -27,13 +27,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
+import merge_hris_client.model.RequestTypeEnum;
+import merge_hris_client.model.TimeOffStatusEnum;
+import merge_hris_client.model.UnitsEnum;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  */
 @ApiModel(description = "# The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class TimeOff {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -53,7 +56,7 @@ public class TimeOff {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private String status;
+  private TimeOffStatusEnum status;
 
   public static final String SERIALIZED_NAME_EMPLOYEE_NOTE = "employee_note";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_NOTE)
@@ -61,7 +64,7 @@ public class TimeOff {
 
   public static final String SERIALIZED_NAME_UNITS = "units";
   @SerializedName(SERIALIZED_NAME_UNITS)
-  private String units;
+  private UnitsEnum units;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -69,7 +72,7 @@ public class TimeOff {
 
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "request_type";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  private String requestType;
+  private RequestTypeEnum requestType;
 
   public static final String SERIALIZED_NAME_START_TIME = "start_time";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -128,11 +131,11 @@ public class TimeOff {
   }
 
    /**
-   * The employee requesting time off.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee requesting time off.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public UUID getEmployee() {
     return employee;
@@ -151,11 +154,11 @@ public class TimeOff {
   }
 
    /**
-   * The employee approving the time off request.
+   * Get approver
    * @return approver
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "The employee approving the time off request.")
+  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "")
 
   public UUID getApprover() {
     return approver;
@@ -167,24 +170,25 @@ public class TimeOff {
   }
 
 
-  public TimeOff status(String status) {
+  public TimeOff status(TimeOffStatusEnum status) {
     
     this.status = status;
     return this;
   }
 
    /**
-   * Get status
+   * The status of this time off request.
    * @return status
   **/
-  @ApiModelProperty(example = "APPROVED", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "APPROVED", value = "The status of this time off request.")
 
-  public String getStatus() {
+  public TimeOffStatusEnum getStatus() {
     return status;
   }
 
 
-  public void setStatus(String status) {
+  public void setStatus(TimeOffStatusEnum status) {
     this.status = status;
   }
 
@@ -212,24 +216,25 @@ public class TimeOff {
   }
 
 
-  public TimeOff units(String units) {
+  public TimeOff units(UnitsEnum units) {
     
     this.units = units;
     return this;
   }
 
    /**
-   * Get units
+   * The unit of time requested.
    * @return units
   **/
-  @ApiModelProperty(example = "DAYS", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "DAYS", value = "The unit of time requested.")
 
-  public String getUnits() {
+  public UnitsEnum getUnits() {
     return units;
   }
 
 
-  public void setUnits(String units) {
+  public void setUnits(UnitsEnum units) {
     this.units = units;
   }
 
@@ -257,24 +262,25 @@ public class TimeOff {
   }
 
 
-  public TimeOff requestType(String requestType) {
+  public TimeOff requestType(RequestTypeEnum requestType) {
     
     this.requestType = requestType;
     return this;
   }
 
    /**
-   * Get requestType
+   * The type of time off request.
    * @return requestType
   **/
-  @ApiModelProperty(example = "VACATION", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VACATION", value = "The type of time off request.")
 
-  public String getRequestType() {
+  public RequestTypeEnum getRequestType() {
     return requestType;
   }
 
 
-  public void setRequestType(String requestType) {
+  public void setRequestType(RequestTypeEnum requestType) {
     this.requestType = requestType;
   }
 

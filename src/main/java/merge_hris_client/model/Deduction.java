@@ -25,14 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
+import merge_hris_client.model.RemoteData;
 
 /**
  * # The Deduction Object ### Description The &#x60;Deduction&#x60; object is used to represent a deduction for a given employee&#39;s payroll run. One run could include several deductions.  ### Usage Example Fetch from the &#x60;LIST Deductions&#x60; endpoint and filter by &#x60;ID&#x60; to show all deductions.
  */
 @ApiModel(description = "# The Deduction Object ### Description The `Deduction` object is used to represent a deduction for a given employee's payroll run. One run could include several deductions.  ### Usage Example Fetch from the `LIST Deductions` endpoint and filter by `ID` to show all deductions.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class Deduction {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -56,7 +56,7 @@ public class Deduction {
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
-  private List<Map<String, Object>> remoteData = null;
+  private List<RemoteData> remoteData = null;
 
 
    /**
@@ -80,11 +80,11 @@ public class Deduction {
   }
 
    /**
-   * The deduction&#39;s employee payroll run.
+   * Get employeePayrollRun
    * @return employeePayrollRun
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "The deduction's employee payroll run.")
+  @ApiModelProperty(example = "35347df1-95e7-46e2-93cc-66f1191edca5", value = "")
 
   public UUID getEmployeePayrollRun() {
     return employeePayrollRun;
@@ -165,20 +165,6 @@ public class Deduction {
   }
 
 
-  public Deduction remoteData(List<Map<String, Object>> remoteData) {
-    
-    this.remoteData = remoteData;
-    return this;
-  }
-
-  public Deduction addRemoteDataItem(Map<String, Object> remoteDataItem) {
-    if (this.remoteData == null) {
-      this.remoteData = new ArrayList<Map<String, Object>>();
-    }
-    this.remoteData.add(remoteDataItem);
-    return this;
-  }
-
    /**
    * Get remoteData
    * @return remoteData
@@ -186,14 +172,11 @@ public class Deduction {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "[{\"path\":\"/payroll-deduction\",\"data\":[\"Varies by platform\"]}]", value = "")
 
-  public List<Map<String, Object>> getRemoteData() {
+  public List<RemoteData> getRemoteData() {
     return remoteData;
   }
 
 
-  public void setRemoteData(List<Map<String, Object>> remoteData) {
-    this.remoteData = remoteData;
-  }
 
 
   @Override

@@ -29,6 +29,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import merge_hris_client.model.EmploymentStatusEnum;
+import merge_hris_client.model.EthnicityEnum;
+import merge_hris_client.model.GenderEnum;
+import merge_hris_client.model.MaritalStatusEnum;
 import merge_hris_client.model.RemoteData;
 import org.threeten.bp.OffsetDateTime;
 
@@ -36,7 +40,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class Employee {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -108,15 +112,15 @@ public class Employee {
 
   public static final String SERIALIZED_NAME_GENDER = "gender";
   @SerializedName(SERIALIZED_NAME_GENDER)
-  private String gender;
+  private GenderEnum gender;
 
   public static final String SERIALIZED_NAME_ETHNICITY = "ethnicity";
   @SerializedName(SERIALIZED_NAME_ETHNICITY)
-  private String ethnicity;
+  private EthnicityEnum ethnicity;
 
   public static final String SERIALIZED_NAME_MARITAL_STATUS = "marital_status";
   @SerializedName(SERIALIZED_NAME_MARITAL_STATUS)
-  private String maritalStatus;
+  private MaritalStatusEnum maritalStatus;
 
   public static final String SERIALIZED_NAME_DATE_OF_BIRTH = "date_of_birth";
   @SerializedName(SERIALIZED_NAME_DATE_OF_BIRTH)
@@ -132,7 +136,7 @@ public class Employee {
 
   public static final String SERIALIZED_NAME_EMPLOYMENT_STATUS = "employment_status";
   @SerializedName(SERIALIZED_NAME_EMPLOYMENT_STATUS)
-  private String employmentStatus;
+  private EmploymentStatusEnum employmentStatus;
 
   public static final String SERIALIZED_NAME_TERMINATION_DATE = "termination_date";
   @SerializedName(SERIALIZED_NAME_TERMINATION_DATE)
@@ -218,11 +222,11 @@ public class Employee {
   }
 
    /**
-   * The ID of the employee&#39;s company.
+   * Get company
    * @return company
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "8d9fd929-436c-4fd4-a48b-0c61f68d6178", value = "The ID of the employee's company.")
+  @ApiModelProperty(example = "8d9fd929-436c-4fd4-a48b-0c61f68d6178", value = "")
 
   public UUID getCompany() {
     return company;
@@ -372,6 +376,20 @@ public class Employee {
   }
 
 
+  public Employee employments(List<UUID> employments) {
+    
+    this.employments = employments;
+    return this;
+  }
+
+  public Employee addEmploymentsItem(UUID employmentsItem) {
+    if (this.employments == null) {
+      this.employments = new ArrayList<UUID>();
+    }
+    this.employments.add(employmentsItem);
+    return this;
+  }
+
    /**
    * Array of &#x60;Employment&#x60; IDs for this Employee.
    * @return employments
@@ -384,6 +402,9 @@ public class Employee {
   }
 
 
+  public void setEmployments(List<UUID> employments) {
+    this.employments = employments;
+  }
 
 
   public Employee homeLocation(UUID homeLocation) {
@@ -393,11 +414,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s home address.
+   * Get homeLocation
    * @return homeLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee's home address.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public UUID getHomeLocation() {
     return homeLocation;
@@ -416,11 +437,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s work address.
+   * Get workLocation
    * @return workLocation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "The employee's work address.")
+  @ApiModelProperty(example = "9efbc633-3387-4306-aa55-e2c635e6bb4f", value = "")
 
   public UUID getWorkLocation() {
     return workLocation;
@@ -439,11 +460,11 @@ public class Employee {
   }
 
    /**
-   * The employee ID of the employee&#39;s manager.
+   * Get manager
    * @return manager
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0048ea5b-911e-4dff-9364-92070dea62ff", value = "The employee ID of the employee's manager.")
+  @ApiModelProperty(example = "0048ea5b-911e-4dff-9364-92070dea62ff", value = "")
 
   public UUID getManager() {
     return manager;
@@ -462,11 +483,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s team.
+   * Get team
    * @return team
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "249c9faa-3045-4a31-953b-8f22d3613301", value = "The employee's team.")
+  @ApiModelProperty(example = "249c9faa-3045-4a31-953b-8f22d3613301", value = "")
 
   public UUID getTeam() {
     return team;
@@ -485,11 +506,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s pay group
+   * Get payGroup
    * @return payGroup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ad1264e2-39be-4787-b749-f1aade9e3405", value = "The employee's pay group")
+  @ApiModelProperty(example = "ad1264e2-39be-4787-b749-f1aade9e3405", value = "")
 
   public UUID getPayGroup() {
     return payGroup;
@@ -524,68 +545,71 @@ public class Employee {
   }
 
 
-  public Employee gender(String gender) {
+  public Employee gender(GenderEnum gender) {
     
     this.gender = gender;
     return this;
   }
 
    /**
-   * Get gender
+   * The employee&#39;s gender.
    * @return gender
   **/
-  @ApiModelProperty(example = "FEMALE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FEMALE", value = "The employee's gender.")
 
-  public String getGender() {
+  public GenderEnum getGender() {
     return gender;
   }
 
 
-  public void setGender(String gender) {
+  public void setGender(GenderEnum gender) {
     this.gender = gender;
   }
 
 
-  public Employee ethnicity(String ethnicity) {
+  public Employee ethnicity(EthnicityEnum ethnicity) {
     
     this.ethnicity = ethnicity;
     return this;
   }
 
    /**
-   * Get ethnicity
+   * The employee&#39;s ethnicity.
    * @return ethnicity
   **/
-  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", value = "The employee's ethnicity.")
 
-  public String getEthnicity() {
+  public EthnicityEnum getEthnicity() {
     return ethnicity;
   }
 
 
-  public void setEthnicity(String ethnicity) {
+  public void setEthnicity(EthnicityEnum ethnicity) {
     this.ethnicity = ethnicity;
   }
 
 
-  public Employee maritalStatus(String maritalStatus) {
+  public Employee maritalStatus(MaritalStatusEnum maritalStatus) {
     
     this.maritalStatus = maritalStatus;
     return this;
   }
 
    /**
-   * Get maritalStatus
+   * The employee&#39;s marital status.
    * @return maritalStatus
   **/
-  @ApiModelProperty(example = "SINGLE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "SINGLE", value = "The employee's marital status.")
 
-  public String getMaritalStatus() {
+  public MaritalStatusEnum getMaritalStatus() {
     return maritalStatus;
   }
 
 
-  public void setMaritalStatus(String maritalStatus) {
+  public void setMaritalStatus(MaritalStatusEnum maritalStatus) {
     this.maritalStatus = maritalStatus;
   }
 
@@ -659,24 +683,25 @@ public class Employee {
   }
 
 
-  public Employee employmentStatus(String employmentStatus) {
+  public Employee employmentStatus(EmploymentStatusEnum employmentStatus) {
     
     this.employmentStatus = employmentStatus;
     return this;
   }
 
    /**
-   * Get employmentStatus
+   * The employment status of the employee.
    * @return employmentStatus
   **/
-  @ApiModelProperty(example = "INACTIVE", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "INACTIVE", value = "The employment status of the employee.")
 
-  public String getEmploymentStatus() {
+  public EmploymentStatusEnum getEmploymentStatus() {
     return employmentStatus;
   }
 
 
-  public void setEmploymentStatus(String employmentStatus) {
+  public void setEmploymentStatus(EmploymentStatusEnum employmentStatus) {
     this.employmentStatus = employmentStatus;
   }
 

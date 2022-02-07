@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class EmploymentRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -128,11 +128,11 @@ public class EmploymentRawJson {
   }
 
    /**
-   * The employee holding this position.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0958cbc6-6040-430a-848e-aafacbadf4ae", value = "The employee holding this position.")
+  @ApiModelProperty(example = "0958cbc6-6040-430a-848e-aafacbadf4ae", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -179,17 +179,17 @@ public class EmploymentRawJson {
     this.payRate = payRate;
   }
 
-  public EmploymentRawJson payPeriod(String payPeriod) {
+  public EmploymentRawJson payPeriod(PayPeriodEnum payPeriod) {
     this.payPeriod = this.serializer.getGson().toJsonTree(payPeriod);
     return this;
   }
 
    /**
-   * Get payPeriod
+   * The time period this pay rate encompasses.
    * @return payPeriod
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "YEAR", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "YEAR", value = "The time period this pay rate encompasses.")
 
   public JsonElement getPayPeriod() {
     return payPeriod;
@@ -198,17 +198,17 @@ public class EmploymentRawJson {
     this.payPeriod = payPeriod;
   }
 
-  public EmploymentRawJson payFrequency(String payFrequency) {
+  public EmploymentRawJson payFrequency(PayFrequencyEnum payFrequency) {
     this.payFrequency = this.serializer.getGson().toJsonTree(payFrequency);
     return this;
   }
 
    /**
-   * Get payFrequency
+   * The position&#39;s pay frequency.
    * @return payFrequency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "BIWEEKLY", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "BIWEEKLY", value = "The position's pay frequency.")
 
   public JsonElement getPayFrequency() {
     return payFrequency;
@@ -217,17 +217,17 @@ public class EmploymentRawJson {
     this.payFrequency = payFrequency;
   }
 
-  public EmploymentRawJson payCurrency(String payCurrency) {
+  public EmploymentRawJson payCurrency(PayCurrencyEnum payCurrency) {
     this.payCurrency = this.serializer.getGson().toJsonTree(payCurrency);
     return this;
   }
 
    /**
-   * Get payCurrency
+   * The position&#39;s currency code.
    * @return payCurrency
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "The position's currency code.")
 
   public JsonElement getPayCurrency() {
     return payCurrency;
@@ -236,17 +236,17 @@ public class EmploymentRawJson {
     this.payCurrency = payCurrency;
   }
 
-  public EmploymentRawJson flsaStatus(String flsaStatus) {
+  public EmploymentRawJson flsaStatus(FlsaStatusEnum flsaStatus) {
     this.flsaStatus = this.serializer.getGson().toJsonTree(flsaStatus);
     return this;
   }
 
    /**
-   * Get flsaStatus
+   * The position&#39;s FLSA status.
    * @return flsaStatus
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "EXEMPT", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "EXEMPT", value = "The position's FLSA status.")
 
   public JsonElement getFlsaStatus() {
     return flsaStatus;
@@ -274,17 +274,17 @@ public class EmploymentRawJson {
     this.effectiveDate = effectiveDate;
   }
 
-  public EmploymentRawJson employmentType(String employmentType) {
+  public EmploymentRawJson employmentType(EmploymentTypeEnum employmentType) {
     this.employmentType = this.serializer.getGson().toJsonTree(employmentType);
     return this;
   }
 
    /**
-   * Get employmentType
+   * The position&#39;s type of employment.
    * @return employmentType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FULL TIME", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "FULL TIME", value = "The position's type of employment.")
 
   public JsonElement getEmploymentType() {
     return employmentType;

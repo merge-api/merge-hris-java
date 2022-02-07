@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  |  [optional] [readonly]
 **remoteId** | **String** | The third-party API ID of the matching object. |  [optional]
-**employee** | **UUID** | The employee with this bank account. |  [optional]
+**employee** | **UUID** |  |  [optional]
 **accountNumber** | **String** | The account number. |  [optional]
 **routingNumber** | **String** | The routing number. |  [optional]
 **bankName** | **String** | The bank name. |  [optional]
-**accountType** | **String** |  | 
+**accountType** | [**AccountTypeEnum**](AccountTypeEnum.md) | The bank account type |  [optional]
 **remoteCreatedAt** | **OffsetDateTime** | When the matching bank object was created in the third party system. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
 

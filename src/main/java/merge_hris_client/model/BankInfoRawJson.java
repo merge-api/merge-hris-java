@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
  */
 @ApiModel(description = "# The BankInfo Object ### Description The `BankInfo` object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST BankInfo` endpoint and filter by `ID` to show all bank information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class BankInfoRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -116,11 +116,11 @@ public class BankInfoRawJson {
   }
 
    /**
-   * The employee with this bank account.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "a3617eb4-dfe3-426f-921e-a65fc1661e10", value = "The employee with this bank account.")
+  @ApiModelProperty(example = "a3617eb4-dfe3-426f-921e-a65fc1661e10", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -186,17 +186,17 @@ public class BankInfoRawJson {
     this.bankName = bankName;
   }
 
-  public BankInfoRawJson accountType(String accountType) {
+  public BankInfoRawJson accountType(AccountTypeEnum accountType) {
     this.accountType = this.serializer.getGson().toJsonTree(accountType);
     return this;
   }
 
    /**
-   * Get accountType
+   * The bank account type
    * @return accountType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "CHECKING", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "CHECKING", value = "The bank account type")
 
   public JsonElement getAccountType() {
     return accountType;

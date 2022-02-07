@@ -27,13 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.CountryEnum;
+import merge_hris_client.model.LocationTypeEnum;
 import merge_hris_client.model.RemoteData;
 
 /**
  * # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
  */
 @ApiModel(description = "# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class Location {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -74,6 +75,10 @@ public class Location {
   public static final String SERIALIZED_NAME_COUNTRY = "country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
   private CountryEnum country;
+
+  public static final String SERIALIZED_NAME_LOCATION_TYPE = "location_type";
+  @SerializedName(SERIALIZED_NAME_LOCATION_TYPE)
+  private LocationTypeEnum locationType;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -301,6 +306,29 @@ public class Location {
   }
 
 
+  public Location locationType(LocationTypeEnum locationType) {
+    
+    this.locationType = locationType;
+    return this;
+  }
+
+   /**
+   * The location&#39;s type. Can be either WORK or HOME
+   * @return locationType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "WORK", value = "The location's type. Can be either WORK or HOME")
+
+  public LocationTypeEnum getLocationType() {
+    return locationType;
+  }
+
+
+  public void setLocationType(LocationTypeEnum locationType) {
+    this.locationType = locationType;
+  }
+
+
    /**
    * Get remoteData
    * @return remoteData
@@ -334,12 +362,13 @@ public class Location {
         Objects.equals(this.state, location.state) &&
         Objects.equals(this.zipCode, location.zipCode) &&
         Objects.equals(this.country, location.country) &&
+        Objects.equals(this.locationType, location.locationType) &&
         Objects.equals(this.remoteData, location.remoteData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, remoteData);
+    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, locationType, remoteData);
   }
 
   @Override
@@ -356,6 +385,7 @@ public class Location {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    zipCode: ").append(toIndentedString(zipCode)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    locationType: ").append(toIndentedString(locationType)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
     sb.append("}");
     return sb.toString();

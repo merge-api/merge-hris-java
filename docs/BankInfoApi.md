@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="bankInfoList"></a>
 # **bankInfoList**
-> PaginatedBankInfoList bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId)
+> PaginatedBankInfoList bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId)
 
 
 
@@ -39,12 +39,11 @@ public class Example {
 
     BankInfoApi apiInstance = new BankInfoApi(defaultClient);
     String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
-    String accountType = "accountType_example"; // String | The bank account type: [CHECKING, SAVINGS]
-    String bankName = "bankName_example"; // String | 
+    String accountType = "accountType_example"; // String | If provided, will only return BankInfo's with this account type. Options: ('SAVINGS', 'CHECKING')
+    String bankName = "bankName_example"; // String | If provided, will only return BankInfo's with this bank name.
     OffsetDateTime createdAfter = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created after this datetime.
     OffsetDateTime createdBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects created before this datetime.
     String cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw"; // String | The pagination cursor value.
-    UUID employee = new UUID(); // UUID | If provided, will only return bank accounts for this employee.
     String employeeId = "employeeId_example"; // String | If provided, will only return bank accounts for this employee.
     Boolean includeDeletedData = true; // Boolean | Whether to include data that was deleted in the third-party service.
     Boolean includeRemoteData = true; // Boolean | Whether to include the original data Merge fetched from the third-party to produce these models.
@@ -52,10 +51,9 @@ public class Example {
     OffsetDateTime modifiedBefore = OffsetDateTime.now(); // OffsetDateTime | If provided, will only return objects modified before this datetime.
     String orderBy = "orderBy_example"; // String | Overrides the default ordering for this endpoint.
     Integer pageSize = 56; // Integer | Number of results to return per page.
-    OffsetDateTime remoteCreatedAt = OffsetDateTime.now(); // OffsetDateTime | 
     String remoteId = "remoteId_example"; // String | The API provider's ID for the given object.
     try {
-      PaginatedBankInfoList result = apiInstance.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employee, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteCreatedAt, remoteId);
+      PaginatedBankInfoList result = apiInstance.bankInfoList(xAccountToken, accountType, bankName, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, orderBy, pageSize, remoteId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BankInfoApi#bankInfoList");
@@ -73,12 +71,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xAccountToken** | **String**| Token identifying the end user. |
- **accountType** | **String**| The bank account type: [CHECKING, SAVINGS] | [optional]
- **bankName** | **String**|  | [optional]
+ **accountType** | **String**| If provided, will only return BankInfo&#39;s with this account type. Options: (&#39;SAVINGS&#39;, &#39;CHECKING&#39;) | [optional] [enum: CHECKING, SAVINGS]
+ **bankName** | **String**| If provided, will only return BankInfo&#39;s with this bank name. | [optional]
  **createdAfter** | **OffsetDateTime**| If provided, will only return objects created after this datetime. | [optional]
  **createdBefore** | **OffsetDateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **String**| The pagination cursor value. | [optional]
- **employee** | [**UUID**](.md)| If provided, will only return bank accounts for this employee. | [optional]
  **employeeId** | **String**| If provided, will only return bank accounts for this employee. | [optional]
  **includeDeletedData** | **Boolean**| Whether to include data that was deleted in the third-party service. | [optional]
  **includeRemoteData** | **Boolean**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
@@ -86,7 +83,6 @@ Name | Type | Description  | Notes
  **modifiedBefore** | **OffsetDateTime**| If provided, will only return objects modified before this datetime. | [optional]
  **orderBy** | **String**| Overrides the default ordering for this endpoint. | [optional] [enum: -remote_created_at, remote_created_at]
  **pageSize** | **Integer**| Number of results to return per page. | [optional]
- **remoteCreatedAt** | **OffsetDateTime**|  | [optional]
  **remoteId** | **String**| The API provider&#39;s ID for the given object. | [optional]
 
 ### Return type

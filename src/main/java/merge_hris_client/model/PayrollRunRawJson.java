@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The PayrollRun Object ### Description The &#x60;PayrollRun&#x60; object is used to represent a payroll run.  ### Usage Example Fetch from the &#x60;LIST PayrollRuns&#x60; endpoint and filter by &#x60;ID&#x60; to show all payroll runs.
  */
 @ApiModel(description = "# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class PayrollRunRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -106,17 +106,17 @@ public class PayrollRunRawJson {
     this.remoteId = remoteId;
   }
 
-  public PayrollRunRawJson runState(String runState) {
+  public PayrollRunRawJson runState(RunStateEnum runState) {
     this.runState = this.serializer.getGson().toJsonTree(runState);
     return this;
   }
 
    /**
-   * Get runState
+   * The state of the payroll run
    * @return runState
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "PAID", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "PAID", value = "The state of the payroll run")
 
   public JsonElement getRunState() {
     return runState;
@@ -125,17 +125,17 @@ public class PayrollRunRawJson {
     this.runState = runState;
   }
 
-  public PayrollRunRawJson runType(String runType) {
+  public PayrollRunRawJson runType(RunTypeEnum runType) {
     this.runType = this.serializer.getGson().toJsonTree(runType);
     return this;
   }
 
    /**
-   * Get runType
+   * The type of the payroll run
    * @return runType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "REGULAR", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "REGULAR", value = "The type of the payroll run")
 
   public JsonElement getRunType() {
     return runType;

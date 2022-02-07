@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class BenefitRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -112,11 +112,11 @@ public class BenefitRawJson {
   }
 
    /**
-   * The employee on the plan.
+   * Get employee
    * @return employee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "The employee on the plan.")
+  @ApiModelProperty(example = "d2f972d0-2526-434b-9409-4c3b468e08f0", value = "")
 
   public JsonElement getEmployee() {
     return employee;
@@ -144,17 +144,17 @@ public class BenefitRawJson {
     this.providerName = providerName;
   }
 
-  public BenefitRawJson benefitPlanType(String benefitPlanType) {
+  public BenefitRawJson benefitPlanType(BenefitPlanTypeEnum benefitPlanType) {
     this.benefitPlanType = this.serializer.getGson().toJsonTree(benefitPlanType);
     return this;
   }
 
    /**
-   * Get benefitPlanType
+   * The type of benefit plan
    * @return benefitPlanType
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "MEDICAL", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "MEDICAL", value = "The type of benefit plan")
 
   public JsonElement getBenefitPlanType() {
     return benefitPlanType;

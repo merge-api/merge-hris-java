@@ -27,13 +27,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.RemoteData;
+import merge_hris_client.model.RunStateEnum;
+import merge_hris_client.model.RunTypeEnum;
 import org.threeten.bp.OffsetDateTime;
 
 /**
  * # The PayrollRun Object ### Description The &#x60;PayrollRun&#x60; object is used to represent a payroll run.  ### Usage Example Fetch from the &#x60;LIST PayrollRuns&#x60; endpoint and filter by &#x60;ID&#x60; to show all payroll runs.
  */
 @ApiModel(description = "# The PayrollRun Object ### Description The `PayrollRun` object is used to represent a payroll run.  ### Usage Example Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class PayrollRun {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -45,11 +47,11 @@ public class PayrollRun {
 
   public static final String SERIALIZED_NAME_RUN_STATE = "run_state";
   @SerializedName(SERIALIZED_NAME_RUN_STATE)
-  private String runState;
+  private RunStateEnum runState;
 
   public static final String SERIALIZED_NAME_RUN_TYPE = "run_type";
   @SerializedName(SERIALIZED_NAME_RUN_TYPE)
-  private String runType;
+  private RunTypeEnum runType;
 
   public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
@@ -105,46 +107,48 @@ public class PayrollRun {
   }
 
 
-  public PayrollRun runState(String runState) {
+  public PayrollRun runState(RunStateEnum runState) {
     
     this.runState = runState;
     return this;
   }
 
    /**
-   * Get runState
+   * The state of the payroll run
    * @return runState
   **/
-  @ApiModelProperty(example = "PAID", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "PAID", value = "The state of the payroll run")
 
-  public String getRunState() {
+  public RunStateEnum getRunState() {
     return runState;
   }
 
 
-  public void setRunState(String runState) {
+  public void setRunState(RunStateEnum runState) {
     this.runState = runState;
   }
 
 
-  public PayrollRun runType(String runType) {
+  public PayrollRun runType(RunTypeEnum runType) {
     
     this.runType = runType;
     return this;
   }
 
    /**
-   * Get runType
+   * The type of the payroll run
    * @return runType
   **/
-  @ApiModelProperty(example = "REGULAR", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "REGULAR", value = "The type of the payroll run")
 
-  public String getRunType() {
+  public RunTypeEnum getRunType() {
     return runType;
   }
 
 
-  public void setRunType(String runType) {
+  public void setRunType(RunTypeEnum runType) {
     this.runType = runType;
   }
 

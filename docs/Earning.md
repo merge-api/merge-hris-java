@@ -9,9 +9,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **UUID** |  |  [optional] [readonly]
-**employeePayrollRun** | **UUID** | The earning&#39;s employee payroll run. |  [optional]
+**employeePayrollRun** | **UUID** |  |  [optional]
 **amount** | **Float** | The amount earned. |  [optional]
-**type** | **String** |  | 
+**type** | [**TypeEnum**](TypeEnum.md) | The type of earning. |  [optional]
 **remoteData** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  [optional]
 
 

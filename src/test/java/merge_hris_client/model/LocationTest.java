@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import merge_hris_client.model.CountryEnum;
+import merge_hris_client.model.LocationTypeEnum;
 import merge_hris_client.model.RemoteData;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -123,6 +124,14 @@ public class LocationTest {
     @Test
     public void countryTest() {
         // TODO: test country
+    }
+
+    /**
+     * Test the property 'locationType'
+     */
+    @Test
+    public void locationTypeTest() {
+        // TODO: test locationType
     }
 
     /**

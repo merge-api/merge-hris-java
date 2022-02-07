@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import merge_hris_client.model.ErrorValidationProblem;
@@ -32,7 +33,7 @@ import merge_hris_client.model.WarningValidationProblem;
 /**
  * TimeOffResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-01-11T18:45:23.445197Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
 public class TimeOffResponse {
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
@@ -45,6 +46,10 @@ public class TimeOffResponse {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private List<ErrorValidationProblem> errors = new ArrayList<ErrorValidationProblem>();
+
+  public static final String SERIALIZED_NAME_LOGS = "logs";
+  @SerializedName(SERIALIZED_NAME_LOGS)
+  private List<URI> logs = null;
 
 
   public TimeOffResponse model(TimeOff model) {
@@ -123,6 +128,37 @@ public class TimeOffResponse {
   }
 
 
+  public TimeOffResponse logs(List<URI> logs) {
+    
+    this.logs = logs;
+    return this;
+  }
+
+  public TimeOffResponse addLogsItem(URI logsItem) {
+    if (this.logs == null) {
+      this.logs = new ArrayList<URI>();
+    }
+    this.logs.add(logsItem);
+    return this;
+  }
+
+   /**
+   * Get logs
+   * @return logs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<URI> getLogs() {
+    return logs;
+  }
+
+
+  public void setLogs(List<URI> logs) {
+    this.logs = logs;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,12 +170,13 @@ public class TimeOffResponse {
     TimeOffResponse timeOffResponse = (TimeOffResponse) o;
     return Objects.equals(this.model, timeOffResponse.model) &&
         Objects.equals(this.warnings, timeOffResponse.warnings) &&
-        Objects.equals(this.errors, timeOffResponse.errors);
+        Objects.equals(this.errors, timeOffResponse.errors) &&
+        Objects.equals(this.logs, timeOffResponse.logs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, warnings, errors);
+    return Objects.hash(model, warnings, errors, logs);
   }
 
   @Override
@@ -149,6 +186,7 @@ public class TimeOffResponse {
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
