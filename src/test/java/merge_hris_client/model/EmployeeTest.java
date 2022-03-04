@@ -109,6 +109,14 @@ public class EmployeeTest {
     }
 
     /**
+     * Test the property 'groups'
+     */
+    @Test
+    public void groupsTest() {
+        // TODO: test groups
+    }
+
+    /**
      * Test the property 'workEmail'
      */
     @Test

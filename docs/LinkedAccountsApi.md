@@ -67,7 +67,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **String**|  | [optional] [enum: accounting, ats, hris]
+ **category** | **String**|  | [optional] [enum: accounting, ats, hris, ticketing]
  **cursor** | **String**| The pagination cursor value. | [optional]
  **endUserEmailAddress** | **String**|  | [optional]
  **endUserOrganizationName** | **String**|  | [optional]

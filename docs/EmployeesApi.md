@@ -4,14 +4,90 @@ All URIs are relative to *https://api.merge.dev/api/hris/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**employeesCreate**](EmployeesApi.md#employeesCreate) | **POST** /employees | 
 [**employeesIgnoreCreate**](EmployeesApi.md#employeesIgnoreCreate) | **POST** /employees/ignore/{model_id} | 
 [**employeesList**](EmployeesApi.md#employeesList) | **GET** /employees | 
 [**employeesRetrieve**](EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 
 
+<a name="employeesCreate"></a>
+# **employeesCreate**
+> EmployeeResponse employeesCreate(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync)
+
+
+
+Creates an &#x60;Employee&#x60; object with the given values.
+
+### Example
+```java
+// Import classes:
+import merge_hris_client.ApiClient;
+import merge_hris_client.ApiException;
+import merge_hris_client.Configuration;
+import merge_hris_client.auth.*;
+import merge_hris_client.models.*;
+import merge_hris_client.api.EmployeesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
+    
+    // Configure API key authorization: tokenAuth
+    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+    tokenAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //tokenAuth.setApiKeyPrefix("Token");
+
+    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
+    EmployeeEndpointRequest employeeEndpointRequest = new EmployeeEndpointRequest(); // EmployeeEndpointRequest | 
+    Boolean isDebugMode = true; // Boolean | Whether to include debug fields (such as log file links) in the response.
+    Boolean runAsync = true; // Boolean | Whether or not third-party updates should be run asynchronously.
+    try {
+      EmployeeResponse result = apiInstance.employeesCreate(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EmployeesApi#employeesCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xAccountToken** | **String**| Token identifying the end user. |
+ **employeeEndpointRequest** | [**EmployeeEndpointRequest**](EmployeeEndpointRequest.md)|  |
+ **isDebugMode** | **Boolean**| Whether to include debug fields (such as log file links) in the response. | [optional]
+ **runAsync** | **Boolean**| Whether or not third-party updates should be run asynchronously. | [optional]
+
+### Return type
+
+[**EmployeeResponse**](EmployeeResponse.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
 <a name="employeesIgnoreCreate"></a>
 # **employeesIgnoreCreate**
-> employeesIgnoreCreate(modelId, ignoreCommonModelRequest)
+> IgnoreCommonModel employeesIgnoreCreate(modelId, ignoreCommonModelRequest)
 
 
 
@@ -42,7 +118,8 @@ public class Example {
     UUID modelId = new UUID(); // UUID | 
     IgnoreCommonModelRequest ignoreCommonModelRequest = new IgnoreCommonModelRequest(); // IgnoreCommonModelRequest | 
     try {
-      apiInstance.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+      IgnoreCommonModel result = apiInstance.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesIgnoreCreate");
       System.err.println("Status code: " + e.getCode());
@@ -63,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**IgnoreCommonModel**](IgnoreCommonModel.md)
 
 ### Authorization
 
@@ -72,12 +149,12 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | No response body |  -  |
+**200** |  |  -  |
 
 <a name="employeesList"></a>
 # **employeesList**
