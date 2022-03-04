@@ -28,6 +28,9 @@ import java.io.IOException;
 
 
 import merge_hris_client.model.Employee;
+import merge_hris_client.model.EmployeeEndpointRequest;
+import merge_hris_client.model.EmployeeResponse;
+import merge_hris_client.model.IgnoreCommonModel;
 import merge_hris_client.model.IgnoreCommonModelRequest;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmployeeList;
@@ -59,6 +62,146 @@ public class EmployeesApi {
     }
 
     /**
+     * Build call for employeesCreate
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param employeeEndpointRequest  (required)
+     * @param isDebugMode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call employeesCreateCall(String xAccountToken, EmployeeEndpointRequest employeeEndpointRequest, Boolean isDebugMode, Boolean runAsync, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = employeeEndpointRequest;
+
+        // create path and map variables
+        String localVarPath = "/employees";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (isDebugMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_debug_mode", isDebugMode));
+        }
+
+        if (runAsync != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("run_async", runAsync));
+        }
+
+        if (xAccountToken != null) {
+            localVarHeaderParams.put("X-Account-Token", localVarApiClient.parameterToString(xAccountToken));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json", "application/x-www-form-urlencoded", "multipart/form-data"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "tokenAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call employeesCreateValidateBeforeCall(String xAccountToken, EmployeeEndpointRequest employeeEndpointRequest, Boolean isDebugMode, Boolean runAsync, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'xAccountToken' is set
+        if (xAccountToken == null) {
+            throw new ApiException("Missing the required parameter 'xAccountToken' when calling employeesCreate(Async)");
+        }
+        
+        // verify the required parameter 'employeeEndpointRequest' is set
+        if (employeeEndpointRequest == null) {
+            throw new ApiException("Missing the required parameter 'employeeEndpointRequest' when calling employeesCreate(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = employeesCreateCall(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * Creates an &#x60;Employee&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param employeeEndpointRequest  (required)
+     * @param isDebugMode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @return EmployeeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmployeeResponse employeesCreate(String xAccountToken, EmployeeEndpointRequest employeeEndpointRequest, Boolean isDebugMode, Boolean runAsync) throws ApiException {
+        ApiResponse<EmployeeResponse> localVarResp = employeesCreateWithHttpInfo(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Creates an &#x60;Employee&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param employeeEndpointRequest  (required)
+     * @param isDebugMode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @return ApiResponse&lt;EmployeeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmployeeResponse> employeesCreateWithHttpInfo(String xAccountToken, EmployeeEndpointRequest employeeEndpointRequest, Boolean isDebugMode, Boolean runAsync) throws ApiException {
+        okhttp3.Call localVarCall = employeesCreateValidateBeforeCall(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync, null);
+        Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Creates an &#x60;Employee&#x60; object with the given values.
+     * @param xAccountToken Token identifying the end user. (required)
+     * @param employeeEndpointRequest  (required)
+     * @param isDebugMode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param runAsync Whether or not third-party updates should be run asynchronously. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call employeesCreateAsync(String xAccountToken, EmployeeEndpointRequest employeeEndpointRequest, Boolean isDebugMode, Boolean runAsync, final ApiCallback<EmployeeResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = employeesCreateValidateBeforeCall(xAccountToken, employeeEndpointRequest, isDebugMode, runAsync, _callback);
+        Type localVarReturnType = new TypeToken<EmployeeResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for employeesIgnoreCreate
      * @param modelId  (required)
      * @param ignoreCommonModelRequest  (required)
@@ -68,7 +211,7 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> No response body </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call employeesIgnoreCreateCall(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, final ApiCallback _callback) throws ApiException {
@@ -85,7 +228,7 @@ public class EmployeesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -126,15 +269,17 @@ public class EmployeesApi {
      * Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
      * @param modelId  (required)
      * @param ignoreCommonModelRequest  (required)
+     * @return IgnoreCommonModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> No response body </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public void employeesIgnoreCreate(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest) throws ApiException {
-        employeesIgnoreCreateWithHttpInfo(modelId, ignoreCommonModelRequest);
+    public IgnoreCommonModel employeesIgnoreCreate(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest) throws ApiException {
+        ApiResponse<IgnoreCommonModel> localVarResp = employeesIgnoreCreateWithHttpInfo(modelId, ignoreCommonModelRequest);
+        return localVarResp.getData();
     }
 
     /**
@@ -142,17 +287,18 @@ public class EmployeesApi {
      * Ignores a specific row based on the &#x60;model_id&#x60; in the url. These records will have their properties set to null, and will not be updated in future syncs. The \&quot;reason\&quot; and \&quot;message\&quot; fields in the request body will be stored for audit purposes.
      * @param modelId  (required)
      * @param ignoreCommonModelRequest  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;IgnoreCommonModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> No response body </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> employeesIgnoreCreateWithHttpInfo(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest) throws ApiException {
+    public ApiResponse<IgnoreCommonModel> employeesIgnoreCreateWithHttpInfo(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest) throws ApiException {
         okhttp3.Call localVarCall = employeesIgnoreCreateValidateBeforeCall(modelId, ignoreCommonModelRequest, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<IgnoreCommonModel>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -166,13 +312,14 @@ public class EmployeesApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> No response body </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call employeesIgnoreCreateAsync(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call employeesIgnoreCreateAsync(UUID modelId, IgnoreCommonModelRequest ignoreCommonModelRequest, final ApiCallback<IgnoreCommonModel> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = employeesIgnoreCreateValidateBeforeCall(modelId, ignoreCommonModelRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<IgnoreCommonModel>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

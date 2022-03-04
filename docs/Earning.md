@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **UUID** |  |  [optional] [readonly]
 **employeePayrollRun** | **UUID** |  |  [optional]
 **amount** | **Float** | The amount earned. |  [optional]
-**type** | [**TypeEnum**](TypeEnum.md) | The type of earning. |  [optional]
+**type** | [**EarningTypeEnum**](EarningTypeEnum.md) | The type of earning. |  [optional]
 **remoteData** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  [optional]
 
 

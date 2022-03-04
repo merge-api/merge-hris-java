@@ -30,7 +30,7 @@ import merge_hris_client.model.CategoriesEnum;
 /**
  * EndUserDetailsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class EndUserDetailsRequest {
   public static final String SERIALIZED_NAME_END_USER_EMAIL_ADDRESS = "end_user_email_address";
   @SerializedName(SERIALIZED_NAME_END_USER_EMAIL_ADDRESS)
@@ -51,6 +51,10 @@ public class EndUserDetailsRequest {
   public static final String SERIALIZED_NAME_INTEGRATION = "integration";
   @SerializedName(SERIALIZED_NAME_INTEGRATION)
   private String integration;
+
+  public static final String SERIALIZED_NAME_LINK_EXPIRY_MINS = "link_expiry_mins";
+  @SerializedName(SERIALIZED_NAME_LINK_EXPIRY_MINS)
+  private Integer linkExpiryMins = 30;
 
 
   public EndUserDetailsRequest endUserEmailAddress(String endUserEmailAddress) {
@@ -173,6 +177,31 @@ public class EndUserDetailsRequest {
   }
 
 
+  public EndUserDetailsRequest linkExpiryMins(Integer linkExpiryMins) {
+    
+    this.linkExpiryMins = linkExpiryMins;
+    return this;
+  }
+
+   /**
+   * Get linkExpiryMins
+   * minimum: 30
+   * maximum: 720
+   * @return linkExpiryMins
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getLinkExpiryMins() {
+    return linkExpiryMins;
+  }
+
+
+  public void setLinkExpiryMins(Integer linkExpiryMins) {
+    this.linkExpiryMins = linkExpiryMins;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,12 +215,13 @@ public class EndUserDetailsRequest {
         Objects.equals(this.endUserOrganizationName, endUserDetailsRequest.endUserOrganizationName) &&
         Objects.equals(this.endUserOriginId, endUserDetailsRequest.endUserOriginId) &&
         Objects.equals(this.categories, endUserDetailsRequest.categories) &&
-        Objects.equals(this.integration, endUserDetailsRequest.integration);
+        Objects.equals(this.integration, endUserDetailsRequest.integration) &&
+        Objects.equals(this.linkExpiryMins, endUserDetailsRequest.linkExpiryMins);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endUserEmailAddress, endUserOrganizationName, endUserOriginId, categories, integration);
+    return Objects.hash(endUserEmailAddress, endUserOrganizationName, endUserOriginId, categories, integration, linkExpiryMins);
   }
 
   @Override
@@ -203,6 +233,7 @@ public class EndUserDetailsRequest {
     sb.append("    endUserOriginId: ").append(toIndentedString(endUserOriginId)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
+    sb.append("    linkExpiryMins: ").append(toIndentedString(linkExpiryMins)).append("\n");
     sb.append("}");
     return sb.toString();
   }

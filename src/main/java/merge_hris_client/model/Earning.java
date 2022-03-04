@@ -27,13 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import merge_hris_client.model.TypeEnum;
+import merge_hris_client.model.EarningTypeEnum;
 
 /**
  * # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
  */
 @ApiModel(description = "# The Earning Object ### Description The `Earning` object is used to represent an earning for a given employee's payroll run. One run could include several earnings.  ### Usage Example Fetch from the `LIST Earnings` endpoint and filter by `ID` to show all earnings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class Earning {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -49,7 +49,7 @@ public class Earning {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
+  private EarningTypeEnum type;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -116,7 +116,7 @@ public class Earning {
   }
 
 
-  public Earning type(TypeEnum type) {
+  public Earning type(EarningTypeEnum type) {
     
     this.type = type;
     return this;
@@ -129,12 +129,12 @@ public class Earning {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SALARY", value = "The type of earning.")
 
-  public TypeEnum getType() {
+  public EarningTypeEnum getType() {
     return type;
   }
 
 
-  public void setType(TypeEnum type) {
+  public void setType(EarningTypeEnum type) {
     this.type = type;
   }
 

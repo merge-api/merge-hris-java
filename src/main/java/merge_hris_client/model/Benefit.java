@@ -26,14 +26,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import merge_hris_client.model.BenefitPlanTypeEnum;
 import merge_hris_client.model.RemoteData;
 
 /**
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class Benefit {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -53,7 +52,7 @@ public class Benefit {
 
   public static final String SERIALIZED_NAME_BENEFIT_PLAN_TYPE = "benefit_plan_type";
   @SerializedName(SERIALIZED_NAME_BENEFIT_PLAN_TYPE)
-  private BenefitPlanTypeEnum benefitPlanType;
+  private String benefitPlanType;
 
   public static final String SERIALIZED_NAME_EMPLOYEE_CONTRIBUTION = "employee_contribution";
   @SerializedName(SERIALIZED_NAME_EMPLOYEE_CONTRIBUTION)
@@ -151,7 +150,7 @@ public class Benefit {
   }
 
 
-  public Benefit benefitPlanType(BenefitPlanTypeEnum benefitPlanType) {
+  public Benefit benefitPlanType(String benefitPlanType) {
     
     this.benefitPlanType = benefitPlanType;
     return this;
@@ -164,12 +163,12 @@ public class Benefit {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "MEDICAL", value = "The type of benefit plan")
 
-  public BenefitPlanTypeEnum getBenefitPlanType() {
+  public String getBenefitPlanType() {
     return benefitPlanType;
   }
 
 
-  public void setBenefitPlanType(BenefitPlanTypeEnum benefitPlanType) {
+  public void setBenefitPlanType(String benefitPlanType) {
     this.benefitPlanType = benefitPlanType;
   }
 

@@ -23,9 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import merge_hris_client.model.DebugModeLog;
 import merge_hris_client.model.ErrorValidationProblem;
 import merge_hris_client.model.TimeOff;
 import merge_hris_client.model.WarningValidationProblem;
@@ -33,7 +33,7 @@ import merge_hris_client.model.WarningValidationProblem;
 /**
  * TimeOffResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class TimeOffResponse {
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
@@ -49,7 +49,7 @@ public class TimeOffResponse {
 
   public static final String SERIALIZED_NAME_LOGS = "logs";
   @SerializedName(SERIALIZED_NAME_LOGS)
-  private List<URI> logs = null;
+  private List<DebugModeLog> logs = null;
 
 
   public TimeOffResponse model(TimeOff model) {
@@ -128,15 +128,15 @@ public class TimeOffResponse {
   }
 
 
-  public TimeOffResponse logs(List<URI> logs) {
+  public TimeOffResponse logs(List<DebugModeLog> logs) {
     
     this.logs = logs;
     return this;
   }
 
-  public TimeOffResponse addLogsItem(URI logsItem) {
+  public TimeOffResponse addLogsItem(DebugModeLog logsItem) {
     if (this.logs == null) {
-      this.logs = new ArrayList<URI>();
+      this.logs = new ArrayList<DebugModeLog>();
     }
     this.logs.add(logsItem);
     return this;
@@ -149,12 +149,12 @@ public class TimeOffResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<URI> getLogs() {
+  public List<DebugModeLog> getLogs() {
     return logs;
   }
 
 
-  public void setLogs(List<URI> logs) {
+  public void setLogs(List<DebugModeLog> logs) {
     this.logs = logs;
   }
 

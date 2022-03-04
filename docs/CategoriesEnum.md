@@ -11,5 +11,7 @@
 
 * `ACCOUNTING` (value: `"accounting"`)
 
+* `TICKETING` (value: `"ticketing"`)
+
 
 

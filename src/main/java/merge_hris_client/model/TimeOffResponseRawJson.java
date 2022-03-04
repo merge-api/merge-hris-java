@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * TimeOffResponseRawJson
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class TimeOffResponseRawJson {
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
@@ -116,7 +116,7 @@ public class TimeOffResponseRawJson {
     this.errors = errors;
   }
 
-  public TimeOffResponseRawJson logs(List<URI> logs) {
+  public TimeOffResponseRawJson logs(List<DebugModeLog> logs) {
     this.logs = this.serializer.getGson().toJsonTree(logs);
     return this;
   }

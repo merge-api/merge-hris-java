@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **endUserOriginId** | **String** |  | 
 **categories** | **List&lt;CategoriesEnum&gt;** |  |  [optional]
 **integration** | **String** |  |  [optional]
+**linkExpiryMins** | **Integer** |  |  [optional]
 
 
 

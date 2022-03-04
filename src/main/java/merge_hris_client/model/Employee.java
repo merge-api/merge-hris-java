@@ -40,7 +40,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class Employee {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -69,6 +69,10 @@ public class Employee {
   public static final String SERIALIZED_NAME_DISPLAY_FULL_NAME = "display_full_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_FULL_NAME)
   private String displayFullName;
+
+  public static final String SERIALIZED_NAME_GROUPS = "groups";
+  @SerializedName(SERIALIZED_NAME_GROUPS)
+  private List<UUID> groups = null;
 
   public static final String SERIALIZED_NAME_WORK_EMAIL = "work_email";
   @SerializedName(SERIALIZED_NAME_WORK_EMAIL)
@@ -304,6 +308,37 @@ public class Employee {
 
   public void setDisplayFullName(String displayFullName) {
     this.displayFullName = displayFullName;
+  }
+
+
+  public Employee groups(List<UUID> groups) {
+    
+    this.groups = groups;
+    return this;
+  }
+
+  public Employee addGroupsItem(UUID groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<UUID>();
+    }
+    this.groups.add(groupsItem);
+    return this;
+  }
+
+   /**
+   * Get groups
+   * @return groups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"21a54124-397f-494d-985e-3c5b330b8a68\"]", value = "")
+
+  public List<UUID> getGroups() {
+    return groups;
+  }
+
+
+  public void setGroups(List<UUID> groups) {
+    this.groups = groups;
   }
 
 
@@ -813,6 +848,7 @@ public class Employee {
         Objects.equals(this.firstName, employee.firstName) &&
         Objects.equals(this.lastName, employee.lastName) &&
         Objects.equals(this.displayFullName, employee.displayFullName) &&
+        Objects.equals(this.groups, employee.groups) &&
         Objects.equals(this.workEmail, employee.workEmail) &&
         Objects.equals(this.personalEmail, employee.personalEmail) &&
         Objects.equals(this.mobilePhoneNumber, employee.mobilePhoneNumber) &&
@@ -838,7 +874,7 @@ public class Employee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
+    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, groups, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
   }
 
   @Override
@@ -852,6 +888,7 @@ public class Employee {
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    displayFullName: ").append(toIndentedString(displayFullName)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    workEmail: ").append(toIndentedString(workEmail)).append("\n");
     sb.append("    personalEmail: ").append(toIndentedString(personalEmail)).append("\n");
     sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");

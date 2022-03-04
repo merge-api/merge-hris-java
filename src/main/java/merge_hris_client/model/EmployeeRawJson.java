@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-02-04T15:43:08.820708Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
 public class EmployeeRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -64,6 +64,10 @@ public class EmployeeRawJson {
   public static final String SERIALIZED_NAME_DISPLAY_FULL_NAME = "display_full_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_FULL_NAME)
   private JsonElement displayFullName;
+
+  public static final String SERIALIZED_NAME_GROUPS = "groups";
+  @SerializedName(SERIALIZED_NAME_GROUPS)
+  private JsonElement groups;
 
   public static final String SERIALIZED_NAME_WORK_EMAIL = "work_email";
   @SerializedName(SERIALIZED_NAME_WORK_EMAIL)
@@ -279,6 +283,25 @@ public class EmployeeRawJson {
   }
   public void setDisplayFullName(JsonElement displayFullName) {
     this.displayFullName = displayFullName;
+  }
+
+  public EmployeeRawJson groups(List<UUID> groups) {
+    this.groups = this.serializer.getGson().toJsonTree(groups);
+    return this;
+  }
+
+   /**
+   * Get groups
+   * @return groups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[\"21a54124-397f-494d-985e-3c5b330b8a68\"]", value = "")
+
+  public JsonElement getGroups() {
+    return groups;
+  }
+  public void setGroups(JsonElement groups) {
+    this.groups = groups;
   }
 
   public EmployeeRawJson workEmail(String workEmail) {
@@ -689,6 +712,7 @@ public class EmployeeRawJson {
         Objects.equals(this.firstName.getAsString(), employee.firstName.getAsString()) &&
         Objects.equals(this.lastName.getAsString(), employee.lastName.getAsString()) &&
         Objects.equals(this.displayFullName.getAsString(), employee.displayFullName.getAsString()) &&
+        Objects.equals(this.groups.getAsString(), employee.groups.getAsString()) &&
         Objects.equals(this.workEmail.getAsString(), employee.workEmail.getAsString()) &&
         Objects.equals(this.personalEmail.getAsString(), employee.personalEmail.getAsString()) &&
         Objects.equals(this.mobilePhoneNumber.getAsString(), employee.mobilePhoneNumber.getAsString()) &&
@@ -713,7 +737,7 @@ public class EmployeeRawJson {
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
+    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, groups, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
   }
   @Override
   public String toString() {
@@ -726,6 +750,7 @@ public class EmployeeRawJson {
     sb.append("    firstName: ").append(toIndentedString(firstName.getAsString())).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName.getAsString())).append("\n");
     sb.append("    displayFullName: ").append(toIndentedString(displayFullName.getAsString())).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups.getAsString())).append("\n");
     sb.append("    workEmail: ").append(toIndentedString(workEmail.getAsString())).append("\n");
     sb.append("    personalEmail: ").append(toIndentedString(personalEmail.getAsString())).append("\n");
     sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber.getAsString())).append("\n");
