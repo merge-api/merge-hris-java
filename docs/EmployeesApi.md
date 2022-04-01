@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**employeesCreate**](EmployeesApi.md#employeesCreate) | **POST** /employees | 
 [**employeesIgnoreCreate**](EmployeesApi.md#employeesIgnoreCreate) | **POST** /employees/ignore/{model_id} | 
 [**employeesList**](EmployeesApi.md#employeesList) | **GET** /employees | 
+[**employeesMetaPostRetrieve**](EmployeesApi.md#employeesMetaPostRetrieve) | **GET** /employees/meta/post | 
 [**employeesRetrieve**](EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 
 
@@ -87,7 +88,7 @@ Name | Type | Description  | Notes
 
 <a name="employeesIgnoreCreate"></a>
 # **employeesIgnoreCreate**
-> IgnoreCommonModel employeesIgnoreCreate(modelId, ignoreCommonModelRequest)
+> IgnoreCommonModel employeesIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest)
 
 
 
@@ -115,10 +116,11 @@ public class Example {
     //tokenAuth.setApiKeyPrefix("Token");
 
     EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
     UUID modelId = new UUID(); // UUID | 
     IgnoreCommonModelRequest ignoreCommonModelRequest = new IgnoreCommonModelRequest(); // IgnoreCommonModelRequest | 
     try {
-      IgnoreCommonModel result = apiInstance.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+      IgnoreCommonModel result = apiInstance.employeesIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EmployeesApi#employeesIgnoreCreate");
@@ -135,6 +137,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xAccountToken** | **String**| Token identifying the end user. |
  **modelId** | [**UUID**](.md)|  |
  **ignoreCommonModelRequest** | [**IgnoreCommonModelRequest**](IgnoreCommonModelRequest.md)|  |
 
@@ -244,6 +247,75 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PaginatedEmployeeList**](PaginatedEmployeeList.md)
+
+### Authorization
+
+[tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+<a name="employeesMetaPostRetrieve"></a>
+# **employeesMetaPostRetrieve**
+> MetaResponse employeesMetaPostRetrieve(xAccountToken)
+
+
+
+Returns metadata for &#x60;Employee&#x60; POSTs.
+
+### Example
+```java
+// Import classes:
+import merge_hris_client.ApiClient;
+import merge_hris_client.ApiException;
+import merge_hris_client.Configuration;
+import merge_hris_client.auth.*;
+import merge_hris_client.models.*;
+import merge_hris_client.api.EmployeesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.merge.dev/api/hris/v1");
+    
+    // Configure API key authorization: tokenAuth
+    ApiKeyAuth tokenAuth = (ApiKeyAuth) defaultClient.getAuthentication("tokenAuth");
+    tokenAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //tokenAuth.setApiKeyPrefix("Token");
+
+    EmployeesApi apiInstance = new EmployeesApi(defaultClient);
+    String xAccountToken = "xAccountToken_example"; // String | Token identifying the end user.
+    try {
+      MetaResponse result = apiInstance.employeesMetaPostRetrieve(xAccountToken);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling EmployeesApi#employeesMetaPostRetrieve");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xAccountToken** | **String**| Token identifying the end user. |
+
+### Return type
+
+[**MetaResponse**](MetaResponse.md)
 
 ### Authorization
 

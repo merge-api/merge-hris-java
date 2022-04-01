@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * AccountDetailsRawJson
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
 public class AccountDetailsRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -43,6 +43,10 @@ public class AccountDetailsRawJson {
   public static final String SERIALIZED_NAME_INTEGRATION = "integration";
   @SerializedName(SERIALIZED_NAME_INTEGRATION)
   private JsonElement integration;
+
+  public static final String SERIALIZED_NAME_INTEGRATION_SLUG = "integration_slug";
+  @SerializedName(SERIALIZED_NAME_INTEGRATION_SLUG)
+  private JsonElement integrationSlug;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
@@ -63,6 +67,10 @@ public class AccountDetailsRawJson {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private JsonElement status;
+
+  public static final String SERIALIZED_NAME_WEBHOOK_LISTENER_URL = "webhook_listener_url";
+  @SerializedName(SERIALIZED_NAME_WEBHOOK_LISTENER_URL)
+  private JsonElement webhookListenerUrl;
 
   private transient JSON serializer;
 
@@ -91,6 +99,17 @@ public class AccountDetailsRawJson {
 
   public JsonElement getIntegration() {
     return integration;
+  }
+
+   /**
+   * Get integrationSlug
+   * @return integrationSlug
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "bamboohr", value = "")
+
+  public JsonElement getIntegrationSlug() {
+    return integrationSlug;
   }
 
   public AccountDetailsRawJson category(CategoryEnum category) {
@@ -155,6 +174,17 @@ public class AccountDetailsRawJson {
   public JsonElement getStatus() {
     return status;
   }
+
+   /**
+   * Get webhookListenerUrl
+   * @return webhookListenerUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4", value = "")
+
+  public JsonElement getWebhookListenerUrl() {
+    return webhookListenerUrl;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -166,15 +196,17 @@ public class AccountDetailsRawJson {
     AccountDetailsRawJson accountDetails = (AccountDetailsRawJson) o;
     return Objects.equals(this.id.getAsString(), accountDetails.id.getAsString()) &&
         Objects.equals(this.integration.getAsString(), accountDetails.integration.getAsString()) &&
+        Objects.equals(this.integrationSlug.getAsString(), accountDetails.integrationSlug.getAsString()) &&
         Objects.equals(this.category.getAsString(), accountDetails.category.getAsString()) &&
         Objects.equals(this.endUserOriginId.getAsString(), accountDetails.endUserOriginId.getAsString()) &&
         Objects.equals(this.endUserOrganizationName.getAsString(), accountDetails.endUserOrganizationName.getAsString()) &&
         Objects.equals(this.endUserEmailAddress.getAsString(), accountDetails.endUserEmailAddress.getAsString()) &&
-        Objects.equals(this.status.getAsString(), accountDetails.status.getAsString());
+        Objects.equals(this.status.getAsString(), accountDetails.status.getAsString()) &&
+        Objects.equals(this.webhookListenerUrl.getAsString(), accountDetails.webhookListenerUrl.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, integration, category, endUserOriginId, endUserOrganizationName, endUserEmailAddress, status);
+    return Objects.hash(id, integration, integrationSlug, category, endUserOriginId, endUserOrganizationName, endUserEmailAddress, status, webhookListenerUrl);
   }
   @Override
   public String toString() {
@@ -182,11 +214,13 @@ public class AccountDetailsRawJson {
     sb.append("class AccountDetailsRawJson {\n");
     sb.append("    id: ").append(toIndentedString(id.getAsString())).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration.getAsString())).append("\n");
+    sb.append("    integrationSlug: ").append(toIndentedString(integrationSlug.getAsString())).append("\n");
     sb.append("    category: ").append(toIndentedString(category.getAsString())).append("\n");
     sb.append("    endUserOriginId: ").append(toIndentedString(endUserOriginId.getAsString())).append("\n");
     sb.append("    endUserOrganizationName: ").append(toIndentedString(endUserOrganizationName.getAsString())).append("\n");
     sb.append("    endUserEmailAddress: ").append(toIndentedString(endUserEmailAddress.getAsString())).append("\n");
     sb.append("    status: ").append(toIndentedString(status.getAsString())).append("\n");
+    sb.append("    webhookListenerUrl: ").append(toIndentedString(webhookListenerUrl.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

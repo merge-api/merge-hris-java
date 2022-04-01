@@ -2,7 +2,7 @@
 
 # Group
 
-# The PayGroup Object ### Description The `PayGroup` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employees groups.
+# The Group Object ### Description The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
 
 ## Properties
 

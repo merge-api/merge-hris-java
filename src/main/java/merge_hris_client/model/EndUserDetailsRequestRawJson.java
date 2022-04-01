@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * EndUserDetailsRequestRawJson
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
 public class EndUserDetailsRequestRawJson {
   public static final String SERIALIZED_NAME_END_USER_EMAIL_ADDRESS = "end_user_email_address";
   @SerializedName(SERIALIZED_NAME_END_USER_EMAIL_ADDRESS)
@@ -133,8 +133,8 @@ public class EndUserDetailsRequestRawJson {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public JsonElement getCategories() {
     return categories;
@@ -149,11 +149,11 @@ public class EndUserDetailsRequestRawJson {
   }
 
    /**
-   * Get integration
+   * The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata
    * @return integration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata")
 
   public JsonElement getIntegration() {
     return integration;
@@ -168,13 +168,13 @@ public class EndUserDetailsRequestRawJson {
   }
 
    /**
-   * Get linkExpiryMins
+   * An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30
    * minimum: 30
    * maximum: 720
    * @return linkExpiryMins
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30")
 
   public JsonElement getLinkExpiryMins() {
     return linkExpiryMins;

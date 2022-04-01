@@ -1278,6 +1278,14 @@ paths:
         stored for audit purposes.
       operationId: employees_ignore_create
       parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
       - explode: false
         in: path
         name: model_id
@@ -1311,6 +1319,30 @@ paths:
       x-extra-tags:
       - ignore-model
       x-contentType: application/json
+      x-accepts: application/json
+  /employees/meta/post:
+    get:
+      description: Returns metadata for `Employee` POSTs.
+      operationId: employees_meta_post_retrieve
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaResponse'
+      security:
+      - tokenAuth: []
+      tags:
+      - employees
       x-accepts: application/json
   /employments:
     get:
@@ -1696,6 +1728,28 @@ paths:
         schema:
           type: string
         style: form
+      - description: If provided, will only return issues whose first incident time
+          was after this datetime.
+        explode: true
+        in: query
+        name: first_incident_time_after
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: If provided, will only return issues whose first incident time
+          was before this datetime.
+        explode: true
+        in: query
+        name: first_incident_time_before
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
       - description: If True, will include muted issues
         explode: true
         in: query
@@ -1709,6 +1763,28 @@ paths:
         name: integration_name
         required: false
         schema:
+          type: string
+        style: form
+      - description: If provided, will only return issues whose first incident time
+          was after this datetime.
+        explode: true
+        in: query
+        name: last_incident_time_after
+        required: false
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+        style: form
+      - description: If provided, will only return issues whose first incident time
+          was before this datetime.
+        explode: true
+        in: query
+        name: last_incident_time_before
+        required: false
+        schema:
+          format: date-time
+          nullable: true
           type: string
         style: form
       - description: Number of results to return per page.
@@ -3146,6 +3222,92 @@ paths:
       tags:
       - time-off
       x-accepts: application/json
+  /time-off/meta/post:
+    get:
+      description: Returns metadata for `TimeOff` POSTs.
+      operationId: time_off_meta_post_retrieve
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetaResponse'
+      security:
+      - tokenAuth: []
+      tags:
+      - time-off
+      x-accepts: application/json
+  /webhook-receivers:
+    get:
+      description: Returns a list of `WebhookReceiver` objects.
+      operationId: webhook_receivers_list
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebhookReceiver'
+                type: array
+      security:
+      - tokenAuth: []
+      tags:
+      - webhook-receivers
+      x-accepts: application/json
+    post:
+      description: Creates a `WebhookReceiver` object with the given values.
+      operationId: webhook_receivers_create
+      parameters:
+      - description: Token identifying the end user.
+        explode: false
+        in: header
+        name: X-Account-Token
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookReceiverRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WebhookReceiverRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WebhookReceiverRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookReceiver'
+      security:
+      - tokenAuth: []
+      tags:
+      - webhook-receivers
+      x-contentType: application/json
+      x-accepts: application/json
 components:
   schemas:
     AccountDetails:
@@ -3156,7 +3318,9 @@ components:
         id: 0496d4c2-42e6-4072-80b3-7b69bfdc76fd
         category: hris
         end_user_origin_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        integration_slug: bamboohr
         status: COMPLETE
+        webhook_listener_url: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
       properties:
         id:
           example: 0496d4c2-42e6-4072-80b3-7b69bfdc76fd
@@ -3165,6 +3329,10 @@ components:
           type: string
         integration:
           example: BambooHR
+          readOnly: true
+          type: string
+        integration_slug:
+          example: bamboohr
           readOnly: true
           type: string
         category:
@@ -3182,10 +3350,16 @@ components:
           type: string
         end_user_email_address:
           example: kendall.roy@waystar-royco.com
+          format: email
           readOnly: true
           type: string
         status:
           example: COMPLETE
+          readOnly: true
+          type: string
+        webhook_listener_url:
+          example: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
+          format: uri
           readOnly: true
           type: string
       type: object
@@ -3238,6 +3412,7 @@ components:
         end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
         status: COMPLETE
         status_detail: status_detail
+        webhook_listener_url: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
       properties:
         id:
           example: e59b1821-f85c-4e28-a6b3-1804156f3563
@@ -3261,6 +3436,9 @@ components:
         end_user_email_address:
           example: hradmin@foobar.dev
           type: string
+        webhook_listener_url:
+          example: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
+          type: string
         integration:
           $ref: '#/components/schemas/AccountDetailsAndActionsIntegration'
       required:
@@ -3268,14 +3446,17 @@ components:
       - end_user_organization_name
       - id
       - status
+      - webhook_listener_url
       type: object
       x-merge-sample-json: '{"id": "e59b1821-f85c-4e28-a6b3-1804156f3563", "category":
         "hris", "status": "COMPLETE", "status_detail": null, "end_user_origin_id":
         "3ac95cde-6c7f-4eef-afec-be710b42308d", "end_user_organization_name": "Foo
-        Bar, LLC", "end_user_email_address": "hradmin@foobar.dev", "integration":
-        {"name": "SAP SuccessFactors", "categories": ["hris", "ats"], "image": "https://cdn.merge.dev/SuccessFactors_Logo.png",
-        "square_image": "https://cdn.merge.dev/SuccessFactors_Square_Logo.jpg", "color":
-        "#F6A704", "slug": "sap-successfactors", "passthrough_available": true, "available_model_operations":
+        Bar, LLC", "end_user_email_address": "hradmin@foobar.dev", "webhook_listener_url":
+        "https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4",
+        "integration": {"name": "SAP SuccessFactors", "categories": ["hris", "ats"],
+        "image": "https://cdn.merge.dev/SuccessFactors_Logo.png", "square_image":
+        "https://cdn.merge.dev/SuccessFactors_Square_Logo.jpg", "color": "#F6A704",
+        "slug": "sap-successfactors", "passthrough_available": true, "available_model_operations":
         [{"model_name": "Candidate", "available_operations": ["FETCH", "CREATE"],
         "required_post_parameters": ["remote_user_id"], "supported_fields": ["first_name",
         "last_name", "company", "title"]}]}}'
@@ -4006,6 +4187,9 @@ components:
           type: array
         headers:
           additionalProperties: {}
+          description: The headers to use for the request (Merge will handle the account's
+            authorization headers). `Content-Type` header is required for passthrough.
+            Choose content type corresponding to expected format of receiving server.
           example:
             EXTRA-HEADER: value
           nullable: true
@@ -5001,12 +5185,15 @@ components:
         link_expiry_mins: 85
       properties:
         end_user_email_address:
+          maxLength: 100
           minLength: 1
           type: string
         end_user_organization_name:
+          maxLength: 100
           minLength: 1
           type: string
         end_user_origin_id:
+          maxLength: 100
           minLength: 1
           type: string
         categories:
@@ -5014,15 +5201,20 @@ components:
             $ref: '#/components/schemas/CategoriesEnum'
           type: array
         integration:
+          description: The slug of a specific pre-selected integration for this linking
+            flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata
           minLength: 1
           nullable: true
           type: string
         link_expiry_mins:
           default: 30
+          description: An integer number of minutes between [30, 720] for how long
+            this token is valid. Defaults to 30
           maximum: 720
           minimum: 30
           type: integer
       required:
+      - categories
       - end_user_email_address
       - end_user_organization_name
       - end_user_origin_id
@@ -5097,12 +5289,12 @@ components:
       type: object
     Group:
       description: |-
-        # The PayGroup Object
+        # The Group Object
         ### Description
-        The `PayGroup` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.
+        The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.
 
         ### Usage Example
-        Fetch from the `LIST Employee` endpoint and expand groups to view an employees groups.
+        Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
       example:
         remote_id: "800293"
         name: COST_CENTER_US
@@ -5248,6 +5440,19 @@ components:
       - integration_name
       - link_token
       type: object
+    LinkedAccountStatus:
+      example:
+        linked_account_status: linked_account_status
+        can_make_request: true
+      properties:
+        linked_account_status:
+          type: string
+        can_make_request:
+          type: boolean
+      required:
+      - can_make_request
+      - linked_account_status
+      type: object
     Location:
       description: |-
         # The Location Object
@@ -5354,6 +5559,30 @@ components:
       - HEAD_OF_HOUSEHOLD
       - QUALIFYING_WIDOW_OR_WIDOWER_WITH_DEPENDENT_CHILD
       type: string
+    MetaResponse:
+      example:
+        has_required_linked_account_params: true
+        request_schema:
+          key: ""
+        has_conditional_params: true
+        status:
+          linked_account_status: linked_account_status
+          can_make_request: true
+      properties:
+        request_schema:
+          additionalProperties: {}
+          type: object
+        status:
+          $ref: '#/components/schemas/LinkedAccountStatus'
+        has_conditional_params:
+          type: boolean
+        has_required_linked_account_params:
+          type: boolean
+      required:
+      - has_conditional_params
+      - has_required_linked_account_params
+      - request_schema
+      type: object
     MethodEnum:
       enum:
       - GET
@@ -5509,6 +5738,7 @@ components:
           end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
           status: COMPLETE
           status_detail: status_detail
+          webhook_listener_url: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
         - end_user_organization_name: Foo Bar, LLC
           integration:
             image: image
@@ -5549,6 +5779,7 @@ components:
           end_user_origin_id: 3ac95cde-6c7f-4eef-afec-be710b42308d
           status: COMPLETE
           status_detail: status_detail
+          webhook_listener_url: https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -7424,9 +7655,43 @@ components:
       - problem_type
       - title
       type: object
+    WebhookReceiver:
+      example:
+        is_active: true
+        event: event
+        key: key
+      properties:
+        event:
+          type: string
+        is_active:
+          type: boolean
+        key:
+          type: string
+      required:
+      - event
+      - is_active
+      type: object
+    WebhookReceiverRequest:
+      example:
+        is_active: true
+        event: event
+        key: key
+      properties:
+        event:
+          minLength: 1
+          type: string
+        is_active:
+          type: boolean
+        key:
+          minLength: 1
+          type: string
+      required:
+      - event
+      - is_active
+      type: object
   securitySchemes:
     tokenAuth:
-      description: Token-based authentication with required prefix "Token"
+      description: Token-based authentication with required prefix "Bearer"
       in: header
       name: Authorization
       type: apiKey

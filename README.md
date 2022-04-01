@@ -2,7 +2,7 @@
 
 Merge HRIS API
 - API version: 1.0
-  - Build date: 2022-03-04T18:48:46.006564Z[Etc/UTC]
+  - Build date: 2022-04-01T17:28:53.688853Z[Etc/UTC]
 
 The unified API for building rich integrations with multiple HR Information System platforms.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>dev.merge.hris</groupId>
   <artifactId>merge-hris-client</artifactId>
-  <version>1.3.1</version>
+  <version>1.3.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "dev.merge.hris:merge-hris-client:1.3.1"
+compile "dev.merge.hris:merge-hris-client:1.3.2"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/merge-hris-client-1.3.1.jar`
+* `target/merge-hris-client-1.3.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *EmployeesApi* | [**employeesCreate**](docs/EmployeesApi.md#employeesCreate) | **POST** /employees | 
 *EmployeesApi* | [**employeesIgnoreCreate**](docs/EmployeesApi.md#employeesIgnoreCreate) | **POST** /employees/ignore/{model_id} | 
 *EmployeesApi* | [**employeesList**](docs/EmployeesApi.md#employeesList) | **GET** /employees | 
+*EmployeesApi* | [**employeesMetaPostRetrieve**](docs/EmployeesApi.md#employeesMetaPostRetrieve) | **GET** /employees/meta/post | 
 *EmployeesApi* | [**employeesRetrieve**](docs/EmployeesApi.md#employeesRetrieve) | **GET** /employees/{id} | 
 *EmploymentsApi* | [**employmentsList**](docs/EmploymentsApi.md#employmentsList) | **GET** /employments | 
 *EmploymentsApi* | [**employmentsRetrieve**](docs/EmploymentsApi.md#employmentsRetrieve) | **GET** /employments/{id} | 
@@ -156,9 +157,12 @@ Class | Method | HTTP request | Description
 *TeamsApi* | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve) | **GET** /teams/{id} | 
 *TimeOffApi* | [**timeOffCreate**](docs/TimeOffApi.md#timeOffCreate) | **POST** /time-off | 
 *TimeOffApi* | [**timeOffList**](docs/TimeOffApi.md#timeOffList) | **GET** /time-off | 
+*TimeOffApi* | [**timeOffMetaPostRetrieve**](docs/TimeOffApi.md#timeOffMetaPostRetrieve) | **GET** /time-off/meta/post | 
 *TimeOffApi* | [**timeOffRetrieve**](docs/TimeOffApi.md#timeOffRetrieve) | **GET** /time-off/{id} | 
 *TimeOffBalancesApi* | [**timeOffBalancesList**](docs/TimeOffBalancesApi.md#timeOffBalancesList) | **GET** /time-off-balances | 
 *TimeOffBalancesApi* | [**timeOffBalancesRetrieve**](docs/TimeOffBalancesApi.md#timeOffBalancesRetrieve) | **GET** /time-off-balances/{id} | 
+*WebhookReceiversApi* | [**webhookReceiversCreate**](docs/WebhookReceiversApi.md#webhookReceiversCreate) | **POST** /webhook-receivers | 
+*WebhookReceiversApi* | [**webhookReceiversList**](docs/WebhookReceiversApi.md#webhookReceiversList) | **GET** /webhook-receivers | 
 
 
 ## Documentation for Models
@@ -205,9 +209,11 @@ Class | Method | HTTP request | Description
  - [Issue](docs/Issue.md)
  - [IssueStatusEnum](docs/IssueStatusEnum.md)
  - [LinkToken](docs/LinkToken.md)
+ - [LinkedAccountStatus](docs/LinkedAccountStatus.md)
  - [Location](docs/Location.md)
  - [LocationTypeEnum](docs/LocationTypeEnum.md)
  - [MaritalStatusEnum](docs/MaritalStatusEnum.md)
+ - [MetaResponse](docs/MetaResponse.md)
  - [MethodEnum](docs/MethodEnum.md)
  - [ModelOperation](docs/ModelOperation.md)
  - [MultipartFormFieldRequest](docs/MultipartFormFieldRequest.md)
@@ -257,6 +263,8 @@ Class | Method | HTTP request | Description
  - [UnitsEnum](docs/UnitsEnum.md)
  - [ValidationProblemSource](docs/ValidationProblemSource.md)
  - [WarningValidationProblem](docs/WarningValidationProblem.md)
+ - [WebhookReceiver](docs/WebhookReceiver.md)
+ - [WebhookReceiverRequest](docs/WebhookReceiverRequest.md)
 
 
 ## Documentation for Authorization
