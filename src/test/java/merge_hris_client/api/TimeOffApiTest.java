@@ -14,6 +14,7 @@
 package merge_hris_client.api;
 
 import merge_hris_client.ApiException;
+import merge_hris_client.model.MetaResponse;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedTimeOffList;
 import merge_hris_client.model.TimeOff;
@@ -81,6 +82,22 @@ public class TimeOffApiTest {
         String requestType = null;
         String status = null;
         PaginatedTimeOffList response = api.timeOffList(xAccountToken, approverId, createdAfter, createdBefore, cursor, employeeId, includeDeletedData, includeRemoteData, modifiedAfter, modifiedBefore, pageSize, remoteId, requestType, status);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns metadata for &#x60;TimeOff&#x60; POSTs.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void timeOffMetaPostRetrieveTest() throws ApiException {
+        String xAccountToken = null;
+        MetaResponse response = api.timeOffMetaPostRetrieve(xAccountToken);
 
         // TODO: test validations
     }

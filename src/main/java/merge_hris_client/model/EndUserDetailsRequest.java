@@ -30,7 +30,7 @@ import merge_hris_client.model.CategoriesEnum;
 /**
  * EndUserDetailsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
 public class EndUserDetailsRequest {
   public static final String SERIALIZED_NAME_END_USER_EMAIL_ADDRESS = "end_user_email_address";
   @SerializedName(SERIALIZED_NAME_END_USER_EMAIL_ADDRESS)
@@ -46,7 +46,7 @@ public class EndUserDetailsRequest {
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<CategoriesEnum> categories = null;
+  private List<CategoriesEnum> categories = new ArrayList<CategoriesEnum>();
 
   public static final String SERIALIZED_NAME_INTEGRATION = "integration";
   @SerializedName(SERIALIZED_NAME_INTEGRATION)
@@ -130,9 +130,6 @@ public class EndUserDetailsRequest {
   }
 
   public EndUserDetailsRequest addCategoriesItem(CategoriesEnum categoriesItem) {
-    if (this.categories == null) {
-      this.categories = new ArrayList<CategoriesEnum>();
-    }
     this.categories.add(categoriesItem);
     return this;
   }
@@ -141,8 +138,7 @@ public class EndUserDetailsRequest {
    * Get categories
    * @return categories
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public List<CategoriesEnum> getCategories() {
     return categories;
@@ -161,11 +157,11 @@ public class EndUserDetailsRequest {
   }
 
    /**
-   * Get integration
+   * The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata
    * @return integration
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The slug of a specific pre-selected integration for this linking flow token, for examples of slugs see https://www.merge.dev/docs/basics/integration-metadata")
 
   public String getIntegration() {
     return integration;
@@ -184,13 +180,13 @@ public class EndUserDetailsRequest {
   }
 
    /**
-   * Get linkExpiryMins
+   * An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30
    * minimum: 30
    * maximum: 720
    * @return linkExpiryMins
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An integer number of minutes between [30, 720] for how long this token is valid. Defaults to 30")
 
   public Integer getLinkExpiryMins() {
     return linkExpiryMins;

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.net.URI;
 import java.util.UUID;
 import merge_hris_client.model.CategoryEnum;
 import org.junit.Assert;
@@ -56,6 +57,14 @@ public class AccountDetailsTest {
     @Test
     public void integrationTest() {
         // TODO: test integration
+    }
+
+    /**
+     * Test the property 'integrationSlug'
+     */
+    @Test
+    public void integrationSlugTest() {
+        // TODO: test integrationSlug
     }
 
     /**
@@ -96,6 +105,14 @@ public class AccountDetailsTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'webhookListenerUrl'
+     */
+    @Test
+    public void webhookListenerUrlTest() {
+        // TODO: test webhookListenerUrl
     }
 
 }

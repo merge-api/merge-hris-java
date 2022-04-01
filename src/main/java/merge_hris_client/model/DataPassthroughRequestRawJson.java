@@ -35,7 +35,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The DataPassthrough Object ### Description The &#x60;DataPassthrough&#x60; object is used to send information to an otherwise-unsupported third-party endpoint.  ### Usage Example Create a &#x60;DataPassthrough&#x60; to get team hierarchies from your Rippling integration.
  */
 @ApiModel(description = "# The DataPassthrough Object ### Description The `DataPassthrough` object is used to send information to an otherwise-unsupported third-party endpoint.  ### Usage Example Create a `DataPassthrough` to get team hierarchies from your Rippling integration.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-03-04T18:48:46.006564Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
 public class DataPassthroughRequestRawJson {
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
@@ -173,11 +173,11 @@ public class DataPassthroughRequestRawJson {
   }
 
    /**
-   * Get headers
+   * The headers to use for the request (Merge will handle the account&#39;s authorization headers). &#x60;Content-Type&#x60; header is required for passthrough. Choose content type corresponding to expected format of receiving server.
    * @return headers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"EXTRA-HEADER\":\"value\"}", value = "")
+  @ApiModelProperty(example = "{\"EXTRA-HEADER\":\"value\"}", value = "The headers to use for the request (Merge will handle the account's authorization headers). `Content-Type` header is required for passthrough. Choose content type corresponding to expected format of receiving server.")
 
   public JsonElement getHeaders() {
     return headers;

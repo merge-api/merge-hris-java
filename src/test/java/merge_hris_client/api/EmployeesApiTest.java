@@ -19,6 +19,7 @@ import merge_hris_client.model.EmployeeEndpointRequest;
 import merge_hris_client.model.EmployeeResponse;
 import merge_hris_client.model.IgnoreCommonModel;
 import merge_hris_client.model.IgnoreCommonModelRequest;
+import merge_hris_client.model.MetaResponse;
 import org.threeten.bp.OffsetDateTime;
 import merge_hris_client.model.PaginatedEmployeeList;
 import java.util.UUID;
@@ -68,9 +69,10 @@ public class EmployeesApiTest {
      */
     @Test
     public void employeesIgnoreCreateTest() throws ApiException {
+        String xAccountToken = null;
         UUID modelId = null;
         IgnoreCommonModelRequest ignoreCommonModelRequest = null;
-        IgnoreCommonModel response = api.employeesIgnoreCreate(modelId, ignoreCommonModelRequest);
+        IgnoreCommonModel response = api.employeesIgnoreCreate(xAccountToken, modelId, ignoreCommonModelRequest);
 
         // TODO: test validations
     }
@@ -104,6 +106,22 @@ public class EmployeesApiTest {
         String workEmail = null;
         String workLocationId = null;
         PaginatedEmployeeList response = api.employeesList(xAccountToken, companyId, createdAfter, createdBefore, cursor, includeDeletedData, includeRemoteData, includeSensitiveFields, managerId, modifiedAfter, modifiedBefore, pageSize, payGroupId, personalEmail, remoteId, teamId, workEmail, workLocationId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns metadata for &#x60;Employee&#x60; POSTs.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void employeesMetaPostRetrieveTest() throws ApiException {
+        String xAccountToken = null;
+        MetaResponse response = api.employeesMetaPostRetrieve(xAccountToken);
 
         // TODO: test validations
     }
