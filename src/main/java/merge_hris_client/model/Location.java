@@ -34,7 +34,7 @@ import merge_hris_client.model.RemoteData;
  * # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
  */
 @ApiModel(description = "# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class Location {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -90,7 +90,7 @@ public class Location {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "f5e6a151-f44e-449a-afb1-8fd781905958", value = "")
 
   public UUID getId() {
     return id;
@@ -267,11 +267,11 @@ public class Location {
   }
 
    /**
-   * The location&#39;s zip code.
+   * The location&#39;s zip code or postal code.
    * @return zipCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10027", value = "The location's zip code.")
+  @ApiModelProperty(example = "10027", value = "The location's zip code or postal code.")
 
   public String getZipCode() {
     return zipCode;

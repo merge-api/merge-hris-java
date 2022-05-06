@@ -115,6 +115,14 @@ public class EmploymentTest {
     }
 
     /**
+     * Test the property 'payGroup'
+     */
+    @Test
+    public void payGroupTest() {
+        // TODO: test payGroup
+    }
+
+    /**
      * Test the property 'flsaStatus'
      */
     @Test

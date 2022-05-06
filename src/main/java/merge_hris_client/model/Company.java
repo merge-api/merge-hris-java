@@ -29,10 +29,10 @@ import java.util.UUID;
 import merge_hris_client.model.RemoteData;
 
 /**
- * # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
+ * # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
  */
-@ApiModel(description = "# The Company Object ### Description The `Company` object is used to represent a Company.  ### Usage Example Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@ApiModel(description = "# The Company Object ### Description The `Company` object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class Company {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -107,7 +107,7 @@ public class Company {
    * @return legalName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "We Love Integrations Inc.", value = "The company's legal name.")
+  @ApiModelProperty(example = "Waystar Royco, Inc.", value = "The company's legal name.")
 
   public String getLegalName() {
     return legalName;
@@ -130,7 +130,7 @@ public class Company {
    * @return displayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "We Love Integrations", value = "The company's display name.")
+  @ApiModelProperty(example = "Waystar Royco", value = "The company's display name.")
 
   public String getDisplayName() {
     return displayName;

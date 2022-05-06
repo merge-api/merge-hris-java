@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +39,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class Employee {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -148,7 +147,7 @@ public class Employee {
 
   public static final String SERIALIZED_NAME_AVATAR = "avatar";
   @SerializedName(SERIALIZED_NAME_AVATAR)
-  private URI avatar;
+  private String avatar;
 
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
@@ -203,11 +202,11 @@ public class Employee {
   }
 
    /**
-   * The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.
+   * The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.
    * @return employeeNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user.")
+  @ApiModelProperty(example = "2", value = "The employee's number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers.")
 
   public String getEmployeeNumber() {
     return employeeNumber;
@@ -253,7 +252,7 @@ public class Employee {
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Jane", value = "The employee's first name.")
+  @ApiModelProperty(example = "Greg", value = "The employee's first name.")
 
   public String getFirstName() {
     return firstName;
@@ -276,7 +275,7 @@ public class Employee {
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Doe", value = "The employee's last name.")
+  @ApiModelProperty(example = "Hirsch", value = "The employee's last name.")
 
   public String getLastName() {
     return lastName;
@@ -299,7 +298,7 @@ public class Employee {
    * @return displayFullName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Jane Doe", value = "The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.")
+  @ApiModelProperty(example = "Cousin Greg Hirsch", value = "The employee's full name, to use for display purposes. If a preferred first name is available, the full name will include the preferred first name.")
 
   public String getDisplayFullName() {
     return displayFullName;
@@ -353,7 +352,7 @@ public class Employee {
    * @return workEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "jane@merge.dev", value = "The employee's work email.")
+  @ApiModelProperty(example = "greg@merge.dev", value = "The employee's work email.")
 
   public String getWorkEmail() {
     return workEmail;
@@ -376,7 +375,7 @@ public class Employee {
    * @return personalEmail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "jane@gmail.com", value = "The employee's personal email.")
+  @ApiModelProperty(example = "greg@gmail.com", value = "The employee's personal email.")
 
   public String getPersonalEmail() {
     return personalEmail;
@@ -591,7 +590,7 @@ public class Employee {
    * @return gender
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "FEMALE", value = "The employee's gender.")
+  @ApiModelProperty(example = "MALE", value = "The employee's gender.")
 
   public GenderEnum getGender() {
     return gender;
@@ -614,7 +613,7 @@ public class Employee {
    * @return ethnicity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "AMERICAN_INDIAN_OR_ALASKA_NATIVE", value = "The employee's ethnicity.")
+  @ApiModelProperty(example = "WHITE", value = "The employee's ethnicity.")
 
   public EthnicityEnum getEthnicity() {
     return ethnicity;
@@ -764,7 +763,7 @@ public class Employee {
   }
 
 
-  public Employee avatar(URI avatar) {
+  public Employee avatar(String avatar) {
     
     this.avatar = avatar;
     return this;
@@ -777,12 +776,12 @@ public class Employee {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "http://alturl.com/h2h8m", value = "The URL of the employee's avatar image.")
 
-  public URI getAvatar() {
+  public String getAvatar() {
     return avatar;
   }
 
 
-  public void setAvatar(URI avatar) {
+  public void setAvatar(String avatar) {
     this.avatar = avatar;
   }
 

@@ -23,14 +23,13 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.net.URI;
 import java.util.UUID;
 import merge_hris_client.model.CategoryEnum;
 
 /**
  * AccountDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class AccountDetails {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -66,7 +65,7 @@ public class AccountDetails {
 
   public static final String SERIALIZED_NAME_WEBHOOK_LISTENER_URL = "webhook_listener_url";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_LISTENER_URL)
-  private URI webhookListenerUrl;
+  private String webhookListenerUrl;
 
 
    /**
@@ -197,7 +196,7 @@ public class AccountDetails {
   @javax.annotation.Nullable
   @ApiModelProperty(example = "https://api.merge.dev/api/integrations/webhook-listener/7fc3mee0UW8ecV4", value = "")
 
-  public URI getWebhookListenerUrl() {
+  public String getWebhookListenerUrl() {
     return webhookListenerUrl;
   }
 

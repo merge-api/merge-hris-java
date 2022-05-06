@@ -1890,6 +1890,7 @@ paths:
           enum:
           - accounting
           - ats
+          - crm
           - hris
           - ticketing
           nullable: true
@@ -1907,21 +1908,27 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: If provided, will only return linked accounts associated with
+          the given email address.
+        explode: true
         in: query
         name: end_user_email_address
         required: false
         schema:
           type: string
         style: form
-      - explode: true
+      - description: If provided, will only return linked accounts associated with
+          the given organization name.
+        explode: true
         in: query
         name: end_user_organization_name
         required: false
         schema:
           type: string
         style: form
-      - explode: true
+      - description: If provided, will only return linked accounts associated with
+          the given origin ID.
+        explode: true
         in: query
         name: end_user_origin_id
         required: false
@@ -1929,7 +1936,7 @@ paths:
           type: string
         style: form
       - description: Comma-separated list of EndUser origin IDs, making it possible
-          to specify multiple EndUsers at once
+          to specify multiple EndUsers at once.
         explode: true
         in: query
         name: end_user_origin_ids
@@ -1946,7 +1953,7 @@ paths:
           type: string
         style: form
       - description: Comma-separated list of LinkedAccount IDs, making it possible
-          to specify multiple LinkedAccounts at once
+          to specify multiple LinkedAccounts at once.
         explode: true
         in: query
         name: ids
@@ -1954,7 +1961,9 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: If provided, will only return linked accounts associated with
+          the given integration name.
+        explode: true
         in: query
         name: integration_name
         required: false
@@ -1962,7 +1971,7 @@ paths:
           type: string
         style: form
       - description: If included, will only include test linked accounts. If not included,
-          will only include non-test linked accounts
+          will only include non-test linked accounts.
         explode: true
         in: query
         name: is_test_account
@@ -2626,7 +2635,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyncStatus'
+                items:
+                  $ref: '#/components/schemas/SyncStatus'
+                type: array
       security:
       - tokenAuth: []
       tags:
@@ -3809,6 +3820,7 @@ components:
       - ats
       - accounting
       - ticketing
+      - crm
       type: string
     CategoryEnum:
       enum:
@@ -3816,12 +3828,13 @@ components:
       - ats
       - accounting
       - ticketing
+      - crm
       type: string
     Company:
       description: |-
         # The Company Object
         ### Description
-        The `Company` object is used to represent a Company.
+        The `Company` object is used to represent a Company within the HRIS / Payroll system.
 
         ### Usage Example
         Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.
@@ -3832,8 +3845,8 @@ components:
         - 11-0011000
         remote_id: "19202938"
         id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
-        legal_name: We Love Integrations Inc.
-        display_name: We Love Integrations
+        legal_name: Waystar Royco, Inc.
+        display_name: Waystar Royco
         remote_data:
         - path: /companies
           data:
@@ -3851,12 +3864,12 @@ components:
           type: string
         legal_name:
           description: The company's legal name.
-          example: We Love Integrations Inc.
+          example: Waystar Royco, Inc.
           nullable: true
           type: string
         display_name:
           description: The company's display name.
-          example: We Love Integrations
+          example: Waystar Royco
           nullable: true
           type: string
         eins:
@@ -4362,10 +4375,10 @@ components:
         ### Usage Example
         Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
       example:
-        display_full_name: Jane Doe
-        work_email: jane@merge.dev
-        gender: FEMALE
-        ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+        display_full_name: Cousin Greg Hirsch
+        work_email: greg@merge.dev
+        gender: MALE
+        ethnicity: WHITE
         date_of_birth: 1990-11-10T00:00:00Z
         work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
         ssn: "1234567890"
@@ -4373,13 +4386,13 @@ components:
         home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
         id: 0958cbc6-6040-430a-848e-aafacbadf4ae
         employment_status: INACTIVE
-        first_name: Jane
+        first_name: Greg
         start_date: 2020-10-11T00:00:00Z
         manager: 0048ea5b-911e-4dff-9364-92070dea62ff
         custom_fields:
           key: ""
         remote_id: "19202938"
-        last_name: Doe
+        last_name: Hirsch
         groups:
         - 21a54124-397f-494d-985e-3c5b330b8a68
         employments:
@@ -4396,7 +4409,7 @@ components:
         termination_date: 2021-10-12T00:00:00Z
         employee_number: "2"
         pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-        personal_email: jane@gmail.com
+        personal_email: greg@gmail.com
       properties:
         id:
           example: 0958cbc6-6040-430a-848e-aafacbadf4ae
@@ -4411,7 +4424,8 @@ components:
         employee_number:
           description: 'The employee''s number that appears in the remote UI. Note:
             This is distinct from the remote_id field, which is a unique identifier
-            for the employee set by the remote API, and is not exposed to the user.'
+            for the employee set by the remote API, and is not exposed to the user.
+            This value can also change in many API providers.'
           example: "2"
           nullable: true
           type: string
@@ -4422,19 +4436,19 @@ components:
           type: string
         first_name:
           description: The employee's first name.
-          example: Jane
+          example: Greg
           nullable: true
           type: string
         last_name:
           description: The employee's last name.
-          example: Doe
+          example: Hirsch
           nullable: true
           type: string
         display_full_name:
           description: The employee's full name, to use for display purposes. If a
             preferred first name is available, the full name will include the preferred
             first name.
-          example: Jane Doe
+          example: Cousin Greg Hirsch
           nullable: true
           type: string
         groups:
@@ -4447,14 +4461,14 @@ components:
           type: array
         work_email:
           description: The employee's work email.
-          example: jane@merge.dev
+          example: greg@merge.dev
           format: email
           maxLength: 254
           nullable: true
           type: string
         personal_email:
           description: The employee's personal email.
-          example: jane@gmail.com
+          example: greg@gmail.com
           format: email
           maxLength: 254
           nullable: true
@@ -4508,13 +4522,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/GenderEnum'
           description: The employee's gender.
-          example: FEMALE
+          example: MALE
           nullable: true
         ethnicity:
           allOf:
           - $ref: '#/components/schemas/EthnicityEnum'
           description: The employee's ethnicity.
-          example: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+          example: WHITE
           nullable: true
         marital_status:
           allOf:
@@ -4585,23 +4599,23 @@ components:
     EmployeeEndpointRequest:
       example:
         model:
-          display_full_name: Jane Doe
-          work_email: jane@merge.dev
-          gender: FEMALE
-          ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+          display_full_name: Cousin Greg Hirsch
+          work_email: greg@merge.dev
+          gender: MALE
+          ethnicity: WHITE
           date_of_birth: 1990-11-10T00:00:00Z
           work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           ssn: "1234567890"
           company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178
           home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
           employment_status: INACTIVE
-          first_name: Jane
+          first_name: Greg
           start_date: 2020-10-11T00:00:00Z
           manager: 0048ea5b-911e-4dff-9364-92070dea62ff
           custom_fields:
             key: ""
           remote_id: "19202938"
-          last_name: Doe
+          last_name: Hirsch
           groups:
           - 21a54124-397f-494d-985e-3c5b330b8a68
           employments:
@@ -4614,7 +4628,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-          personal_email: jane@gmail.com
+          personal_email: greg@gmail.com
       properties:
         model:
           $ref: '#/components/schemas/EmployeeRequest'
@@ -4763,23 +4777,23 @@ components:
         ### Usage Example
         Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.
       example:
-        display_full_name: Jane Doe
-        work_email: jane@merge.dev
-        gender: FEMALE
-        ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+        display_full_name: Cousin Greg Hirsch
+        work_email: greg@merge.dev
+        gender: MALE
+        ethnicity: WHITE
         date_of_birth: 1990-11-10T00:00:00Z
         work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
         ssn: "1234567890"
         company: 8d9fd929-436c-4fd4-a48b-0c61f68d6178
         home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
         employment_status: INACTIVE
-        first_name: Jane
+        first_name: Greg
         start_date: 2020-10-11T00:00:00Z
         manager: 0048ea5b-911e-4dff-9364-92070dea62ff
         custom_fields:
           key: ""
         remote_id: "19202938"
-        last_name: Doe
+        last_name: Hirsch
         groups:
         - 21a54124-397f-494d-985e-3c5b330b8a68
         employments:
@@ -4792,7 +4806,7 @@ components:
         termination_date: 2021-10-12T00:00:00Z
         employee_number: "2"
         pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-        personal_email: jane@gmail.com
+        personal_email: greg@gmail.com
       properties:
         remote_id:
           description: The third-party API ID of the matching object.
@@ -4802,7 +4816,8 @@ components:
         employee_number:
           description: 'The employee''s number that appears in the remote UI. Note:
             This is distinct from the remote_id field, which is a unique identifier
-            for the employee set by the remote API, and is not exposed to the user.'
+            for the employee set by the remote API, and is not exposed to the user.
+            This value can also change in many API providers.'
           example: "2"
           nullable: true
           type: string
@@ -4813,19 +4828,19 @@ components:
           type: string
         first_name:
           description: The employee's first name.
-          example: Jane
+          example: Greg
           nullable: true
           type: string
         last_name:
           description: The employee's last name.
-          example: Doe
+          example: Hirsch
           nullable: true
           type: string
         display_full_name:
           description: The employee's full name, to use for display purposes. If a
             preferred first name is available, the full name will include the preferred
             first name.
-          example: Jane Doe
+          example: Cousin Greg Hirsch
           nullable: true
           type: string
         groups:
@@ -4838,14 +4853,14 @@ components:
           type: array
         work_email:
           description: The employee's work email.
-          example: jane@merge.dev
+          example: greg@merge.dev
           format: email
           maxLength: 254
           nullable: true
           type: string
         personal_email:
           description: The employee's personal email.
-          example: jane@gmail.com
+          example: greg@gmail.com
           format: email
           maxLength: 254
           nullable: true
@@ -4899,13 +4914,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/GenderEnum'
           description: The employee's gender.
-          example: FEMALE
+          example: MALE
           nullable: true
         ethnicity:
           allOf:
           - $ref: '#/components/schemas/EthnicityEnum'
           description: The employee's ethnicity.
-          example: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+          example: WHITE
           nullable: true
         marital_status:
           allOf:
@@ -4977,10 +4992,10 @@ components:
           detail: An unrecognized field, age, was passed in with request data.
           title: Unrecognized Field
         model:
-          display_full_name: Jane Doe
-          work_email: jane@merge.dev
-          gender: FEMALE
-          ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+          display_full_name: Cousin Greg Hirsch
+          work_email: greg@merge.dev
+          gender: MALE
+          ethnicity: WHITE
           date_of_birth: 1990-11-10T00:00:00Z
           work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           ssn: "1234567890"
@@ -4988,13 +5003,13 @@ components:
           home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
           id: 0958cbc6-6040-430a-848e-aafacbadf4ae
           employment_status: INACTIVE
-          first_name: Jane
+          first_name: Greg
           start_date: 2020-10-11T00:00:00Z
           manager: 0048ea5b-911e-4dff-9364-92070dea62ff
           custom_fields:
             key: ""
           remote_id: "19202938"
-          last_name: Doe
+          last_name: Hirsch
           groups:
           - 21a54124-397f-494d-985e-3c5b330b8a68
           employments:
@@ -5011,7 +5026,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-          personal_email: jane@gmail.com
+          personal_email: greg@gmail.com
         logs:
         - log_id: 99433219-8017-4acd-bb3c-ceb23d663832
           dashboard_view: https://app.merge.dev/logs/99433219-8017-4acd-bb3c-ceb23d663832
@@ -5062,24 +5077,27 @@ components:
         ### Description
         The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.
 
+        Please note: Employment objects are constructed if the object does not exist in the remote system.
+
         ### Usage Example
         Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.
       example:
         employment_type: FULL TIME
-        flsa_status: EXEMPT
         remote_id: "19202938"
-        effective_date: 2020-10-06T18:42:34Z
         pay_period: YEAR
         pay_frequency: BIWEEKLY
-        id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
         employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
-        job_title: Software Engineer
-        pay_rate: 80000.00
         pay_currency: USD
         remote_data:
         - path: /jobs
           data:
           - Varies by platform
+        flsa_status: EXEMPT
+        effective_date: 2023-10-06T18:42:34Z
+        pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
+        id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+        job_title: Executive Assistant to Tom Wambsgans
+        pay_rate: 500.00
       properties:
         id:
           example: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
@@ -5098,12 +5116,12 @@ components:
           type: string
         job_title:
           description: The position's title.
-          example: Software Engineer
+          example: Executive Assistant to Tom Wambsgans
           nullable: true
           type: string
         pay_rate:
           description: The position's pay rate in dollars.
-          example: 80000.00
+          example: 500.00
           format: float
           nullable: true
           type: number
@@ -5125,6 +5143,11 @@ components:
           description: The position's currency code.
           example: USD
           nullable: true
+        pay_group:
+          example: d4e4837f-9900-484c-ac40-528365bb08ef
+          format: uuid
+          nullable: true
+          type: string
         flsa_status:
           allOf:
           - $ref: '#/components/schemas/FlsaStatusEnum'
@@ -5133,7 +5156,7 @@ components:
           nullable: true
         effective_date:
           description: The position's effective date.
-          example: 2020-10-06T18:42:34Z
+          example: 2023-10-06T18:42:34Z
           format: date-time
           nullable: true
           type: string
@@ -5292,6 +5315,8 @@ components:
         # The Group Object
         ### Description
         The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.
+
+        Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.
 
         ### Usage Example
         Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.
@@ -5469,7 +5494,7 @@ components:
         street_2: 2nd Floor
         name: NYC Office
         phone_number: +1111111111
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: f5e6a151-f44e-449a-afb1-8fd781905958
         state: NY
         zip_code: "10027"
         location_type: WORK
@@ -5479,6 +5504,7 @@ components:
           - Varies by platform
       properties:
         id:
+          example: f5e6a151-f44e-449a-afb1-8fd781905958
           format: uuid
           readOnly: true
           type: string
@@ -5519,7 +5545,7 @@ components:
           nullable: true
           type: string
         zip_code:
-          description: The location's zip code.
+          description: The location's zip code or postal code.
           example: "10027"
           nullable: true
           type: string
@@ -5889,8 +5915,8 @@ components:
           - 11-0011000
           remote_id: "19202938"
           id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
-          legal_name: We Love Integrations Inc.
-          display_name: We Love Integrations
+          legal_name: Waystar Royco, Inc.
+          display_name: Waystar Royco
           remote_data:
           - path: /companies
             data:
@@ -5901,8 +5927,8 @@ components:
           - 11-0011000
           remote_id: "19202938"
           id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
-          legal_name: We Love Integrations Inc.
-          display_name: We Love Integrations
+          legal_name: Waystar Royco, Inc.
+          display_name: Waystar Royco
           remote_data:
           - path: /companies
             data:
@@ -5963,10 +5989,10 @@ components:
         next: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
         previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
         results:
-        - display_full_name: Jane Doe
-          work_email: jane@merge.dev
-          gender: FEMALE
-          ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+        - display_full_name: Cousin Greg Hirsch
+          work_email: greg@merge.dev
+          gender: MALE
+          ethnicity: WHITE
           date_of_birth: 1990-11-10T00:00:00Z
           work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           ssn: "1234567890"
@@ -5974,13 +6000,13 @@ components:
           home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
           id: 0958cbc6-6040-430a-848e-aafacbadf4ae
           employment_status: INACTIVE
-          first_name: Jane
+          first_name: Greg
           start_date: 2020-10-11T00:00:00Z
           manager: 0048ea5b-911e-4dff-9364-92070dea62ff
           custom_fields:
             key: ""
           remote_id: "19202938"
-          last_name: Doe
+          last_name: Hirsch
           groups:
           - 21a54124-397f-494d-985e-3c5b330b8a68
           employments:
@@ -5997,11 +6023,11 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-          personal_email: jane@gmail.com
-        - display_full_name: Jane Doe
-          work_email: jane@merge.dev
-          gender: FEMALE
-          ethnicity: AMERICAN_INDIAN_OR_ALASKA_NATIVE
+          personal_email: greg@gmail.com
+        - display_full_name: Cousin Greg Hirsch
+          work_email: greg@merge.dev
+          gender: MALE
+          ethnicity: WHITE
           date_of_birth: 1990-11-10T00:00:00Z
           work_location: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           ssn: "1234567890"
@@ -6009,13 +6035,13 @@ components:
           home_location: d2f972d0-2526-434b-9409-4c3b468e08f0
           id: 0958cbc6-6040-430a-848e-aafacbadf4ae
           employment_status: INACTIVE
-          first_name: Jane
+          first_name: Greg
           start_date: 2020-10-11T00:00:00Z
           manager: 0048ea5b-911e-4dff-9364-92070dea62ff
           custom_fields:
             key: ""
           remote_id: "19202938"
-          last_name: Doe
+          last_name: Hirsch
           groups:
           - 21a54124-397f-494d-985e-3c5b330b8a68
           employments:
@@ -6032,7 +6058,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
-          personal_email: jane@gmail.com
+          personal_email: greg@gmail.com
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -6132,35 +6158,37 @@ components:
         previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
         results:
         - employment_type: FULL TIME
-          flsa_status: EXEMPT
           remote_id: "19202938"
-          effective_date: 2020-10-06T18:42:34Z
           pay_period: YEAR
           pay_frequency: BIWEEKLY
-          id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
           employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
-          job_title: Software Engineer
-          pay_rate: 80000.00
           pay_currency: USD
           remote_data:
           - path: /jobs
             data:
             - Varies by platform
+          flsa_status: EXEMPT
+          effective_date: 2023-10-06T18:42:34Z
+          pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
+          id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          job_title: Executive Assistant to Tom Wambsgans
+          pay_rate: 500.00
         - employment_type: FULL TIME
-          flsa_status: EXEMPT
           remote_id: "19202938"
-          effective_date: 2020-10-06T18:42:34Z
           pay_period: YEAR
           pay_frequency: BIWEEKLY
-          id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
           employee: 0958cbc6-6040-430a-848e-aafacbadf4ae
-          job_title: Software Engineer
-          pay_rate: 80000.00
           pay_currency: USD
           remote_data:
           - path: /jobs
             data:
             - Varies by platform
+          flsa_status: EXEMPT
+          effective_date: 2023-10-06T18:42:34Z
+          pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
+          id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          job_title: Executive Assistant to Tom Wambsgans
+          pay_rate: 500.00
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -6257,7 +6285,7 @@ components:
           street_2: 2nd Floor
           name: NYC Office
           phone_number: +1111111111
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: f5e6a151-f44e-449a-afb1-8fd781905958
           state: NY
           zip_code: "10027"
           location_type: WORK
@@ -6272,7 +6300,7 @@ components:
           street_2: 2nd Floor
           name: NYC Office
           phone_number: +1111111111
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: f5e6a151-f44e-449a-afb1-8fd781905958
           state: NY
           zip_code: "10027"
           location_type: WORK
@@ -6480,9 +6508,9 @@ components:
         results:
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           start_time: 2020-11-10T00:00:00Z
-          amount: 7
+          amount: 3
           request_type: VACATION
-          employee_note: Trip to Iowa. Miss those cornfields!
+          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
@@ -6495,9 +6523,9 @@ components:
             - Varies by platform
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           start_time: 2020-11-10T00:00:00Z
-          amount: 7
+          amount: 3
           request_type: VACATION
-          employee_note: Trip to Iowa. Miss those cornfields!
+          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
@@ -6900,7 +6928,7 @@ components:
       description: |-
         # The PayrollRun Object
         ### Description
-        The `PayrollRun` object is used to represent a payroll run.
+        The `PayrollRun` object is used to represent a payroll run. This payroll run is not specific to an employee.
 
         ### Usage Example
         Fetch from the `LIST PayrollRuns` endpoint and filter by `ID` to show all payroll runs.
@@ -7290,9 +7318,9 @@ components:
       example:
         approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
         start_time: 2020-11-10T00:00:00Z
-        amount: 7
+        amount: 3
         request_type: VACATION
-        employee_note: Trip to Iowa. Miss those cornfields!
+        employee_note: Moving into the new apartment Kendall Roy gave me!
         remote_id: "19202938"
         end_time: 2020-11-17T00:00:00Z
         id: 91b2b905-e866-40c8-8be2-efe53827a0aa
@@ -7332,7 +7360,7 @@ components:
           nullable: true
         employee_note:
           description: The employee note for this time off request.
-          example: Trip to Iowa. Miss those cornfields!
+          example: Moving into the new apartment Kendall Roy gave me!
           nullable: true
           type: string
         units:
@@ -7343,7 +7371,7 @@ components:
           nullable: true
         amount:
           description: The number of time off units requested.
-          example: 7
+          example: 3
           format: float
           nullable: true
           type: number
@@ -7412,7 +7440,9 @@ components:
           nullable: true
           type: string
         balance:
-          description: The current PTO balance in terms of hours.
+          description: The current remaining PTO balance in terms of hours. This does
+            not represent the starting PTO balance. If the API provider only provides
+            PTO balance in terms of days, we estimate 8 hours per day.
           example: 60.0
           format: float
           nullable: true
@@ -7445,9 +7475,9 @@ components:
         model:
           approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           start_time: 2020-11-10T00:00:00Z
-          amount: 7
+          amount: 3
           request_type: VACATION
-          employee_note: Trip to Iowa. Miss those cornfields!
+          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
           units: DAYS
@@ -7470,9 +7500,9 @@ components:
       example:
         approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
         start_time: 2020-11-10T00:00:00Z
-        amount: 7
+        amount: 3
         request_type: VACATION
-        employee_note: Trip to Iowa. Miss those cornfields!
+        employee_note: Moving into the new apartment Kendall Roy gave me!
         remote_id: "19202938"
         end_time: 2020-11-17T00:00:00Z
         units: DAYS
@@ -7502,7 +7532,7 @@ components:
           nullable: true
         employee_note:
           description: The employee note for this time off request.
-          example: Trip to Iowa. Miss those cornfields!
+          example: Moving into the new apartment Kendall Roy gave me!
           nullable: true
           type: string
         units:
@@ -7513,7 +7543,7 @@ components:
           nullable: true
         amount:
           description: The number of time off units requested.
-          example: 7
+          example: 3
           format: float
           nullable: true
           type: number
@@ -7552,9 +7582,9 @@ components:
         model:
           approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
           start_time: 2020-11-10T00:00:00Z
-          amount: 7
+          amount: 3
           request_type: VACATION
-          employee_note: Trip to Iowa. Miss those cornfields!
+          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
