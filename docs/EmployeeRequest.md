@@ -9,7 +9,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **remoteId** | **String** | The third-party API ID of the matching object. |  [optional]
-**employeeNumber** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. |  [optional]
+**employeeNumber** | **String** | The employee&#39;s number that appears in the remote UI. Note: This is distinct from the remote_id field, which is a unique identifier for the employee set by the remote API, and is not exposed to the user. This value can also change in many API providers. |  [optional]
 **company** | **UUID** |  |  [optional]
 **firstName** | **String** | The employee&#39;s first name. |  [optional]
 **lastName** | **String** | The employee&#39;s last name. |  [optional]

@@ -35,10 +35,10 @@ import merge_hris_client.model.RemoteData;
 import org.threeten.bp.OffsetDateTime;
 
 /**
- * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
+ * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
-@ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class Employment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,6 +71,10 @@ public class Employment {
   public static final String SERIALIZED_NAME_PAY_CURRENCY = "pay_currency";
   @SerializedName(SERIALIZED_NAME_PAY_CURRENCY)
   private PayCurrencyEnum payCurrency;
+
+  public static final String SERIALIZED_NAME_PAY_GROUP = "pay_group";
+  @SerializedName(SERIALIZED_NAME_PAY_GROUP)
+  private UUID payGroup;
 
   public static final String SERIALIZED_NAME_FLSA_STATUS = "flsa_status";
   @SerializedName(SERIALIZED_NAME_FLSA_STATUS)
@@ -160,7 +164,7 @@ public class Employment {
    * @return jobTitle
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Software Engineer", value = "The position's title.")
+  @ApiModelProperty(example = "Executive Assistant to Tom Wambsgans", value = "The position's title.")
 
   public String getJobTitle() {
     return jobTitle;
@@ -183,7 +187,7 @@ public class Employment {
    * @return payRate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "80000.00", value = "The position's pay rate in dollars.")
+  @ApiModelProperty(example = "500.00", value = "The position's pay rate in dollars.")
 
   public Float getPayRate() {
     return payRate;
@@ -264,6 +268,29 @@ public class Employment {
   }
 
 
+  public Employment payGroup(UUID payGroup) {
+    
+    this.payGroup = payGroup;
+    return this;
+  }
+
+   /**
+   * Get payGroup
+   * @return payGroup
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "d4e4837f-9900-484c-ac40-528365bb08ef", value = "")
+
+  public UUID getPayGroup() {
+    return payGroup;
+  }
+
+
+  public void setPayGroup(UUID payGroup) {
+    this.payGroup = payGroup;
+  }
+
+
   public Employment flsaStatus(FlsaStatusEnum flsaStatus) {
     
     this.flsaStatus = flsaStatus;
@@ -298,7 +325,7 @@ public class Employment {
    * @return effectiveDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-10-06T18:42:34Z", value = "The position's effective date.")
+  @ApiModelProperty(example = "2023-10-06T18:42:34Z", value = "The position's effective date.")
 
   public OffsetDateTime getEffectiveDate() {
     return effectiveDate;
@@ -364,6 +391,7 @@ public class Employment {
         Objects.equals(this.payPeriod, employment.payPeriod) &&
         Objects.equals(this.payFrequency, employment.payFrequency) &&
         Objects.equals(this.payCurrency, employment.payCurrency) &&
+        Objects.equals(this.payGroup, employment.payGroup) &&
         Objects.equals(this.flsaStatus, employment.flsaStatus) &&
         Objects.equals(this.effectiveDate, employment.effectiveDate) &&
         Objects.equals(this.employmentType, employment.employmentType) &&
@@ -372,7 +400,7 @@ public class Employment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, flsaStatus, effectiveDate, employmentType, remoteData);
+    return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, payGroup, flsaStatus, effectiveDate, employmentType, remoteData);
   }
 
   @Override
@@ -387,6 +415,7 @@ public class Employment {
     sb.append("    payPeriod: ").append(toIndentedString(payPeriod)).append("\n");
     sb.append("    payFrequency: ").append(toIndentedString(payFrequency)).append("\n");
     sb.append("    payCurrency: ").append(toIndentedString(payCurrency)).append("\n");
+    sb.append("    payGroup: ").append(toIndentedString(payGroup)).append("\n");
     sb.append("    flsaStatus: ").append(toIndentedString(flsaStatus)).append("\n");
     sb.append("    effectiveDate: ").append(toIndentedString(effectiveDate)).append("\n");
     sb.append("    employmentType: ").append(toIndentedString(employmentType)).append("\n");

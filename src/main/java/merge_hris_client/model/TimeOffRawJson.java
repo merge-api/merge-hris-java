@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The TimeOff Object ### Description The &#x60;TimeOff&#x60; object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffs&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off requests.
  */
 @ApiModel(description = "# The TimeOff Object ### Description The `TimeOff` object is used to represent a Time Off Request filed by an employee.  ### Usage Example Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-04-01T17:28:53.688853Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
 public class TimeOffRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -189,7 +188,7 @@ public class TimeOffRawJson {
    * @return employeeNote
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Trip to Iowa. Miss those cornfields!", value = "The employee note for this time off request.")
+  @ApiModelProperty(example = "Moving into the new apartment Kendall Roy gave me!", value = "The employee note for this time off request.")
 
   public JsonElement getEmployeeNote() {
     return employeeNote;
@@ -227,7 +226,7 @@ public class TimeOffRawJson {
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "7", value = "The number of time off units requested.")
+  @ApiModelProperty(example = "3", value = "The number of time off units requested.")
 
   public JsonElement getAmount() {
     return amount;

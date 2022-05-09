@@ -13,5 +13,7 @@
 
 * `TICKETING` (value: `"ticketing"`)
 
+* `CRM` (value: `"crm"`)
+
 
 
