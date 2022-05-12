@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Group Object ### Description The &#x60;Group&#x60; object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
  */
 @ApiModel(description = "# The Group Object ### Description The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class GroupRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -59,6 +59,10 @@ public class GroupRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -164,6 +168,17 @@ public class GroupRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,11 +193,12 @@ public class GroupRawJson {
         Objects.equals(this.parentGroup.getAsString(), group.parentGroup.getAsString()) &&
         Objects.equals(this.name.getAsString(), group.name.getAsString()) &&
         Objects.equals(this.type.getAsString(), group.type.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), group.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), group.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), group.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, parentGroup, name, type, remoteData);
+    return Objects.hash(id, remoteId, parentGroup, name, type, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -194,6 +210,7 @@ public class GroupRawJson {
     sb.append("    name: ").append(toIndentedString(name.getAsString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

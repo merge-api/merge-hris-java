@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
  */
 @ApiModel(description = "# The BankInfo Object ### Description The `BankInfo` object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST BankInfo` endpoint and filter by `ID` to show all bank information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class BankInfoRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,6 +71,10 @@ public class BankInfoRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -233,6 +237,17 @@ public class BankInfoRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -250,11 +265,12 @@ public class BankInfoRawJson {
         Objects.equals(this.bankName.getAsString(), bankInfo.bankName.getAsString()) &&
         Objects.equals(this.accountType.getAsString(), bankInfo.accountType.getAsString()) &&
         Objects.equals(this.remoteCreatedAt.getAsString(), bankInfo.remoteCreatedAt.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), bankInfo.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), bankInfo.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), bankInfo.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, accountNumber, routingNumber, bankName, accountType, remoteCreatedAt, remoteData);
+    return Objects.hash(id, remoteId, employee, accountNumber, routingNumber, bankName, accountType, remoteCreatedAt, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -269,6 +285,7 @@ public class BankInfoRawJson {
     sb.append("    accountType: ").append(toIndentedString(accountType.getAsString())).append("\n");
     sb.append("    remoteCreatedAt: ").append(toIndentedString(remoteCreatedAt.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

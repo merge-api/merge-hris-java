@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Deduction Object ### Description The &#x60;Deduction&#x60; object is used to represent a deduction for a given employee&#39;s payroll run. One run could include several deductions.  ### Usage Example Fetch from the &#x60;LIST Deductions&#x60; endpoint and filter by &#x60;ID&#x60; to show all deductions.
  */
 @ApiModel(description = "# The Deduction Object ### Description The `Deduction` object is used to represent a deduction for a given employee's payroll run. One run could include several deductions.  ### Usage Example Fetch from the `LIST Deductions` endpoint and filter by `ID` to show all deductions.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class DeductionRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -59,6 +59,10 @@ public class DeductionRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -164,6 +168,25 @@ public class DeductionRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+  public DeductionRawJson remoteWasDeleted(Boolean remoteWasDeleted) {
+    this.remoteWasDeleted = this.serializer.getGson().toJsonTree(remoteWasDeleted);
+    return this;
+  }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+  public void setRemoteWasDeleted(JsonElement remoteWasDeleted) {
+    this.remoteWasDeleted = remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,11 +201,12 @@ public class DeductionRawJson {
         Objects.equals(this.name.getAsString(), deduction.name.getAsString()) &&
         Objects.equals(this.employeeDeduction.getAsString(), deduction.employeeDeduction.getAsString()) &&
         Objects.equals(this.companyDeduction.getAsString(), deduction.companyDeduction.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), deduction.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), deduction.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), deduction.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeePayrollRun, name, employeeDeduction, companyDeduction, remoteData);
+    return Objects.hash(id, employeePayrollRun, name, employeeDeduction, companyDeduction, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -194,6 +218,7 @@ public class DeductionRawJson {
     sb.append("    employeeDeduction: ").append(toIndentedString(employeeDeduction.getAsString())).append("\n");
     sb.append("    companyDeduction: ").append(toIndentedString(companyDeduction.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

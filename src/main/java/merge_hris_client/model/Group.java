@@ -33,7 +33,7 @@ import merge_hris_client.model.RemoteData;
  * # The Group Object ### Description The &#x60;Group&#x60; object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and expand groups to view an employee&#39;s groups.
  */
 @ApiModel(description = "# The Group Object ### Description The `Group` object is used to represent Group information that employees belong to. This is often referenced with an Employee object.  Please note: The teams object will fulfill most use cases. The Groups object is for power-users that want all types of groups at a company and the optionality of pulling multiple groups for an employee.  ### Usage Example Fetch from the `LIST Employee` endpoint and expand groups to view an employee's groups.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Group {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,6 +58,10 @@ public class Group {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -180,6 +184,20 @@ public class Group {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,12 +212,13 @@ public class Group {
         Objects.equals(this.parentGroup, group.parentGroup) &&
         Objects.equals(this.name, group.name) &&
         Objects.equals(this.type, group.type) &&
-        Objects.equals(this.remoteData, group.remoteData);
+        Objects.equals(this.remoteData, group.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, group.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, parentGroup, name, type, remoteData);
+    return Objects.hash(id, remoteId, parentGroup, name, type, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -212,6 +231,7 @@ public class Group {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

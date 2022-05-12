@@ -36,7 +36,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
  */
 @ApiModel(description = "# The EmployeePayrollRun Object ### Description The `EmployeePayrollRun` object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the `LIST EmployeePayrollRun` endpoint and filter by `ID` to show all employee payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class EmployeePayrollRun {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -89,6 +89,10 @@ public class EmployeePayrollRun {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -345,6 +349,20 @@ public class EmployeePayrollRun {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -366,12 +384,13 @@ public class EmployeePayrollRun {
         Objects.equals(this.earnings, employeePayrollRun.earnings) &&
         Objects.equals(this.deductions, employeePayrollRun.deductions) &&
         Objects.equals(this.taxes, employeePayrollRun.taxes) &&
-        Objects.equals(this.remoteData, employeePayrollRun.remoteData);
+        Objects.equals(this.remoteData, employeePayrollRun.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, employeePayrollRun.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, payrollRun, grossPay, netPay, startDate, endDate, checkDate, earnings, deductions, taxes, remoteData);
+    return Objects.hash(id, remoteId, employee, payrollRun, grossPay, netPay, startDate, endDate, checkDate, earnings, deductions, taxes, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -391,6 +410,7 @@ public class EmployeePayrollRun {
     sb.append("    deductions: ").append(toIndentedString(deductions)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

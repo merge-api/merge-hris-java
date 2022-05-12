@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **country** | [**CountryEnum**](CountryEnum.md) | The location&#39;s country. |  [optional]
 **locationType** | [**LocationTypeEnum**](LocationTypeEnum.md) | The location&#39;s type. Can be either WORK or HOME |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

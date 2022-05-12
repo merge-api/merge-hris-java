@@ -3682,6 +3682,7 @@ components:
         remote_id: "123234"
         bank_name: Chase
         id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+        remote_was_deleted: true
         employee: a3617eb4-dfe3-426f-921e-a65fc1661e10
         routing_number: "089690059"
         remote_created_at: 2021-12-06T10:11:26Z
@@ -3744,6 +3745,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     Benefit:
       description: |-
@@ -3759,6 +3765,7 @@ components:
         benefit_plan_type: MEDICAL
         company_contribution: 150.0
         id: 3fe5ae7a-f1ba-4529-b7af-84e86dc6d232
+        remote_was_deleted: true
         employee: d2f972d0-2526-434b-9409-4c3b468e08f0
         provider_name: Blue Shield of California
         remote_data:
@@ -3813,6 +3820,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     CategoriesEnum:
       enum:
@@ -3846,6 +3858,7 @@ components:
         remote_id: "19202938"
         id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
         legal_name: Waystar Royco, Inc.
+        remote_was_deleted: true
         display_name: Waystar Royco
         remote_data:
         - path: /companies
@@ -3893,6 +3906,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     CountryEnum:
       enum:
@@ -4272,6 +4290,7 @@ components:
         company_deduction: 78.78
         id: 5fd439fc-1b64-4755-b275-64918936c365
         employee_deduction: 34.54
+        remote_was_deleted: true
         remote_data:
         - path: /payroll-deduction
           data:
@@ -4314,6 +4333,10 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          type: boolean
       type: object
     Earning:
       description: |-
@@ -4358,6 +4381,10 @@ components:
             type: object
           nullable: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          type: boolean
       type: object
     EarningTypeEnum:
       enum:
@@ -4409,6 +4436,7 @@ components:
         termination_date: 2021-10-12T00:00:00Z
         employee_number: "2"
         pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
+        remote_was_deleted: true
         personal_email: greg@gmail.com
       properties:
         id:
@@ -4595,6 +4623,9 @@ components:
           description: Custom fields configured for a given model.
           nullable: true
           type: object
+        remote_was_deleted:
+          readOnly: true
+          type: boolean
       type: object
     EmployeeEndpointRequest:
       example:
@@ -4673,6 +4704,7 @@ components:
           type: OVERTIME
         check_date: 2020-11-10T00:00:00Z
         id: fb8c55b6-1cb8-4b4c-9fb6-17924231619d
+        remote_was_deleted: true
         start_date: 2020-11-08T00:00:00Z
       properties:
         id:
@@ -4767,6 +4799,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     EmployeeRequest:
       description: |-
@@ -5026,6 +5063,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
+          remote_was_deleted: true
           personal_email: greg@gmail.com
         logs:
         - log_id: 99433219-8017-4acd-bb3c-ceb23d663832
@@ -5096,8 +5134,9 @@ components:
         effective_date: 2023-10-06T18:42:34Z
         pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
         id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+        remote_was_deleted: true
         job_title: Executive Assistant to Tom Wambsgans
-        pay_rate: 500.00
+        pay_rate: 50000.00
       properties:
         id:
           example: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
@@ -5121,7 +5160,7 @@ components:
           type: string
         pay_rate:
           description: The position's pay rate in dollars.
-          example: 500.00
+          example: 50000.00
           format: float
           nullable: true
           type: number
@@ -5176,6 +5215,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     EmploymentStatusEnum:
       enum:
@@ -5324,6 +5368,7 @@ components:
         remote_id: "800293"
         name: COST_CENTER_US
         id: 134e0111-0f67-44f6-98f0-597000290bb3
+        remote_was_deleted: true
         type: COST_CENTER
         parent_group: 2ef51b11-2c4e-4b02-8d1d-50592d9e96ef
         remote_data:
@@ -5368,6 +5413,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     GroupTypeEnum:
       enum:
@@ -5488,20 +5538,21 @@ components:
         Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.
       example:
         country: USA
-        street_1: 2920 Broadway
         city: 'New York '
         remote_id: "93018402"
-        street_2: 2nd Floor
-        name: NYC Office
-        phone_number: +1111111111
-        id: f5e6a151-f44e-449a-afb1-8fd781905958
-        state: NY
         zip_code: "10027"
         location_type: WORK
         remote_data:
         - path: /locations
           data:
           - Varies by platform
+        street_1: 2920 Broadway
+        street_2: 2nd Floor
+        name: NYC Office
+        phone_number: +1111111111
+        id: f5e6a151-f44e-449a-afb1-8fd781905958
+        state: NY
+        remote_was_deleted: true
       properties:
         id:
           example: f5e6a151-f44e-449a-afb1-8fd781905958
@@ -5571,6 +5622,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     LocationTypeEnum:
       enum:
@@ -5830,6 +5886,7 @@ components:
           remote_id: "123234"
           bank_name: Chase
           id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+          remote_was_deleted: true
           employee: a3617eb4-dfe3-426f-921e-a65fc1661e10
           routing_number: "089690059"
           remote_created_at: 2021-12-06T10:11:26Z
@@ -5842,6 +5899,7 @@ components:
           remote_id: "123234"
           bank_name: Chase
           id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+          remote_was_deleted: true
           employee: a3617eb4-dfe3-426f-921e-a65fc1661e10
           routing_number: "089690059"
           remote_created_at: 2021-12-06T10:11:26Z
@@ -5873,6 +5931,7 @@ components:
           benefit_plan_type: MEDICAL
           company_contribution: 150.0
           id: 3fe5ae7a-f1ba-4529-b7af-84e86dc6d232
+          remote_was_deleted: true
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
           provider_name: Blue Shield of California
           remote_data:
@@ -5884,6 +5943,7 @@ components:
           benefit_plan_type: MEDICAL
           company_contribution: 150.0
           id: 3fe5ae7a-f1ba-4529-b7af-84e86dc6d232
+          remote_was_deleted: true
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
           provider_name: Blue Shield of California
           remote_data:
@@ -5916,6 +5976,7 @@ components:
           remote_id: "19202938"
           id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
           legal_name: Waystar Royco, Inc.
+          remote_was_deleted: true
           display_name: Waystar Royco
           remote_data:
           - path: /companies
@@ -5928,6 +5989,7 @@ components:
           remote_id: "19202938"
           id: 1b998423-db0a-4037-a4cf-f79c60cb67b3
           legal_name: Waystar Royco, Inc.
+          remote_was_deleted: true
           display_name: Waystar Royco
           remote_data:
           - path: /companies
@@ -5957,6 +6019,7 @@ components:
           company_deduction: 78.78
           id: 5fd439fc-1b64-4755-b275-64918936c365
           employee_deduction: 34.54
+          remote_was_deleted: true
           remote_data:
           - path: /payroll-deduction
             data:
@@ -5966,6 +6029,7 @@ components:
           company_deduction: 78.78
           id: 5fd439fc-1b64-4755-b275-64918936c365
           employee_deduction: 34.54
+          remote_was_deleted: true
           remote_data:
           - path: /payroll-deduction
             data:
@@ -6023,6 +6087,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
+          remote_was_deleted: true
           personal_email: greg@gmail.com
         - display_full_name: Cousin Greg Hirsch
           work_email: greg@merge.dev
@@ -6058,6 +6123,7 @@ components:
           termination_date: 2021-10-12T00:00:00Z
           employee_number: "2"
           pay_group: ad1264e2-39be-4787-b749-f1aade9e3405
+          remote_was_deleted: true
           personal_email: greg@gmail.com
       properties:
         next:
@@ -6107,6 +6173,7 @@ components:
             type: OVERTIME
           check_date: 2020-11-10T00:00:00Z
           id: fb8c55b6-1cb8-4b4c-9fb6-17924231619d
+          remote_was_deleted: true
           start_date: 2020-11-08T00:00:00Z
         - end_date: 2020-11-09T00:00:00Z
           remote_id: "19202938"
@@ -6137,6 +6204,7 @@ components:
             type: OVERTIME
           check_date: 2020-11-10T00:00:00Z
           id: fb8c55b6-1cb8-4b4c-9fb6-17924231619d
+          remote_was_deleted: true
           start_date: 2020-11-08T00:00:00Z
       properties:
         next:
@@ -6171,8 +6239,9 @@ components:
           effective_date: 2023-10-06T18:42:34Z
           pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
           id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          remote_was_deleted: true
           job_title: Executive Assistant to Tom Wambsgans
-          pay_rate: 500.00
+          pay_rate: 50000.00
         - employment_type: FULL TIME
           remote_id: "19202938"
           pay_period: YEAR
@@ -6187,8 +6256,9 @@ components:
           effective_date: 2023-10-06T18:42:34Z
           pay_group: d4e4837f-9900-484c-ac40-528365bb08ef
           id: 65d8ffd0-211b-4ba4-b85a-fbe2ce220982
+          remote_was_deleted: true
           job_title: Executive Assistant to Tom Wambsgans
-          pay_rate: 500.00
+          pay_rate: 50000.00
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -6211,6 +6281,7 @@ components:
         - remote_id: "800293"
           name: COST_CENTER_US
           id: 134e0111-0f67-44f6-98f0-597000290bb3
+          remote_was_deleted: true
           type: COST_CENTER
           parent_group: 2ef51b11-2c4e-4b02-8d1d-50592d9e96ef
           remote_data:
@@ -6220,6 +6291,7 @@ components:
         - remote_id: "800293"
           name: COST_CENTER_US
           id: 134e0111-0f67-44f6-98f0-597000290bb3
+          remote_was_deleted: true
           type: COST_CENTER
           parent_group: 2ef51b11-2c4e-4b02-8d1d-50592d9e96ef
           remote_data:
@@ -6279,35 +6351,37 @@ components:
         previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
         results:
         - country: USA
-          street_1: 2920 Broadway
           city: 'New York '
           remote_id: "93018402"
-          street_2: 2nd Floor
-          name: NYC Office
-          phone_number: +1111111111
-          id: f5e6a151-f44e-449a-afb1-8fd781905958
-          state: NY
           zip_code: "10027"
           location_type: WORK
           remote_data:
           - path: /locations
             data:
             - Varies by platform
+          street_1: 2920 Broadway
+          street_2: 2nd Floor
+          name: NYC Office
+          phone_number: +1111111111
+          id: f5e6a151-f44e-449a-afb1-8fd781905958
+          state: NY
+          remote_was_deleted: true
         - country: USA
-          street_1: 2920 Broadway
           city: 'New York '
           remote_id: "93018402"
-          street_2: 2nd Floor
-          name: NYC Office
-          phone_number: +1111111111
-          id: f5e6a151-f44e-449a-afb1-8fd781905958
-          state: NY
           zip_code: "10027"
           location_type: WORK
           remote_data:
           - path: /locations
             data:
             - Varies by platform
+          street_1: 2920 Broadway
+          street_2: 2nd Floor
+          name: NYC Office
+          phone_number: +1111111111
+          id: f5e6a151-f44e-449a-afb1-8fd781905958
+          state: NY
+          remote_was_deleted: true
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -6330,6 +6404,7 @@ components:
         - pay_group_name: contractor
           remote_id: "800293"
           id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+          remote_was_deleted: true
           remote_data:
           - path: /pay-group
             data:
@@ -6337,6 +6412,7 @@ components:
         - pay_group_name: contractor
           remote_id: "800293"
           id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+          remote_was_deleted: true
           remote_data:
           - path: /pay-group
             data:
@@ -6366,6 +6442,7 @@ components:
           run_state: PAID
           id: 37336947-b3d4-4a4c-a310-ab6ab510e079
           run_type: REGULAR
+          remote_was_deleted: true
           start_date: 2020-11-08T00:00:00Z
           remote_data:
           - path: /payroll
@@ -6377,6 +6454,7 @@ components:
           run_state: PAID
           id: 37336947-b3d4-4a4c-a310-ab6ab510e079
           run_type: REGULAR
+          remote_was_deleted: true
           start_date: 2020-11-08T00:00:00Z
           remote_data:
           - path: /payroll
@@ -6436,6 +6514,7 @@ components:
           remote_id: "19202938"
           name: Engineering
           id: 13a72919-9fae-4f54-81ca-ddfd8712a1ba
+          remote_was_deleted: true
           remote_data:
           - path: /teams
             data:
@@ -6444,6 +6523,7 @@ components:
           remote_id: "19202938"
           name: Engineering
           id: 13a72919-9fae-4f54-81ca-ddfd8712a1ba
+          remote_was_deleted: true
           remote_data:
           - path: /teams
             data:
@@ -6472,6 +6552,7 @@ components:
           remote_id: "19202938"
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           used: 45.0
+          remote_was_deleted: true
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
           remote_data:
           - path: /leave
@@ -6482,6 +6563,7 @@ components:
           remote_id: "19202938"
           id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           used: 45.0
+          remote_was_deleted: true
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
           remote_data:
           - path: /leave
@@ -6507,35 +6589,37 @@ components:
         previous: cj1sZXdwd2VycWVtY29zZnNkc2NzUWxNMEUxTXk0ME16UXpNallsTWtJ
         results:
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
-          start_time: 2020-11-10T00:00:00Z
           amount: 3
           request_type: VACATION
-          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
-          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           units: DAYS
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
-          status: APPROVED
           remote_data:
           - path: /leave
             data:
             - Varies by platform
+          start_time: 2020-11-10T00:00:00Z
+          employee_note: Moving into the new apartment Kendall Roy gave me!
+          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          remote_was_deleted: true
+          status: APPROVED
         - approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
-          start_time: 2020-11-10T00:00:00Z
           amount: 3
           request_type: VACATION
-          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
-          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           units: DAYS
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
-          status: APPROVED
           remote_data:
           - path: /leave
             data:
             - Varies by platform
+          start_time: 2020-11-10T00:00:00Z
+          employee_note: Moving into the new apartment Kendall Roy gave me!
+          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          remote_was_deleted: true
+          status: APPROVED
       properties:
         next:
           example: cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw
@@ -6882,6 +6966,7 @@ components:
         pay_group_name: contractor
         remote_id: "800293"
         id: fd1e0fb5-8f92-4ec9-9f32-179cf732867d
+        remote_was_deleted: true
         remote_data:
         - path: /pay-group
           data:
@@ -6912,6 +6997,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     PayPeriodEnum:
       enum:
@@ -6939,6 +7029,7 @@ components:
         run_state: PAID
         id: 37336947-b3d4-4a4c-a310-ab6ab510e079
         run_type: REGULAR
+        remote_was_deleted: true
         start_date: 2020-11-08T00:00:00Z
         remote_data:
         - path: /payroll
@@ -6995,6 +7086,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     PolicyTypeEnum:
       enum:
@@ -7257,6 +7353,10 @@ components:
             type: object
           nullable: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          type: boolean
       type: object
     Team:
       description: |-
@@ -7271,6 +7371,7 @@ components:
         remote_id: "19202938"
         name: Engineering
         id: 13a72919-9fae-4f54-81ca-ddfd8712a1ba
+        remote_was_deleted: true
         remote_data:
         - path: /teams
           data:
@@ -7306,6 +7407,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     TimeOff:
       description: |-
@@ -7317,20 +7423,21 @@ components:
         Fetch from the `LIST TimeOffs` endpoint and filter by `ID` to show all time off requests.
       example:
         approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
-        start_time: 2020-11-10T00:00:00Z
         amount: 3
         request_type: VACATION
-        employee_note: Moving into the new apartment Kendall Roy gave me!
         remote_id: "19202938"
         end_time: 2020-11-17T00:00:00Z
-        id: 91b2b905-e866-40c8-8be2-efe53827a0aa
         units: DAYS
         employee: d2f972d0-2526-434b-9409-4c3b468e08f0
-        status: APPROVED
         remote_data:
         - path: /leave
           data:
           - Varies by platform
+        start_time: 2020-11-10T00:00:00Z
+        employee_note: Moving into the new apartment Kendall Roy gave me!
+        id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+        remote_was_deleted: true
+        status: APPROVED
       properties:
         id:
           example: 91b2b905-e866-40c8-8be2-efe53827a0aa
@@ -7403,6 +7510,9 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          readOnly: true
+          type: boolean
       type: object
     TimeOffBalance:
       description: |-
@@ -7418,6 +7528,7 @@ components:
         remote_id: "19202938"
         id: 91b2b905-e866-40c8-8be2-efe53827a0aa
         used: 45.0
+        remote_was_deleted: true
         employee: d2f972d0-2526-434b-9409-4c3b468e08f0
         remote_data:
         - path: /leave
@@ -7469,6 +7580,11 @@ components:
           nullable: true
           readOnly: true
           type: array
+        remote_was_deleted:
+          description: Indicates whether or not this object has been deleted on the
+            third-party.
+          readOnly: true
+          type: boolean
       type: object
     TimeOffEndpointRequest:
       example:
@@ -7581,20 +7697,21 @@ components:
           title: Unrecognized Field
         model:
           approver: 9efbc633-3387-4306-aa55-e2c635e6bb4f
-          start_time: 2020-11-10T00:00:00Z
           amount: 3
           request_type: VACATION
-          employee_note: Moving into the new apartment Kendall Roy gave me!
           remote_id: "19202938"
           end_time: 2020-11-17T00:00:00Z
-          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
           units: DAYS
           employee: d2f972d0-2526-434b-9409-4c3b468e08f0
-          status: APPROVED
           remote_data:
           - path: /leave
             data:
             - Varies by platform
+          start_time: 2020-11-10T00:00:00Z
+          employee_note: Moving into the new apartment Kendall Roy gave me!
+          id: 91b2b905-e866-40c8-8be2-efe53827a0aa
+          remote_was_deleted: true
+          status: APPROVED
         logs:
         - log_id: 99433219-8017-4acd-bb3c-ceb23d663832
           dashboard_view: https://app.merge.dev/logs/99433219-8017-4acd-bb3c-ceb23d663832

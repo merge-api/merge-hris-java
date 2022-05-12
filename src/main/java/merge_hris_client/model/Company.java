@@ -32,7 +32,7 @@ import merge_hris_client.model.RemoteData;
  * # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
  */
 @ApiModel(description = "# The Company Object ### Description The `Company` object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Company {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -57,6 +57,10 @@ public class Company {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -187,6 +191,20 @@ public class Company {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -201,12 +219,13 @@ public class Company {
         Objects.equals(this.legalName, company.legalName) &&
         Objects.equals(this.displayName, company.displayName) &&
         Objects.equals(this.eins, company.eins) &&
-        Objects.equals(this.remoteData, company.remoteData);
+        Objects.equals(this.remoteData, company.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, company.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, legalName, displayName, eins, remoteData);
+    return Objects.hash(id, remoteId, legalName, displayName, eins, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -219,6 +238,7 @@ public class Company {
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    eins: ").append(toIndentedString(eins)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

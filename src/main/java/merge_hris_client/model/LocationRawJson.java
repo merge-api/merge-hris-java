@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Location Object ### Description The &#x60;Location&#x60; object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the &#x60;LIST Locations&#x60; endpoint and filter by &#x60;ID&#x60; to show all office locations.
  */
 @ApiModel(description = "# The Location Object ### Description The `Location` object is used to represent a Location for a Company or Employee address. This is shared across many models and is referenced whenever a location is stored.  ### Usage Example Fetch from the `LIST Locations` endpoint and filter by `ID` to show all office locations.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class LocationRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,6 +83,10 @@ public class LocationRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -302,6 +306,17 @@ public class LocationRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -322,11 +337,12 @@ public class LocationRawJson {
         Objects.equals(this.zipCode.getAsString(), location.zipCode.getAsString()) &&
         Objects.equals(this.country.getAsString(), location.country.getAsString()) &&
         Objects.equals(this.locationType.getAsString(), location.locationType.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), location.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), location.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), location.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, locationType, remoteData);
+    return Objects.hash(id, remoteId, name, phoneNumber, street1, street2, city, state, zipCode, country, locationType, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -344,6 +360,7 @@ public class LocationRawJson {
     sb.append("    country: ").append(toIndentedString(country.getAsString())).append("\n");
     sb.append("    locationType: ").append(toIndentedString(locationType.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

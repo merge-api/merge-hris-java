@@ -33,7 +33,7 @@ import merge_hris_client.model.EarningTypeEnum;
  * # The Earning Object ### Description The &#x60;Earning&#x60; object is used to represent an earning for a given employee&#39;s payroll run. One run could include several earnings.  ### Usage Example Fetch from the &#x60;LIST Earnings&#x60; endpoint and filter by &#x60;ID&#x60; to show all earnings.
  */
 @ApiModel(description = "# The Earning Object ### Description The `Earning` object is used to represent an earning for a given employee's payroll run. One run could include several earnings.  ### Usage Example Fetch from the `LIST Earnings` endpoint and filter by `ID` to show all earnings.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Earning {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -54,6 +54,10 @@ public class Earning {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<Map<String, Object>> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -170,6 +174,29 @@ public class Earning {
   }
 
 
+  public Earning remoteWasDeleted(Boolean remoteWasDeleted) {
+    
+    this.remoteWasDeleted = remoteWasDeleted;
+    return this;
+  }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+  public void setRemoteWasDeleted(Boolean remoteWasDeleted) {
+    this.remoteWasDeleted = remoteWasDeleted;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,12 +210,13 @@ public class Earning {
         Objects.equals(this.employeePayrollRun, earning.employeePayrollRun) &&
         Objects.equals(this.amount, earning.amount) &&
         Objects.equals(this.type, earning.type) &&
-        Objects.equals(this.remoteData, earning.remoteData);
+        Objects.equals(this.remoteData, earning.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, earning.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeePayrollRun, amount, type, remoteData);
+    return Objects.hash(id, employeePayrollRun, amount, type, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -200,6 +228,7 @@ public class Earning {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **accountType** | [**AccountTypeEnum**](AccountTypeEnum.md) | The bank account type |  [optional]
 **remoteCreatedAt** | **OffsetDateTime** | When the matching bank object was created in the third party system. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

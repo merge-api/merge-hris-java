@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The BankInfo Object ### Description The &#x60;BankInfo&#x60; object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the &#x60;LIST BankInfo&#x60; endpoint and filter by &#x60;ID&#x60; to show all bank information.
  */
 @ApiModel(description = "# The BankInfo Object ### Description The `BankInfo` object is used to represent the Bank Account information for an Employee. This is often referenced with an Employee object.  ### Usage Example Fetch from the `LIST BankInfo` endpoint and filter by `ID` to show all bank information.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class BankInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,6 +71,10 @@ public class BankInfo {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -262,6 +266,20 @@ public class BankInfo {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -279,12 +297,13 @@ public class BankInfo {
         Objects.equals(this.bankName, bankInfo.bankName) &&
         Objects.equals(this.accountType, bankInfo.accountType) &&
         Objects.equals(this.remoteCreatedAt, bankInfo.remoteCreatedAt) &&
-        Objects.equals(this.remoteData, bankInfo.remoteData);
+        Objects.equals(this.remoteData, bankInfo.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, bankInfo.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, accountNumber, routingNumber, bankName, accountType, remoteCreatedAt, remoteData);
+    return Objects.hash(id, remoteId, employee, accountNumber, routingNumber, bankName, accountType, remoteCreatedAt, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -300,6 +319,7 @@ public class BankInfo {
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    remoteCreatedAt: ").append(toIndentedString(remoteCreatedAt)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

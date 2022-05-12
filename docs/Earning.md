@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **amount** | **Float** | The amount earned. |  [optional]
 **type** | [**EarningTypeEnum**](EarningTypeEnum.md) | The type of earning. |  [optional]
 **remoteData** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  [optional]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional]
 
 
 

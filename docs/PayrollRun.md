@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **endDate** | **OffsetDateTime** | The day and time the payroll run ended. |  [optional]
 **checkDate** | **OffsetDateTime** | The day and time the payroll run was checked. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

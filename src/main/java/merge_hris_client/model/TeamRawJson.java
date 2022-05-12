@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Team Object ### Description The &#x60;Team&#x60; object is used to represent a Team within a company. &#x60;Employee&#x60; objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with &#x60;Teams&#x60;, rather than &#x60;Teams&#x60; and &#x60;Departments&#x60;.  ### Usage Example If you&#39;re building a way to filter by &#x60;Team&#x60;, you&#39;d hit the &#x60;GET Teams&#x60; endpoint to fetch the &#x60;Teams&#x60;, and then use the &#x60;ID&#x60; of the team your user selects to filter the &#x60;GET Employees&#x60; endpoint.
  */
 @ApiModel(description = "# The Team Object ### Description The `Team` object is used to represent a Team within a company. `Employee` objects are often grouped this way. Note that in the Merge HRIS API, company subdivisions are all represented with `Teams`, rather than `Teams` and `Departments`.  ### Usage Example If you're building a way to filter by `Team`, you'd hit the `GET Teams` endpoint to fetch the `Teams`, and then use the `ID` of the team your user selects to filter the `GET Employees` endpoint.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class TeamRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -55,6 +55,10 @@ public class TeamRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -141,6 +145,17 @@ public class TeamRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,11 +169,12 @@ public class TeamRawJson {
         Objects.equals(this.remoteId.getAsString(), team.remoteId.getAsString()) &&
         Objects.equals(this.name.getAsString(), team.name.getAsString()) &&
         Objects.equals(this.parentTeam.getAsString(), team.parentTeam.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), team.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), team.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), team.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, name, parentTeam, remoteData);
+    return Objects.hash(id, remoteId, name, parentTeam, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -169,6 +185,7 @@ public class TeamRawJson {
     sb.append("    name: ").append(toIndentedString(name.getAsString())).append("\n");
     sb.append("    parentTeam: ").append(toIndentedString(parentTeam.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

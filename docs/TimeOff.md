@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **startTime** | **OffsetDateTime** | The day and time of the start of the time requested off. |  [optional]
 **endTime** | **OffsetDateTime** | The day and time of the end of the time requested off. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** |  |  [optional] [readonly]
 
 
 

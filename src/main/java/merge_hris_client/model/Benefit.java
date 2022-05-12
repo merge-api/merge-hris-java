@@ -32,7 +32,7 @@ import merge_hris_client.model.RemoteData;
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Benefit {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -65,6 +65,10 @@ public class Benefit {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -233,6 +237,20 @@ public class Benefit {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -249,12 +267,13 @@ public class Benefit {
         Objects.equals(this.benefitPlanType, benefit.benefitPlanType) &&
         Objects.equals(this.employeeContribution, benefit.employeeContribution) &&
         Objects.equals(this.companyContribution, benefit.companyContribution) &&
-        Objects.equals(this.remoteData, benefit.remoteData);
+        Objects.equals(this.remoteData, benefit.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, benefit.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, providerName, benefitPlanType, employeeContribution, companyContribution, remoteData);
+    return Objects.hash(id, remoteId, employee, providerName, benefitPlanType, employeeContribution, companyContribution, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -269,6 +288,7 @@ public class Benefit {
     sb.append("    employeeContribution: ").append(toIndentedString(employeeContribution)).append("\n");
     sb.append("    companyContribution: ").append(toIndentedString(companyContribution)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

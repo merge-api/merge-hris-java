@@ -30,7 +30,7 @@ import merge_hris_client.model.CategoriesEnum;
 /**
  * EndUserDetailsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class EndUserDetailsRequest {
   public static final String SERIALIZED_NAME_END_USER_EMAIL_ADDRESS = "end_user_email_address";
   @SerializedName(SERIALIZED_NAME_END_USER_EMAIL_ADDRESS)

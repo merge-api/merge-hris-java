@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **name** | **String** | The group name. |  [optional]
 **type** | [**GroupTypeEnum**](GroupTypeEnum.md) | The group type |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

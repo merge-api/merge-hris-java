@@ -32,7 +32,7 @@ import java.util.UUID;
  * # The Tax Object ### Description The &#x60;Tax&#x60; object is used to represent a tax for a given employee&#39;s payroll run. One run could include several taxes.  ### Usage Example Fetch from the &#x60;LIST Taxes&#x60; endpoint and filter by &#x60;ID&#x60; to show all taxes.
  */
 @ApiModel(description = "# The Tax Object ### Description The `Tax` object is used to represent a tax for a given employee's payroll run. One run could include several taxes.  ### Usage Example Fetch from the `LIST Taxes` endpoint and filter by `ID` to show all taxes.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Tax {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -57,6 +57,10 @@ public class Tax {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<Map<String, Object>> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -196,6 +200,29 @@ public class Tax {
   }
 
 
+  public Tax remoteWasDeleted(Boolean remoteWasDeleted) {
+    
+    this.remoteWasDeleted = remoteWasDeleted;
+    return this;
+  }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+  public void setRemoteWasDeleted(Boolean remoteWasDeleted) {
+    this.remoteWasDeleted = remoteWasDeleted;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -210,12 +237,13 @@ public class Tax {
         Objects.equals(this.name, tax.name) &&
         Objects.equals(this.amount, tax.amount) &&
         Objects.equals(this.employerTax, tax.employerTax) &&
-        Objects.equals(this.remoteData, tax.remoteData);
+        Objects.equals(this.remoteData, tax.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, tax.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, employeePayrollRun, name, amount, employerTax, remoteData);
+    return Objects.hash(id, employeePayrollRun, name, amount, employerTax, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -228,6 +256,7 @@ public class Tax {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    employerTax: ").append(toIndentedString(employerTax)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

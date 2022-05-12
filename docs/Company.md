@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **displayName** | **String** | The company&#39;s display name. |  [optional]
 **eins** | **List&lt;String&gt;** | The company&#39;s Employer Identification Numbers. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

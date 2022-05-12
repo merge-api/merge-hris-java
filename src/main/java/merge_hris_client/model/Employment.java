@@ -38,7 +38,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employment Object ### Description The &#x60;Employment&#x60; object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Employments&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employment Object ### Description The `Employment` object is used to represent an employment position at a company. These are associated with the employee filling the role.  Please note: Employment objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the `LIST Employments` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class Employment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -91,6 +91,10 @@ public class Employment {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private List<RemoteData> remoteData = null;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private Boolean remoteWasDeleted;
 
 
    /**
@@ -187,7 +191,7 @@ public class Employment {
    * @return payRate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "500.00", value = "The position's pay rate in dollars.")
+  @ApiModelProperty(example = "50000.00", value = "The position's pay rate in dollars.")
 
   public Float getPayRate() {
     return payRate;
@@ -374,6 +378,20 @@ public class Employment {
 
 
 
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public Boolean getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
+
+
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -395,12 +413,13 @@ public class Employment {
         Objects.equals(this.flsaStatus, employment.flsaStatus) &&
         Objects.equals(this.effectiveDate, employment.effectiveDate) &&
         Objects.equals(this.employmentType, employment.employmentType) &&
-        Objects.equals(this.remoteData, employment.remoteData);
+        Objects.equals(this.remoteData, employment.remoteData) &&
+        Objects.equals(this.remoteWasDeleted, employment.remoteWasDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, payGroup, flsaStatus, effectiveDate, employmentType, remoteData);
+    return Objects.hash(id, remoteId, employee, jobTitle, payRate, payPeriod, payFrequency, payCurrency, payGroup, flsaStatus, effectiveDate, employmentType, remoteData, remoteWasDeleted);
   }
 
   @Override
@@ -420,6 +439,7 @@ public class Employment {
     sb.append("    effectiveDate: ").append(toIndentedString(effectiveDate)).append("\n");
     sb.append("    employmentType: ").append(toIndentedString(employmentType)).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData)).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

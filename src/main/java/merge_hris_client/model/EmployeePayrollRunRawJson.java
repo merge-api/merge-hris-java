@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The EmployeePayrollRun Object ### Description The &#x60;EmployeePayrollRun&#x60; object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the &#x60;LIST EmployeePayrollRun&#x60; endpoint and filter by &#x60;ID&#x60; to show all employee payroll runs.
  */
 @ApiModel(description = "# The EmployeePayrollRun Object ### Description The `EmployeePayrollRun` object is used to represent a payroll run for a specific employee.  ### Usage Example Fetch from the `LIST EmployeePayrollRun` endpoint and filter by `ID` to show all employee payroll runs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class EmployeePayrollRunRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -87,6 +87,10 @@ public class EmployeePayrollRunRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -301,6 +305,17 @@ public class EmployeePayrollRunRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -322,11 +337,12 @@ public class EmployeePayrollRunRawJson {
         Objects.equals(this.earnings.getAsString(), employeePayrollRun.earnings.getAsString()) &&
         Objects.equals(this.deductions.getAsString(), employeePayrollRun.deductions.getAsString()) &&
         Objects.equals(this.taxes.getAsString(), employeePayrollRun.taxes.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), employeePayrollRun.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), employeePayrollRun.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), employeePayrollRun.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, payrollRun, grossPay, netPay, startDate, endDate, checkDate, earnings, deductions, taxes, remoteData);
+    return Objects.hash(id, remoteId, employee, payrollRun, grossPay, netPay, startDate, endDate, checkDate, earnings, deductions, taxes, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -345,6 +361,7 @@ public class EmployeePayrollRunRawJson {
     sb.append("    deductions: ").append(toIndentedString(deductions.getAsString())).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }
