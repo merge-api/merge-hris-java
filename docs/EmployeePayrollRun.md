@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **deductions** | [**List&lt;Deduction&gt;**](Deduction.md) |  |  [optional] [readonly]
 **taxes** | [**List&lt;Tax&gt;**](Tax.md) |  |  [optional] [readonly]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

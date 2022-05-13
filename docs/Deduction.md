@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **employeeDeduction** | **Float** | The amount the employee is deducting. |  [optional]
 **companyDeduction** | **Float** | The amount the company is deducting. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional]
 
 
 

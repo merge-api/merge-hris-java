@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Employee Object ### Description The &#x60;Employee&#x60; object is used to represent an Employee for a company.  ### Usage Example Fetch from the &#x60;LIST Employee&#x60; endpoint and filter by &#x60;ID&#x60; to show all employees.
  */
 @ApiModel(description = "# The Employee Object ### Description The `Employee` object is used to represent an Employee for a company.  ### Usage Example Fetch from the `LIST Employee` endpoint and filter by `ID` to show all employees.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class EmployeeRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -151,6 +151,10 @@ public class EmployeeRawJson {
   public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom_fields";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
   private JsonElement customFields;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -695,6 +699,17 @@ public class EmployeeRawJson {
   public void setCustomFields(JsonElement customFields) {
     this.customFields = customFields;
   }
+
+   /**
+   * Get remoteWasDeleted
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -732,11 +747,12 @@ public class EmployeeRawJson {
         Objects.equals(this.terminationDate.getAsString(), employee.terminationDate.getAsString()) &&
         Objects.equals(this.avatar.getAsString(), employee.avatar.getAsString()) &&
         Objects.equals(this.remoteData.getAsString(), employee.remoteData.getAsString()) &&
-        Objects.equals(this.customFields.getAsString(), employee.customFields.getAsString());
+        Objects.equals(this.customFields.getAsString(), employee.customFields.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), employee.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, groups, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields);
+    return Objects.hash(id, remoteId, employeeNumber, company, firstName, lastName, displayFullName, groups, workEmail, personalEmail, mobilePhoneNumber, employments, homeLocation, workLocation, manager, team, payGroup, ssn, gender, ethnicity, maritalStatus, dateOfBirth, hireDate, startDate, employmentStatus, terminationDate, avatar, remoteData, customFields, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -771,6 +787,7 @@ public class EmployeeRawJson {
     sb.append("    avatar: ").append(toIndentedString(avatar.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

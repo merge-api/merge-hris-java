@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **avatar** | **URI** | The URL of the employee&#39;s avatar image. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
 **customFields** | **Map&lt;String, Object&gt;** | Custom fields configured for a given model. |  [optional]
+**remoteWasDeleted** | **Boolean** |  |  [optional] [readonly]
 
 
 

@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class BenefitRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -67,6 +67,10 @@ public class BenefitRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -210,6 +214,17 @@ public class BenefitRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -226,11 +241,12 @@ public class BenefitRawJson {
         Objects.equals(this.benefitPlanType.getAsString(), benefit.benefitPlanType.getAsString()) &&
         Objects.equals(this.employeeContribution.getAsString(), benefit.employeeContribution.getAsString()) &&
         Objects.equals(this.companyContribution.getAsString(), benefit.companyContribution.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), benefit.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), benefit.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), benefit.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, providerName, benefitPlanType, employeeContribution, companyContribution, remoteData);
+    return Objects.hash(id, remoteId, employee, providerName, benefitPlanType, employeeContribution, companyContribution, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -244,6 +260,7 @@ public class BenefitRawJson {
     sb.append("    employeeContribution: ").append(toIndentedString(employeeContribution.getAsString())).append("\n");
     sb.append("    companyContribution: ").append(toIndentedString(companyContribution.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

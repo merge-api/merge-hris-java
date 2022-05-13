@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **effectiveDate** | **OffsetDateTime** | The position&#39;s effective date. |  [optional]
 **employmentType** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) | The position&#39;s type of employment. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **employeeContribution** | **Float** | The employee&#39;s contribution. |  [optional]
 **companyContribution** | **Float** | The company&#39;s contribution. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 

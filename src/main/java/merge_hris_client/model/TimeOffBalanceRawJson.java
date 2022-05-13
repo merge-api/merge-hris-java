@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The TimeOffBalance Object ### Description The &#x60;TimeOffBalance&#x60; object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the &#x60;LIST TimeOffBalances&#x60; endpoint and filter by &#x60;ID&#x60; to show all time off balances.
  */
 @ApiModel(description = "# The TimeOffBalance Object ### Description The `TimeOffBalance` object is used to represent a Time Off Balance for an employee.  ### Usage Example Fetch from the `LIST TimeOffBalances` endpoint and filter by `ID` to show all time off balances.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-06T21:54:01.920674Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
 public class TimeOffBalanceRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -63,6 +63,10 @@ public class TimeOffBalanceRawJson {
   public static final String SERIALIZED_NAME_REMOTE_DATA = "remote_data";
   @SerializedName(SERIALIZED_NAME_REMOTE_DATA)
   private JsonElement remoteData;
+
+  public static final String SERIALIZED_NAME_REMOTE_WAS_DELETED = "remote_was_deleted";
+  @SerializedName(SERIALIZED_NAME_REMOTE_WAS_DELETED)
+  private JsonElement remoteWasDeleted;
 
   private transient JSON serializer;
 
@@ -187,6 +191,17 @@ public class TimeOffBalanceRawJson {
   public JsonElement getRemoteData() {
     return remoteData;
   }
+
+   /**
+   * Indicates whether or not this object has been deleted on the third-party.
+   * @return remoteWasDeleted
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether or not this object has been deleted on the third-party.")
+
+  public JsonElement getRemoteWasDeleted() {
+    return remoteWasDeleted;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,11 +217,12 @@ public class TimeOffBalanceRawJson {
         Objects.equals(this.balance.getAsString(), timeOffBalance.balance.getAsString()) &&
         Objects.equals(this.used.getAsString(), timeOffBalance.used.getAsString()) &&
         Objects.equals(this.policyType.getAsString(), timeOffBalance.policyType.getAsString()) &&
-        Objects.equals(this.remoteData.getAsString(), timeOffBalance.remoteData.getAsString());
+        Objects.equals(this.remoteData.getAsString(), timeOffBalance.remoteData.getAsString()) &&
+        Objects.equals(this.remoteWasDeleted.getAsString(), timeOffBalance.remoteWasDeleted.getAsString());
   }
   @Override
   public int hashCode() {
-    return Objects.hash(id, remoteId, employee, balance, used, policyType, remoteData);
+    return Objects.hash(id, remoteId, employee, balance, used, policyType, remoteData, remoteWasDeleted);
   }
   @Override
   public String toString() {
@@ -219,6 +235,7 @@ public class TimeOffBalanceRawJson {
     sb.append("    used: ").append(toIndentedString(used.getAsString())).append("\n");
     sb.append("    policyType: ").append(toIndentedString(policyType.getAsString())).append("\n");
     sb.append("    remoteData: ").append(toIndentedString(remoteData.getAsString())).append("\n");
+    sb.append("    remoteWasDeleted: ").append(toIndentedString(remoteWasDeleted.getAsString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

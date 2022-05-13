@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **amount** | **Float** | The tax amount. |  [optional]
 **employerTax** | **Boolean** | Whether or not the employer is responsible for paying the tax. |  [optional]
 **remoteData** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  [optional]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional]
 
 
 

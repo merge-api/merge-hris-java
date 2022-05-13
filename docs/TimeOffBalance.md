@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **used** | **Float** | The amount of PTO used in terms of hours. |  [optional]
 **policyType** | [**PolicyTypeEnum**](PolicyTypeEnum.md) | The policy type of this time off balance. |  [optional]
 **remoteData** | [**List&lt;RemoteData&gt;**](RemoteData.md) |  |  [optional] [readonly]
+**remoteWasDeleted** | **Boolean** | Indicates whether or not this object has been deleted on the third-party. |  [optional] [readonly]
 
 
 
