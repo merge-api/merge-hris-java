@@ -32,7 +32,7 @@ import merge_hris_client.model.RemoteData;
  * # The Company Object ### Description The &#x60;Company&#x60; object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the &#x60;LIST Companies&#x60; endpoint and filter by &#x60;ID&#x60; to show all companies.
  */
 @ApiModel(description = "# The Company Object ### Description The `Company` object is used to represent a Company within the HRIS / Payroll system.  ### Usage Example Fetch from the `LIST Companies` endpoint and filter by `ID` to show all companies.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-20T10:57:27.935941Z[Etc/UTC]")
 public class Company {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

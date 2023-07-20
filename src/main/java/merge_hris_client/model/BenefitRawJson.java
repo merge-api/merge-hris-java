@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
  * # The Benefit Object ### Description The &#x60;Benefit&#x60; object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the &#x60;LIST Benefits&#x60; endpoint and filter by &#x60;ID&#x60; to show all benefits.
  */
 @ApiModel(description = "# The Benefit Object ### Description The `Benefit` object is used to represent a Benefit for an employee.  ### Usage Example Fetch from the `LIST Benefits` endpoint and filter by `ID` to show all benefits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-20T10:57:27.935941Z[Etc/UTC]")
 public class BenefitRawJson {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

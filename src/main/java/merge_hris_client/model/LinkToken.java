@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * LinkToken
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-20T10:57:27.935941Z[Etc/UTC]")
 public class LinkToken {
   public static final String SERIALIZED_NAME_LINK_TOKEN = "link_token";
   @SerializedName(SERIALIZED_NAME_LINK_TOKEN)

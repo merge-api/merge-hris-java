@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * LinkedAccountStatusRawJson
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-12T20:57:27.935941Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-07-20T10:57:27.935941Z[Etc/UTC]")
 public class LinkedAccountStatusRawJson {
   public static final String SERIALIZED_NAME_LINKED_ACCOUNT_STATUS = "linked_account_status";
   @SerializedName(SERIALIZED_NAME_LINKED_ACCOUNT_STATUS)

@@ -41,7 +41,11 @@ public enum SyncStatusStatusEnum {
   
   FAILED("FAILED"),
   
-  DISABLED("DISABLED");
+  DISABLED("DISABLED"),
+  
+  PAUSED("PAUSED"),
+  
+  PARTIALLY_SYNCED("PARTIALLY_SYNCED");
 
   private String value;
 
